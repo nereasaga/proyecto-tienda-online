@@ -69,6 +69,38 @@
     </footer>
 
    <script>
+        // Función para cambiar el idioma
+        function cambiarIdioma(idioma) {
+      cargarTraducciones(idioma);
+    }
+
+
+        function cargarTraducciones(idioma) {
+      fetch('relojes.json')
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(traducciones) {
+          // Obtener las traducciones del idioma seleccionado
+          var traduccion = traducciones[idioma];
+
+          // Actualizar los textos en la página según el idioma seleccionado
+          document.getElementById('menu1').innerText = traduccion.menu1;
+          document.getElementById('menu2').innerText = traduccion.menu2;
+          document.getElementById('menu3').innerText = traduccion.menu3;
+          document.getElementById('menu4').innerText = traduccion.menu4;
+          document.getElementById('menu5').innerText = traduccion.menu5;
+        })
+        .catch(function(error) {
+          console.error('Error al cargar el archivo JSON:', error);
+        });
+    }
+
+
+    // Función para cambiar el idioma
+    function cambiarIdioma(idioma) {
+      cargarTraducciones(idioma);
+    }
 
    </script>
 </body>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Relojes</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/carrito.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <ul>
+                <li id="menu1"><a href="#">Mujer</a></li>
+                <li id="menu2"><a href="#">Hombre</a></li>
+                <li id="menu3"><a href="#">Unisex</a></li>
+                <li id="menu3"><a href="#">Marcas</a></li>
+                <li id="menu4"><a href="#">Catálogo</a></li>
+            </ul>
+            <button onclick="cargarTraducciones('eus')">euskara</button>
+            <button onclick="cargarTraducciones('en')">english</button>
+            <button onclick="cargarTraducciones('es')">castellano</button>
+        </nav>
+    </header>
+<main>
+    <div class="div-title">
+        <ol class="ol-cart">
+            <li><span>1. Cesta</span></li>
+            <li><span>2. Información de envío</span></li>
+            <li><span>3. Pago</span></li>
+            <li><span>4. Confirmación</span></li>
+        </ol>
+        <h1>Mi cesta </h1>
+    </div>
+    <div class="div-columns">
+        <div class="div-items">
+            <div class="div-item">
+                <div class="div-image">
+                    <img src="img/ejemplo.avif" alt="">
+                </div>
+                <div class="div-details">
+                    <p>MARCA Y MODELO</p>
+                    <p>MATERIAL</p>
+                    <p>TAMAÑO</p>
+                    <p>DESCRIPCION</p>
+                    <p>PRECIO</p>
+                </div>
+
+            </div>
+            <div class="div-item">
+                <div class="div-image">
+                    <img src="img/ejemplo.avif" alt="">
+                </div>
+                <div class="div-details">
+                    <p>MARCA Y MODELO</p>
+                    <p>MATERIAL</p>
+                    <p>TAMAÑO</p>
+                    <p>DESCRIPCION</p>
+                    <p>PRECIO</p>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="div-cart">
+            <div class="div-cart-title">
+                <p>Resumen</p>
+            </div>
+            <div class="div-cart-price">
+                <table>
+                <tr>
+                    <th class="th-mark"><span>Total</span><span>(sin impuestos)</span></th>
+                    <td class="td-monto"><span>$$$</span></td>
+                </tr>
+                <tr>
+                    <th class="th-mark"><span>IVA 21%</span></th>
+                    <td class="td-monto"><span>$$$</span></td>
+                </tr>
+                <tr>
+                    <th class="th-mark"><span>Gastos de envío</span></th>
+                    <td class="td-monto"><span>$$$</span></td>
+                </tr>
+                <tr>
+                    <th class="th-mark"><span>Total</span></th>
+                    <td class="td-monto"><span>$$$</span></td>
+                </tr>
+            </table>
+
+            </div>
+            <div class="div-cart-btn">
+                <button type="submit"><span class="span-btn">COMPRAR</span></button>
+            </div>
+
+        </div>
+
+    </div>
+</main>
+    <footer class="footer">
+        <p>footer</p>
+        <p id="pCopy">Copyright (c) 2025. Todos los derechos reservados.</p>
+    </footer>
+
+   <script>
+        // Función para cambiar el idioma
+        function cambiarIdioma(idioma) {
+      cargarTraducciones(idioma);
+    }
+
+
+        function cargarTraducciones(idioma) {
+      fetch('relojes.json')
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(traducciones) {
+          // Obtener las traducciones del idioma seleccionado
+          var traduccion = traducciones[idioma];
+
+          // Actualizar los textos en la página según el idioma seleccionado
+          document.getElementById('menu1').innerText = traduccion.menu1;
+          document.getElementById('menu2').innerText = traduccion.menu2;
+          document.getElementById('menu3').innerText = traduccion.menu3;
+          document.getElementById('menu4').innerText = traduccion.menu4;
+          document.getElementById('menu5').innerText = traduccion.menu5;
+        })
+        .catch(function(error) {
+          console.error('Error al cargar el archivo JSON:', error);
+        });
+    }
+
+
+    // Función para cambiar el idioma
+    function cambiarIdioma(idioma) {
+      cargarTraducciones(idioma);
+    }
+
+   </script>
+</body>
+</html>
