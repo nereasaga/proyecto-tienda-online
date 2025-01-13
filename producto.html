@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/producto.css">
+    <title>Document</title>
+</head>
+<body>
+   <main>
+    <div class="product-container">
+        <div class="product-image">
+            <img src="images/TISSOT HOMBRE/TISSOT-29mm(a)mujer .png" alt="tissot image">
+        </div>
+       
+
+
+        <div class="product-details">
+            <h1>Tissot PRX Powermatic 80</h1>
+            <h2 class="price">850€</h2>
+           
+
+            <button class="add-to-cart">añadir al carrito</button>
+            <h2>Descripcion</h2>
+
+            <p>El Tissot PRX Powermatic 80 es una reinterpretación moderna de un clásico <br>
+               de los años 70, con una caja de acero inoxidable de 40 mm y una elegante<br>
+               pulsera integrada. Su vibrante esfera verde, adornada con marcadores tipo<br>
+               barra y una ventana de fecha, combina estilo vintage con un toque contemporáneo.<br>
+               Impulsado por el movimiento automático suizo Powermatic 80, ofrece una impresionante <br>
+               reserva de marcha de 80 horas y mayor resistencia magnética gracias a su muelle espiral <br>
+               de Nivachron™. Con cristal de zafiro resistente a los arañazos, resistencia al agua de<br>
+               hasta 100 metros y un diseño versátil, este reloj es perfecto tanto para ocasiones casuales<br>
+               como formales.
+             </p>
+             
+            
+             
+        </div>
+        </div>
+        
+        <div class="additional-images">
+            <img  src="images/TISSOT HOMBRE/TISSOT-29mm(a)mujer .png" alt="main image" >
+             <img src="images/TISSOT HOMBRE/TISSOT-29mm(b) mujer.png" alt="tissot b" >
+            <img src="images/TISSOT HOMBRE/TISSOT-29mm(c) mujer.png" alt="tissot c" >
+            <img src="images/TISSOT HOMBRE/TISSOT-29mm(d) mujer.png" alt="tissot d" >
+            <img src="images/TISSOT HOMBRE/TISSOT-29mm(e) mujer.png" alt="tissot e" >
+            </div>
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+   </main> 
+
+   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const addToCartButton = document.querySelector('.add-to-cart');
+    addToCartButton.addEventListener('click', () => {
+        alert('Lo sentimos, este producto está fuera de stock.');
+    });
+});
+
+
+
+// Assuming `additionalImages` is a NodeList of your images and `mainImage` is the main image
+additionalImages.forEach(img => {
+    img.addEventListener('click', () => {
+        // Change the main image source and alt text
+        mainImage.src = img.src;
+        mainImage.alt = img.alt;
+
+        // Get the link from the data-link attribute
+        const link = img.getAttribute('data-link');
+
+        // Optionally, redirect to the link when clicked (if needed)
+        // window.location.href = link; 
+
+        // If you just want to display the link somewhere (e.g., in a div)
+        document.getElementById('linkDisplay').innerText = link;
+    });
+});
+
+
+
+
+
+   </script>
+
+</body>
+</html>
