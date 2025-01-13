@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Relojes</title>
+    <link rel="stylesheet" href="./styles/catalogo.css">
+</head>
+<body>
+
+    <h2>Todos los Relojes</h2>
+    <div class="contenedor">
+        <div id="filters" class="filters">
+            
+            <p><strong>Categoría:</strong></p>
+            <div>
+              <label><input type="checkbox" name="categoria" value="Hombre"> Hombre</label><br>
+              <label><input type="checkbox" name="categoria" value="Mujer"> Mujer</label><br>
+              <label><input type="checkbox" name="categoria" value="Unisex"> Unisex</label>
+            </div>
+
+            <p><strong>Marca:</strong></p>
+            <div>
+                <label><input type="checkbox" name="marca" value="Rolex"> Rolex</label><br>
+                <label><input type="checkbox" name="marca" value="Casio"> Casio</label><br>
+                <label><input type="checkbox" name="marca" value="Seiko"> Seiko</label>
+            </div>
+
+            <p><strong>Precio:</strong></p>
+            <div>
+                <label><input type="checkbox" name="precio" value="0-100"> $0 - $100</label><br>
+                <label><input type="checkbox" name="precio" value="100-500"> $100 - $500</label><br>
+                <label><input type="checkbox" name="precio" value="500-1000"> $500 - $1000</label>
+            </div>
+
+            <p><strong>Material:</strong></p>
+            <div>
+                <label><input type="checkbox" name="material" value="Acero"> Acero</label><br>
+                <label><input type="checkbox" name="material" value="Cuero"> Cuero</label><br>
+                <label><input type="checkbox" name="material" value="Sintético"> Sintético</label>
+            </div>
+        </div>
+
+        <div class="watch-list" id="watchList">
+            <!-- Aquí se cargarán los relojes -->
+        </div>
+    </div>
+
+    <footer>
+        <p>footer</p>
+    </footer>
+
+    <script src="./catalogo.js"></script>
+</body>
+</html>
