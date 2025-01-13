@@ -11,6 +11,7 @@
     --gris-oscuro: #97a6a0;
     --azul-suave: #e4f2e7;
     --blanco: white;
+    --casi-blanco: #F8f8f8;
 }
 @font-face {
     font-family: Ghari;
@@ -35,7 +36,7 @@ nav {
     width: 100%;
     min-height: 5rem;
     background-color: var(--blanco);
-    border: green solid 1px;
+    /* border: green solid 1px; */
 }
 
 #prenav {
@@ -45,26 +46,46 @@ nav {
     width: 100%;
     min-height: 2rem;
     justify-content: center;
+    background-color: var(--casi-blanco);
+    color: var(--verde-azul);
+    font-weight: bold;
+}
+
+#navbar {
+    background-color: var(--casi-blanco);
+}
+
+.div-date {
+    width: 32%;
+    text-align: left;
 }
 
 #time {
-    border: green solid 1px;
+    /* border: green solid 1px; */
+    width: 32%;
+    text-align: center;
 }
+
 #time p {
     display: inline;
+    text-align: center;
 }
+
 #idiomas {
-    border: green solid 1px;
-    width: 48%;
+    /* border: green solid 1px; */
+    width: 32%;
     text-align: end;
+
 }
 #logonav {
     border: yellow solid 2px;
-    width: 20%;
+    width: 19%;
 }
 
 #idiomas ul li {
     display: inline;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 
 #menunav {
@@ -75,16 +96,79 @@ nav {
 
 #menunav ul li {
     display: inline;
-    padding-right: 1rem;
-    padding-left: 1rem;
+    padding-right: 3rem;
+    padding-left: 3rem;
+    font-weight: bold;
+    color: var(--azul-oscuro);
+}
+
+#menunav a {
+    color: var(--azul-oscuro);
+}
+
+#menunav a:visited {
+    color: var(--azul-oscuro);
 }
 
 #clientes {
-    border: red solid 1px;
-    width: 20%;
+    /* border: red solid 1px; */
+    width: 19%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+
 }
 
-#clientes ul li{
-    display: inline;
+#clientes button {
+    all:unset;
+    outline: none;
+    width: 3rem;
 }
 
+#clientes img {
+    width: 25px;
+    height: 25px;
+}
+
+.footer {
+    background-color: var(--azul-suave);
+    height: 30rem;
+
+}
+
+#div-footer-columnas {
+    display: flex;
+    justify-content: center;
+}
+
+.div-footer-columna {
+    color: var(--verde-azul);
+    padding-left: 4rem;
+    padding-right: 4rem;
+    font-size: large;
+   
+    
+}
+
+.div-footer-columna a {
+    color: var(--verde-azul);
+}
+
+.div-footer-columna a:visited {
+    color: var(--verde-azul);
+}
+
+.div-footer-columna h3 {
+    height: 4rem;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+}
+
+.div-footer-columna li {
+    height: 3rem;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}

@@ -7,22 +7,29 @@
     <link rel="stylesheet" href="/styles/mainstyle.css">
 </head>
 <body>
+  <!--   PRENAV   -->
     <div id="prenav" class="prenav">
-        <div id="time">
+        <div id="date" class="div-date">
             <p>Viernes, 10 de enero de 2025</p>
-            <p>12:00</p>
         </div>
-        <div id="idiomas">
+        <div id="time" class="div-time">
+          <p>12:00</p>
+        </div>
+        <div id="idiomas" class="div-idiomas">
             <ul>
-                <li>EN</li>
+              <li>ES</li>
+              <li>EN</li>
             </ul>
         </div>
     </div>
+    <!--   NAV   -->
     <nav id="navbar">
+        <!--   LOGO   -->
         <div id="logonav">
             <!-- <img src="#" alt=""> -->
             <p>GHARI</p>
         </div>
+        <!--   MENÚ   -->
         <div id="menunav">
             <ul>
                 <li id="menu-mujer"><a href="">MUJER</a></li>
@@ -32,10 +39,11 @@
                 <li id="menu-catalogo"><a href="catalogo.html">CATÁLOGO</a></li>
             </ul>
         </div>
+        <!--   AREA CLIENTE Y CARRITO   -->
         <div id="clientes">
             <ul>
-                <li id="usuario">LOGIN</li>
-                <li id="carrito">CARRITO</li>
+                <button id="usuario"><a href=""><img src="img/usuario.png" alt="icono clientes"></a></button>
+                <button id="carrito"><a href="carrito.html"><img src="img/bolsa-de-la-compra.png" alt="icono carrito"></a></button>
             </ul>
         </div>
 
@@ -62,10 +70,49 @@
 
 </section>
     
+<!---  FOOTER   --->
+<footer class="footer">
+  <!---  LOGO FOOTER   --->
+  <div id="div-footer-logo">
 
-    <footer class="footer">
-        <p>footer</p>
-        <p id="pCopy">Copyright (c) 2025. Todos los derechos reservados.</p>
+  </div>
+  <!---  COLUMNAS FOOTER   --->
+  <div id="div-footer-columnas">
+    <!--   COLUMNA 1   -->
+    <div id="div-footer-columna-1" class="div-footer-columna">
+      <h3 id="footer-h3-1">Atención al cliente</h3>
+      <ul>
+        <li id="footer-columna-1-li-1">Lunes a Viernes de 9 a 18h</li>
+        <li id="footer-columna-1-li-2"><a href="#">Whatsapp</a></li>
+        <li id="footer-columna-1-li-3"><a href="#">Envíanos un e-mail</a></li>
+        <li id="footer-columna-1-li-4"><a href="#">¿Necesitas ayuda?</a></li>
+      </ul>
+
+    </div>
+    <!--   COLUMNA 2   -->
+    <div id="div-footer-columna-2" class="div-footer-columna">
+      <h3 id="footer-h3-2">Sobre nosotros</h3>
+      <ul>
+        <li id="footer-columna-2-li-1"><a href="#">Conoce Ghari</a></li>
+        <li id="footer-columna-2-li-2"><a href="#">Relojes de alta calidad</a></li>
+        <li id="footer-columna-2-li-3"><a href="#">Regalos de empresa</a></li>
+      </ul>
+
+    </div>
+    <!--   COLUMNA 3   -->
+    <div id="div-footer-columna-3" class="div-footer-columna">
+      <h3 id="footer-h3-3">Información</h3>
+      <ul>
+        <li id="footer-columna-3-li-1"><a href="#">Condiciones de uso</a></li>
+        <li id="footer-columna-3-li-2"><a href="#">Cambios y devoluciones</a></li>
+        <li id="footer-columna-3-li-3"><a href="#">Cuida tu reloj</a></li>
+        <li id="footer-columna-3-li-4"><a href="#">Pago seguro</a></li>
+        <li id="footer-columna-3-li-5"><a href="#">Guía de tallas</a></li>
+      </ul>
+
+    </div>
+  </div>
+        <!-- <p id="pCopy">Copyright (c) 2025. Todos los derechos reservados.</p> -->
     </footer>
 
    <script>

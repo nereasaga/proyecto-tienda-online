@@ -4,24 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda de Relojes</title>
-    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/mainstyle.css">
     <link rel="stylesheet" href="/styles/carrito.css">
 </head>
 <body>
-    <header class="header">
-        <nav class="nav">
+    <div id="prenav" class="prenav">
+        <div id="date" class="div-date">
+            <p>Viernes, 10 de enero de 2025</p>
+        </div>
+        <div id="time" class="div-time">
+          <p>12:00</p>
+        </div>
+        <div id="idiomas" class="div-idiomas">
             <ul>
-                <li id="menu1"><a href="#">Mujer</a></li>
-                <li id="menu2"><a href="#">Hombre</a></li>
-                <li id="menu3"><a href="#">Unisex</a></li>
-                <li id="menu3"><a href="#">Marcas</a></li>
-                <li id="menu4"><a href="#">Catálogo</a></li>
+                <li>EN</li>
             </ul>
-            <button onclick="cargarTraducciones('eus')">euskara</button>
-            <button onclick="cargarTraducciones('en')">english</button>
-            <button onclick="cargarTraducciones('es')">castellano</button>
-        </nav>
-    </header>
+        </div>
+    </div>
+    <nav id="navbar">
+        <div id="logonav">
+            <!-- <img src="#" alt=""> -->
+            <p>GHARI</p>
+        </div>
+        <div id="menunav">
+            <ul>
+                <li id="menu-mujer"><a href="">MUJER</a></li>
+                <li id="menu-hombre"><a href="#">HOMBRE</a></li>
+                <li id="menu-unisex"><a href="#">UNISEX</a></li>
+                <li id="menu-marcas"><a href="#">MARCAS</a></li>
+                <li id="menu-catalogo"><a href="catalogo.html">CATÁLOGO</a></li>
+            </ul>
+        </div>
+        <div id="clientes">
+            <ul>
+                <button id="usuario"><a href=""><img src="img/usuario.png" alt="icono clientes"></a></button>
+                <button id="carrito"><a href="carrito.html"><img src="img/bolsa-de-la-compra.png" alt="icono carrito"></a></button>
+            </ul>
+        </div>
+
+    </nav>
 <main>
     <div class="div-title">
         <ol class="ol-cart">
@@ -95,10 +116,47 @@
 
     </div>
 </main>
-    <footer class="footer">
-        <p>footer</p>
-        <p id="pCopy">Copyright (c) 2025. Todos los derechos reservados.</p>
-    </footer>
+    <!---  FOOTER   --->
+<footer class="footer">
+    <!---  LOGO FOOTER   --->
+    <div id="div-footer-logo">
+  
+    </div>
+    <!---  COLUMNAS FOOTER   --->
+    <div id="div-footer-columnas">
+      <div id="div-footer-columna-1" class="div-footer-columna">
+        <h3 id="footer-h3-1">Atención al cliente</h3>
+        <ul>
+          <li id="footer-columna-1-li-1">Lunes a Viernes de 9 a 18h</li>
+          <li id="footer-columna-1-li-2"><a href="#">Whatsapp</a></li>
+          <li id="footer-columna-1-li-3"><a href="#">Envíanos un e-mail</a></li>
+          <li id="footer-columna-1-li-4"><a href="#">¿Necesitas ayuda?</a></li>
+        </ul>
+  
+      </div>
+      <div id="div-footer-columna-2" class="div-footer-columna">
+        <h3 id="footer-h3-2">Sobre nosotros</h3>
+        <ul>
+          <li id="footer-columna-2-li-1"><a href="#">Conoce Ghari</a></li>
+          <li id="footer-columna-2-li-2"><a href="#">Relojes de alta calidad</a></li>
+          <li id="footer-columna-2-li-3"><a href="#">Regalos de empresa</a></li>
+        </ul>
+  
+      </div>
+      <div id="div-footer-columna-3" class="div-footer-columna">
+        <h3 id="footer-h3-3">Información</h3>
+        <ul>
+          <li id="footer-columna-3-li-1"><a href="#">Condiciones de uso</a></li>
+          <li id="footer-columna-3-li-2"><a href="#">Cambios y devoluciones</a></li>
+          <li id="footer-columna-3-li-3"><a href="#">Cuida tu reloj</a></li>
+          <li id="footer-columna-3-li-4"><a href="#">Pago seguro</a></li>
+          <li id="footer-columna-3-li-5"><a href="#">Guía de tallas</a></li>
+        </ul>
+  
+      </div>
+    </div>
+          <!-- <p id="pCopy">Copyright (c) 2025. Todos los derechos reservados.</p> -->
+      </footer>
 
    <script>
         // Función para cambiar el idioma

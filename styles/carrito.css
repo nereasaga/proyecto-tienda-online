@@ -117,3 +117,7 @@ table {
     border-collapse: collapse;
     border: solid brown 2px;
 }
+
+main {
+    background-color: var(--blanco);
+}
