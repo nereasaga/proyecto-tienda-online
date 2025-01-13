@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+h2{text-align: center;}
+
+.contenedor {
+    display: flex;
+    justify-content: flex-start; /* Alinea los elementos hijos de izquierda a derecha */
+    padding: 3rem;
+    margin-left: 3.5rem;
+    background-color: #fff;
+}
+
+.filters {
+    height: 15%;
+    width: 15%; 
+    padding: 0.8rem;
+    background-color: #d6d3d3;
+    box-shadow: 0 0 10px rgba(196, 181, 181, 0.1);
+    margin-right: 2rem; /* Separación entre filtros y la lista de relojes */
+}
+
+.watch-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
+    gap: 2rem; /* Espacio entre las tarjetas de los relojes */
+    width: 70%; /* Ajusta el tamaño del contenedor de los relojes */
+}
+
+.watch-item {
+    background-color: #fff;
+    padding: 0.8rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos se alineen de arriba hacia abajo */
+    justify-content: space-between;
+   
+}
+
+.watch-item-header {
+    text-align: justify;
+    font-weight: bold;
+    margin-bottom: -0.5rem;
+
+}
+
+.marca {
+    font-size: 0.6rem;
+    color: #555;
+}
+
+.watch-image { border: 1px solid #080707; /* Agrega un borde */
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.8rem;
+}
+
+.watch-item-footer {
+    text-align: center;
+    padding-top: 0.1rem;
+}
+
+.name {
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: justify;
+    margin: 0.5px 0;
+}
+
+.description {
+    text-align: justify;
+    font-size: 0.6rem;
+    color: #777;
+    margin: 0.5rem 0;
+}
+
+.price {
+    text-align: justify;
+    font-size: 0.8rem;
+    color: #333;
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
