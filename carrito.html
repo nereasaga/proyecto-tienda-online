@@ -17,14 +17,14 @@
         </div>
         <div id="idiomas" class="div-idiomas">
             <ul>
+                <li>ES</li>
                 <li>EN</li>
             </ul>
         </div>
     </div>
     <nav id="navbar">
         <div id="logonav">
-            <!-- <img src="#" alt=""> -->
-            <p>GHARI</p>
+            <img src="img/ghari_t.png" alt="Logo Ghari">
         </div>
         <div id="menunav">
             <ul>
@@ -56,6 +56,7 @@
     <div class="div-columns">
         <div class="div-items">
             <div class="div-item">
+                <button id="btn-cierre" class="btn-cierre"><img src="img/equis.png" alt="Botón cierre"></button>
                 <div class="div-image">
                     <img src="img/ejemplo.avif" alt="">
                 </div>
@@ -69,6 +70,7 @@
 
             </div>
             <div class="div-item">
+                <button id="btn-cierre" class="btn-cierre"><img src="img/equis.png" alt="Botón cierre"></button>
                 <div class="div-image">
                     <img src="img/ejemplo.avif" alt="">
                 </div>
@@ -120,7 +122,7 @@
 <footer class="footer">
     <!---  LOGO FOOTER   --->
     <div id="div-footer-logo">
-  
+        <img src="img/ghari_t.png" alt="Logo Ghari">
     </div>
     <!---  COLUMNAS FOOTER   --->
     <div id="div-footer-columnas">
@@ -159,38 +161,7 @@
       </footer>
 
    <script>
-        // Función para cambiar el idioma
-        function cambiarIdioma(idioma) {
-      cargarTraducciones(idioma);
-    }
 
-
-        function cargarTraducciones(idioma) {
-      fetch('relojes.json')
-        .then(function(response) {
-          return response.json();
-        })
-        .then(function(traducciones) {
-          // Obtener las traducciones del idioma seleccionado
-          var traduccion = traducciones[idioma];
-
-          // Actualizar los textos en la página según el idioma seleccionado
-          document.getElementById('menu1').innerText = traduccion.menu1;
-          document.getElementById('menu2').innerText = traduccion.menu2;
-          document.getElementById('menu3').innerText = traduccion.menu3;
-          document.getElementById('menu4').innerText = traduccion.menu4;
-          document.getElementById('menu5').innerText = traduccion.menu5;
-        })
-        .catch(function(error) {
-          console.error('Error al cargar el archivo JSON:', error);
-        });
-    }
-
-
-    // Función para cambiar el idioma
-    function cambiarIdioma(idioma) {
-      cargarTraducciones(idioma);
-    }
 
    </script>
 </body>

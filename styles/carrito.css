@@ -32,10 +32,28 @@
     width: 80%;
     height: 15rem;
     padding: 2rem;
+    position: relative;
     display: flex;
     align-items: center;
     border: solid var(--gris-oscuro) 1px;
     margin-bottom: 1.5rem;
+}
+
+.btn-cierre {
+    all: unset;
+    position: absolute;
+    top: 0;
+    right: 5%;
+    width: 1rem;
+}
+
+.btn-cierre:hover {
+    cursor: pointer;
+}
+
+.btn-cierre img {
+    width: 1rem;
+    max-height: 1rem;
 }
 
 .div-item img {

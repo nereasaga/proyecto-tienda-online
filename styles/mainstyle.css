@@ -77,9 +77,19 @@ nav {
     text-align: end;
 
 }
+
+#idiomas li:hover {
+    cursor: pointer;
+}
+
 #logonav {
-    border: yellow solid 2px;
+    /* border: yellow solid 2px; */
     width: 19%;
+    text-align: center;
+}
+
+#logonav img {
+    height: 4.5rem;
 }
 
 #idiomas ul li {
@@ -114,7 +124,7 @@ nav {
     /* border: red solid 1px; */
     width: 19%;
     display: flex;
-    justify-content: right;
+    justify-content: center;
     align-items: center;
 
 }
@@ -134,6 +144,15 @@ nav {
     background-color: var(--azul-suave);
     height: 30rem;
 
+}
+
+#div-footer-logo {
+    text-align: center;
+}
+
+#div-footer-logo img {
+    height: 6rem;
+    padding: 1rem;
 }
 
 #div-footer-columnas {
