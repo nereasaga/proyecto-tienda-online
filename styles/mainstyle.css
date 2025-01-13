@@ -32,6 +32,7 @@ nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
     min-height: 5rem;
     background-color: var(--blanco);
     border: green solid 1px;
