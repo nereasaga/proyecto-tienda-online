@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Ghari;
+    list-style: none;
+}
+:root {
+    --azul-oscuro: #2d3e40;
+    --verde-azul: #387373;
+    --azul-claro: #93b7b7;
+    --gris-oscuro: #97a6a0;
+    --azul-suave: #e4f2e7;
+    --blanco: white;
+}
+@font-face {
+    font-family: Ghari;
+    src: url(../fonts/TwCenMTStdSemiMedium.otf);
+    font-weight: normal;
+}
+body {
+    background-color: var(--blanco);
+    font-size: 1rem;
+}
+a {
+    text-decoration: none;
+}
+main {
+    background-color: var(--azul-suave);
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    min-height: 5rem;
+    background-color: var(--blanco);
+    border: green solid 1px;
+}
+
+#prenav {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%;
+    min-height: 2rem;
+    justify-content: center;
+}
+
+#time {
+    border: green solid 1px;
+}
+#time p {
+    display: inline;
+}
+#idiomas {
+    border: green solid 1px;
+    width: 48%;
+    text-align: end;
+}
+#logonav {
+    border: yellow solid 2px;
+    width: 20%;
+}
+
+#idiomas ul li {
+    display: inline;
+}
+
+#menunav {
+    width: 60%;
+    align-content: center;
+    text-align: center;
+}
+
+#menunav ul li {
+    display: inline;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+#clientes {
+    border: red solid 1px;
+    width: 20%;
+}
+
+#clientes ul li{
+    display: inline;
+}
+
