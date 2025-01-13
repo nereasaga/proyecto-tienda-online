@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda de Relojes</title>
+    <title>GHARI - Mi cesta</title>
     <link rel="stylesheet" href="/styles/mainstyle.css">
     <link rel="stylesheet" href="/styles/carrito.css">
 </head>
@@ -56,7 +56,7 @@
     <div class="div-columns">
         <div class="div-items">
             <div class="div-item">
-                <button id="btn-cierre" class="btn-cierre"><img src="img/equis.png" alt="Botón cierre"></button>
+                <img class="btn-cierre" src="img/equis.png" alt="Botón cierre">
                 <div class="div-image">
                     <img src="img/ejemplo.avif" alt="">
                 </div>
@@ -70,7 +70,7 @@
 
             </div>
             <div class="div-item">
-                <button id="btn-cierre" class="btn-cierre"><img src="img/equis.png" alt="Botón cierre"></button>
+                <img class="btn-cierre" src="img/equis.png" alt="Botón cierre">
                 <div class="div-image">
                     <img src="img/ejemplo.avif" alt="">
                 </div>
@@ -161,6 +161,13 @@
       </footer>
 
    <script>
+    // BORRADO DE DIV-ITEM
+    document.querySelector(".div-items").addEventListener("click", function() {
+            if (event.target.closest(".btn-cierre")) {
+                const divItem = event.target.closest(".div-item");
+                divItem.remove();
+            }
+        });
 
 
    </script>
