@@ -11,9 +11,11 @@ body {
     width: 100px;
     transition: width 2s, height 2s, transform 2s;
   }
+
   h1:hover{
       width: 300px;
     }
+    
   /* Contenedor principal */
   .container {
     max-width: 1200px;
@@ -43,6 +45,7 @@ body {
     line-height: 1.6;
     color: #555;
   }
+
 .btn{
   background-color: black;
   color: white;
@@ -88,15 +91,5 @@ body {
     border: 1px solid #ccc;
     border-radius: 3px;
     font-size: 14px;
-  }
-  
-  /* Footer */
-  .footer {
-    background-color: #f1f1f1;
-    padding: 20px;
-    text-align: center;
-    font-size: 12px;
-    color: #666;
-
   }
   
