@@ -1,0 +1,18 @@
+[
+{
+  "ref": "R0001",
+  "marca": "OMEGA",
+  "modelo": "MJKMJ",
+  "precio": 200,
+  "tamano": 52,
+  "genero": "Hombre",
+  "tipo": "Analógico",
+  "material": "Acero",
+  "descripcion": "bla bla bla bla",
+  "img-1": "img/ejemplo.avif",
+  "img-2": "",
+  "img-3": "",
+  "img-4": "",
+  "img-5": ""
+}
+]
