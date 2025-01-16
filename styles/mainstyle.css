@@ -3,6 +3,8 @@
     padding: 0;
     font-family: Ghari;
     list-style: none;
+    box-sizing: border-box;
+    text-decoration: none;
 }
 :root {
     --azul-oscuro: #2d3e40;
@@ -20,7 +22,7 @@
 }
 
 @font-face {
-    font-family: Ghari;
+    font-family: GhariBold;
     src: url(../fonts/TwCenMTStdBold.otf);
     font-weight: bold;
 }
@@ -30,9 +32,7 @@ body {
     background-color: var(--blanco);
     font-size: 1rem;
 }
-a {
-    text-decoration: none;
-}
+
 main {
     background-color: var(--azul-suave);
 }
@@ -46,8 +46,12 @@ nav {
     background-color: var(--blanco);
     /* border: green solid 1px; */
 }
+nav div {
+    border: 2px red solid;
+    min-height: 20px;
+}
 
-#prenav {
+/* #prenav {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
@@ -57,11 +61,13 @@ nav {
     background-color: var(--casi-blanco);
     color: var(--verde-azul);
     font-weight: bold;
-}
+} */
 
-#navbar {
+/* #navbar {
     background-color: var(--casi-blanco);
-}
+    width: 100%;
+    /* border: green 2px solid; */
+} */
 
 .div-date {
     width: 32%;
@@ -91,13 +97,16 @@ nav {
 }
 
 #logonav {
+    display: flex;
+    justify-content: center;
     /* border: yellow solid 2px; */
-    width: 19%;
+    align-items: center;
+    width: 20%;
     text-align: center;
 }
 
 #logonav img {
-    height: 4.5rem;
+    height: 4rem;
 }
 
 #idiomas ul li {
