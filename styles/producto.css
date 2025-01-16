@@ -16,7 +16,8 @@
     flex: 1;
     display: flex;
     flex-direction: column; 
-    align-items: center; 
+    align-items: center;
+   
   
 }
 
@@ -25,6 +26,8 @@
     
     border:1px solid #ddd;
     border-radius: 5px;
+    width: 100%;
+    height: 100%;
 }
 
 .product-details{
@@ -71,12 +74,13 @@ cursor: pointer;
 
 .additional-images img{
 
-    width: 200px;
+    width: 300px;
     border: 1px solid #ddd;
     border-radius: 5px;
     cursor: pointer;
     transition: transform 0.3s;
     justify-content: space-evenly;
+    height: 90;
 
 }
 
