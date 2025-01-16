@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda de Relojes</title>
+    <title>GHARI - Mi cesta</title>
     <link rel="stylesheet" href="/styles/mainstyle.css">
     <link rel="stylesheet" href="/styles/carrito.css">
 </head>
@@ -28,16 +28,16 @@
         </div>
         <div id="menunav">
             <ul>
-                <li id="menu-mujer"><a href="">MUJER</a></li>
-                <li id="menu-hombre"><a href="#">HOMBRE</a></li>
-                <li id="menu-unisex"><a href="#">UNISEX</a></li>
-                <li id="menu-marcas"><a href="#">MARCAS</a></li>
+                <li id="menu-mujer"><a href="catalogo.html">MUJER</a></li>
+                <li id="menu-hombre"><a href="catalogo.html">HOMBRE</a></li>
+                <li id="menu-unisex"><a href="catalogo.html">UNISEX</a></li>
+                <li id="menu-marcas"><a href="catalogo.html">MARCAS</a></li>
                 <li id="menu-catalogo"><a href="catalogo.html">CATÁLOGO</a></li>
             </ul>
         </div>
         <div id="clientes">
             <ul>
-                <button id="usuario"><a href=""><img src="img/usuario.png" alt="icono clientes"></a></button>
+                <button id="usuario"><a href="cliente.html"><img src="img/usuario.png" alt="icono clientes"></a></button>
                 <button id="carrito"><a href="carrito.html"><img src="img/bolsa-de-la-compra.png" alt="icono carrito"></a></button>
             </ul>
         </div>
@@ -45,41 +45,38 @@
     </nav>
 <main>
     <div class="div-title">
-        <ol class="ol-cart">
-            <li><span>1. Cesta</span></li>
-            <li><span>2. Información de envío</span></li>
-            <li><span>3. Pago</span></li>
-            <li><span>4. Confirmación</span></li>
-        </ol>
+        <p id="p-guia"><a href="index.html">Inicio </a>/ Mi cesta</p>
         <h1>Mi cesta </h1>
     </div>
     <div class="div-columns">
         <div class="div-items">
             <div class="div-item">
-                <button id="btn-cierre" class="btn-cierre"><img src="img/equis.png" alt="Botón cierre"></button>
+                <img class="btn-cierre" src="img/equis.png" alt="Botón cierre">
                 <div class="div-image">
                     <img src="img/ejemplo.avif" alt="">
                 </div>
                 <div class="div-details">
-                    <p>MARCA Y MODELO</p>
+                    <p class="marcaModelo">MARCA Y MODELO</p>
                     <p>MATERIAL</p>
                     <p>TAMAÑO</p>
                     <p>DESCRIPCION</p>
                     <p>PRECIO</p>
+                    <span>Cantidad</span> <input type="number" min="1">
                 </div>
 
             </div>
             <div class="div-item">
-                <button id="btn-cierre" class="btn-cierre"><img src="img/equis.png" alt="Botón cierre"></button>
+                <img class="btn-cierre" src="img/equis.png" alt="Botón cierre">
                 <div class="div-image">
                     <img src="img/ejemplo.avif" alt="">
                 </div>
                 <div class="div-details">
-                    <p>MARCA Y MODELO</p>
+                    <p class="marcaModelo">MARCA Y MODELO</p>
                     <p>MATERIAL</p>
                     <p>TAMAÑO</p>
                     <p>DESCRIPCION</p>
                     <p>PRECIO</p>
+                    <span>Cantidad</span> <input type="number" min="1">
                 </div>
 
             </div>
@@ -87,7 +84,7 @@
         </div>
         <div class="div-cart">
             <div class="div-cart-title">
-                <p>Resumen</p>
+                <p>RESUMEN DEL PEDIDO</p>
             </div>
             <div class="div-cart-price">
                 <table>
@@ -111,7 +108,7 @@
 
             </div>
             <div class="div-cart-btn">
-                <button type="submit"><span class="span-btn">COMPRAR</span></button>
+                <button type="submit"><span id="span-btn">COMPRAR</span></button>
             </div>
 
         </div>
@@ -161,8 +158,52 @@
       </footer>
 
    <script>
+    // BORRADO DE DIV-ITEM
+    document.querySelector(".div-items").addEventListener("click", function() {
+            if (event.target.closest(".btn-cierre")) {
+                const divItem = event.target.closest(".div-item");
+                divItem.remove();
+            }
+        });
 
+    //CARGAR DATOS DE RELOJES
 
+        fetch('json/catalogo-es.json')
+            .then(function(response) {
+                return response.json(); 
+            })
+            .then(function(data) {
+                var productoEncontrado = data.find(function(producto) {
+                    return producto.ref === "R0001";  
+                });
+
+                if (productoEncontrado) {
+                    var divItems = document.querySelector('.div-items');
+
+                    var productoHTML = `
+                        <div class="div-item">
+                            <img class="btn-cierre" src="img/equis.png" alt="Botón cierre">
+                            <div class="div-image">
+                                <img src="${productoEncontrado['img-1']}" alt="${productoEncontrado.modelo}">
+                            </div>
+                            <div class="div-details">
+                                <p class="marcaModelo">${productoEncontrado.marca} - ${productoEncontrado.modelo}</p>
+                                <p>MATERIAL: ${productoEncontrado.material}</p>
+                                <p>${productoEncontrado.tamano} mm</p>
+                                <p>DESCRIPCION: ${productoEncontrado.descripcion}</p>
+                                <p>${productoEncontrado.precio} €</p>
+                                <span>Cantidad</span> <input type="number" min="1" max="${product.stock}">
+                            </div>
+                        </div>
+                    `;
+
+                    divItems.innerHTML = productoHTML;
+
+                } else {
+                    var divItems = document.querySelector('.div-items');
+                    divItems.innerHTML = '<p>Producto no encontrado.</p>';
+                }
+            });
    </script>
 </body>
 </html>

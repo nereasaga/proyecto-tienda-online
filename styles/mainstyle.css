@@ -18,6 +18,14 @@
     src: url(../fonts/TwCenMTStdSemiMedium.otf);
     font-weight: normal;
 }
+
+@font-face {
+    font-family: Ghari;
+    src: url(../fonts/TwCenMTStdBold.otf);
+    font-weight: bold;
+}
+
+
 body {
     background-color: var(--blanco);
     font-size: 1rem;
@@ -143,6 +151,7 @@ nav {
 .footer {
     background-color: var(--azul-suave);
     height: 30rem;
+    width: 100%;
 
 }
 
