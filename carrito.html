@@ -8,38 +8,39 @@
     <link rel="stylesheet" href="/styles/carrito.css">
 </head>
 <body>
-    <div id="prenav" class="prenav">
-        <div id="date" class="div-date">
-            <p>Viernes, 10 de enero de 2025</p>
-        </div>
-        <div id="time" class="div-time">
-          <p>12:00</p>
-        </div>
-        <div id="idiomas" class="div-idiomas">
-            <ul>
-                <li>ES</li>
-                <li>EN</li>
-            </ul>
-        </div>
-    </div>
     <nav id="navbar">
         <div id="logonav">
-            <img src="img/ghari_t.png" alt="Logo Ghari">
+            <img src="./img/ghari-logo-h-1.svg" alt="Logo Ghari Relojes">
         </div>
         <div id="menunav">
             <ul>
-                <li id="menu-mujer"><a href="catalogo.html">MUJER</a></li>
-                <li id="menu-hombre"><a href="catalogo.html">HOMBRE</a></li>
-                <li id="menu-unisex"><a href="catalogo.html">UNISEX</a></li>
-                <li id="menu-marcas"><a href="catalogo.html">MARCAS</a></li>
-                <li id="menu-catalogo"><a href="catalogo.html">CATÁLOGO</a></li>
+                <li id="menu-mujer"><a href="#">Mujer</a></li>
+                <li id="menu-hombre"><a href="#">Hombre</a></li>
+                <li id="menu-unisex"><a href="#">Unisex</a></li>
+                <li id="menu-marcas"><a href="#">Marcas</a></li>
+                <li id="menu-catalogo"><a href="catalogo.html">Catálogo</a></li>
             </ul>
         </div>
-        <div id="clientes">
-            <ul>
-                <button id="usuario"><a href="cliente.html"><img src="img/usuario.png" alt="icono clientes"></a></button>
-                <button id="carrito"><a href="carrito.html"><img src="img/bolsa-de-la-compra.png" alt="icono carrito"></a></button>
-            </ul>
+        <div id="timenav">
+            <p id="fecha">Jueves, 09 de enero de 2025</p>
+            <p id="hora">12:00</p>
+
+        </div>
+        <div id="funcionesnav">
+            <div id="idiomanav">
+                <ul>
+                    <li id="espanol"><a href="#">ES</a></li>
+                    <li id="english"><a href="#">EN</a></li>
+                    <li id="euskara"><a href="#">EUS</a></li>
+                </ul>
+
+            </div>
+            <div id="clientesnav">
+                <ul>
+                    <li id="icono-cesta"><img src="./img/bolsa-de-la-compra.png" alt="Cesta"></li>
+                    <li id="icono-clientes"><img src="./img/usuario.png" alt="Área clientes"></li>
+                </ul>
+            </div>
         </div>
 
     </nav>
@@ -112,46 +113,52 @@
     </div>
 </main>
     <!---  FOOTER   --->
-<footer class="footer">
-    <!---  LOGO FOOTER   --->
-    <div id="div-footer-logo">
-        <img src="img/ghari_t.png" alt="Logo Ghari">
-    </div>
-    <!---  COLUMNAS FOOTER   --->
-    <div id="div-footer-columnas">
-      <div id="div-footer-columna-1" class="div-footer-columna">
-        <h3 id="footer-h3-1">Atención al cliente</h3>
-        <ul>
-          <li id="footer-columna-1-li-1">Lunes a Viernes de 9 a 18h</li>
-          <li id="footer-columna-1-li-2"><a href="#">Whatsapp</a></li>
-          <li id="footer-columna-1-li-3"><a href="#">Envíanos un e-mail</a></li>
-          <li id="footer-columna-1-li-4"><a href="#">¿Necesitas ayuda?</a></li>
-        </ul>
-  
-      </div>
-      <div id="div-footer-columna-2" class="div-footer-columna">
-        <h3 id="footer-h3-2">Sobre nosotros</h3>
-        <ul>
-          <li id="footer-columna-2-li-1"><a href="#">Conoce Ghari</a></li>
-          <li id="footer-columna-2-li-2"><a href="#">Relojes de alta calidad</a></li>
-          <li id="footer-columna-2-li-3"><a href="#">Regalos de empresa</a></li>
-        </ul>
-  
-      </div>
-      <div id="div-footer-columna-3" class="div-footer-columna">
-        <h3 id="footer-h3-3">Información</h3>
-        <ul>
-          <li id="footer-columna-3-li-1"><a href="#">Condiciones de uso</a></li>
-          <li id="footer-columna-3-li-2"><a href="#">Cambios y devoluciones</a></li>
-          <li id="footer-columna-3-li-3"><a href="#">Cuida tu reloj</a></li>
-          <li id="footer-columna-3-li-4"><a href="#">Pago seguro</a></li>
-          <li id="footer-columna-3-li-5"><a href="#">Guía de tallas</a></li>
-        </ul>
-  
-      </div>
-    </div>
-          <!-- <p id="pCopy">Copyright (c) 2025. Todos los derechos reservados.</p> -->
-      </footer>
+    <footer class="footer">
+        <!---  LOGO FOOTER   --->
+        <div id="div-footer-logo">
+          <img src="./img/ghari-logo-v-2.svg" alt="Logo Ghari">
+        </div>
+        <!---  COLUMNAS FOOTER   --->
+        <div id="div-footer-columnas">
+          <!--   COLUMNA 1   -->
+          <div id="div-footer-columna-1" class="div-footer-columna">
+            <h3 id="footer-h3-1" class="titulo-footer">Atención al cliente</h3>
+            <ul>
+              <li>Lunes a Viernes de 9 a 18h</li>
+              <li><a href="#">Whatsapp</a></li>
+              <li><a href="#">Envíanos un e-mail</a></li>
+              <li><a href="#">¿Necesitas ayuda?</a></li>
+            </ul>
+      
+          </div>
+          <!--   COLUMNA 2   -->
+          <div id="div-footer-columna-2" class="div-footer-columna">
+            <h3 id="footer-h3-2" class="titulo-footer">Sobre nosotros</h3>
+            <ul>
+              <li><a href="#">Conoce Ghari</a></li>
+              <li><a href="#">Relojes de alta calidad</a></li>
+              <li><a href="#">Regalos de empresa</a></li>
+            </ul>
+      
+          </div>
+          <!--   COLUMNA 3   -->
+          <div id="div-footer-columna-3" class="div-footer-columna">
+            <h3 id="footer-h3-3" class="titulo-footer">Información</h3>
+            <ul>
+              <li><a href="#">Condiciones de uso</a></li>
+              <li><a href="#">Cambios y devoluciones</a></li>
+              <li><a href="#">Cuida tu reloj</a></li>
+              <li><a href="#">Pago seguro</a></li>
+              <li><a href="#">Guía de tallas</a></li>
+            </ul>
+      
+          </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright GHARI RELOJES. Todos los derechos reservados.</p>
+
+        </div>
+        </footer>
 
    <script>
     // BORRADO DE DIV-ITEM
@@ -172,7 +179,7 @@
             })
             .then(function(data) {
                 let productoEncontrado = data.find(function(producto) {
-                    return producto.ref === "R0020";  
+                    return producto.ref === "R0004";  
                 });
 
                 if (productoEncontrado) {
@@ -180,7 +187,7 @@
 
             let productoHTML = `
                 <div class="div-item">
-                    <img class="btn-cierre" src="img/equis.png" alt="Botón cierre">
+                    <p class="btn-cierre">x</p>
                     <div class="div-image">
                         <img src="${productoEncontrado['img-1']}" alt="${productoEncontrado.modelo}">
                     </div>
