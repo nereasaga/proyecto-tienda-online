@@ -1,6 +1,6 @@
 // Función para cargar los datos desde un archivo JSON
 function loadWatchesFromJSON() {
-    fetch('relojes.json')  // Asegúrate de que el archivo esté en la misma carpeta que el HTML o actualiza la ruta
+    fetch('json/catalogo-es.json')  // Asegúrate de que el archivo esté en la misma carpeta que el HTML o actualiza la ruta
         .then(response => response.json())
         .then(data => {
             watches = data; // Asignar los datos cargados a la variable watches
@@ -11,14 +11,14 @@ function loadWatchesFromJSON() {
 }
 
 // Datos de los relojes (inicialmente vacío, se llenará desde JSON)
-let watches = [];
-
-// Estado de los filtros
-let seleccionCategoria = [];
-let seleccionMarca = [];
-let seleccionPrecio = [];
-let seleccionMaterial = [];
-let seleccionGenero = [];  
+    let watches = [];
+    
+    // Estado de los filtros
+    let selecciontipo = [];
+    let seleccionmarca = [];
+    let seleccionprecio = [];
+    let seleccionmaterial = [];
+    let selecciongenero = [];  
 
 // Función para cargar los relojes inicialmente
 function loadWatches() {
@@ -34,7 +34,7 @@ function loadWatches() {
             <div class="watch-item-header">
                 <p class="marca">${watch.marca}</p>
             </div>
-            <img src="${watch['img-1']}" alt="${watch.modelo}" class="watch-image"> <!-- Corregimos la propiedad 'img-1' -->
+            <img src="${watch['img-1']}" alt="${watch.modelo}" class="watch-image"> 
             <div class="watch-item-footer">
                 <h3 class="name">${watch.modelo}</h3>
                 <p class="description">${watch.descripcion}</p>
@@ -48,10 +48,10 @@ function loadWatches() {
 // Función para manejar los cambios en los filtros
 function updateFilters() {
     seleccionCategoria = getSelectedValues('categoria');
-    seleccionMarca = getSelectedValues('marca');
-    seleccionPrecio = getSelectedValues('precio');
-    seleccionMaterial = getSelectedValues('material');
-    seleccionGenero = getSelectedValues('genero');  
+    seleccionmarca = getSelectedValues('marca');
+    seleccionprecio = getSelectedValues('precio');
+    seleccionmaterial = getSelectedValues('material');
+    selecciongenero = getSelectedValues('genero');  
     filterWatches();
 }
 
@@ -65,14 +65,14 @@ function getSelectedValues(filterType) {
 function filterWatches() {
     console.log("Filtrando relojes...");  // Log de inicio de filtrado
     const filteredWatches = watches.filter(watch => {
-        const categoryMatch = seleccionCategoria.length === 0 || seleccionCategoria.includes(watch.categoria.toLowerCase());
-        const brandMatch = seleccionMarca.length === 0 || seleccionMarca.includes(watch.marca.toLowerCase());
-        const priceMatch = seleccionPrecio.length === 0 || seleccionPrecio.some(range => {
+        const categoryMatch = selecciontipo.length === 0 || selecciontipo.includes(watch.categoria.toLowerCase());
+        const brandMatch = seleccionmarca.length === 0 || seleccionmarca.includes(watch.marca.toLowerCase());
+        const priceMatch = seleccionprecio.length === 0 || seleccionprecio.some(range => {
             const [min, max] = range.split('-').map(Number);
             return watch.precio >= min && (max ? watch.precio <= max : true);
         });
-        const materialMatch = seleccionMaterial.length === 0 || seleccionMaterial.includes(watch.material.toLowerCase());
-        const genderMatch = seleccionGenero.length === 0 || seleccionGenero.includes(watch.genero.toLowerCase()); // Agregamos el filtro por género
+        const materialMatch = seleccionmaterial.length === 0 || seleccionmaterial.includes(watch.material.toLowerCase());
+        const genderMatch = selecciongenero.length === 0 || selecciongenero.includes(watch.genero.toLowerCase()); // Agregamos el filtro por género
         return categoryMatch && brandMatch && priceMatch && materialMatch && genderMatch;
     });
 
