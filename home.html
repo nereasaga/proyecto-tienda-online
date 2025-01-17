@@ -10,7 +10,7 @@
 <body>
     <nav id="navbar">
         <div id="logonav">
-            <img src="./img/ghari-logo-h-1.svg" alt="Logo Ghari Relojes">
+            <a href="./index.html"><img src="./img/ghari-logo-h-1.svg" alt="Logo Ghari Relojes"></a>
         </div>
         <div id="menunav">
             <ul>
@@ -37,8 +37,8 @@
             </div>
             <div id="clientesnav">
                 <ul>
-                    <li id="icono-cesta"><img src="./img/bolsa-de-la-compra.png" alt="Cesta"></li>
-                    <li id="icono-clientes"><img src="./img/usuario.png" alt="Área clientes"></li>
+                    <li id="icono-cesta"><a href="#"><img src="./img/bolsa-de-la-compra.png" alt="Cesta"></a></li>
+                    <li id="icono-clientes"><a href="#"><img src="./img/usuario.png" alt="Área clientes"></a></li>
                 </ul>
             </div>
         </div>
@@ -95,30 +95,31 @@
         </footer>
     <script>
       // Actualizar la fecha y la hora
-      function actualizarTime() {
-      const fecha = document.getElementById("fecha");
-      const hora = document.getElementById("hora");
+      function F5time() {
+      const fechaElemento = document.getElementById("fecha");
+      const horaElemento = document.getElementById("hora");
 
-      // Guardar en variable la fecha y hora del momento
+      // Fecha y la hora actuales en variable
       const ahora = new Date();
 
-      // Formatear la fecha 
+      // Formatear la fecha dia, fecha, mes, año
       const opcionesFecha = { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' };
       const fechaFormateada = ahora.toLocaleDateString('es-ES', opcionesFecha);
 
-      // Formatear la hora (Ej: 12:00)
-      const horaFormateada = ahora.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit',second: '2-digit' });
+      // Formatear la hora con segundos (Ej: 12:00:45)
+      const horaFormateada = ahora.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
       // Actualizar el contenido de los elementos
-      fecha.textContent = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
-      hora.textContent = horaFormateada;
+      fechaElemento.textContent = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
+      horaElemento.textContent = horaFormateada;
       }
 
-      // Actualizar time
-      actualizarTime();
+      // Llamar a la función al cargar la página
+      F5time();
 
-      // Actualizar time por segundo
-      setInterval(actualizarTime, 1000);
+      // Actualizar la hora cada segundo
+      setInterval(F5time, 1000);
+
 
     </script>
 </body>

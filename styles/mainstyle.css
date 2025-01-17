@@ -158,6 +158,11 @@ nav {
     padding-left: 3rem;
     /* font-weight: bold; */
     color: var(--azul-oscuro);
+    transition: 0.3s;
+}
+
+#menunav ul li:hover{
+    color: var(--principal);
 }
 
 #menunav a, #funcionesnav a {
