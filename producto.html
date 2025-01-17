@@ -8,30 +8,30 @@
 </head>
 <body>
    <main>
+    
+    
     <div class="product-container">
         <div class="product-image">
-            <img src="images/TISSOT HOMBRE/TISSOT-29mm(a)mujer .png" alt="tissot image">
+            <img id="mainImage" src="img/catalogo/R0001/R0001-1.png" alt="tudor image">
+            <span class="close">&times;</span>
         </div>
-       
 
-
-        <div class="product-details">
-            <h1>Tissot PRX Powermatic 80</h1>
-            <h2 class="price">850€</h2>
+           <div class="product-details">
+            <h1>TUDOR GMT</h1>
+            <p>ref R0001</p>
+            <h2 class="price">4550$</h2>
            
 
             <button class="add-to-cart">añadir al carrito</button>
             <h2>Descripcion</h2>
 
-            <p>El Tissot PRX Powermatic 80 es una reinterpretación moderna de un clásico <br>
-               de los años 70, con una caja de acero inoxidable de 40 mm y una elegante<br>
-               pulsera integrada. Su vibrante esfera verde, adornada con marcadores tipo<br>
-               barra y una ventana de fecha, combina estilo vintage con un toque contemporáneo.<br>
-               Impulsado por el movimiento automático suizo Powermatic 80, ofrece una impresionante <br>
-               reserva de marcha de 80 horas y mayor resistencia magnética gracias a su muelle espiral <br>
-               de Nivachron™. Con cristal de zafiro resistente a los arañazos, resistencia al agua de<br>
-               hasta 100 metros y un diseño versátil, este reloj es perfecto tanto para ocasiones casuales<br>
-               como formales.
+            <p>El Tudor Black Bay GMT 41 mm es un reloj de lujo que combina el estilo clásico de<br>
+               Tudor con la funcionalidad moderna de un reloj GMT. Su caja de acero inoxidable <br>
+               de 41 mm alberga un bisel rotatorio de 24 horas bicolor, ideal para viajeros que <br>
+               necesitan leer dos zonas horarias simultáneamente. Equipado con el movimiento automático <br>
+               MT5652, este reloj cuenta con una reserva de marcha de 70 horas y una precisión destacable.<br>
+               Su diseño robusto es resistente al agua hasta 200 metros, y presenta una esfera negra con <br>
+               índices luminosos y la emblemática aguja roja en forma de "snowflake".
              </p>
              
             
@@ -40,35 +40,25 @@
         </div>
         
         <div class="additional-images">
-            <img id="mainImage" src="images/TISSOT HOMBRE/TISSOT-29mm(a)mujer .png" alt="main image" >
-             <img id="image1" src="images/TISSOT HOMBRE/TISSOT-29mm(b) mujer.png" alt="image1" >
-            <img id="image2" src="images/TISSOT HOMBRE/TISSOT-29mm(c) mujer.png" alt="image2" >
-            <img  id="image3" src="images/TISSOT HOMBRE/TISSOT-29mm(d) mujer.png" alt="image3" >
-            <img  id="image4" src="images/TISSOT HOMBRE/TISSOT-29mm(e) mujer.png" alt="image4" >
+            <img id="mainImage" src="img/catalogo/R0001/R0001-1.png" alt="main image" >
+             <img id="image1" src="img/catalogo/R0001/R0001-2.png" alt="image1" >
+            <img id="image2" src="img/catalogo/R0001/R0001-3.png" alt="image2" >
+            <img  id="image3" src="img/catalogo/R0001/R0001-4.png" alt="image3" >
             </div>
 
+<!-- Modal for full-screen image -->
+<div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="fullScreenImage" src="">
+    <div id="caption"></div>
+</div>
 
-
-    
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-   </main> 
+            
+ </main> 
 
    <script>
+    
+    //for add to cart
     document.addEventListener('DOMContentLoaded', () => {
     const addToCartButton = document.querySelector('.add-to-cart');
     addToCartButton.addEventListener('click', () => {
@@ -78,19 +68,58 @@
 
 
 
-//for change the images
 
-let mainImage= document.getElementById("mainImage");
+// for change the images
+       document.addEventListener('DOMContentLoaded', () => {
+        const mainImage = document.getElementById('mainImage');
+        const additionalImages = document.querySelectorAll('.additional-images img');
 
-    mainImage.addEventListener( 'mouseover' , function(){
-         
-        mainImage.src="images/TISSOT HOMBRE/TISSOT-29mm(a)mujer .png";
-    })
+        additionalImages.forEach(image => {
+            image.addEventListener('click', () => {
+                const tempSrc = mainImage.src;
+                mainImage.src = image.src;
+                
+            });
+        });
+    });
 
 
+//for zooming the image 
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const mainImage = document.getElementById('mainImage');
+    const modal = document.getElementById('imageModal');
+    const fullScreenImage = document.getElementById('fullScreenImage');
+    const closeModal = document.querySelector('.modal .close');
+
+    // Function to show modal and set the full screen image
+    function showModal(imageSrc) {
+        modal.style.display = "block";
+        fullScreenImage.src = imageSrc;
+    }
+
+    // When the main product image is clicked, show it in full-screen
+    mainImage.addEventListener('click', () => {
+        showModal(mainImage.src);
+    });
+
+    
+
+    // Close the modal when the close button is clicked
+    closeModal.addEventListener('click', () => {
+        modal.style.display = "none";
+    });
+
+    // Close the modal when clicking outside the image (optional)
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+});
 
 
-
+     
 
    </script>
 

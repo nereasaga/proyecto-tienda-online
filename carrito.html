@@ -86,19 +86,19 @@
                 <table>
                 <tr>
                     <th class="th-mark"><span>Total</span></th>
-                    <td class="td-monto"><span>$$$</span></td>
+                    <td class="td-monto"><span>0 €</span></td>
                 </tr>
                 <tr>
                     <th class="th-mark"><span>IVA 21%</span></th>
-                    <td class="td-monto"><span>$$$</span></td>
+                    <td class="td-monto"><span>0 €<</span></td>
                 </tr>
                 <tr>
                     <th class="th-mark"><span>Gastos de envío</span></th>
-                    <td class="td-monto"><span>$$$</span></td>
+                    <td class="td-monto"><span>0 €<</span></td>
                 </tr>
                 <tr>
                     <th class="th-mark"><span>Total</span></th>
-                    <td class="td-monto"><span>$$$</span></td>
+                    <td class="td-monto"><span>0 €<</span></td>
                 </tr>
             </table>
 
@@ -212,20 +212,23 @@ function actualizarResumen() {
     let cantidad = parseInt(cantidadInput.value);
 
 
-    total += precio * cantidad;
-    })
+    if (cantidad > 0) {
+            total += precio * cantidad;
+        }
+    });
 
 
     let iva = total * 0.21; 
     let gastosEnvio = 5.70; 
     let totalGastos = total + gastosEnvio;
+    
 
     let filas = document.querySelectorAll('.div-cart-price tr');
 
-    filas[0].querySelector('.td-monto span').textContent = `€ ${total.toFixed(2)}`;
-    filas[1].querySelector('.td-monto span').textContent = `€ ${iva.toFixed(2)}`;       
-    filas[2].querySelector('.td-monto span').textContent = `€ ${gastosEnvio.toFixed(2)}`; 
-    filas[3].querySelector('.td-monto span').textContent = `€ ${totalGastos.toFixed(2)}`; 
+    filas[0].querySelector('.td-monto span').textContent = `${total.toFixed(2)} €`;
+    filas[1].querySelector('.td-monto span').textContent = `${iva.toFixed(2)} €`;       
+    filas[2].querySelector('.td-monto span').textContent = `${gastosEnvio.toFixed(2)} €`; 
+    filas[3].querySelector('.td-monto span').textContent = `${totalGastos.toFixed(2)} €`; 
 }
 
 document.querySelector('.div-items').addEventListener('input', function(event) {
