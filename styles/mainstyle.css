@@ -10,7 +10,7 @@
     --principal: #FF2D21;
     --oscuro: #2D3E40;
     --claro: #FDE6E2;
-    --azul-claro: #93b7b7;
+    --lila-claro: #BDB1BD;
     --gris-oscuro: #97a6a0;
     --azul-suave: #e4f2e7;
     --blanco: white;
@@ -197,7 +197,7 @@ nav {
     background-color: var(--oscuro);
     height: 30rem;
     width: 100%;
-    color: var(--claro);
+    color: var(--lila-claro);
 
 }
 .titulo-footer {

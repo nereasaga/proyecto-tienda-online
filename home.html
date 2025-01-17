@@ -93,6 +93,33 @@
 
         </div>
         </footer>
-    
+    <script>
+      // Actualizar la fecha y la hora
+      function actualizarTime() {
+      const fecha = document.getElementById("fecha");
+      const hora = document.getElementById("hora");
+
+      // Guardar en variable la fecha y hora del momento
+      const ahora = new Date();
+
+      // Formatear la fecha 
+      const opcionesFecha = { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' };
+      const fechaFormateada = ahora.toLocaleDateString('es-ES', opcionesFecha);
+
+      // Formatear la hora (Ej: 12:00)
+      const horaFormateada = ahora.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit',second: '2-digit' });
+
+      // Actualizar el contenido de los elementos
+      fecha.textContent = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
+      hora.textContent = horaFormateada;
+      }
+
+      // Actualizar time
+      actualizarTime();
+
+      // Actualizar time por segundo
+      setInterval(actualizarTime, 1000);
+
+    </script>
 </body>
 </html>
