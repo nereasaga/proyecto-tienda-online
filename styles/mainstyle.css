@@ -3,10 +3,13 @@
     padding: 0;
     font-family: Ghari;
     list-style: none;
+    box-sizing: border-box;
+    text-decoration: none;
 }
 :root {
-    --azul-oscuro: #2d3e40;
-    --verde-azul: #387373;
+    --principal: #FF2D21;
+    --oscuro: #2D3E40;
+    --claro: #FDE6E2;
     --azul-claro: #93b7b7;
     --gris-oscuro: #97a6a0;
     --azul-suave: #e4f2e7;
@@ -20,7 +23,7 @@
 }
 
 @font-face {
-    font-family: Ghari;
+    font-family: GhariBold;
     src: url(../fonts/TwCenMTStdBold.otf);
     font-weight: bold;
 }
@@ -30,24 +33,24 @@ body {
     background-color: var(--blanco);
     font-size: 1rem;
 }
-a {
-    text-decoration: none;
-}
+
 main {
     background-color: var(--azul-suave);
 }
 
 nav {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     width: 100%;
     min-height: 5rem;
     background-color: var(--blanco);
     /* border: green solid 1px; */
+    border-bottom: var(--principal) 3px solid;
 }
 
-#prenav {
+
+/* #prenav {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
@@ -57,11 +60,13 @@ nav {
     background-color: var(--casi-blanco);
     color: var(--verde-azul);
     font-weight: bold;
-}
+} */
 
-#navbar {
+/* #navbar {
     background-color: var(--casi-blanco);
-}
+    width: 100%;
+    border: green 2px solid;
+} */
 
 .div-date {
     width: 32%;
@@ -72,55 +77,90 @@ nav {
     /* border: green solid 1px; */
     width: 32%;
     text-align: center;
-}
+}   
 
-#time p {
-    display: inline;
-    text-align: center;
-}
-
-#idiomas {
+#idiomanav {
     /* border: green solid 1px; */
-    width: 32%;
+    width: 20%;
     text-align: end;
+    min-height: 1.5rem;
+    display: flex;
+    justify-content: end;
+    align-items: center;
 
 }
 
-#idiomas li:hover {
-    cursor: pointer;
-}
 
 #logonav {
+    display: flex;
+    justify-content: center;
     /* border: yellow solid 2px; */
-    width: 19%;
+    align-items: center;
+    width: 20%;
     text-align: center;
 }
 
 #logonav img {
-    height: 4.5rem;
+    height: 4rem;
 }
 
-#idiomas ul li {
+#timenav {
+    width: 15%;
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* border: red solid 2px; */
+}
+
+#fecha {
+    font-size: 1.2rem;
+    color: var(--oscuro);
+    width: 100%;
+
+}
+
+#hora {
+    font-size: 2rem;
+    color: var(--principal);
+    width: 100%;
+
+}
+
+#funcionesnav {
+    display: block;
+    width: 15%;
+}
+
+#idiomanav {
+    width: 100%;
+}
+
+#idiomanav ul li {
     display: inline;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
 }
 
 #menunav {
-    width: 60%;
+    width: 50%;
     align-content: center;
     text-align: center;
+    color: var(--oscuro);
+    font-size: 1.2rem;
+    font-family: Ghari;
 }
 
 #menunav ul li {
     display: inline;
     padding-right: 3rem;
     padding-left: 3rem;
-    font-weight: bold;
+    /* font-weight: bold; */
     color: var(--azul-oscuro);
 }
 
-#menunav a {
+#menunav a, #funcionesnav a {
     color: var(--azul-oscuro);
 }
 
@@ -128,31 +168,40 @@ nav {
     color: var(--azul-oscuro);
 }
 
-#clientes {
-    /* border: red solid 1px; */
-    width: 19%;
+#clientesnav {
+    /* border: yellow solid 1px; */
     display: flex;
+    min-height: 4rem;
     justify-content: center;
     align-items: center;
 
 }
-
-#clientes button {
-    all:unset;
-    outline: none;
-    width: 3rem;
+#clientesnav ul li {
+    display: inline;
+    justify-content: center;
+    /* border: green solid 2px; */
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+#clientesnav ul {
+    display: flex;
+    justify-content: center;
 }
 
-#clientes img {
+#clientesnav ul li img {
     width: 25px;
     height: 25px;
 }
 
 .footer {
-    background-color: var(--azul-suave);
+    background-color: var(--oscuro);
     height: 30rem;
     width: 100%;
+    color: var(--claro);
 
+}
+.titulo-footer {
+    color: var(--principal);
 }
 
 #div-footer-logo {
@@ -160,7 +209,7 @@ nav {
 }
 
 #div-footer-logo img {
-    height: 6rem;
+    height: 8rem;
     padding: 1rem;
 }
 
@@ -199,4 +248,15 @@ nav {
     text-align: left;
     display: flex;
     align-items: center;
+}
+
+#div-copyright {
+    display: flex;
+    justify-content: center;
+    /* border: orange solid 2px; */
+}
+
+.copyright {
+    display: flex;
+    justify-content: center;
 }
