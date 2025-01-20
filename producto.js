@@ -72,3 +72,9 @@
     counterDisplay.textContent = counter;
 });
      
+const buscaref = localStorage.getItem('selectedWatchref');
+const selectedWatch = data.find(watch =>watch.ref ===buscaref);
+
+function volverAlCatalogo (){
+    window.Location.href = 'catalogo.html';
+}
