@@ -26,5 +26,19 @@
   "th-iva": "VAT 21%",
   "th-envio": "Shipping Costs",
   "th-total-2": "Total",
-  "span-btn": "BUY"
+  "span-btn": "BUY",
+  "ph-nombre": "First Name",
+  "ph-apellidos": "Last Name",
+  "ph-direccion": "Address",
+  "ph-CP": "Postal Code",
+  "ph-ciudad": "City",
+  "ph-provincia": "Province",
+  "ph-pais": "Country",
+  "ph-tfno": "Phone",
+  "ph-mail": "Email",
+  "ph-titular": "Cardholder",
+  "ph-numTarj": "Card Number",
+  "ph-cad": "Expiry Date",
+  "ph-cvc": "CVC",
+  "span-btn-2": "PROCEED TO PAYMENT"
 }

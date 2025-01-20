@@ -27,5 +27,19 @@
   "th-iva": "BEZ 21%",
   "th-envio": "Bidalketa-gastuak",
   "th-total-2": "Guztira",
-  "span-btn": "EROSI"
+  "span-btn": "EROSI",
+"ph-nombre": "Izena",
+  "ph-apellidos": "Abizenak",
+  "ph-direccion": "Helbidea",
+  "ph-CP": "Posta-kodea",
+  "ph-ciudad": "Hiria",
+  "ph-provincia": "Probintzia",
+  "ph-pais": "Herrialdea",
+  "ph-tfno": "Telefonoa",
+  "ph-mail": "Posta elektronikoa",
+  "ph-titular": "Txartelaren titularra",
+  "ph-numTarj": "Txartelaren zenbakia",
+  "ph-cad": "Baliozkotasun data",
+  "ph-cvc": "CVC",
+  "span-btn-2": "ORDAINKETARA JOAN"
 }

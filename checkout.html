@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GHARI - Mi cesta</title>
+    <title>GHARI - Checkout</title>
     <link rel="stylesheet" href="/styles/mainstyle.css">
     <link rel="stylesheet" href="/styles/checkout.css">
 </head>
 <body>
     <nav id="navbar">
         <div id="logonav">
-            <img src="./img/ghari-logo-h-1.svg" alt="Logo Ghari Relojes">
+            <a href="./index.html"><img src="./img/ghari-logo-h-1.svg" alt="Logo Ghari Relojes"></a>
         </div>
         <div id="menunav">
             <ul>
@@ -37,8 +37,8 @@
             </div>
             <div id="clientesnav">
                 <ul>
-                    <li id="icono-cesta"><img src="./img/bolsa-de-la-compra.png" alt="Cesta"></li>
-                    <li id="icono-clientes"><img src="./img/usuario.png" alt="Área clientes"></li>
+                    <li id="icono-cesta"><a href="#"><img src="./img/bolsa-de-la-compra.png" alt="Cesta"></a></li>
+                    <li id="icono-clientes"><a href="#"><img src="./img/usuario.png" alt="Área clientes"></a></li>
                 </ul>
             </div>
         </div>
@@ -52,21 +52,21 @@
         <div class="div-form">
             <form action="">
                 <div class="div-form-title">
-                    <p>DATOS DE ENVÍO</p>
+                    <p id="p-envio">DATOS DE ENVÍO</p>
                 </div>
                 <div class="div-form-input">
-                    <input type="text" placeholder="Nombre">
-                    <input type="text" placeholder="Apellidos">
-                    <input type="text" placeholder="Dirección">
-                    <input type="number" placeholder="Código postal">
-                    <input type="text" placeholder="Ciudad">
-                    <input type="text" placeholder="Provincia">
-                    <input type="text" placeholder="País">
-                    <input type="text" placeholder="Teléfono">
-                    <input type="email" placeholder="Correo electrónico">
+                    <input id="ph-nombre" type="text" placeholder="Nombre">
+                    <input id="ph-apellidos" type="text" placeholder="Apellidos">
+                    <input id="ph-direccion" type="text" placeholder="Dirección">
+                    <input id="ph-ciudad" type="text" placeholder="Ciudad">
+                    <input id="ph-CP" type="number" placeholder="Código postal">
+                    <input id="ph-provincia"  type="text" placeholder="Provincia">
+                    <input id="ph-pais"  type="text" placeholder="País">
+                    <input id="ph-tfno"  type="text" placeholder="Teléfono">
+                    <input id="ph-mail"  type="email" placeholder="Correo electrónico">
                 </div>
                 <div class="div-form-title">
-                    <p>FORMA DE PAGO</p>
+                    <p id="p-pago">FORMA DE PAGO</p>
                 </div>
                 <div class="div-form-input">
                     <input type="text" placeholder="Titular de la tarjeta">
@@ -75,7 +75,7 @@
                     <input type="text" placeholder="CVC" pattern="[0-9]+ ">
                 </div>
                 <div class="div-cart-btn-2">
-                    <button type="submit"><span id="span-btn">PROCEDER AL PAGO</span></button>
+                    <button type="submit"><span id="span-btn-2">PROCEDER AL PAGO</span></button>
                 </div>
             </form>
             </div>
@@ -186,41 +186,89 @@
       setInterval(F5time, 1000);
 
         
-    //CARGAR DATOS DE RELOJES
+   //CAMBIAR IDIOMA Y DATOS RELOJES
 
-        fetch('json/catalogo-es.json')
-            .then(function(response) {
-                return response.json(); 
-            })
-            .then(function(data) {
-                let productoEncontrado = data.find(function(producto) {
-                    return producto.ref === "R0004";  
-                });
+   function cambiarIdioma(idioma) {
+    let archivoIdioma = "json/" + idioma + ".json";
+    let archivoCatalogo = "json/catalogo-" + idioma + ".json"; 
 
-                if (productoEncontrado) {
-            const divItems = document.querySelector('.div-items');
+    // CAMBIAR IDIOMA DE TEXTOS
+    fetch(archivoIdioma)
+        .then(function (respuesta) {
+            return respuesta.json();
+        })
+        .then(function (data) {
+            for (let key in data) {
+                let elemento = document.getElementById(key);
+                if (elemento) {
+                    if (elemento.hasAttribute('placeholder')) {
+                        elemento.setAttribute('placeholder', data[key]);
+                    } 
+                }
+            }
+        });
 
-            let productoHTML = `
-                <div class="div-item">
-                    <div class="div-image">
-                        <img src="${productoEncontrado['img-1']}" alt="${productoEncontrado.modelo}">
+    // CARGAR CATALOGO DE IDIOMA SELECCIONADO
+    fetch(archivoCatalogo)
+        .then(function(response) {
+            return response.json(); 
+        })
+        .then(function(data) {
+            let productoEncontrado = data.find(function(producto) {
+                return producto.ref === "R0004";  
+            });
+
+            if (productoEncontrado) {
+                const divItems = document.querySelector('.div-items');
+
+                let productoHTML = `
+                    <div class="div-item">
+                        <p class="btn-cierre">x</p>
+                        <div class="div-image">
+                            <img src="${productoEncontrado['img-1']}" alt="${productoEncontrado.modelo}">
+                        </div>
+                        <div class="div-details">
+                            <p class="marcaModelo">${productoEncontrado.marca} - ${productoEncontrado.modelo}</p>
+                            <p>${productoEncontrado.tamano} mm, ${productoEncontrado.material}</p>
+                            <p id="precio">${productoEncontrado.precio} €</p>
+                            <span>Cantidad</span> <input type="number" min="1" max="${productoEncontrado.stock}">
+                        </div>
                     </div>
-                    <div class="div-details">
-                        <p class="marcaModelo">${productoEncontrado.marca} - ${productoEncontrado.modelo}</p>
-                        <p>${productoEncontrado.tamano} mm, ${productoEncontrado.material}</p>
-                        <p id="precio">${productoEncontrado.precio} €</p>
-                       
-                    </div>
-                </div>
-            `;
+                `;
 
-            divItems.innerHTML = productoHTML;
+                divItems.innerHTML = productoHTML;
 
-        } else {
-            let divItems = document.querySelector('.div-items');
-            divItems.innerHTML = '<p>Producto no encontrado.</p>';
-        }
-    });
+            } else {
+                let divItems = document.querySelector('.div-items');
+                divItems.innerHTML = '<p>Producto no encontrado.</p>';
+            }
+
+            
+        });
+}
+
+  // CAMBIAR A INGLÉS
+  const btnEn = document.getElementById('english');
+
+  btnEn.addEventListener("click", function() {
+    cambiarIdioma("en");
+  })
+
+  // CAMBIAR A EUSKERA
+  const btnEus = document.getElementById('euskara');
+
+  btnEus.addEventListener("click", function() {
+    cambiarIdioma("eus");
+  })
+  
+  // CAMBIAR A CASTELLANO
+  const btnEs = document.getElementById('espanol');
+
+  btnEs.addEventListener("click", function() {
+    cambiarIdioma("es");
+  });
+
+
 
 // TOTAL TABLA
 function actualizarResumen() {
@@ -253,6 +301,8 @@ function actualizarResumen() {
 
 // CALCULAR TABLA
 document.addEventListener('DOMContentLoaded', actualizarResumen);
+
+
    </script>
 </body>
 </html>
