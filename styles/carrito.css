@@ -229,3 +229,63 @@ main {
     justify-content: center;
     align-self: center;
 }
+
+/******************* MEDIA QUERIES ******************/
+
+/*    Codigo pag en tablet       */
+
+@media (max-width:1280px) {
+    main {
+        width: 100%;
+    }
+
+    .div-items {
+        width: 60%;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .div-item {
+        width: 100%;
+    }
+
+    .div-cart {
+        width: 40%;
+        padding-right: 2rem;
+    }
+
+}
+
+/*  Codigo pagina en smartphone   */    
+
+@media (max-width:575px) {
+
+    .div-title {
+        padding-left: 2rem;
+    }
+
+    .div-columns  {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .div-items {
+        width: 100%;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .div-item {
+        width: 90%;
+    }
+
+    .div-cart {
+        width: 100%;
+        padding-right: 0px;
+        padding-top: 0px;
+    }
+
+    .div-cart-title {
+        width: 100%;
+    }
+}

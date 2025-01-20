@@ -177,7 +177,6 @@ table {
 
 .div-items {
     width: 100%;
-    padding: 2rem;
     /* border: solid green 2px; */
     display: flex;
     flex-direction: column;
@@ -189,6 +188,7 @@ table {
 .div-item {
     width: 100%;
     position: relative;
+    padding: 1rem;
     display: flex;
     align-items: center;
     /* border: solid var(--azul-suave) 2px; */
@@ -227,4 +227,83 @@ table {
     padding-right: 2rem;
     padding-top: 2rem;
     /* height: 4rem; */
+}
+
+
+/******************* MEDIA QUERIES ******************/
+
+/*    Codigo pag en tablet       */
+
+@media (max-width:1280px) {
+    main {
+        width: 100%;
+    }
+
+    .div-form {
+        padding-left: 2rem;
+        padding-right: 3rem;
+        width: 60%;
+    }
+
+    .div-form-input input {
+        width: 100%;
+        padding: 1rem;
+        margin: 0.7rem;
+    }
+
+    .div-items {
+        width: 100%;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .div-item {
+        width: 100%;
+    }
+
+    .div-cart {
+        width: 40%;
+        padding-right: 2rem;
+    }
+
+}
+
+/*  Codigo pagina en smartphone   */    
+
+@media (max-width:575px) {
+
+    .div-title {
+        padding-left: 2rem;
+    }
+
+    .div-columns  {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .div-form {
+        padding-left: 2rem;
+        padding-right: 3rem;
+        width: 100%;
+    }
+
+    .div-items {
+        width: 100%;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .div-item {
+        width: 90%;
+    }
+
+    .div-cart {
+        width: 100%;
+        padding-right: 0px;
+        padding-top: 0px;
+    }
+
+    .div-cart-title {
+        width: 100%;
+    }
 }
