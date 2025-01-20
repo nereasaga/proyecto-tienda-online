@@ -1,8 +1,24 @@
-{
-    "menu1": "Emakumeak",
-    "menu2": "Gizonak",
-    "menu3": "Unisex",
-    "menu4": "Markak",
-    "menu5": "Katalogoa",
-    "pCopy": "Copyright (c) 2025. Eskubide guztiak erreserbatuta.."
-  }
+
+  {
+  "menu-mujer": "Emakumea",
+  "menu-hombre": "Gizona",
+  "menu-unisex": "Unisex",
+  "menu-marcas": "Markak",
+  "menu-catalogo": "Katalogoa",
+  "fecha": "",
+  "footer-h3-1": "Bezeroarentzako arreta",
+  "footer-ul-1-li-1": "Astelehena - Ostirala 9:00etatik 18:00etara",
+  "footer-ul-1-li-3": "Bidali e-mail bat",
+  "footer-ul-1-li-4": "Laguntza behar duzu?",
+  "footer-h3-2": "Guri buruz",
+  "footer-ul-2-li-1": "Ezagutu Ghari",
+  "footer-ul-2-li-2": "Kalitate handiko erlojuak",
+  "footer-ul-2-li-3": "Enpresa opariak",
+  "footer-h3-3": "Informazioa",
+  "footer-ul-3-li-1": "Erabilera baldintzak",
+  "footer-ul-3-li-2": "Trukeak eta itzulketak",
+  "footer-ul-3-li-3": "Zaindu zure erlojua",
+  "footer-ul-3-li-4": "Ordainketa segurua",
+  "footer-ul-3-li-5": "Tamaina gida",
+  "p-copy": "Copyright GHARI ERLOJUAK. Eskubide guztiak erreserbatuta."
+}
