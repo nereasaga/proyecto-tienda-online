@@ -58,6 +58,34 @@
     width: 2.3rem;
     border-color: black;
 }
+#contador-cantidad {
+    display: flex;
+    width: 30%;
+    align-items: center;
+    justify-content: start;
+    /* background-color: #ffffff; */
+    /* padding: 20px;
+    border-radius: 10px; */
+    /* border: black solid 0.1rem; */
+}
+
+#cantidad {
+    font-size: 2rem;
+    margin: 0 20px;
+    /* color: #333; */
+
+}
+
+.boton {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    /* cursor: pointer; */
+    border: black solid 0.1rem;
+    /* border-radius: 5px; */
+    /* background-color: #007bff; */
+}
+
+
 
 .counter {
     font-size: 10px;
@@ -111,7 +139,7 @@ button{
     padding: 10px 20px;
     font-size: 20px;
     border: none;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     cursor: pointer;
 }
 
