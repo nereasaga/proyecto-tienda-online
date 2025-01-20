@@ -3,51 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GHARI - Tienda de Relojes</title>
+    <title>GHARI Relojes</title>
     <link rel="stylesheet" href="/styles/mainstyle.css">
 </head>
 <body>
-  <!--   PRENAV   -->
-    <div id="prenav" class="prenav">
-        <div id="date" class="div-date">
-            <p>Viernes, 10 de enero de 2025</p>
-        </div>
-        <div id="time" class="div-time">
-          <p>12:00</p>
-        </div>
-        <div id="idiomas" class="div-idiomas">
+  <nav id="navbar">
+    <div id="logonav">
+        <a href="./index.html"><img src="./img/ghari-logo-h-1.svg" alt="Logo Ghari Relojes"></a>
+    </div>
+    <div id="menunav">
+        <ul>
+            <li id="menu-mujer"><a href="#">Mujer</a></li>
+            <li id="menu-hombre"><a href="#">Hombre</a></li>
+            <li id="menu-unisex"><a href="#">Unisex</a></li>
+            <li id="menu-marcas"><a href="#">Marcas</a></li>
+            <li id="menu-catalogo"><a href="catalogo.html">Catálogo</a></li>
+        </ul>
+    </div>
+    <div id="timenav">
+        <p id="fecha">Jueves, 09 de enero de 2025</p>
+        <p id="hora">12:00</p>
+
+    </div>
+    <div id="funcionesnav">
+        <div id="idiomanav">
             <ul>
-              <li>ES</li>
-              <li>EN</li>
+                <li id="espanol"><a href="#">ES</a></li>
+                <li id="english"><a href="#">EN</a></li>
+                <li id="euskara"><a href="#">EUS</a></li>
+            </ul>
+
+        </div>
+        <div id="clientesnav">
+            <ul>
+                <li id="icono-cesta"><a href="#"><img src="./img/bolsa-de-la-compra.png" alt="Cesta"></a></li>
+                <li id="icono-clientes"><a href="#"><img src="./img/usuario.png" alt="Área clientes"></a></li>
             </ul>
         </div>
     </div>
-    <!--   NAV   -->
-    <nav id="navbar">
-        <!--   LOGO   -->
-        <div id="logonav">
-          <img src="img/ghari_t.png" alt="Logo Ghari">
-          
-        </div>
-        <!--   MENÚ   -->
-        <div id="menunav">
-            <ul>
-                <li id="menu-mujer"><a href="">MUJER</a></li>
-                <li id="menu-hombre"><a href="#">HOMBRE</a></li>
-                <li id="menu-unisex"><a href="#">UNISEX</a></li>
-                <li id="menu-marcas"><a href="#">MARCAS</a></li>
-                <li id="menu-catalogo"><a href="catalogo.html">CATÁLOGO</a></li>
-            </ul>
-        </div>
-        <!--   AREA CLIENTE Y CARRITO   -->
-        <div id="clientes">
-            <ul>
-                <button id="usuario"><a href=""><img src="img/usuario.png" alt="icono clientes"></a></button>
-                <button id="carrito"><a href="carrito.html"><img src="img/bolsa-de-la-compra.png" alt="icono carrito"></a></button>
-            </ul>
-        </div>
 
-    </nav>
+</nav>
     
     <header class="header">
 
@@ -70,50 +65,52 @@
 
 </section>
     
-<!---  FOOTER   --->
 <footer class="footer">
   <!---  LOGO FOOTER   --->
   <div id="div-footer-logo">
-    <img src="img/ghari_t.png" alt="Logo Ghari">
+    <img src="./img/ghari-logo-v-2.svg" alt="Logo Ghari">
   </div>
   <!---  COLUMNAS FOOTER   --->
   <div id="div-footer-columnas">
     <!--   COLUMNA 1   -->
     <div id="div-footer-columna-1" class="div-footer-columna">
-      <h3 id="footer-h3-1">Atención al cliente</h3>
+      <h3 id="footer-h3-1" class="titulo-footer">Atención al cliente</h3>
       <ul>
-        <li id="footer-columna-1-li-1">Lunes a Viernes de 9 a 18h</li>
-        <li id="footer-columna-1-li-2"><a href="#">Whatsapp</a></li>
-        <li id="footer-columna-1-li-3"><a href="#">Envíanos un e-mail</a></li>
-        <li id="footer-columna-1-li-4"><a href="#">¿Necesitas ayuda?</a></li>
+        <li>Lunes a Viernes de 9 a 18h</li>
+        <li><a href="#">Whatsapp</a></li>
+        <li><a href="#">Envíanos un e-mail</a></li>
+        <li><a href="#">¿Necesitas ayuda?</a></li>
       </ul>
 
     </div>
     <!--   COLUMNA 2   -->
     <div id="div-footer-columna-2" class="div-footer-columna">
-      <h3 id="footer-h3-2">Sobre nosotros</h3>
+      <h3 id="footer-h3-2" class="titulo-footer">Sobre nosotros</h3>
       <ul>
-        <li id="footer-columna-2-li-1"><a href="#">Conoce Ghari</a></li>
-        <li id="footer-columna-2-li-2"><a href="#">Relojes de alta calidad</a></li>
-        <li id="footer-columna-2-li-3"><a href="#">Regalos de empresa</a></li>
+        <li><a href="#">Conoce Ghari</a></li>
+        <li><a href="#">Relojes de alta calidad</a></li>
+        <li><a href="#">Regalos de empresa</a></li>
       </ul>
 
     </div>
     <!--   COLUMNA 3   -->
     <div id="div-footer-columna-3" class="div-footer-columna">
-      <h3 id="footer-h3-3">Información</h3>
+      <h3 id="footer-h3-3" class="titulo-footer">Información</h3>
       <ul>
-        <li id="footer-columna-3-li-1"><a href="#">Condiciones de uso</a></li>
-        <li id="footer-columna-3-li-2"><a href="#">Cambios y devoluciones</a></li>
-        <li id="footer-columna-3-li-3"><a href="#">Cuida tu reloj</a></li>
-        <li id="footer-columna-3-li-4"><a href="#">Pago seguro</a></li>
-        <li id="footer-columna-3-li-5"><a href="#">Guía de tallas</a></li>
+        <li><a href="#">Condiciones de uso</a></li>
+        <li><a href="#">Cambios y devoluciones</a></li>
+        <li><a href="#">Cuida tu reloj</a></li>
+        <li><a href="#">Pago seguro</a></li>
+        <li><a href="#">Guía de tallas</a></li>
       </ul>
 
     </div>
   </div>
-        <!-- <p id="pCopy">Copyright (c) 2025. Todos los derechos reservados.</p> -->
-    </footer>
+  <div class="copyright">
+      <p>Copyright GHARI RELOJES. Todos los derechos reservados.</p>
+
+  </div>
+  </footer>
 
    <script>
         // Función para cambiar el idioma
@@ -148,6 +145,32 @@
     function cambiarIdioma(idioma) {
       cargarTraducciones(idioma);
     }
+
+    // Actualizar la fecha y la hora
+    function F5time() {
+      const fechaElemento = document.getElementById("fecha");
+      const horaElemento = document.getElementById("hora");
+
+      // Fecha y la hora actuales en variable
+      const ahora = new Date();
+
+      // Formatear la fecha dia, fecha, mes, año
+      const opcionesFecha = { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' };
+      const fechaFormateada = ahora.toLocaleDateString('es-ES', opcionesFecha);
+
+      // Formatear la hora con segundos (Ej: 12:00:45)
+      const horaFormateada = ahora.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+      // Actualizar el contenido de los elementos
+      fechaElemento.textContent = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
+      horaElemento.textContent = horaFormateada;
+      }
+
+      // Llamar a la función al cargar la página
+      F5time();
+
+      // Actualizar la hora cada segundo
+      setInterval(F5time, 1000);
 
    </script>
 </body>

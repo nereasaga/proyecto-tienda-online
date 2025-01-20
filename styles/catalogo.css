@@ -1,5 +1,4 @@
 body {
-    font-family: Arial, sans-serif;
     padding: 0;
     margin: 0;
 }
@@ -8,34 +7,44 @@ h2{text-align: center;}
 
 .contenedor {
     display: flex;
-    justify-content: flex-start; /* Alinea los elementos hijos de izquierda a derecha */
+    justify-content: flex-start; 
     padding: 3rem;
     margin-left: 3.5rem;
     background-color: #fff;
 }
 
 .filters {
-    height: 15%;
+    position: sticky;
+    top: 1.2rem;
+    height: 15%; 
     width: 15%; 
     padding: 0.8rem;
-    background-color: #d6d3d3;
+    background-color: #a09d9d;
     box-shadow: 0 0 10px rgba(196, 181, 181, 0.1);
-    margin-right: 2rem; /* Separación entre filtros y la lista de relojes */
+    margin-right: 1rem;
+    display: block; 
+    justify-content: flex-start; 
+    gap: 1rem; 
+}
+
+.filters label {
+    display: block; 
+    margin-right: 0.1rem; 
 }
 
 .watch-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
-    gap: 2rem; /* Espacio entre las tarjetas de los relojes */
-    width: 70%; /* Ajusta el tamaño del contenedor de los relojes */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 2rem; 
+    width: 70%;
 }
 
 .watch-item {
     background-color: #fff;
-    padding: 0.8rem;
+    padding: 0.2rem;
     text-align: center;
     display: flex;
-    flex-direction: column; /* Asegura que los elementos se alineen de arriba hacia abajo */
+    flex-direction: column; 
     justify-content: space-between;
    
 }
@@ -47,12 +56,32 @@ h2{text-align: center;}
 
 }
 
+watch-item a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-decoration: none; 
+    color: inherit; 
+    z-index: 1;
+}
+.watch-item * {
+    position: relative;
+    z-index: 2; /* Coloca los elementos internos por encima del fondo del enlace */
+}
+/* Estilos adicionales para que el enlace abarque todo el div */
+.watch-item {
+    position: relative;
+    overflow: hidden;
+}
+
 .marca {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     color: #555;
 }
 
-.watch-image { border: 1px solid #080707; /* Agrega un borde */
+.watch-image { border: 1px solid #080707; 
     width: 100%;
     height: auto;
     margin-bottom: 0.8rem;
@@ -63,6 +92,21 @@ h2{text-align: center;}
     padding-top: 0.1rem;
 }
 
+/* Asegúrate de que el enlace ocupe todo el espacio del div */
+.watch-link {
+    display: block;
+    text-decoration: none; 
+    color: inherit; 
+    width: 100%; 
+    height: 100%;
+}
+/* Opcional: Añadir efecto de hover para resaltar */
+.watch-link:hover {
+    background-color: #dfd2d2; 
+    cursor: pointer; 
+    transform: scale(1.01); 
+}
+
 .name {
     font-size: 0.8rem;
     font-weight: bold;
@@ -70,7 +114,14 @@ h2{text-align: center;}
     margin: 0.5px 0;
 }
 
-.description {
+.tamano{
+    text-align: justify;
+    font-size: 0.6rem;
+    color: #777;
+    margin: 0.5rem 0;
+}
+
+.material {
     text-align: justify;
     font-size: 0.6rem;
     color: #777;

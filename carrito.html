@@ -57,10 +57,8 @@
                 </div>
                 <div class="div-details">
                     <p class="marcaModelo">MARCA Y MODELO</p>
-                    <p>MATERIAL</p>
-                    <p>TAMAÑO</p>
-                    <p>DESCRIPCION</p>
-                    <p>PRECIO</p>
+                    <p>MATERIAL, TAMAÑO</p>
+                    <p id="precio">500 €</p>
                     <span>Cantidad</span> <input type="number" min="1">
                 </div>
 
@@ -72,10 +70,8 @@
                 </div>
                 <div class="div-details">
                     <p class="marcaModelo">MARCA Y MODELO</p>
-                    <p>MATERIAL</p>
-                    <p>TAMAÑO</p>
-                    <p>DESCRIPCION</p>
-                    <p>PRECIO</p>
+                    <p>MATERIAL, TAMAÑO</p>
+                    <p id="precio">600 €</p>
                     <span>Cantidad</span> <input type="number" min="1">
                 </div>
 
@@ -89,20 +85,20 @@
             <div class="div-cart-price">
                 <table>
                 <tr>
-                    <th class="th-mark"><span>Total</span><span>(sin impuestos)</span></th>
-                    <td class="td-monto"><span>$$$</span></td>
+                    <th class="th-mark"><span>Total</span></th>
+                    <td class="td-monto"><span>0 €</span></td>
                 </tr>
                 <tr>
                     <th class="th-mark"><span>IVA 21%</span></th>
-                    <td class="td-monto"><span>$$$</span></td>
+                    <td class="td-monto"><span>0 €<</span></td>
                 </tr>
                 <tr>
                     <th class="th-mark"><span>Gastos de envío</span></th>
-                    <td class="td-monto"><span>$$$</span></td>
+                    <td class="td-monto"><span>0 €<</span></td>
                 </tr>
                 <tr>
                     <th class="th-mark"><span>Total</span></th>
-                    <td class="td-monto"><span>$$$</span></td>
+                    <td class="td-monto"><span>0 €<</span></td>
                 </tr>
             </table>
 
@@ -159,13 +155,15 @@
 
    <script>
     // BORRADO DE DIV-ITEM
-    document.querySelector(".div-items").addEventListener("click", function() {
+    document.querySelector(".div-items").addEventListener("click", function(borrarItem) {
             if (event.target.closest(".btn-cierre")) {
                 const divItem = event.target.closest(".div-item");
                 divItem.remove();
+                actualizarResumen();
             }
         });
 
+        
     //CARGAR DATOS DE RELOJES
 
         fetch('json/catalogo-es.json')
@@ -173,37 +171,74 @@
                 return response.json(); 
             })
             .then(function(data) {
-                var productoEncontrado = data.find(function(producto) {
-                    return producto.ref === "R0001";  
+                let productoEncontrado = data.find(function(producto) {
+                    return producto.ref === "R0020";  
                 });
 
                 if (productoEncontrado) {
-                    var divItems = document.querySelector('.div-items');
+            const divItems = document.querySelector('.div-items');
 
-                    var productoHTML = `
-                        <div class="div-item">
-                            <img class="btn-cierre" src="img/equis.png" alt="Botón cierre">
-                            <div class="div-image">
-                                <img src="${productoEncontrado['img-1']}" alt="${productoEncontrado.modelo}">
-                            </div>
-                            <div class="div-details">
-                                <p class="marcaModelo">${productoEncontrado.marca} - ${productoEncontrado.modelo}</p>
-                                <p>MATERIAL: ${productoEncontrado.material}</p>
-                                <p>${productoEncontrado.tamano} mm</p>
-                                <p>DESCRIPCION: ${productoEncontrado.descripcion}</p>
-                                <p>${productoEncontrado.precio} €</p>
-                                <span>Cantidad</span> <input type="number" min="1" max="${product.stock}">
-                            </div>
-                        </div>
-                    `;
+            let productoHTML = `
+                <div class="div-item">
+                    <img class="btn-cierre" src="img/equis.png" alt="Botón cierre">
+                    <div class="div-image">
+                        <img src="${productoEncontrado['img-1']}" alt="${productoEncontrado.modelo}">
+                    </div>
+                    <div class="div-details">
+                        <p class="marcaModelo">${productoEncontrado.marca} - ${productoEncontrado.modelo}</p>
+                        <p>${productoEncontrado.tamano} mm, ${productoEncontrado.material}</p>
+                        <p id="precio">${productoEncontrado.precio} €</p>
+                        <span>Cantidad</span> <input type="number" min="1" max="${productoEncontrado.stock}">
+                    </div>
+                </div>
+            `;
 
-                    divItems.innerHTML = productoHTML;
+            divItems.innerHTML = productoHTML;
 
-                } else {
-                    var divItems = document.querySelector('.div-items');
-                    divItems.innerHTML = '<p>Producto no encontrado.</p>';
-                }
-            });
+        } else {
+            let divItems = document.querySelector('.div-items');
+            divItems.innerHTML = '<p>Producto no encontrado.</p>';
+        }
+    });
+
+// TOTAL TABLA
+function actualizarResumen() {
+    let items = document.querySelectorAll('.div-item');
+    let total = 0;
+
+    items.forEach(function(item) {
+    let precio = parseFloat(item.querySelector('#precio').textContent.replace('€', '').trim());
+    let cantidadInput = item.querySelector('.div-details input[type="number"]');
+    let cantidad = parseInt(cantidadInput.value);
+
+
+    if (cantidad > 0) {
+            total += precio * cantidad;
+        }
+    });
+
+
+    let iva = total * 0.21; 
+    let gastosEnvio = 5.70; 
+    let totalGastos = total + gastosEnvio;
+    
+
+    let filas = document.querySelectorAll('.div-cart-price tr');
+
+    filas[0].querySelector('.td-monto span').textContent = `${total.toFixed(2)} €`;
+    filas[1].querySelector('.td-monto span').textContent = `${iva.toFixed(2)} €`;       
+    filas[2].querySelector('.td-monto span').textContent = `${gastosEnvio.toFixed(2)} €`; 
+    filas[3].querySelector('.td-monto span').textContent = `${totalGastos.toFixed(2)} €`; 
+}
+
+document.querySelector('.div-items').addEventListener('input', function(event) {
+    if (event.target.type === 'number') {
+        actualizarResumen();
+    }
+});
+
+// CALCULAR TABLA
+document.addEventListener('DOMContentLoaded', actualizarResumen);
    </script>
 </body>
 </html>

@@ -10,35 +10,70 @@
 
     <h2>Todos los Relojes</h2>
     <div class="contenedor">
-        <div id="filters" class="filters">
-            
-            <p><strong>Categoría:</strong></p>
+        <div id="filters" class="filters">  
+            <p><strong>Precio:</strong></p>
+            <div class="range-container">
+                <label for="precioRange">50,00€ -<span id="precioValue"> 1.750,00 €</span></label>
+                <input type="range" id="precioRange" name="rango" min="50" max="1750" value="0" list="lista-precio" oninput="updatePrecioValue(this)">
+            </div>  
+            <p><strong>Género:</strong></p>
             <div>
-              <label><input type="checkbox" name="categoria" value="Hombre"> Hombre</label><br>
-              <label><input type="checkbox" name="categoria" value="Mujer"> Mujer</label><br>
-              <label><input type="checkbox" name="categoria" value="Unisex"> Unisex</label>
+                <label><input type="checkbox" name="genero" value="Hombre"> Hombre</label>
+                <label><input type="checkbox" name="genero" value="Mujer"> Mujer</label>
+                <label><input type="checkbox" name="genero" value="Unisex"> Unisex</label>
             </div>
-
+            
+            <p><strong>Tamaño:</strong></p>
+            <div>
+                <label><input type="checkbox" name="tamano" value="22mm">22mm</label>
+                <label><input type="checkbox" name="tamano" value="25mm">25mm</label>
+                <label><input type="checkbox" name="tamano" value="36mm">36mm</label>
+                <label><input type="checkbox" name="tamano" value="38mm">38mm</label>
+                <label><input type="checkbox" name="tamano" value="39mm">39mm</label>
+                <label><input type="checkbox" name="tamano" value="40mm">40mm</label>
+                <!-- <label><input type="checkbox" name="tamano" value="42mm">42mm</label><br>
+                <label><input type="checkbox" name="tamano" value="43mm">43mm</label><br> -->
+                <label><input type="checkbox" name="tamano" value="44mm">44mm</label>
+            </div>          
             <p><strong>Marca:</strong></p>
             <div>
-                <label><input type="checkbox" name="marca" value="Rolex"> Rolex</label><br>
-                <label><input type="checkbox" name="marca" value="Casio"> Casio</label><br>
-                <label><input type="checkbox" name="marca" value="Seiko"> Seiko</label>
-            </div>
-
-            <p><strong>Precio:</strong></p>
-            <div>
-                <label><input type="checkbox" name="precio" value="0-100"> $0 - $100</label><br>
-                <label><input type="checkbox" name="precio" value="100-500"> $100 - $500</label><br>
-                <label><input type="checkbox" name="precio" value="500-1000"> $500 - $1000</label>
-            </div>
-
+                <label><input type="checkbox" name="marca" value="Boss">BOSS</label>
+                <label><input type="checkbox" name="marca" value="Brietling">BRIETLING</label>
+                <label><input type="checkbox" name="marca" value="Cartier">CARTIER</label>
+                <label><input type="checkbox" name="marca" value="CalvinKlein">CALVIN KLEIN</label>
+                <label><input type="checkbox" name="marca" value="Casio">CASIO</label>
+                <label><input type="checkbox" name="marca" value="Guess">GUESS</label>
+                <label><input type="checkbox" name="marca" value="Hamilton">HAMILTON</label>
+                <label><input type="checkbox" name="marca" value="Lacoste">LACOSTE</label>
+                <label><input type="checkbox" name="marca" value="Lotus">LOTUS</label>
+                <label><input type="checkbox" name="marca" value="MarkMaddox">MARK MADDOX</label>
+                <label><input type="checkbox" name="marca" value="Montblanc">MONTBLANC</label>
+                <label><input type="checkbox" name="marca" value="MichaelKors">MICHAEL KORS</label>
+                <label><input type="checkbox" name="marca" value="Omega">OMEGA</label>
+                <label><input type="checkbox" name="marca" value="Oris">ORIS</label>
+                <label><input type="checkbox" name="marca" value="Rolex">ROLEX</label>
+                <label><input type="checkbox" name="marca" value="seiko">SEIKO</label>
+                <label><input type="checkbox" name="marca" value="Tissot">TISSOT</label>
+                <label><input type="checkbox" name="marca" value="Tous">TOUS</label>
+                <label><input type="checkbox" name="marca" value="TommyHilfiguer">TOMMY HILFIGER</label>
+                <label><input type="checkbox" name="marca" value="Tudor">TUDOR</label>
+                <label><input type="checkbox" name="marca" value="Fossil">FOSSIL</label>
+                
+            </div>  
+            
             <p><strong>Material:</strong></p>
             <div>
-                <label><input type="checkbox" name="material" value="Acero"> Acero</label><br>
-                <label><input type="checkbox" name="material" value="Cuero"> Cuero</label><br>
+                <label><input type="checkbox" name="material" value="Acero"> Acero</label>
+                <label><input type="checkbox" name="material" value="Cuero"> Cuero</label>
                 <label><input type="checkbox" name="material" value="Sintético"> Sintético</label>
-            </div>
+            </div>  
+            
+            <p><strong>Tipo:</strong></p>
+            <div>
+                <label><input type="checkbox" name="tipo" value="analogico">Analogico</label>
+                <label><input type="checkbox" name="tipo" value="digital">Digital</label>
+                <label><input type="checkbox" name="tipo" value="smart">SmartWatch</label>
+            </div>          
         </div>
 
         <div class="watch-list" id="watchList">
@@ -50,6 +85,7 @@
         <p>footer</p>
     </footer>
 
-    <script src="./catalogo.js"></script>
+
+    <script src="/catalogo.js"></script>
 </body>
 </html>
