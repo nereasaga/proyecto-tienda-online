@@ -8,6 +8,24 @@ body {
     align-items: center;
 }
 
+
+a {
+    color: var(--azul-oscuro);
+}
+
+a:visited {
+    color: var(--azul-oscuro);
+}
+
+main {
+    background-color: var(--blanco);
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+}
+
 .div-title {
     width: 100%;
     height: 6rem;
@@ -38,78 +56,6 @@ h1 {
     min-height: 30rem;
     /* border: solid yellow 2px; */
     display: flex;
-}
-
-.div-items {
-    width: 60%;
-    min-height: 20rem;
-    padding: 2rem;
-    /* border: solid green 2px; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-
-
-}
-
-.div-item {
-    width: 80%;
-    height: 15rem;
-    padding: 2rem;
-    position: relative;
-    display: flex;
-    align-items: center;
-    border: solid var(--azul-suave) 2px;
-    margin-bottom: 1.5rem;
-}
-
-.btn-cierre {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    width: 1rem;
-    max-height: 1rem;
-    font-size: xx-large;
-}
-
-.btn-cierre:hover {
-    cursor: pointer;
-}
-
-
-
-.div-item img {
-    /* border: solid orange 2px; */
-    height: 10rem;
-    padding: 1rem;
-}
-
-.div-details {
-    /* border: solid violet 2px; */
-    width: 70%;
-    padding: 1rem;
-}
-
-.div-details input {
-    width: 4rem;
-    height: 1.5rem;
-    text-align: center;
-}
-
-.div-details p {
-    height: 2rem;
-}
-
-.marcaModelo {
-    font-weight: bold;
-    
-}
-
-.div-details span {
-    padding-right: 2rem;
-    padding-top: 2rem;
-    /* height: 4rem; */
 }
 
 .div-cart {
@@ -152,14 +98,63 @@ h1 {
     justify-content: center;
 }
 
-.ol-cart {
-    width: 100%;
+
+.div-columns {
+    display:flex;
+    flex-direction: row;
 }
 
-.ol-cart li {
-    display: inline-block;
-    text-align: left;
-    padding-right: 2rem;
+.div-form {
+    width: 60%;
+    flex-direction: column;
+    padding-left: 6rem;
+    padding-right: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.div-form-input {
+    flex-direction: column;
+    
+}
+
+.div-form-input input {
+    width: 70%;
+    padding: 1rem;
+    margin: 0.7rem;
+}
+
+div-cart-btn-2 {
+    width: 100%;
+    border: 0px;
+    width: 100%;
+    padding: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.div-cart-btn-2 button {
+    width: 70%;
+    height: 50%;
+    outline: none;
+    background-color: var(--principal);
+    color: white;
+    padding: 0.6rem;
+    border: 2px solid var(--principal);
+    transition: 0.5s;
+}
+
+.div-cart-btn-2 button:hover {
+    background-color: var(--blanco);
+    color: var(--oscuro);
+    border: solid var(--principal) 2px;
+    cursor: pointer;
+}
+
+.div-cart-btn-2 button span {
+    font-weight: bold;
 }
 
 .th-mark {
@@ -172,47 +167,6 @@ h1 {
     text-align: right;
 }
 
-.div-cart-btn {
-    border: solid var(--azul-suave) 2px;
-    width: 100%;
-    height: 6rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.div-cart-btn button {
-    width: 60%;
-    height: 50%;
-    outline: none;
-    background-color: var(--principal);
-    color: white;
-    padding: 0.6rem;
-    border: 2px solid var(--principal);
-    transition: 0.5s;
-}
-
-.div-cart-btn button:hover {
-    background-color: var(--blanco);
-    color: var(--oscuro);
-    border: solid var(--principal) 2px;
-    cursor: pointer;
-}
-
-.div-cart-btn button span {
-    font-weight: bold;
-}
-
-
-
-a {
-    color: var(--azul-oscuro);
-}
-
-a:visited {
-    color: var(--azul-oscuro);
-}
-
 table {
     width: 90%;
     height: 10rem;
@@ -221,14 +175,60 @@ table {
     /* border: solid brown 2px; */
 }
 
-main {
-    background-color: var(--blanco);
-    width: 90%;
+.div-items {
+    width: 100%;
+    /* border: solid green 2px; */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-self: center;
+    align-items: center;
+    justify-content: space-around;
+    border: solid var(--azul-suave) 2px;
 }
+
+.div-item {
+    width: 100%;
+    position: relative;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    /* border: solid var(--azul-suave) 2px; */
+    margin-bottom: 1.5rem;
+}
+
+
+.div-item img {
+    /* border: solid orange 2px; */
+    height: 10rem;
+    padding: 0.5rem;
+}
+
+.div-details {
+    /* border: solid violet 2px; */
+    width: 70%;
+    padding: 1rem;
+}
+
+.div-details input {
+    width: 4rem;
+    height: 1.5rem;
+    text-align: center;
+}
+
+.div-details p {
+    height: 2rem;
+}
+
+.marcaModelo {
+    font-weight: bold;
+    
+}
+
+.div-details span {
+    padding-right: 2rem;
+    padding-top: 2rem;
+    /* height: 4rem; */
+}
+
 
 /******************* MEDIA QUERIES ******************/
 
@@ -239,10 +239,22 @@ main {
         width: 100%;
     }
 
-    .div-items {
-        width: 60%;
+    .div-form {
         padding-left: 2rem;
-        padding-right: 2rem;
+        padding-right: 3rem;
+        width: 60%;
+    }
+
+    .div-form-input input {
+        width: 100%;
+        padding: 1rem;
+        margin: 0.7rem;
+    }
+
+    .div-items {
+        width: 100%;
+        padding-left: 0px;
+        padding-right: 0px;
     }
 
     .div-item {
@@ -266,6 +278,12 @@ main {
 
     .div-columns  {
         flex-direction: column;
+        width: 100%;
+    }
+
+    .div-form {
+        padding-left: 2rem;
+        padding-right: 3rem;
         width: 100%;
     }
 
