@@ -1,52 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GHARI Relojes</title>
-    <link rel="stylesheet" href="/styles/mainstyle.css">
-    <link rel="stylesheet" href="./styles/mainstyle.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/styles/mainstyle.css" />
+    <link rel="stylesheet" href="./styles/mainstyle.css" />
+  </head>
+  <body>
     <nav id="navbar">
-        <div id="logonav">
-            <a href="./index.html"><img src="./img/ghari-logo-h-1.svg" alt="Logo Ghari Relojes"></a>
+      <div id="logonav">
+        <a href="./index.html"
+          ><img src="./img/ghari-logo-h-1.svg" alt="Logo Ghari Relojes"
+        /></a>
+      </div>
+      <div id="menunav">
+        <ul>
+          <li id="menu-mujer"><a href="#">Mujer</a></li>
+          <li id="menu-hombre"><a href="#">Hombre</a></li>
+          <li id="menu-unisex"><a href="#">Unisex</a></li>
+          <li id="menu-marcas"><a href="#">Marcas</a></li>
+          <li id="menu-catalogo"><a href="catalogo.html">Catálogo</a></li>
+        </ul>
+      </div>
+      <div id="timenav">
+        <p id="fecha">Jueves, 09 de enero de 2025</p>
+        <p id="hora">12:00</p>
+      </div>
+      <div id="funcionesnav">
+        <div id="idiomanav">
+          <ul>
+            <li id="espanol"><a href="#">ES</a></li>
+            <li id="english"><a href="#">EN</a></li>
+            <li id="euskara"><a href="#">EUS</a></li>
+          </ul>
         </div>
-        <div id="menunav">
-            <ul>
-                <li id="menu-mujer"><a href="#">Mujer</a></li>
-                <li id="menu-hombre"><a href="#">Hombre</a></li>
-                <li id="menu-unisex"><a href="#">Unisex</a></li>
-                <li id="menu-marcas"><a href="#">Marcas</a></li>
-                <li id="menu-catalogo"><a href="catalogo.html">Catálogo</a></li>
-            </ul>
+        <div id="clientesnav">
+          <ul>
+            <li id="icono-cesta">
+              <a href="#"
+                ><img src="./img/bolsa-de-la-compra.png" alt="Cesta"
+              /></a>
+            </li>
+            <li id="icono-clientes">
+              <a href="#"
+                ><img src="./img/usuario.png" alt="Área clientes"
+              /></a>
+            </li>
+          </ul>
         </div>
-        <div id="timenav">
-            <p id="fecha">Jueves, 09 de enero de 2025</p>
-            <p id="hora">12:00</p>
-
-        </div>
-        <div id="funcionesnav">
-            <div id="idiomanav">
-                <ul>
-                    <li id="espanol"><a href="#">ES</a></li>
-                    <li id="english"><a href="#">EN</a></li>
-                    <li id="euskara"><a href="#">EUS</a></li>
-                </ul>
-
-            </div>
-            <div id="clientesnav">
-                <ul>
-                    <li id="icono-cesta"><a href="#"><img src="./img/bolsa-de-la-compra.png" alt="Cesta"></a></li>
-                    <li id="icono-clientes"><a href="#"><img src="./img/usuario.png" alt="Área clientes"></a></li>
-                </ul>
-            </div>
-        </div>
-
+      </div>
     </nav>
-    <main>
-
-    </main>
+    <main></main>
     <footer class="footer">
         <!---  LOGO FOOTER   --->
         <div id="div-footer-logo">
@@ -96,22 +101,35 @@
     <script>
       // Actualizar la fecha y la hora
       function F5time() {
-      const fechaElemento = document.getElementById("fecha");
-      const horaElemento = document.getElementById("hora");
+        const fechaElemento = document.getElementById("fecha");
+        const horaElemento = document.getElementById("hora");
 
-      // Fecha y la hora actuales en variable
-      const ahora = new Date();
+        // Fecha y la hora actuales en variable
+        const ahora = new Date();
 
-      // Formatear la fecha dia, fecha, mes, año
-      const opcionesFecha = { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' };
-      const fechaFormateada = ahora.toLocaleDateString('es-ES', opcionesFecha);
+        // Formatear la fecha dia, fecha, mes, año
+        const opcionesFecha = {
+          weekday: "long",
+          day: "2-digit",
+          month: "long",
+          year: "numeric",
+        };
+        const fechaFormateada = ahora.toLocaleDateString(
+          "es-ES",
+          opcionesFecha
+        );
 
-      // Formatear la hora con segundos (Ej: 12:00:45)
-      const horaFormateada = ahora.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        // Formatear la hora con segundos (Ej: 12:00:45)
+        const horaFormateada = ahora.toLocaleTimeString("es-ES", {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        });
 
-      // Actualizar el contenido de los elementos
-      fechaElemento.textContent = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
-      horaElemento.textContent = horaFormateada;
+        // Actualizar el contenido de los elementos
+        fechaElemento.textContent =
+          fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
+        horaElemento.textContent = horaFormateada;
       }
 
       // Llamar a la función al cargar la página
@@ -166,5 +184,5 @@
 
 
     </script>
-</body>
+  </body>
 </html>
