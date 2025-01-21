@@ -1,9 +1,13 @@
-let cantidad = 1;
+
+
+
+// MOISÉS ********************************************************
 
 const cantidadElemento = document.getElementById("cantidad");
 const botonAumentar = document.getElementById("aumentar");
 const botonDisminuir = document.getElementById("disminuir");
 
+let cantidad = 1;
 botonAumentar.addEventListener("click", () => {
   cantidad++;
   actualizarcantidad();
@@ -19,6 +23,10 @@ botonDisminuir.addEventListener("click", () => {
 function actualizarcantidad() {
   cantidadElemento.textContent = cantidad;
 }
+
+
+// *********************************
+
 
 //for add to cart
 // document.addEventListener("DOMContentLoaded", () => {
@@ -100,12 +108,24 @@ anadirCarrito.addEventListener("click", () => {
   anadido(ref, cantidadAnadida);
 });
 
+
+// crea y guarda el producto seleccionado y su cantidad a localStorage
 const anadido = (ref, cantidadAnadida) => {
   let item = {
     ref: ref,
     cantidad: cantidadAnadida,
   }
-  console.log(item);
-  // anadirCesta(item);
+  
+  let productoSeleccionado = JSON.parse(localStorage.getItem('producto')) || [];
+
+  productoSeleccionado.push(item);
+
+  localStorage.setItem('producto', JSON.stringify(productoSeleccionado));
 }
+
+
+// *************************************
+// CARGA DINAMICA DE ELEMENTOS EN LA PÁGINA
+
+
 
