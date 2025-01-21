@@ -47,11 +47,12 @@ function loadWatches() {
 
 // Función para manejar los cambios en los filtros
 function updateFilters() {
-    seleccionCategoria = getSelectedValues('categoria');
-    seleccionMarca = getSelectedValues('marca');
     seleccionPrecio = getSelectedValues('precio');
+    seleccionGenero = getSelectedValues('genero'); 
+    seleccionTamano = getSelectedValues('tamano'); 
+    seleccionMarca = getSelectedValues('marca');
     seleccionMaterial = getSelectedValues('material');
-    seleccionGenero = getSelectedValues('genero');  
+    seleccionTipo = getSelectedValues('tipo');    
     filterWatches();
 }
 
@@ -64,8 +65,8 @@ function getSelectedValues(filterType) {
 /// Función para filtrar los relojes según los filtros seleccionados
 function filterWatches() {
     console.log("Filtrando relojes...");  // Log de inicio de filtrado
-    const filteredWatches = watches.filter(watch => {
-        const categoryMatch = seleccionCategoria.length === 0 || seleccionCategoria.includes(watch.categoria.toLowerCase());
+    const filtrado = watches.filter(watch => {
+        const categoryMatch = seleccionTipo.length === 0 || seleccionTipo.includes(watch.categoria.toLowerCase());
         const brandMatch = seleccionMarca.length === 0 || seleccionMarca.includes(watch.marca.toLowerCase());
         const priceMatch = seleccionPrecio.length === 0 || seleccionPrecio.some(range => {
             const [min, max] = range.split('-').map(Number);
@@ -76,11 +77,11 @@ function filterWatches() {
         return categoryMatch && brandMatch && priceMatch && materialMatch && genderMatch;
     });
 
-    console.log(filteredWatches);  // Agregamos un log para ver los relojes filtrados
+    console.log(filtrado);  // Agregamos un log para ver los relojes filtrados
     // Mostrar los relojes filtrados
     const watchList = document.getElementById('watchList');
     watchList.innerHTML = '';
-    filteredWatches.forEach(watch => {
+    filtrado.forEach(watch => {
         const watchItem = document.createElement('div');
         watchItem.classList.add('watch-item');
         watchItem.innerHTML = `

@@ -4,7 +4,13 @@ body {
 }
 
 h2 {
+    height: 5rem;
+    background-color: rgb(248, 33, 33);
     text-align: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Estilo para listas desplegables */
@@ -23,15 +29,17 @@ summary {
     display: flex;
     justify-content: flex-start;
     padding: 3rem;
-    margin-left: 3.5rem;
+    margin-left: 2.4rem;
     background-color: #fff;
 }
 
 /* Estilos para filtros */
 .filters {
+    border: 1px solid #1f1e1e;
     position: sticky;
     top: 1.2rem;
     width: 15%;
+    height: 100%;
     padding: 0.8rem;
     box-shadow: 0 0 10px rgba(196, 181, 181, 0.1);
     margin-right: 1rem;
@@ -80,7 +88,7 @@ summary {
     color: #555;
 }
 
-.name {
+.name {color: red;
     font-size: 0.8rem;
     font-weight: bold;
     text-align: justify;
@@ -111,8 +119,7 @@ summary {
     height: 100%;
 }
 
-.watch-link:hover {
-    background-color: #dfd2d2;
+.watch-link:hover {    
     cursor: pointer;
     transform: scale(1.01);
 }
