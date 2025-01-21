@@ -50,32 +50,6 @@
     </div>
     <div class="div-columns">
         <div class="div-items">
-            <div class="div-item">
-                <img class="btn-cierre" src="img/equis.png" alt="Botón cierre">
-                <div class="div-image">
-                    <img src="img/ejemplo.avif" alt="">
-                </div>
-                <div class="div-details">
-                    <p class="marcaModelo">MARCA Y MODELO</p>
-                    <p>MATERIAL, TAMAÑO</p>
-                    <p id="precio">500 €</p>
-                    <span>Cantidad</span> <input type="number" min="1">
-                </div>
-
-            </div>
-            <div class="div-item">
-                <img class="btn-cierre" src="img/equis.png" alt="Botón cierre">
-                <div class="div-image">
-                    <img src="img/ejemplo.avif" alt="">
-                </div>
-                <div class="div-details">
-                    <p class="marcaModelo">MARCA Y MODELO</p>
-                    <p>MATERIAL, TAMAÑO</p>
-                    <p id="precio">600 €</p>
-                    <span>Cantidad</span> <input type="number" min="1">
-                </div>
-
-            </div>
 
         </div>
         <div class="div-cart">
@@ -160,54 +134,62 @@
         </footer>
 
    <script>
+
+document.addEventListener('DOMContentLoaded', function() {
     let idiomaActual = 'es-ES'; 
-    function F5time(idioma = 'es-ES') {
-    const fechaElemento = document.getElementById("fecha");
-    const horaElemento = document.getElementById("hora");
+    let producto = localStorage.getItem("producto");
+    let productoJSON = JSON.parse(producto);
 
-    const ahora = new Date();
-    const opcionesFecha = { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' };
-    const fechaFormateada = ahora.toLocaleDateString(idioma, opcionesFecha);
-    const horaFormateada = ahora.toLocaleTimeString(idioma, { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    // CARGAR RELOJES
+    function cargarCatalogo(idioma) {
+        let archivoCatalogo = `json/catalogo-${idioma}.json`;
+        let divItems = document.querySelector('.div-items');
+        divItems.innerHTML = '';
 
-    fechaElemento.textContent = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
-    horaElemento.textContent = horaFormateada;
-}
+        // CARGAR RELOJES DE CATALOGO SELECCIONADO
+        fetch(archivoCatalogo)
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                if (productoJSON) {
+                    productoJSON.forEach(function(product) {
+                        let productoEncontrado = data.find(function(p) {
+                            return p.ref === product.ref;
+                        });
 
-    // F5time(idiomaActual); 
-    //       // Actualizar la fecha y la hora
-    //       function F5time(idioma) {
-    //     idioma = idioma || 'es-ES';
-    //   const fechaElemento = document.getElementById("fecha");
-    //   const horaElemento = document.getElementById("hora");
+                        if (productoEncontrado) {
+                            anadirCarrito(productoEncontrado, product.cantidad);
+                        }
+                    });
+                } 
+            })
+    }
 
-    //   // Fecha y la hora actuales en variable
-    //   const ahora = new Date();
+    // INYECTAR DIV PRODUCTO A HTML
+    function anadirCarrito(producto, cantidad) {
+        let divItems = document.querySelector('.div-items');
+        let productoHTML = `
+            <div class="div-item">
+                <p class="btn-cierre">x</p>
+                <div class="div-image">
+                    <img src="${producto['img-1']}" alt="${producto.modelo}">
+                </div>
+                <div class="div-details">
+                    <p class="marcaModelo">${producto.marca} - ${producto.modelo}</p>
+                    <p>${producto.tamano} mm, ${producto.material}</p>
+                    <p id="precio">${producto.precio} €</p>
+                    <span>Cantidad</span>
+                    <input type="number" min="1" value="${cantidad}" max="${producto.stock}">
+                </div>
+            </div>
+        `;
+        divItems.innerHTML += productoHTML;
+        actualizarResumen();
+    }
 
-    //   // Formatear la fecha dia, fecha, mes, año
-    //   const opcionesFecha = { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' };
-    //   const fechaFormateada = ahora.toLocaleDateString(idioma, opcionesFecha);
-
-    //   // Formatear la hora con segundos (Ej: 12:00:45)
-    //   const horaFormateada = ahora.toLocaleTimeString(idioma, { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-
-    //   // Actualizar el contenido de los elementos
-    //   fechaElemento.textContent = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
-    //   horaElemento.textContent = horaFormateada;
-    //   }
-
-    //   // Llamar a la función al cargar la página
-    //   F5time(idioma);
-
-
-      // Actualizar la hora cada segundo
-    //   setInterval(F5time, 1000);
-    setInterval(function() {
-    F5time(idioma);
-}, 1000);
-      
-    // BORRADO DE DIV-ITEM
-    document.querySelector(".div-items").addEventListener("click", function(event) {
+        // BORRADO DE DIV-ITEM
+        document.querySelector(".div-items").addEventListener("click", function(borrarItem) {
             if (event.target.closest(".btn-cierre")) {
                 const divItem = event.target.closest(".div-item");
                 divItem.remove();
@@ -215,165 +197,77 @@
             }
         });
 
-        
-    //CAMBIAR IDIOMA Y DATOS RELOJES
-
-    function cambiarIdioma(idioma) {
-    let archivoIdioma = "json/" + idioma + ".json";
-    let archivoCatalogo = "json/catalogo-" + idioma + ".json"; 
-
-    // CAMBIAR IDIOMA DE TEXTOS
-    fetch(archivoIdioma)
-        .then(function (respuesta) {
-            return respuesta.json();
-        })
-        .then(function (data) {
-            for (let key in data) {
-                let elemento = document.getElementById(key);
-                if (elemento) {
-                    elemento.textContent = data[key];
-                }
+    // FUNCIÓN PARA ACTUALIZAR RESUMEN DE TABLA
+    function actualizarResumen() {
+        let items = document.querySelectorAll('.div-item');
+        let total = 0;
+        items.forEach(function(item) {
+            let precio = parseFloat(item.querySelector('#precio').textContent.replace('€', '').trim());
+            let cantidadInput = item.querySelector('.div-details input[type="number"]');
+            let cantidad = parseInt(cantidadInput.value);
+            if (cantidad > 0) {
+                total += precio * cantidad;
             }
         });
 
-    // CARGAR CATALOGO DE IDIOMA SELECCIONADO
-    fetch(archivoCatalogo)
-        .then(function(response) {
-            return response.json(); 
-        })
-        .then(function(data) {
-            let productoEncontrado = data.find(function(producto) {
-                return producto.ref === "R0004";  
-            });
+        let iva = total * 0.21;
+        let gastosEnvio = 5.70;
+        let totalGastos = total + gastosEnvio;
 
-            if (productoEncontrado) {
-                const divItems = document.querySelector('.div-items');
+        let filas = document.querySelectorAll('.div-cart-price tr');
+        filas[0].querySelector('.td-monto span').textContent = `${total.toFixed(2)} €`;
+        filas[1].querySelector('.td-monto span').textContent = `${iva.toFixed(2)} €`;
+        filas[2].querySelector('.td-monto span').textContent = `${gastosEnvio.toFixed(2)} €`;
+        filas[3].querySelector('.td-monto span').textContent = `${totalGastos.toFixed(2)} €`;
+    }
 
-                let productoHTML = `
-                    <div class="div-item">
-                        <p class="btn-cierre">x</p>
-                        <div class="div-image">
-                            <img src="${productoEncontrado['img-1']}" alt="${productoEncontrado.modelo}">
-                        </div>
-                        <div class="div-details">
-                            <p class="marcaModelo">${productoEncontrado.marca} - ${productoEncontrado.modelo}</p>
-                            <p>${productoEncontrado.tamano} mm, ${productoEncontrado.material}</p>
-                            <p id="precio">${productoEncontrado.precio} €</p>
-                            <span>Cantidad</span> <input type="number" min="1" max="${productoEncontrado.stock}">
-                        </div>
-                    </div>
-                `;
-
-                divItems.innerHTML = productoHTML;
-
-            } else {
-                let divItems = document.querySelector('.div-items');
-                divItems.innerHTML = '<p>Producto no encontrado.</p>';
-            }
-        });
-}
-
-  // CAMBIAR A INGLÉS
-  const btnEn = document.getElementById('english');
-
-  btnEn.addEventListener("click", function() {
-    cambiarIdioma("en");
-    F5time("en-GB")
-  })
-
-  // CAMBIAR A EUSKERA
-  const btnEus = document.getElementById('euskara');
-
-  btnEus.addEventListener("click", function() {
-    cambiarIdioma("eus");
-    F5time("eu-EUS");
-  })
-  
-  // CAMBIAR A CASTELLANO
-  const btnEs = document.getElementById('espanol');
-
-  btnEs.addEventListener("click", function() {
-    cambiarIdioma("es");
-    F5time("es-ES")
-  });
-
-    //     fetch('json/catalogo-es.json')
-    //         .then(function(response) {
-    //             return response.json(); 
-    //         })
-    //         .then(function(data) {
-    //             let productoEncontrado = data.find(function(producto) {
-    //                 return producto.ref === "R0004";  
-    //             });
-
-    //             if (productoEncontrado) {
-    //         const divItems = document.querySelector('.div-items');
-
-    //         let productoHTML = `
-    //             <div class="div-item">
-    //                 <p class="btn-cierre">x</p>
-    //                 <div class="div-image">
-    //                     <img src="${productoEncontrado['img-1']}" alt="${productoEncontrado.modelo}">
-    //                 </div>
-    //                 <div class="div-details">
-    //                     <p class="marcaModelo">${productoEncontrado.marca} - ${productoEncontrado.modelo}</p>
-    //                     <p>${productoEncontrado.tamano} mm, ${productoEncontrado.material}</p>
-    //                     <p id="precio">${productoEncontrado.precio} €</p>
-    //                     <span>Cantidad</span> <input type="number" min="1" max="${productoEncontrado.stock}">
-    //                 </div>
-    //             </div>
-    //         `;
-
-    //         divItems.innerHTML = productoHTML;
-
-    //     } else {
-    //         let divItems = document.querySelector('.div-items');
-    //         divItems.innerHTML = '<p>Producto no encontrado.</p>';
-    //     }
-    // });
-
-// TOTAL TABLA
-function actualizarResumen() {
-    let items = document.querySelectorAll('.div-item');
-    let total = 0;
-
-    items.forEach(function(item) {
-    let precio = parseFloat(item.querySelector('#precio').textContent.replace('€', '').trim());
-    let cantidadInput = item.querySelector('.div-details input[type="number"]');
-    let cantidad = parseInt(cantidadInput.value);
-
-
-    if (cantidad > 0) {
-            total += precio * cantidad;
-        }
+    // CAMBIAR A INGLÉS
+    const btnEn = document.getElementById('english');
+    btnEn.addEventListener("click", function() {
+        idiomaActual = 'en'; 
+        cargarCatalogo(idiomaActual);
+        setInterval(function() {
+            F5time("en-GB");
+        }, 1000);
     });
 
+    // CAMBIAR A ESPAÑOL
+    const btnEs = document.getElementById('espanol');
+    btnEs.addEventListener("click", function() {
+        idiomaActual = 'es';  
+        cargarCatalogo(idiomaActual);
+        setInterval(function() {
+            F5time("es-ES");
+        }, 1000);
+    });
 
-    let iva = total * 0.21; 
-    let gastosEnvio = 5.70; 
-    let totalGastos = total + gastosEnvio;
-    
+    // CARGAR CATÁLOGOS EN INICIO
+    cargarCatalogo("es"); 
+    F5time(idiomaActual); 
+    setInterval(function() {
+            F5time("es-ES");
+        }, 1000);
 
-    let filas = document.querySelectorAll('.div-cart-price tr');
+    // FUNCIÍN PARA HORA Y FECHA
+    function F5time(idioma = 'es-ES') {
+        const fechaElemento = document.getElementById("fecha");
+        const horaElemento = document.getElementById("hora");
+        const ahora = new Date();
+        const opcionesFecha = { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' };
+        const fechaFormateada = ahora.toLocaleDateString(idioma, opcionesFecha);
+        const horaFormateada = ahora.toLocaleTimeString(idioma, { hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
-    filas[0].querySelector('.td-monto span').textContent = `${total.toFixed(2)} €`;
-    filas[1].querySelector('.td-monto span').textContent = `${iva.toFixed(2)} €`;       
-    filas[2].querySelector('.td-monto span').textContent = `${gastosEnvio.toFixed(2)} €`; 
-    filas[3].querySelector('.td-monto span').textContent = `${totalGastos.toFixed(2)} €`; 
-}
-
-document.querySelector('.div-items').addEventListener('input', function(event) {
-    if (event.target.type === 'number') {
-        actualizarResumen();
+        fechaElemento.textContent = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
+        horaElemento.textContent = horaFormateada;
     }
+
+    // ACTUALIZAR RESUMEN TABLA AL CAMBIAR INPUT
+    document.querySelector('.div-items').addEventListener('input', function(event) {
+        if (event.target.type === 'number') {
+            actualizarResumen();
+        }
+    });
 });
-
-// CALCULAR TABLA
-document.addEventListener('DOMContentLoaded', actualizarResumen);
-
-
-
-
 
    </script>
 </body>
