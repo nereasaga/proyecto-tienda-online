@@ -25,42 +25,40 @@ summary {
 }
 
 /* Contenedor principal */
-.contenedor {
+.catalogo {
     display: flex;
     justify-content: flex-start;
-    padding: 3rem;
-    margin-left: 2.4rem;
-    background-color: #fff;
+    padding: 1.5rem;
+    margin: 3.5rem;
+    background-color: #f0e7e7;
 }
 
 /* Estilos para filtros */
-.filters {
-    border: 1px solid #1f1e1e;
+.filtro {
     position: sticky;
     top: 1.2rem;
     width: 15%;
-    height: 100%;
     padding: 0.8rem;
     box-shadow: 0 0 10px rgba(196, 181, 181, 0.1);
     margin-right: 1rem;
     display: block;
 }
 
-.filters label {
+.filtro label {
     display: block;
     margin-bottom: 0.5rem;
 }
 
+
 /* Lista de relojes */
-.watch-list {
+.lista-R {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     width: 70%;
 }
 
-.watch-item {
-    background-color: #fff;
+.watch-item {    
     padding: 0.2rem;
     text-align: center;
     display: flex;
@@ -70,13 +68,13 @@ summary {
     overflow: hidden;
 }
 
-.watch-item-header {
+.reloj-titulo{
     font-weight: bold;
     text-align: justify;
     margin-bottom: 0.5rem;
 }
 
-.watch-image {
+.imagen-R    {
     border: 1px solid #080707;
     width: 100%;
     height: auto;
@@ -88,7 +86,7 @@ summary {
     color: #555;
 }
 
-.name {color: red;
+.nombre {
     font-size: 0.8rem;
     font-weight: bold;
     text-align: justify;
@@ -103,7 +101,7 @@ summary {
     margin: 0.5rem 0;
 }
 
-.price {
+.precio {
     font-size: 0.8rem;
     font-weight: bold;
     color: #333;
@@ -111,7 +109,7 @@ summary {
     margin-top: 0.5rem;
 }
 
-.watch-link {
+.link {
     display: block;
     text-decoration: none;
     color: inherit;
@@ -119,12 +117,13 @@ summary {
     height: 100%;
 }
 
-.watch-link:hover {    
+.link:hover {
+    background-color: #dfd2d2;
     cursor: pointer;
     transform: scale(1.01);
 }
 
-.watch-item-footer {
+.reloj-pie {
     text-align: center;
     padding-top: 0.1rem;
 }
