@@ -94,11 +94,11 @@
                 </tr>
                 <tr>
                     <th id="th-envio" class="th-mark"><span>Gastos de envío</span></th>
-                    <td class="td-monto"><span>0 €<</span></td>
+                    <td class="td-monto"><span>0 €</span></td>
                 </tr>
                 <tr>
                     <th id="th-total-2" class="th-mark"><span>Total</span></th>
-                    <td class="td-monto"><span>0 €<</span></td>
+                    <td class="td-monto"><span>0 €</span></td>
                 </tr>
             </table>
 
@@ -160,34 +160,54 @@
         </footer>
 
    <script>
-          // Actualizar la fecha y la hora
-          function F5time() {
-      const fechaElemento = document.getElementById("fecha");
-      const horaElemento = document.getElementById("hora");
+    let idiomaActual = 'es-ES'; 
+    function F5time(idioma = 'es-ES') {
+    const fechaElemento = document.getElementById("fecha");
+    const horaElemento = document.getElementById("hora");
 
-      // Fecha y la hora actuales en variable
-      const ahora = new Date();
+    const ahora = new Date();
+    const opcionesFecha = { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' };
+    const fechaFormateada = ahora.toLocaleDateString(idioma, opcionesFecha);
+    const horaFormateada = ahora.toLocaleTimeString(idioma, { hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
-      // Formatear la fecha dia, fecha, mes, año
-      const opcionesFecha = { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' };
-      const fechaFormateada = ahora.toLocaleDateString('es-ES', opcionesFecha);
+    fechaElemento.textContent = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
+    horaElemento.textContent = horaFormateada;
+}
 
-      // Formatear la hora con segundos (Ej: 12:00:45)
-      const horaFormateada = ahora.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    // F5time(idiomaActual); 
+    //       // Actualizar la fecha y la hora
+    //       function F5time(idioma) {
+    //     idioma = idioma || 'es-ES';
+    //   const fechaElemento = document.getElementById("fecha");
+    //   const horaElemento = document.getElementById("hora");
 
-      // Actualizar el contenido de los elementos
-      fechaElemento.textContent = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
-      horaElemento.textContent = horaFormateada;
-      }
+    //   // Fecha y la hora actuales en variable
+    //   const ahora = new Date();
 
-      // Llamar a la función al cargar la página
-      F5time();
+    //   // Formatear la fecha dia, fecha, mes, año
+    //   const opcionesFecha = { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' };
+    //   const fechaFormateada = ahora.toLocaleDateString(idioma, opcionesFecha);
+
+    //   // Formatear la hora con segundos (Ej: 12:00:45)
+    //   const horaFormateada = ahora.toLocaleTimeString(idioma, { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+    //   // Actualizar el contenido de los elementos
+    //   fechaElemento.textContent = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
+    //   horaElemento.textContent = horaFormateada;
+    //   }
+
+    //   // Llamar a la función al cargar la página
+    //   F5time(idioma);
+
 
       // Actualizar la hora cada segundo
-      setInterval(F5time, 1000);
+    //   setInterval(F5time, 1000);
+    setInterval(function() {
+    F5time(idioma);
+}, 1000);
       
     // BORRADO DE DIV-ITEM
-    document.querySelector(".div-items").addEventListener("click", function(borrarItem) {
+    document.querySelector(".div-items").addEventListener("click", function(event) {
             if (event.target.closest(".btn-cierre")) {
                 const divItem = event.target.closest(".div-item");
                 divItem.remove();
@@ -258,6 +278,7 @@
 
   btnEn.addEventListener("click", function() {
     cambiarIdioma("en");
+    F5time("en-GB")
   })
 
   // CAMBIAR A EUSKERA
@@ -265,6 +286,7 @@
 
   btnEus.addEventListener("click", function() {
     cambiarIdioma("eus");
+    F5time("eu-EUS");
   })
   
   // CAMBIAR A CASTELLANO
@@ -272,6 +294,7 @@
 
   btnEs.addEventListener("click", function() {
     cambiarIdioma("es");
+    F5time("es-ES")
   });
 
     //     fetch('json/catalogo-es.json')
