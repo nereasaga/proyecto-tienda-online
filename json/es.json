@@ -27,6 +27,7 @@
     "th-envio": "Gastos de envío",
     "th-total-2": "Total",
     "span-btn": "COMPRAR",
+    "p-envio": "DATOS DE ENVÍO",
     "ph-nombre": "Nombre",
     "ph-apellidos": "Apellidos",
     "ph-direccion": "Dirección",
@@ -36,9 +37,13 @@
     "ph-pais": "País",
     "ph-tfno": "Teléfono",
     "ph-mail": "Correo electrónico",
+    "p-pago": "FORMA DE PAGO",
     "ph-titular": "Titular de la tarjeta",
     "ph-numTarj": "Número de tarjeta",
     "ph-cad": "Fecha de caducidad",
     "ph-cvc": "CVC",
-    "span-btn-2": "PROCEDER AL PAGO"
+    "span-btn-2": "PROCEDER AL PAGO",
+    "p-resumen-2": "RESUMEN DEL PEDIDO",
+    "th-gastos": "Gastos de envío",
+    "sp-total": "Total"
   }

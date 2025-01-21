@@ -69,10 +69,10 @@
                     <p id="p-pago">FORMA DE PAGO</p>
                 </div>
                 <div class="div-form-input">
-                    <input type="text" placeholder="Titular de la tarjeta">
-                    <input type="text" placeholder="Número de tarjeta">
-                    <input type="month" placeholder="Fecha de caducidad">
-                    <input type="text" placeholder="CVC" pattern="[0-9]+ ">
+                    <input id="ph-titular" type="text" placeholder="Titular de la tarjeta">
+                    <input id="ph-numTarj" type="text" placeholder="Número de tarjeta">
+                    <input id="ph-cad" type="month" placeholder="Fecha de caducidad">
+                    <input id="ph-cvc" type="text" placeholder="CVC" pattern="[0-9]+ ">
                 </div>
                 <div class="div-cart-btn-2">
                     <button type="submit"><span id="span-btn-2">PROCEDER AL PAGO</span></button>
@@ -81,7 +81,7 @@
             </div>
             <div class="div-cart">
                 <div class="div-cart-title">
-                    <p>RESUMEN DEL PEDIDO</p>
+                    <p id="p-resumen-2">RESUMEN DEL PEDIDO</p>
                 </div>
                 <div class="div-items">
                     <div class="div-item">
@@ -91,14 +91,14 @@
                 <div class="div-cart-price">
                     <table>
                         <tr>
-                            <th class="th-mark"><span>Gastos de envío</span></th>
-                            <td class="td-monto">0 €</td>
+                            <th id="th-gastos" class="th-mark"><span>Gastos de envío</span></th>
+                            <td class="td-monto"><span>0 €</span></td>
                         </tr>
                         <tr>
                             <th class="th-mark">
-                                <span>Total</span>
+                                <span id="sp-total" >Total</span>
                             </th>
-                            <td class="td-monto">0 €</td>
+                            <td class="td-monto"><span>0 €</span></td>
                         </tr>
                     </table>
                 </div>
@@ -197,16 +197,21 @@
         .then(function (respuesta) {
             return respuesta.json();
         })
+
+
+
         .then(function (data) {
-            for (let key in data) {
-                let elemento = document.getElementById(key);
-                if (elemento) {
-                    if (elemento.hasAttribute('placeholder')) {
-                        elemento.setAttribute('placeholder', data[key]);
-                    } 
-                }
+    for (let key in data) {
+        let elemento = document.getElementById(key);
+        if (elemento) {
+            if (elemento.hasAttribute('placeholder')) {
+                elemento.setAttribute('placeholder', data[key]);
+            } else {
+                elemento.textContent = data[key];
             }
-        });
+        }
+    }
+});
 
     // CARGAR CATALOGO DE IDIOMA SELECCIONADO
     fetch(archivoCatalogo)
@@ -223,7 +228,6 @@
 
                 let productoHTML = `
                     <div class="div-item">
-                        <p class="btn-cierre">x</p>
                         <div class="div-image">
                             <img src="${productoEncontrado['img-1']}" alt="${productoEncontrado.modelo}">
                         </div>
@@ -237,6 +241,7 @@
                 `;
 
                 divItems.innerHTML = productoHTML;
+                actualizarResumen();
 
             } else {
                 let divItems = document.querySelector('.div-items');
@@ -287,20 +292,23 @@ function actualizarResumen() {
     });
 
 
-    let iva = total * 0.21; 
     let gastosEnvio = 5.70; 
     let totalGastos = total + gastosEnvio;
     
 
     let filas = document.querySelectorAll('.div-cart-price tr');
      
-    filas[2].querySelector('.td-monto span').textContent = `${gastosEnvio.toFixed(2)} €`; 
-    filas[3].querySelector('.td-monto span').textContent = `${totalGastos.toFixed(2)} €`; 
+    filas[0].querySelector('.td-monto span').textContent = `${gastosEnvio.toFixed(2)} €`; 
+    filas[1].querySelector('.td-monto span').textContent = `${totalGastos.toFixed(2)} €`; 
 };
 
 
 // CALCULAR TABLA
 document.addEventListener('DOMContentLoaded', actualizarResumen);
+
+document.querySelectorAll('.div-details input[type="number"]').forEach(input => {
+    input.addEventListener('change', actualizarResumen);
+});
 
 
    </script>

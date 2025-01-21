@@ -27,6 +27,7 @@
   "th-envio": "Shipping Costs",
   "th-total-2": "Total",
   "span-btn": "BUY",
+  "p-envio": "SHIPPING DETAILS",
   "ph-nombre": "First Name",
   "ph-apellidos": "Last Name",
   "ph-direccion": "Address",
@@ -36,9 +37,13 @@
   "ph-pais": "Country",
   "ph-tfno": "Phone",
   "ph-mail": "Email",
+  "p-pago": "PAYMENT METHOD",
   "ph-titular": "Cardholder",
   "ph-numTarj": "Card Number",
   "ph-cad": "Expiry Date",
   "ph-cvc": "CVC",
-  "span-btn-2": "PROCEED TO PAYMENT"
+  "span-btn-2": "PROCEED TO PAYMENT",
+  "p-resumen-2": "ORDER SUMMARY",
+  "th-gastos": "Shipping Costs",
+  "sp-total": "Total"
 }
