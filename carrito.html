@@ -166,6 +166,28 @@ document.addEventListener('DOMContentLoaded', function() {
             })
     }
 
+    //CAMBIAR IDIOMA Y DATOS RELOJES
+
+   function cambiarIdioma(idioma) {
+    let archivoIdioma = "json/" + idioma + ".json";
+    let archivoCatalogo = "json/catalogo-" + idioma + ".json"; 
+
+    // CAMBIAR IDIOMA DE TEXTOS
+    fetch(archivoIdioma)
+        .then(function (respuesta) {
+            return respuesta.json();
+        })
+
+        .then(function (data) {
+    for (let key in data) {
+        let elemento = document.getElementById(key);
+        if (elemento) {
+                elemento.textContent = data[key];
+            }
+        }
+    });
+};
+
     // INYECTAR DIV PRODUCTO A HTML
     function anadirCarrito(producto, cantidad) {
         let divItems = document.querySelector('.div-items');
@@ -189,13 +211,25 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
         // BORRADO DE DIV-ITEM
-        document.querySelector(".div-items").addEventListener("click", function(borrarItem) {
+        document.querySelector(".div-items").addEventListener("click", function(event) {
             if (event.target.closest(".btn-cierre")) {
-                const divItem = event.target.closest(".div-item");
-                divItem.remove();
-                actualizarResumen();
-            }
+        const divItem = event.target.closest(".div-item");
+        const marcaModelo = divItem.querySelector(".marcaModelo").textContent.trim();
+
+        // BORRADO DE LS
+        let productoJSON = JSON.parse(localStorage.getItem("producto")) || [];
+        productoJSON = productoJSON.filter(function(producto) {
+            return !(producto.marca + " - " + producto.modelo === marcaModelo);
         });
+
+        // ACTUALIZAR LS
+        localStorage.setItem("producto", JSON.stringify(productoJSON));
+        
+        divItem.remove();
+        actualizarResumen();
+    }
+});
+
 
     // FUNCIÓN PARA ACTUALIZAR RESUMEN DE TABLA
     function actualizarResumen() {
@@ -224,8 +258,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // CAMBIAR A INGLÉS
     const btnEn = document.getElementById('english');
     btnEn.addEventListener("click", function() {
-        idiomaActual = 'en'; 
-        cargarCatalogo(idiomaActual);
+        cambiarIdioma("en");
+        idiomaActual = "en-GB";
+        cargarCatalogo("en");
         setInterval(function() {
             F5time("en-GB");
         }, 1000);
@@ -234,18 +269,30 @@ document.addEventListener('DOMContentLoaded', function() {
     // CAMBIAR A ESPAÑOL
     const btnEs = document.getElementById('espanol');
     btnEs.addEventListener("click", function() {
-        idiomaActual = 'es';  
-        cargarCatalogo(idiomaActual);
+        cambiarIdioma("es");
+        idiomaActual = "es-ES";  
+        cargarCatalogo("es");
         setInterval(function() {
             F5time("es-ES");
         }, 1000);
     });
 
-    // CARGAR CATÁLOGOS EN INICIO
+    // CAMBIAR A EUSKERA
+    const btnEus = document.getElementById('euskara');
+    btnEus.addEventListener("click", function() {
+        cambiarIdioma("eus");
+        idiomaActual = "eus";  
+        cargarCatalogo("eus");
+        setInterval(function() {
+            F5time("eu-EUS");
+        }, 1000);
+    });
+
+    // CARGAR CATÁLOGOS EN INICIO Y ACTUALIZAR HORA Y FECHA
     cargarCatalogo("es"); 
     F5time(idiomaActual); 
     setInterval(function() {
-            F5time("es-ES");
+            F5time(idiomaActual);
         }, 1000);
 
     // FUNCIÍN PARA HORA Y FECHA
