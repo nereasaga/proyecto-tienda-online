@@ -53,8 +53,7 @@
     height: 80px;
     object-fit: cover;
     cursor: pointer;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border: 0.2rem solid var(--lila-claro);
     transition: transform 0.2s;
 }
 
