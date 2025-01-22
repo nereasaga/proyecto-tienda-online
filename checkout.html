@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GHARI - Mi cesta</title>
+    <title>GHARI - Checkout</title>
     <link rel="stylesheet" href="/styles/mainstyle.css">
     <link rel="stylesheet" href="/styles/checkout.css">
 </head>
 <body>
     <nav id="navbar">
         <div id="logonav">
-            <img src="./img/ghari-logo-h-1.svg" alt="Logo Ghari Relojes">
+            <a href="./index.html"><img src="./img/ghari-logo-h-1.svg" alt="Logo Ghari Relojes"></a>
         </div>
         <div id="menunav">
             <ul>
@@ -37,8 +37,8 @@
             </div>
             <div id="clientesnav">
                 <ul>
-                    <li id="icono-cesta"><img src="./img/bolsa-de-la-compra.png" alt="Cesta"></li>
-                    <li id="icono-clientes"><img src="./img/usuario.png" alt="Área clientes"></li>
+                    <li id="icono-cesta"><a href="#"><img src="./img/bolsa-de-la-compra.png" alt="Cesta"></a></li>
+                    <li id="icono-clientes"><a href="#"><img src="./img/usuario.png" alt="Área clientes"></a></li>
                 </ul>
             </div>
         </div>
@@ -46,43 +46,42 @@
     </nav>
 <main>
     <div class="div-title">
-        <p id="p-guia"><a href="index.html">Inicio </a><a href="carrito.html">/ Mi cesta</a>/ Checkout</p>
         <h1>Checkout </h1>
     </div>
     <div class="div-columns">
         <div class="div-form">
             <form action="">
                 <div class="div-form-title">
-                    <p>DATOS DE ENVÍO</p>
+                    <p id="p-envio">DATOS DE ENVÍO</p>
                 </div>
                 <div class="div-form-input">
-                    <input type="text" placeholder="Nombre">
-                    <input type="text" placeholder="Apellidos">
-                    <input type="text" placeholder="Dirección">
-                    <input type="number" placeholder="Código postal">
-                    <input type="text" placeholder="Ciudad">
-                    <input type="text" placeholder="Provincia">
-                    <input type="text" placeholder="País">
-                    <input type="text" placeholder="Teléfono">
-                    <input type="email" placeholder="Correo electrónico">
+                    <input id="ph-nombre" type="text" placeholder="Nombre">
+                    <input id="ph-apellidos" type="text" placeholder="Apellidos">
+                    <input id="ph-direccion" type="text" placeholder="Dirección">
+                    <input id="ph-ciudad" type="text" placeholder="Ciudad">
+                    <input id="ph-CP" type="number" placeholder="Código postal">
+                    <input id="ph-provincia"  type="text" placeholder="Provincia">
+                    <input id="ph-pais"  type="text" placeholder="País">
+                    <input id="ph-tfno"  type="text" placeholder="Teléfono">
+                    <input id="ph-mail"  type="email" placeholder="Correo electrónico">
                 </div>
                 <div class="div-form-title">
-                    <p>FORMA DE PAGO</p>
+                    <p id="p-pago">FORMA DE PAGO</p>
                 </div>
                 <div class="div-form-input">
-                    <input type="text" placeholder="Titular de la tarjeta">
-                    <input type="text" placeholder="Número de tarjeta">
-                    <input type="month" placeholder="Fecha de caducidad">
-                    <input type="text" placeholder="CVC" pattern="[0-9]+ ">
+                    <input id="ph-titular" type="text" placeholder="Titular de la tarjeta">
+                    <input id="ph-numTarj" type="text" placeholder="Número de tarjeta">
+                    <input id="ph-cad" type="month" placeholder="Fecha de caducidad">
+                    <input id="ph-cvc" type="text" placeholder="CVC" pattern="[0-9]+ ">
                 </div>
                 <div class="div-cart-btn-2">
-                    <button type="submit"><span id="span-btn">PROCEDER AL PAGO</span></button>
+                    <button type="submit"><span id="span-btn-2">PROCEDER AL PAGO</span></button>
                 </div>
             </form>
             </div>
             <div class="div-cart">
                 <div class="div-cart-title">
-                    <p>RESUMEN DEL PEDIDO</p>
+                    <p id="p-resumen-2">RESUMEN DEL PEDIDO</p>
                 </div>
                 <div class="div-items">
                     <div class="div-item">
@@ -92,14 +91,14 @@
                 <div class="div-cart-price">
                     <table>
                         <tr>
-                            <th class="th-mark"><span>Gastos de envío</span></th>
-                            <td class="td-monto">0 €</td>
+                            <th id="th-gastos" class="th-mark"><span>Gastos de envío</span></th>
+                            <td class="td-monto"><span>0 €</span></td>
                         </tr>
                         <tr>
                             <th class="th-mark">
-                                <span>Total</span>
+                                <span id="sp-total" >Total</span>
                             </th>
-                            <td class="td-monto">0 €</td>
+                            <td class="td-monto"><span>0 €</span></td>
                         </tr>
                     </table>
                 </div>
@@ -123,10 +122,10 @@
           <div id="div-footer-columna-1" class="div-footer-columna">
             <h3 id="footer-h3-1" class="titulo-footer">Atención al cliente</h3>
             <ul>
-              <li>Lunes a Viernes de 9 a 18h</li>
-              <li><a href="#">Whatsapp</a></li>
-              <li><a href="#">Envíanos un e-mail</a></li>
-              <li><a href="#">¿Necesitas ayuda?</a></li>
+              <li id="footer-ul-1-li-1">Lunes a Viernes de 9 a 18h</li>
+              <li id="footer-ul-1-li-2"><a href="#">Whatsapp</a></li>
+              <li id="footer-ul-1-li-3"><a href="#">Envíanos un e-mail</a></li>
+              <li id="footer-ul-1-li-4"><a href="#">¿Necesitas ayuda?</a></li>
             </ul>
       
           </div>
@@ -134,9 +133,9 @@
           <div id="div-footer-columna-2" class="div-footer-columna">
             <h3 id="footer-h3-2" class="titulo-footer">Sobre nosotros</h3>
             <ul>
-              <li><a href="#">Conoce Ghari</a></li>
-              <li><a href="#">Relojes de alta calidad</a></li>
-              <li><a href="#">Regalos de empresa</a></li>
+              <li id="footer-ul-2-li-1"><a href="#">Conoce Ghari</a></li>
+              <li id="footer-ul-2-li-2"><a href="#">Relojes de alta calidad</a></li>
+              <li id="footer-ul-2-li-3"><a href="#">Regalos de empresa</a></li>
             </ul>
       
           </div>
@@ -144,17 +143,17 @@
           <div id="div-footer-columna-3" class="div-footer-columna">
             <h3 id="footer-h3-3" class="titulo-footer">Información</h3>
             <ul>
-              <li><a href="#">Condiciones de uso</a></li>
-              <li><a href="#">Cambios y devoluciones</a></li>
-              <li><a href="#">Cuida tu reloj</a></li>
-              <li><a href="#">Pago seguro</a></li>
-              <li><a href="#">Guía de tallas</a></li>
+              <li id="footer-ul-3-li-1"><a href="#">Condiciones de uso</a></li>
+              <li id="footer-ul-3-li-2"><a href="#">Cambios y devoluciones</a></li>
+              <li id="footer-ul-3-li-3"><a href="#">Cuida tu reloj</a></li>
+              <li id="footer-ul-3-li-4"><a href="#">Pago seguro</a></li>
+              <li id="footer-ul-3-li-5"><a href="#">Guía de tallas</a></li>
             </ul>
       
           </div>
         </div>
         <div class="copyright">
-            <p>Copyright GHARI RELOJES. Todos los derechos reservados.</p>
+            <p id="p-copy">Copyright GHARI RELOJES. Todos los derechos reservados.</p>
 
         </div>
         </footer>
@@ -187,41 +186,94 @@
       setInterval(F5time, 1000);
 
         
-    //CARGAR DATOS DE RELOJES
+   //CAMBIAR IDIOMA Y DATOS RELOJES
 
-        fetch('json/catalogo-es.json')
-            .then(function(response) {
-                return response.json(); 
-            })
-            .then(function(data) {
-                let productoEncontrado = data.find(function(producto) {
-                    return producto.ref === "R0004";  
-                });
+   function cambiarIdioma(idioma) {
+    let archivoIdioma = "json/" + idioma + ".json";
+    let archivoCatalogo = "json/catalogo-" + idioma + ".json"; 
 
-                if (productoEncontrado) {
-            const divItems = document.querySelector('.div-items');
+    // CAMBIAR IDIOMA DE TEXTOS
+    fetch(archivoIdioma)
+        .then(function (respuesta) {
+            return respuesta.json();
+        })
 
-            let productoHTML = `
-                <div class="div-item">
-                    <div class="div-image">
-                        <img src="${productoEncontrado['img-1']}" alt="${productoEncontrado.modelo}">
-                    </div>
-                    <div class="div-details">
-                        <p class="marcaModelo">${productoEncontrado.marca} - ${productoEncontrado.modelo}</p>
-                        <p>${productoEncontrado.tamano} mm, ${productoEncontrado.material}</p>
-                        <p id="precio">${productoEncontrado.precio} €</p>
-                       
-                    </div>
-                </div>
-            `;
 
-            divItems.innerHTML = productoHTML;
 
-        } else {
-            let divItems = document.querySelector('.div-items');
-            divItems.innerHTML = '<p>Producto no encontrado.</p>';
+        .then(function (data) {
+    for (let key in data) {
+        let elemento = document.getElementById(key);
+        if (elemento) {
+            if (elemento.hasAttribute('placeholder')) {
+                elemento.setAttribute('placeholder', data[key]);
+            } else {
+                elemento.textContent = data[key];
+            }
         }
-    });
+    }
+});
+
+    // CARGAR CATALOGO DE IDIOMA SELECCIONADO
+    fetch(archivoCatalogo)
+        .then(function(response) {
+            return response.json(); 
+        })
+        .then(function(data) {
+            let productoEncontrado = data.find(function(producto) {
+                return producto.ref === "R0004";  
+            });
+
+            if (productoEncontrado) {
+                const divItems = document.querySelector('.div-items');
+
+                let productoHTML = `
+                    <div class="div-item">
+                        <div class="div-image">
+                            <img src="${productoEncontrado['img-1']}" alt="${productoEncontrado.modelo}">
+                        </div>
+                        <div class="div-details">
+                            <p class="marcaModelo">${productoEncontrado.marca} - ${productoEncontrado.modelo}</p>
+                            <p>${productoEncontrado.tamano} mm, ${productoEncontrado.material}</p>
+                            <p id="precio">${productoEncontrado.precio} €</p>
+                            <span>Cantidad</span> <input type="number" min="1" max="${productoEncontrado.stock}">
+                        </div>
+                    </div>
+                `;
+
+                divItems.innerHTML = productoHTML;
+                actualizarResumen();
+
+            } else {
+                let divItems = document.querySelector('.div-items');
+                divItems.innerHTML = '<p>Producto no encontrado.</p>';
+            }
+
+            
+        });
+}
+
+  // CAMBIAR A INGLÉS
+  const btnEn = document.getElementById('english');
+
+  btnEn.addEventListener("click", function() {
+    cambiarIdioma("en");
+  })
+
+  // CAMBIAR A EUSKERA
+  const btnEus = document.getElementById('euskara');
+
+  btnEus.addEventListener("click", function() {
+    cambiarIdioma("eus");
+  })
+  
+  // CAMBIAR A CASTELLANO
+  const btnEs = document.getElementById('espanol');
+
+  btnEs.addEventListener("click", function() {
+    cambiarIdioma("es");
+  });
+
+
 
 // TOTAL TABLA
 function actualizarResumen() {
@@ -240,20 +292,25 @@ function actualizarResumen() {
     });
 
 
-    let iva = total * 0.21; 
     let gastosEnvio = 5.70; 
     let totalGastos = total + gastosEnvio;
     
 
     let filas = document.querySelectorAll('.div-cart-price tr');
      
-    filas[2].querySelector('.td-monto span').textContent = `${gastosEnvio.toFixed(2)} €`; 
-    filas[3].querySelector('.td-monto span').textContent = `${totalGastos.toFixed(2)} €`; 
+    filas[0].querySelector('.td-monto span').textContent = `${gastosEnvio.toFixed(2)} €`; 
+    filas[1].querySelector('.td-monto span').textContent = `${totalGastos.toFixed(2)} €`; 
 };
 
 
 // CALCULAR TABLA
 document.addEventListener('DOMContentLoaded', actualizarResumen);
+
+document.querySelectorAll('.div-details input[type="number"]').forEach(input => {
+    input.addEventListener('change', actualizarResumen);
+});
+
+
    </script>
 </body>
 </html>

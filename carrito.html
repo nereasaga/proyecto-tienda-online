@@ -10,7 +10,7 @@
 <body>
     <nav id="navbar">
         <div id="logonav">
-            <img src="./img/ghari-logo-h-1.svg" alt="Logo Ghari Relojes">
+            <a href="./index.html"><img src="./img/ghari-logo-h-1.svg" alt="Logo Ghari Relojes"></a>
         </div>
         <div id="menunav">
             <ul>
@@ -37,8 +37,8 @@
             </div>
             <div id="clientesnav">
                 <ul>
-                    <li id="icono-cesta"><img src="./img/bolsa-de-la-compra.png" alt="Cesta"></li>
-                    <li id="icono-clientes"><img src="./img/usuario.png" alt="Área clientes"></li>
+                    <li id="icono-cesta"><a href="carrito.html"><img src="./img/bolsa-de-la-compra.png" alt="Cesta"></a></li>
+                    <li id="icono-clientes"><a href="cliente.html"><img src="./img/usuario.png" alt="Área clientes"></a></li>
                 </ul>
             </div>
         </div>
@@ -46,60 +46,33 @@
     </nav>
 <main>
     <div class="div-title">
-        <p id="p-guia"><a href="index.html">Inicio </a>/ Mi cesta</p>
-        <h1>Mi cesta </h1>
+        <h1 id="h1-cesta">Mi cesta </h1>
     </div>
     <div class="div-columns">
         <div class="div-items">
-            <div class="div-item">
-                <img class="btn-cierre" src="img/equis.png" alt="Botón cierre">
-                <div class="div-image">
-                    <img src="img/ejemplo.avif" alt="">
-                </div>
-                <div class="div-details">
-                    <p class="marcaModelo">MARCA Y MODELO</p>
-                    <p>MATERIAL, TAMAÑO</p>
-                    <p id="precio">500 €</p>
-                    <span>Cantidad</span> <input type="number" min="1">
-                </div>
-
-            </div>
-            <div class="div-item">
-                <img class="btn-cierre" src="img/equis.png" alt="Botón cierre">
-                <div class="div-image">
-                    <img src="img/ejemplo.avif" alt="">
-                </div>
-                <div class="div-details">
-                    <p class="marcaModelo">MARCA Y MODELO</p>
-                    <p>MATERIAL, TAMAÑO</p>
-                    <p id="precio">600 €</p>
-                    <span>Cantidad</span> <input type="number" min="1">
-                </div>
-
-            </div>
 
         </div>
         <div class="div-cart">
             <div class="div-cart-title">
-                <p>RESUMEN DEL PEDIDO</p>
+                <p id="p-resumen">RESUMEN DEL PEDIDO</p>
             </div>
             <div class="div-cart-price">
                 <table>
                 <tr>
-                    <th class="th-mark"><span>Total</span></th>
+                    <th id="th-total" class="th-mark"><span>Total</span></th>
                     <td class="td-monto"><span>0 €</span></td>
                 </tr>
                 <tr>
-                    <th class="th-mark"><span>IVA 21%</span></th>
+                    <th id="th-iva" class="th-mark"><span>IVA 21%</span></th>
                     <td class="td-monto"><span>0 €<</span></td>
                 </tr>
                 <tr>
-                    <th class="th-mark"><span>Gastos de envío</span></th>
-                    <td class="td-monto"><span>0 €<</span></td>
+                    <th id="th-envio" class="th-mark"><span>Gastos de envío</span></th>
+                    <td class="td-monto"><span>0 €</span></td>
                 </tr>
                 <tr>
-                    <th class="th-mark"><span>Total</span></th>
-                    <td class="td-monto"><span>0 €<</span></td>
+                    <th id="th-total-2" class="th-mark"><span>Total</span></th>
+                    <td class="td-monto"><span>0 €</span></td>
                 </tr>
             </table>
 
@@ -124,10 +97,10 @@
           <div id="div-footer-columna-1" class="div-footer-columna">
             <h3 id="footer-h3-1" class="titulo-footer">Atención al cliente</h3>
             <ul>
-              <li>Lunes a Viernes de 9 a 18h</li>
-              <li><a href="#">Whatsapp</a></li>
-              <li><a href="#">Envíanos un e-mail</a></li>
-              <li><a href="#">¿Necesitas ayuda?</a></li>
+              <li id="footer-ul-1-li-1">Lunes a Viernes de 9 a 18h</li>
+              <li id="footer-ul-1-li-2"><a href="#">Whatsapp</a></li>
+              <li id="footer-ul-1-li-3"><a href="#">Envíanos un e-mail</a></li>
+              <li id="footer-ul-1-li-4"><a href="#">¿Necesitas ayuda?</a></li>
             </ul>
       
           </div>
@@ -135,9 +108,9 @@
           <div id="div-footer-columna-2" class="div-footer-columna">
             <h3 id="footer-h3-2" class="titulo-footer">Sobre nosotros</h3>
             <ul>
-              <li><a href="#">Conoce Ghari</a></li>
-              <li><a href="#">Relojes de alta calidad</a></li>
-              <li><a href="#">Regalos de empresa</a></li>
+              <li id="footer-ul-2-li-1"><a href="#">Conoce Ghari</a></li>
+              <li id="footer-ul-2-li-2"><a href="#">Relojes de alta calidad</a></li>
+              <li id="footer-ul-2-li-3"><a href="#">Regalos de empresa</a></li>
             </ul>
       
           </div>
@@ -145,133 +118,204 @@
           <div id="div-footer-columna-3" class="div-footer-columna">
             <h3 id="footer-h3-3" class="titulo-footer">Información</h3>
             <ul>
-              <li><a href="#">Condiciones de uso</a></li>
-              <li><a href="#">Cambios y devoluciones</a></li>
-              <li><a href="#">Cuida tu reloj</a></li>
-              <li><a href="#">Pago seguro</a></li>
-              <li><a href="#">Guía de tallas</a></li>
+              <li id="footer-ul-3-li-1"><a href="#">Condiciones de uso</a></li>
+              <li id="footer-ul-3-li-2"><a href="#">Cambios y devoluciones</a></li>
+              <li id="footer-ul-3-li-3"><a href="#">Cuida tu reloj</a></li>
+              <li id="footer-ul-3-li-4"><a href="#">Pago seguro</a></li>
+              <li id="footer-ul-3-li-5"><a href="#">Guía de tallas</a></li>
             </ul>
       
           </div>
         </div>
         <div class="copyright">
-            <p>Copyright GHARI RELOJES. Todos los derechos reservados.</p>
+            <p id="p-copy">Copyright GHARI RELOJES. Todos los derechos reservados.</p>
 
         </div>
         </footer>
 
    <script>
-          // Actualizar la fecha y la hora
-          function F5time() {
-      const fechaElemento = document.getElementById("fecha");
-      const horaElemento = document.getElementById("hora");
 
-      // Fecha y la hora actuales en variable
-      const ahora = new Date();
+document.addEventListener('DOMContentLoaded', function() {
+    let idiomaActual = 'es-ES'; 
+    let producto = localStorage.getItem("producto");
+    let productoJSON = JSON.parse(producto);
 
-      // Formatear la fecha dia, fecha, mes, año
-      const opcionesFecha = { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' };
-      const fechaFormateada = ahora.toLocaleDateString('es-ES', opcionesFecha);
+    // CARGAR RELOJES
+    function cargarCatalogo(idioma) {
+        let archivoCatalogo = `json/catalogo-${idioma}.json`;
+        let divItems = document.querySelector('.div-items');
+        divItems.innerHTML = '';
 
-      // Formatear la hora con segundos (Ej: 12:00:45)
-      const horaFormateada = ahora.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-
-      // Actualizar el contenido de los elementos
-      fechaElemento.textContent = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
-      horaElemento.textContent = horaFormateada;
-      }
-
-      // Llamar a la función al cargar la página
-      F5time();
-
-      // Actualizar la hora cada segundo
-      setInterval(F5time, 1000);
-      
-    // BORRADO DE DIV-ITEM
-    document.querySelector(".div-items").addEventListener("click", function(borrarItem) {
-            if (event.target.closest(".btn-cierre")) {
-                const divItem = event.target.closest(".div-item");
-                divItem.remove();
-                actualizarResumen();
-            }
-        });
-
-        
-    //CARGAR DATOS DE RELOJES
-
-        fetch('json/catalogo-es.json')
+        // CARGAR RELOJES DE CATALOGO SELECCIONADO
+        fetch(archivoCatalogo)
             .then(function(response) {
-                return response.json(); 
+                return response.json();
             })
             .then(function(data) {
-                let productoEncontrado = data.find(function(producto) {
-                    return producto.ref === "R0004";  
-                });
+                if (productoJSON) {
+                    productoJSON.forEach(function(product) {
+                        let productoEncontrado = data.find(function(p) {
+                            return p.ref === product.ref;
+                        });
 
-                if (productoEncontrado) {
-            const divItems = document.querySelector('.div-items');
+                        if (productoEncontrado) {
+                            anadirCarrito(productoEncontrado, product.cantidad);
+                        }
+                    });
+                } 
+            })
+    }
 
-            let productoHTML = `
-                <div class="div-item">
-                    <p class="btn-cierre">x</p>
-                    <div class="div-image">
-                        <img src="${productoEncontrado['img-1']}" alt="${productoEncontrado.modelo}">
-                    </div>
-                    <div class="div-details">
-                        <p class="marcaModelo">${productoEncontrado.marca} - ${productoEncontrado.modelo}</p>
-                        <p>${productoEncontrado.tamano} mm, ${productoEncontrado.material}</p>
-                        <p id="precio">${productoEncontrado.precio} €</p>
-                        <span>Cantidad</span> <input type="number" min="1" max="${productoEncontrado.stock}">
-                    </div>
+    //CAMBIAR IDIOMA Y DATOS RELOJES
+
+   function cambiarIdioma(idioma) {
+    let archivoIdioma = "json/" + idioma + ".json";
+    let archivoCatalogo = "json/catalogo-" + idioma + ".json"; 
+
+    // CAMBIAR IDIOMA DE TEXTOS
+    fetch(archivoIdioma)
+        .then(function (respuesta) {
+            return respuesta.json();
+        })
+
+        .then(function (data) {
+    for (let key in data) {
+        let elemento = document.getElementById(key);
+        if (elemento) {
+                elemento.textContent = data[key];
+            }
+        }
+    });
+};
+
+    // INYECTAR DIV PRODUCTO A HTML
+    function anadirCarrito(producto, cantidad) {
+        let divItems = document.querySelector('.div-items');
+        let productoHTML = `
+            <div class="div-item">
+                <p class="btn-cierre">x</p>
+                <div class="div-image">
+                    <img src="${producto['img-1']}" alt="${producto.modelo}">
                 </div>
-            `;
+                <div class="div-details">
+                    <p class="marcaModelo">${producto.marca} - ${producto.modelo}</p>
+                    <p>${producto.tamano} mm, ${producto.material}</p>
+                    <p id="precio">${producto.precio} €</p>
+                    <span>Cantidad</span>
+                    <input type="number" min="1" value="${cantidad}" max="${producto.stock}">
+                </div>
+            </div>
+        `;
+        divItems.innerHTML += productoHTML;
+        actualizarResumen();
+    }
 
-            divItems.innerHTML = productoHTML;
+        // BORRADO DE DIV-ITEM
+        document.querySelector(".div-items").addEventListener("click", function(event) {
+            if (event.target.closest(".btn-cierre")) {
+        const divItem = event.target.closest(".div-item");
+        const marcaModelo = divItem.querySelector(".marcaModelo").textContent.trim();
 
-        } else {
-            let divItems = document.querySelector('.div-items');
-            divItems.innerHTML = '<p>Producto no encontrado.</p>';
-        }
-    });
+        // BORRADO DE LS
+        let productoJSON = JSON.parse(localStorage.getItem("producto")) || [];
+        productoJSON = productoJSON.filter(function(producto) {
+            return !(producto.marca + " - " + producto.modelo === marcaModelo);
+        });
 
-// TOTAL TABLA
-function actualizarResumen() {
-    let items = document.querySelectorAll('.div-item');
-    let total = 0;
-
-    items.forEach(function(item) {
-    let precio = parseFloat(item.querySelector('#precio').textContent.replace('€', '').trim());
-    let cantidadInput = item.querySelector('.div-details input[type="number"]');
-    let cantidad = parseInt(cantidadInput.value);
-
-
-    if (cantidad > 0) {
-            total += precio * cantidad;
-        }
-    });
-
-
-    let iva = total * 0.21; 
-    let gastosEnvio = 5.70; 
-    let totalGastos = total + gastosEnvio;
-    
-
-    let filas = document.querySelectorAll('.div-cart-price tr');
-
-    filas[0].querySelector('.td-monto span').textContent = `${total.toFixed(2)} €`;
-    filas[1].querySelector('.td-monto span').textContent = `${iva.toFixed(2)} €`;       
-    filas[2].querySelector('.td-monto span').textContent = `${gastosEnvio.toFixed(2)} €`; 
-    filas[3].querySelector('.td-monto span').textContent = `${totalGastos.toFixed(2)} €`; 
-}
-
-document.querySelector('.div-items').addEventListener('input', function(event) {
-    if (event.target.type === 'number') {
+        // ACTUALIZAR LS
+        localStorage.setItem("producto", JSON.stringify(productoJSON));
+        
+        divItem.remove();
         actualizarResumen();
     }
 });
 
-// CALCULAR TABLA
-document.addEventListener('DOMContentLoaded', actualizarResumen);
+
+    // FUNCIÓN PARA ACTUALIZAR RESUMEN DE TABLA
+    function actualizarResumen() {
+        let items = document.querySelectorAll('.div-item');
+        let total = 0;
+        items.forEach(function(item) {
+            let precio = parseFloat(item.querySelector('#precio').textContent.replace('€', '').trim());
+            let cantidadInput = item.querySelector('.div-details input[type="number"]');
+            let cantidad = parseInt(cantidadInput.value);
+            if (cantidad > 0) {
+                total += precio * cantidad;
+            }
+        });
+
+        let iva = total * 0.21;
+        let gastosEnvio = 5.70;
+        let totalGastos = total + gastosEnvio;
+
+        let filas = document.querySelectorAll('.div-cart-price tr');
+        filas[0].querySelector('.td-monto span').textContent = `${total.toFixed(2)} €`;
+        filas[1].querySelector('.td-monto span').textContent = `${iva.toFixed(2)} €`;
+        filas[2].querySelector('.td-monto span').textContent = `${gastosEnvio.toFixed(2)} €`;
+        filas[3].querySelector('.td-monto span').textContent = `${totalGastos.toFixed(2)} €`;
+    }
+
+    // CAMBIAR A INGLÉS
+    const btnEn = document.getElementById('english');
+    btnEn.addEventListener("click", function() {
+        cambiarIdioma("en");
+        idiomaActual = "en-GB";
+        cargarCatalogo("en");
+        setInterval(function() {
+            F5time("en-GB");
+        }, 1000);
+    });
+
+    // CAMBIAR A ESPAÑOL
+    const btnEs = document.getElementById('espanol');
+    btnEs.addEventListener("click", function() {
+        cambiarIdioma("es");
+        idiomaActual = "es-ES";  
+        cargarCatalogo("es");
+        setInterval(function() {
+            F5time("es-ES");
+        }, 1000);
+    });
+
+    // CAMBIAR A EUSKERA
+    const btnEus = document.getElementById('euskara');
+    btnEus.addEventListener("click", function() {
+        cambiarIdioma("eus");
+        idiomaActual = "eus";  
+        cargarCatalogo("eus");
+        setInterval(function() {
+            F5time("eu-EUS");
+        }, 1000);
+    });
+
+    // CARGAR CATÁLOGOS EN INICIO Y ACTUALIZAR HORA Y FECHA
+    cargarCatalogo("es"); 
+    F5time(idiomaActual); 
+    setInterval(function() {
+            F5time(idiomaActual);
+        }, 1000);
+
+    // FUNCIÍN PARA HORA Y FECHA
+    function F5time(idioma = 'es-ES') {
+        const fechaElemento = document.getElementById("fecha");
+        const horaElemento = document.getElementById("hora");
+        const ahora = new Date();
+        const opcionesFecha = { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' };
+        const fechaFormateada = ahora.toLocaleDateString(idioma, opcionesFecha);
+        const horaFormateada = ahora.toLocaleTimeString(idioma, { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+        fechaElemento.textContent = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
+        horaElemento.textContent = horaFormateada;
+    }
+
+    // ACTUALIZAR RESUMEN TABLA AL CAMBIAR INPUT
+    document.querySelector('.div-items').addEventListener('input', function(event) {
+        if (event.target.type === 'number') {
+            actualizarResumen();
+        }
+    });
+});
+
    </script>
 </body>
 </html>
