@@ -52,6 +52,7 @@ function actualizarFiltros() {
     seleccionPrecio = obtenerValoresSeleccionados('precio');
     seleccionMaterial = obtenerValoresSeleccionados('material');
     seleccionGenero = obtenerValoresSeleccionados('genero');
+    seleccionTipo = obtenerValoresSeleccionados('tipo');
     
     filtrarRelojes();
 }
@@ -73,7 +74,8 @@ function filtrarRelojes() {
         });
         const materialMatch = seleccionMaterial.length === 0 || seleccionMaterial.includes(reloj.material.toLowerCase());
         const genderMatch = seleccionGenero.length === 0 || seleccionGenero.includes(reloj.genero.toLowerCase());
-        return tamanoMatch && brandMatch && priceMatch && materialMatch && genderMatch;
+        const tipoMatch = seleccionTipo.length === 0 || seleccionTipo.includes(reloj.tipo.toLowerCase());
+        return tamanoMatch && brandMatch && priceMatch && materialMatch && genderMatch && tipoMatch;
     });
 
     const watchList = document.getElementById('reloj-l');
