@@ -1,8 +1,23 @@
-{
-    "menu1": "Women",
-    "menu2": "Men",
-    "menu3": "Unisex",
-    "menu4": "Brands",
-    "menu5": "Catalog",
-    "pCopy": "Copyright (c) 2025. All rights reserved."
-  }
+
+  {
+  "menu-mujer": "Women",
+  "menu-hombre": "Men",
+  "menu-unisex": "Unisex",
+  "menu-marcas": "Brands",
+  "menu-catalogo": "Catalog",
+  "footer-h3-1": "Customer Service",
+  "footer-ul-1-li-1": "Monday to Friday from 9 am to 6 pm",
+  "footer-ul-1-li-3": "Send us an email",
+  "footer-ul-1-li-4": "Need help?",
+  "footer-h3-2": "About Us",
+  "footer-ul-2-li-1": "Get to know Ghari",
+  "footer-ul-2-li-2": "High-quality watches",
+  "footer-ul-2-li-3": "Corporate gifts",
+  "footer-h3-3": "Information",
+  "footer-ul-3-li-1": "Terms of use",
+  "footer-ul-3-li-2": "Exchanges and returns",
+  "footer-ul-3-li-3": "Take care of your watch",
+  "footer-ul-3-li-4": "Secure payment",
+  "footer-ul-3-li-5": "Size guide",
+  "p-copy": "Copyright GHARI WATCHES. All rights reserved."
+}

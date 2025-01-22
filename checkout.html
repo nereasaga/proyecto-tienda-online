@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GHARI - Mi cesta</title>
     <link rel="stylesheet" href="/styles/mainstyle.css">
-    <link rel="stylesheet" href="/styles/carrito.css">
+    <link rel="stylesheet" href="/styles/checkout.css">
 </head>
 <body>
     <nav id="navbar">
@@ -46,67 +46,66 @@
     </nav>
 <main>
     <div class="div-title">
-        <p id="p-guia"><a href="index.html">Inicio </a>/ Mi cesta</p>
-        <h1>Mi cesta </h1>
+        <p id="p-guia"><a href="index.html">Inicio </a><a href="carrito.html">/ Mi cesta</a>/ Checkout</p>
+        <h1>Checkout </h1>
     </div>
     <div class="div-columns">
-        <div class="div-items">
-            <div class="div-item">
-                <img class="btn-cierre" src="img/equis.png" alt="Botón cierre">
-                <div class="div-image">
-                    <img src="img/ejemplo.avif" alt="">
+        <div class="div-form">
+            <form action="">
+                <div class="div-form-title">
+                    <p>DATOS DE ENVÍO</p>
                 </div>
-                <div class="div-details">
-                    <p class="marcaModelo">MARCA Y MODELO</p>
-                    <p>MATERIAL, TAMAÑO</p>
-                    <p id="precio">500 €</p>
-                    <span>Cantidad</span> <input type="number" min="1">
+                <div class="div-form-input">
+                    <input type="text" placeholder="Nombre">
+                    <input type="text" placeholder="Apellidos">
+                    <input type="text" placeholder="Dirección">
+                    <input type="number" placeholder="Código postal">
+                    <input type="text" placeholder="Ciudad">
+                    <input type="text" placeholder="Provincia">
+                    <input type="text" placeholder="País">
+                    <input type="text" placeholder="Teléfono">
+                    <input type="email" placeholder="Correo electrónico">
                 </div>
-
+                <div class="div-form-title">
+                    <p>FORMA DE PAGO</p>
+                </div>
+                <div class="div-form-input">
+                    <input type="text" placeholder="Titular de la tarjeta">
+                    <input type="text" placeholder="Número de tarjeta">
+                    <input type="month" placeholder="Fecha de caducidad">
+                    <input type="text" placeholder="CVC" pattern="[0-9]+ ">
+                </div>
+                <div class="div-cart-btn-2">
+                    <button type="submit"><span id="span-btn">PROCEDER AL PAGO</span></button>
+                </div>
+            </form>
             </div>
-            <div class="div-item">
-                <img class="btn-cierre" src="img/equis.png" alt="Botón cierre">
-                <div class="div-image">
-                    <img src="img/ejemplo.avif" alt="">
+            <div class="div-cart">
+                <div class="div-cart-title">
+                    <p>RESUMEN DEL PEDIDO</p>
                 </div>
-                <div class="div-details">
-                    <p class="marcaModelo">MARCA Y MODELO</p>
-                    <p>MATERIAL, TAMAÑO</p>
-                    <p id="precio">600 €</p>
-                    <span>Cantidad</span> <input type="number" min="1">
+                <div class="div-items">
+                    <div class="div-item">
+
+                    </div>
                 </div>
-
-            </div>
-
+                <div class="div-cart-price">
+                    <table>
+                        <tr>
+                            <th class="th-mark"><span>Gastos de envío</span></th>
+                            <td class="td-monto">0 €</td>
+                        </tr>
+                        <tr>
+                            <th class="th-mark">
+                                <span>Total</span>
+                            </th>
+                            <td class="td-monto">0 €</td>
+                        </tr>
+                    </table>
+                </div>
+                
         </div>
-        <div class="div-cart">
-            <div class="div-cart-title">
-                <p>RESUMEN DEL PEDIDO</p>
-            </div>
-            <div class="div-cart-price">
-                <table>
-                <tr>
-                    <th class="th-mark"><span>Total</span></th>
-                    <td class="td-monto"><span>0 €</span></td>
-                </tr>
-                <tr>
-                    <th class="th-mark"><span>IVA 21%</span></th>
-                    <td class="td-monto"><span>0 €<</span></td>
-                </tr>
-                <tr>
-                    <th class="th-mark"><span>Gastos de envío</span></th>
-                    <td class="td-monto"><span>0 €<</span></td>
-                </tr>
-                <tr>
-                    <th class="th-mark"><span>Total</span></th>
-                    <td class="td-monto"><span>0 €<</span></td>
-                </tr>
-            </table>
 
-            </div>
-            <div class="div-cart-btn">
-                <button type="submit"><span id="span-btn">COMPRAR</span></button>
-            </div>
 
         </div>
 
@@ -186,15 +185,6 @@
 
       // Actualizar la hora cada segundo
       setInterval(F5time, 1000);
-      
-    // BORRADO DE DIV-ITEM
-    document.querySelector(".div-items").addEventListener("click", function(borrarItem) {
-            if (event.target.closest(".btn-cierre")) {
-                const divItem = event.target.closest(".div-item");
-                divItem.remove();
-                actualizarResumen();
-            }
-        });
 
         
     //CARGAR DATOS DE RELOJES
@@ -213,7 +203,6 @@
 
             let productoHTML = `
                 <div class="div-item">
-                    <p class="btn-cierre">x</p>
                     <div class="div-image">
                         <img src="${productoEncontrado['img-1']}" alt="${productoEncontrado.modelo}">
                     </div>
@@ -221,7 +210,7 @@
                         <p class="marcaModelo">${productoEncontrado.marca} - ${productoEncontrado.modelo}</p>
                         <p>${productoEncontrado.tamano} mm, ${productoEncontrado.material}</p>
                         <p id="precio">${productoEncontrado.precio} €</p>
-                        <span>Cantidad</span> <input type="number" min="1" max="${productoEncontrado.stock}">
+                       
                     </div>
                 </div>
             `;
@@ -257,18 +246,11 @@ function actualizarResumen() {
     
 
     let filas = document.querySelectorAll('.div-cart-price tr');
-
-    filas[0].querySelector('.td-monto span').textContent = `${total.toFixed(2)} €`;
-    filas[1].querySelector('.td-monto span').textContent = `${iva.toFixed(2)} €`;       
+     
     filas[2].querySelector('.td-monto span').textContent = `${gastosEnvio.toFixed(2)} €`; 
     filas[3].querySelector('.td-monto span').textContent = `${totalGastos.toFixed(2)} €`; 
-}
+};
 
-document.querySelector('.div-items').addEventListener('input', function(event) {
-    if (event.target.type === 'number') {
-        actualizarResumen();
-    }
-});
 
 // CALCULAR TABLA
 document.addEventListener('DOMContentLoaded', actualizarResumen);
