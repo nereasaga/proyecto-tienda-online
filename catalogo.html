@@ -8,46 +8,9 @@
     <link rel="stylesheet" href="./styles/mainstyle.css">
 </head>
 <body>
-    <nav id="navbar">
-        <div id="logonav">
-            <a href="./index.html"><img src="./img/ghari-logo-h-1.svg" alt="Logo Ghari Relojes"></a>
-        </div>
-        <div id="menunav">
-            <ul>
-                <li id="menu-mujer"><a href="#">Mujer</a></li>
-                <li id="menu-hombre"><a href="#">Hombre</a></li>
-                <li id="menu-unisex"><a href="#">Unisex</a></li>
-                <li id="menu-marcas"><a href="#">Marcas</a></li>
-                <li id="menu-catalogo"><a href="catalogo.html">Catálogo</a></li>
-            </ul>
-        </div>
-        <div id="timenav">
-            <p id="fecha">Jueves, 09 de enero de 2025</p>
-            <p id="hora">12:00</p>
-    
-        </div>
-        <div id="funcionesnav">
-            <div id="idiomanav">
-                <ul>
-                    <li id="espanol"><a href="#">ES</a></li>
-                    <li id="english"><a href="#">EN</a></li>
-                    <li id="euskara"><a href="#">EUS</a></li>
-                </ul>
-    
-            </div>
-            <div id="clientesnav">
-                <ul>
-                    <li id="icono-cesta"><a href="carrito.html"><img src="./img/bolsa-de-la-compra.png" alt="Cesta"></a></li>
-                    <li id="icono-clientes"><a href="#"><img src="./img/usuario.png" alt="Área clientes"></a></li>
-                </ul>
-            </div>
-        </div>
-    
-    </nav>
-
     <h2>Todos los Relojes</h2>
-    <div class="contenedor">
-        <div id="filters" class="filters">
+    <div class="catalogo">
+        <div id="filters" class="filtro">
             <details>
                 <summary>Precio</summary>
                 <div class="desplegable">
@@ -68,13 +31,13 @@
             <details>
                 <summary>Tamaño</summary>
                 <div class="desplegable">
-                    <label><input type="checkbox" name="tamano" value="25mm">25mm</label>
-                    <label><input type="checkbox" name="tamano" value="36mm">36mm</label>
-                    <label><input type="checkbox" name="tamano" value="38mm">38mm</label>
-                    <label><input type="checkbox" name="tamano" value="40mm">40mm</label>
-                    <label><input type="checkbox" name="tamano" value="41mm">41mm</label>
-                    <label><input type="checkbox" name="tamano" value="43mm">43mm</label>
-                    </div>
+                    <label><input type="checkbox" name="tamano" value="25">25mm</label>
+                    <label><input type="checkbox" name="tamano" value="36">36mm</label>
+                    <label><input type="checkbox" name="tamano" value="38">38mm</label>
+                    <label><input type="checkbox" name="tamano" value="40">40mm</label>
+                    <label><input type="checkbox" name="tamano" value="41">41mm</label>
+                    <label><input type="checkbox" name="tamano" value="43">43mm</label>
+                </div>
             </details>
             <details>
                 <summary>Marca</summary>
@@ -121,7 +84,7 @@
             </details>
         </div>
 
-        <div class="watch-list" id="watchList">
+        <div class="lista-R" id="reloj-l">
             <!-- Aquí se cargarán los relojes -->
         </div>
     </div>
