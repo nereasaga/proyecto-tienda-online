@@ -1,99 +1,97 @@
 // Función para cargar los datos desde un archivo JSON
-function loadWatchesFromJSON() {
-    fetch('json/catalogo-es.json')  // Asegúrate de que el archivo esté en la misma carpeta que el HTML o actualiza la ruta
+function cargarRelojesDesdeJSON() {
+    fetch('json/catalogo-es.json') // Asegúrate de que el archivo JSON esté en la misma carpeta
         .then(response => response.json())
         .then(data => {
-            watches = data; // Asignar los datos cargados a la variable watches
-            console.log(watches);  // Agregamos un log para verificar los datos
-            loadWatches();  // Cargar los relojes al iniciar
+            relojes = data; // Asignar los datos cargados a la variable relojes
+            cargarRelojes(); // Cargar los relojes al iniciar
         })
         .catch(error => console.error('Error al cargar los relojes:', error));
 }
 
 // Datos de los relojes (inicialmente vacío, se llenará desde JSON)
-let watches = [];
+let relojes = [];
+
 // Estado de los filtros
-let seleccionCategoria = [];
+let seleccionTamano = [];
 let seleccionMarca = [];
 let seleccionPrecio = [];
 let seleccionMaterial = [];
-let seleccionGenero = [];   
+let seleccionGenero = [];
 
 // Función para cargar los relojes en la página
-function loadWatches() {
-    const watchList = document.getElementById('watchList');
-    watchList.innerHTML = '';   
+function cargarRelojes() {
+    const listareloj = document.getElementById('reloj-l');
+    listareloj.innerHTML = '';
 
-    watches.forEach(watch => {
-        const watchItem = document.createElement('div');
-        watchItem.classList.add('watch-item');
-        watchItem.innerHTML = `
-             <a href="producto.html" onclick="saveProductRef('${watch.ref}')" class="watch-link">
-            <div class="watch-item-header">
-                <p class="marca">${watch.marca}</p>
+    relojes.forEach(reloj => {
+        const elementosR = document.createElement('div');
+        elementosR.classList.add('watch-item');
+        elementosR.innerHTML = `
+             <a href="producto.html" onclick="guardarReferenciaProducto('${reloj.ref}')" class="link">
+            <div class="reloj-titulo">
+                <p class="marca">${reloj.marca}</p>
             </div>
-            <img src="${watch['img-1']}" alt="${watch.modelo}" class="watch-image">
-            <div class="watch-item-footer">
-                <h3 class="name">${watch.modelo}</h3>
-                <p class="tamano">${watch.tamano} mm</p>
-                <p class="material">${watch.material}</p>
-                <p class="price">${watch.precio} €</p>
+            <img src="${reloj['img-1']}" alt="${reloj.modelo}" class="imagen-R">
+            <div class="reloj-pie">
+                <h3 class="nombre">${reloj.modelo}</h3>
+                <p class="tamano">${reloj.tamano} mm</p>
+                <p class="material">${reloj.material}</p>
+                <p class="precio">${reloj.precio} €</p>
             </div>
         </a>
     `;
-        watchList.appendChild(watchItem);
+        listareloj.appendChild(elementosR);
     });
 }
 
 // Función para manejar los cambios en los filtros
-function updateFilters() {
-    seleccionCategoria = getSelectedValues('categoria');
-    seleccionMarca = getSelectedValues('marca');
-    seleccionPrecio = getSelectedValues('precio');
-    seleccionMaterial = getSelectedValues('material');
-    seleccionGenero = getSelectedValues('genero');  
-    filterWatches();
+function actualizarFiltros() { 
+    seleccionTamano = obtenerValoresSeleccionados('tamano');
+    seleccionMarca = obtenerValoresSeleccionados('marca');
+    seleccionPrecio = obtenerValoresSeleccionados('precio');
+    seleccionMaterial = obtenerValoresSeleccionados('material');
+    seleccionGenero = obtenerValoresSeleccionados('genero');
+    
+    filtrarRelojes();
 }
 
 // Función para obtener los valores seleccionados
-function getSelectedValues(filterType) {
+function obtenerValoresSeleccionados(filterType) {
     return Array.from(document.querySelectorAll(`input[name="${filterType}"]:checked`))
                 .map(input => input.value.toLowerCase());
 }
 
-/// Función para filtrar los relojes según los filtros seleccionados
-function filterWatches() {
-    console.log("Filtrando relojes...");  // Log de inicio de filtrado
-    const filteredWatches = watches.filter(watch => {
-        const categoryMatch = seleccionCategoria.length === 0 || seleccionCategoria.includes(watch.categoria.toLowerCase());
-        const brandMatch = seleccionMarca.length === 0 || seleccionMarca.includes(watch.marca.toLowerCase());
+// Función para filtrar los relojes según los filtros seleccionados
+function filtrarRelojes() {
+    const filtroRelojes = relojes.filter(reloj => {
+        const tamanoMatch = seleccionTamano.length === 0 || seleccionTamano.includes(String(reloj.tamano).toLowerCase());
+        const brandMatch = seleccionMarca.length === 0 || seleccionMarca.includes(reloj.marca.toLowerCase());
         const priceMatch = seleccionPrecio.length === 0 || seleccionPrecio.some(range => {
             const [min, max] = range.split('-').map(Number);
-            return watch.precio >= min && (max ? watch.precio <= max : true);
+            return reloj.precio >= min && (max ? reloj.precio <= max : true);
         });
-        const materialMatch = seleccionMaterial.length === 0 || seleccionMaterial.includes(watch.material.toLowerCase());
-        const genderMatch = seleccionGenero.length === 0 || seleccionGenero.includes(watch.genero.toLowerCase()); // Agregamos el filtro por género
-        return categoryMatch && brandMatch && priceMatch && materialMatch && genderMatch;
+        const materialMatch = seleccionMaterial.length === 0 || seleccionMaterial.includes(reloj.material.toLowerCase());
+        const genderMatch = seleccionGenero.length === 0 || seleccionGenero.includes(reloj.genero.toLowerCase());
+        return tamanoMatch && brandMatch && priceMatch && materialMatch && genderMatch;
     });
 
-    console.log(filteredWatches);  // Agregamos un log para ver los relojes filtrados
-    // Mostrar los relojes filtrados
-    const watchList = document.getElementById('watchList');
+    const watchList = document.getElementById('reloj-l');
     watchList.innerHTML = '';
-    filteredWatches.forEach(watch => {
+    filtroRelojes.forEach(reloj => {
         const watchItem = document.createElement('div');
         watchItem.classList.add('watch-item');
         watchItem.innerHTML = `
-               <a href="producto.html" onclick="saveProductRef('${watch.ref}')" class="watch-link">
-            <div class="watch-item-header">
-                <p class="marca">${watch.marca}</p>
+               <a href="producto.html" onclick="guardarReferenciaProducto('${reloj.ref}')" class="link">
+            <div class="reloj-titulo">
+                <p class="marca">${reloj.marca}</p>
             </div>
-            <img src="${watch['img-1']}" alt="${watch.modelo}" class="watch-image">
-            <div class="watch-item-footer">
-                <h3 class="name">${watch.modelo}</h3>
-                <p class="tamano">${watch.tamano} mm</p>
-                <p class="material">${watch.material}</p>
-                <p class="price">${watch.precio} €</p>
+            <img src="${reloj['img-1']}" alt="${reloj.modelo}" class="imagen-R">
+            <div class="reloj-pie">
+                <h3 class="nombre">${reloj.modelo}</h3>
+                <p class="tamano">${reloj.tamano} mm</p>
+                <p class="material">${reloj.material}</p>
+                <p class="precio">${reloj.precio} €</p>
             </div>
         </a>
     `;
@@ -103,23 +101,25 @@ function filterWatches() {
 
 // Evento de actualización de filtros
 document.querySelectorAll('input[type="checkbox"]').forEach(input => {
-    input.addEventListener('change', updateFilters);
+    input.addEventListener('change', actualizarFiltros);
 });
 
-// Función para guardar la referencia del producto seleccionado Conexion con Producto html
-function saveProductRef(ref) {
-    localStorage.setItem('selectedWatchref', ref); // Guardar la referencia en localStorage
+// Función para guardar la referencia del producto seleccionado
+function guardarReferenciaProducto(ref) {
+    localStorage.setItem('selectedWatchref', ref);
 }
 
 // Cargar los relojes al inicio
-window.onload = loadWatchesFromJSON;
+window.onload = cargarRelojesDesdeJSON;
+
 // Función para actualizar el valor del rango de precio
-function updatePrecioValue(range) {
-    document.getElementById('precioValue').textContent = ' €' + range.value;
+function actualizarValorPrecio(rangeInput) {
+    const precioValue = document.getElementById("precioValue");
+    precioValue.textContent = ` ${rangeInput.value},00 €`;
 }
 
-
-// Función para actualizar el valor del rango de precio
-function updatePrecioValue(range) {
-    document.getElementById('precioValue').textContent = ' €' + range.value;
+// Función para lista desplegable
+function actualizarValorPrecio(rangeInput) {
+    const precioValue = document.getElementById("precioValue");
+    precioValue.textContent = ` ${rangeInput.value},00 €`;
 }
