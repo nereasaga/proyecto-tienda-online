@@ -78,7 +78,7 @@
 
             </div>
             <div class="div-cart-btn">
-                <button type="submit"><span id="span-btn">COMPRAR</span></button>
+                <button id="btn-comprar" type="submit"><span id="span-btn">COMPRAR</span></button>
             </div>
 
         </div>
@@ -142,11 +142,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // CARGAR RELOJES
     function cargarCatalogo(idioma) {
-        let archivoCatalogo = `json/catalogo-${idioma}.json`;
+        let archivoCatalogo = "json/catalogo-" + idioma + ".json";
         let divItems = document.querySelector('.div-items');
         divItems.innerHTML = '';
 
-        // CARGAR RELOJES DE CATALOGO SELECCIONADO
+        // CARGAR CATALOGO DE IDIOMA SELECCIONADO
         fetch(archivoCatalogo)
             .then(function(response) {
                 return response.json();
@@ -157,13 +157,12 @@ document.addEventListener('DOMContentLoaded', function() {
                         let productoEncontrado = data.find(function(p) {
                             return p.ref === product.ref;
                         });
-
                         if (productoEncontrado) {
                             anadirCarrito(productoEncontrado, product.cantidad);
                         }
                     });
-                } 
-            })
+                }
+            });
     }
 
     //CAMBIAR IDIOMA Y DATOS RELOJES
@@ -192,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function anadirCarrito(producto, cantidad) {
         let divItems = document.querySelector('.div-items');
         let productoHTML = `
-            <div class="div-item">
+            <div class="div-item" data-ref="${producto.ref}">
                 <p class="btn-cierre">x</p>
                 <div class="div-image">
                     <img src="${producto['img-1']}" alt="${producto.modelo}">
@@ -209,26 +208,43 @@ document.addEventListener('DOMContentLoaded', function() {
         divItems.innerHTML += productoHTML;
         actualizarResumen();
     }
+         // BORRADO DE PRODUCTO EN LOCALSTORAGE Y DOM
+         document.querySelector(".div-items").addEventListener("click", function(event) {
+        if (event.target.classList.contains("btn-cierre")) {
+            let divItem = event.target.closest(".div-item");
+            let ref = divItem.getAttribute("data-ref");
 
-        // BORRADO DE DIV-ITEM
-        document.querySelector(".div-items").addEventListener("click", function(event) {
-            if (event.target.closest(".btn-cierre")) {
-        const divItem = event.target.closest(".div-item");
-        const marcaModelo = divItem.querySelector(".marcaModelo").textContent.trim();
+            let productoJSON = JSON.parse(localStorage.getItem("producto")) || [];
+            productoJSON = productoJSON.filter(function(producto) {
+                return producto.ref !== ref;
+            });
 
-        // BORRADO DE LS
-        let productoJSON = JSON.parse(localStorage.getItem("producto")) || [];
-        productoJSON = productoJSON.filter(function(producto) {
-            return !(producto.marca + " - " + producto.modelo === marcaModelo);
-        });
+            localStorage.setItem("producto", JSON.stringify(productoJSON));
 
-        // ACTUALIZAR LS
-        localStorage.setItem("producto", JSON.stringify(productoJSON));
-        
-        divItem.remove();
-        actualizarResumen();
-    }
-});
+            divItem.remove();
+            actualizarResumen();
+        }
+    });
+
+    // ACTUALIZAR CANTIDAD EN LOCALSTORAGE AL CAMBIAR INPUT
+    document.querySelector('.div-items').addEventListener('input', function(event) {
+        if (event.target.type === 'number') {
+            let divItem = event.target.closest(".div-item");
+            let ref = divItem.getAttribute("data-ref");
+            let nuevaCantidad = parseInt(event.target.value);
+
+            let productoJSON = JSON.parse(localStorage.getItem("producto")) || [];
+            productoJSON = productoJSON.map(function(producto) {
+                if (producto.ref === ref) {
+                    producto.cantidad = nuevaCantidad;
+                }
+                return producto;
+            });
+
+            localStorage.setItem("producto", JSON.stringify(productoJSON));
+            actualizarResumen();
+        }
+    });
 
 
     // FUNCIÓN PARA ACTUALIZAR RESUMEN DE TABLA
@@ -259,6 +275,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnEn = document.getElementById('english');
     btnEn.addEventListener("click", function() {
         cambiarIdioma("en");
+        localStorage.setItem('idiomaSeleccionado', 'en');
+        localStorage.setItem('idiomaSeleccionado2', 'en-GB');
         idiomaActual = "en-GB";
         cargarCatalogo("en");
         setInterval(function() {
@@ -270,6 +288,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnEs = document.getElementById('espanol');
     btnEs.addEventListener("click", function() {
         cambiarIdioma("es");
+        localStorage.setItem('idiomaSeleccionado', 'es');
+        localStorage.setItem('idiomaSeleccionado2', 'es-ES');
         idiomaActual = "es-ES";  
         cargarCatalogo("es");
         setInterval(function() {
@@ -281,10 +301,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnEus = document.getElementById('euskara');
     btnEus.addEventListener("click", function() {
         cambiarIdioma("eus");
-        idiomaActual = "eus";  
+        localStorage.setItem('idiomaSeleccionado', 'eus');
+        localStorage.setItem('idiomaSeleccionado2', 'eus');
+        idiomaActual = "EUS";  
         cargarCatalogo("eus");
         setInterval(function() {
-            F5time("eu-EUS");
+            F5time("EUS");
         }, 1000);
     });
 
@@ -316,6 +338,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// REDIRIGIR A CHECKOUT
+document.getElementById('btn-comprar').addEventListener('click', function() {
+    window.location.href = 'checkout.html';
+});
    </script>
 </body>
 </html>
