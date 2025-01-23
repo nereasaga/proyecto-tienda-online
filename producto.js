@@ -1,238 +1,147 @@
-// MOISÉS ********************************************************
-
-const cantidadElemento = document.getElementById("cantidad");
-const botonAumentar = document.getElementById("aumentar");
-const botonDisminuir = document.getElementById("disminuir");
-
-let cantidad = 1;
-botonAumentar.addEventListener("click", () => {
-  cantidad++;
-  actualizarcantidad();
-});
-
-botonDisminuir.addEventListener("click", () => {
-  if (cantidad > 1) {
-    cantidad--;
-    actualizarcantidad();
-  }
-});
-
-function actualizarcantidad() {
-  cantidadElemento.textContent = cantidad;
-}
-
-// *********************************
-
-//for add to cart
-// document.addEventListener("DOMContentLoaded", () => {
-//   const addToCartButton = document.querySelector(".add-to-cart");
-//   addToCartButton.addEventListener("click", () => {
-//     alert("Lo sentimos, este producto está fuera de stock.");
-//   });
-// });
-
-// for change the images
-// document.addEventListener("DOMContentLoaded", () => {
-//   const mainImage = document.getElementById("mainImage");
-//   const additionalImages = document.querySelectorAll(".additional-images img");
-
-//   additionalImages.forEach((image) => {
-//     image.addEventListener("click", () => {
-//       const tempSrc = mainImage.src;
-//       mainImage.src = image.src;
-//     });
-//   });
-// });
-
-//for zooming the image
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   const mainImage = document.getElementById("mainImage");
-//   const modal = document.getElementById("imageModal");
-//   const fullScreenImage = document.getElementById("fullScreenImage");
-//   const closeModal = document.querySelector(".modal .close");
-
-//   // Function to show modal and set the full screen image
-//   function showModal(imageSrc) {
-//     modal.style.display = "block";
-//     fullScreenImage.src = imageSrc;
-//   }
-
-//   // When the main product image is clicked, show it in full-screen
-//   mainImage.addEventListener("click", () => {
-//     showModal(mainImage.src);
-//   });
-
-//   // Close the modal when the close button is clicked
-//   closeModal.addEventListener("click", () => {
-//     modal.style.display = "none";
-//   });
-
-//   // Close the modal when clicking outside the image (optional)
-//   window.addEventListener("click", (event) => {
-//     if (event.target === modal) {
-//       modal.style.display = "none";
-//     }
-//   });
-// });
-
-// MOISÉS ***************************
-
-
-
-// *************************************
-// CARGA DINAMICA DE ELEMENTOS EN LA PÁGINA
-
+// Evento principal cuando el DOM se carga
 document.addEventListener("DOMContentLoaded", () => {
-  // guarda refdel producto desde localStorage
+  // Obtener el 'ref' del producto seleccionado desde localStorage
   const productRef = localStorage.getItem("selectedWatchref");
 
-  // console.log(typeof productRef);
-
-  // Si no hay ref mostrar un mensaje de error
+  // Mostrar error si no se encuentra el ref
   if (!productRef) {
-    productoCargado.innerHTML =
-      '<h2 class="errorCargaProducto">Error al cargar el producto111</h2>';
+    document.getElementById("main-producto").innerHTML =
+      '<h2 class="errorCargaProducto">Error al cargar el producto</h2>';
     return;
   }
 
-  // Fetch de catálogo de productos desde el JSON
+  // Fetch del catálogo JSON
   fetch("json/catalogo-es.json")
     .then((response) => response.json())
     .then((data) => {
-      relojes = data; // Asignar los datos cargados a la variable relojes
-      
-      cargarReloj(relojes, productRef); // Carga producto al iniciar
-      // console.log(relojes);
+      cargarProducto(data, productRef); // Cargar el producto con el ref
     })
-
     .catch((error) => {
-      console.error("Error:", error);
-      productoCargado.innerHTML =
-        '<h2 class="errorCargaProducto">Error al cargar el producto111</h2>';
+      console.error("Error al cargar el catálogo:", error);
+      document.getElementById("main-producto").innerHTML =
+        '<h2 class="errorCargaProducto">Error al cargar el producto</h2>';
     });
 });
-// Seleccionando el contenedor donde se van a cargar los productos
-const productoCargado = document.getElementById("main-producto");
-// elementos a reemplazar
 
+// Cargar el producto en la página
+function cargarProducto(relojes, productRef) {
+  const producto = relojes.find((item) => item.ref === productRef);
 
-function cargarReloj(relojes, productRef) {
-  relojes.forEach((elemento) => {
-    if (elemento.ref.trim().toLowerCase() === productRef.trim().toLowerCase()) {
-      const refLoad = elemento.ref;
-      const mainImageLoad = elemento["img-1"];
-      const image1Load = elemento["img-1"];
-      const image2Load = elemento["img-2"];
-      const image3Load = elemento["img-3"];
-      const marcaProductoLoad = elemento.marca;
-      const modeloProductoLoad = elemento.modelo;
-      const precioLoad = elemento.precio;
-      const descripcionLoad = elemento.descripcion;
+  if (!producto) {
+    document.getElementById("main-producto").innerHTML =
+      '<h2 class="errorCargaProducto">Producto no encontrado</h2>';
+    return;
+  }
 
-      const productoCargado = document.getElementById('productoCargado');
-      if (productoCargado) {
-        // Inserción del HTML dinámico
-        productoCargado.innerHTML = `
-          <div class="product-container">
-            <div class="product-image">
-              <img id="mainImage" src="${mainImageLoad}" alt="Imagen principal" />
-              <div class="additional-images">
-                <img id="imagen1" src="${image1Load}" alt="Imagen adicional 1" />
-                <img id="imagen2" src="${image2Load}" alt="Imagen adicional 2" />
-                <img id="imagen3" src="${image3Load}" alt="Imagen adicional 3" />
-              </div>
-            </div>
-            <div class="product-details">
-              <h1 id="titulo-producto">${marcaProductoLoad} ${modeloProductoLoad}</h1>
-              <p id="ref" class="ref">Ref: ${refLoad}</p>
-              <p id="precio" class="precio">${precioLoad}$</p>
-              <p>Cantidad:</p>
-              <div id="contador-cantidad">
-                <button class="boton" id="disminuir">-</button>
-                <div id="cantidad">1</div>
-                <button class="boton" id="aumentar">+</button>
-              </div>
-              <br />
-              <button class="add-to-cart">Añadir a la cesta</button>
-              <h2>Descripción</h2>
-              <p id="descripcion-producto" class="descripcion-producto">${descripcionLoad}</p>
-            </div>
-          </div>`;
+  // Construir el HTML dinámicamente
+  document.getElementById("main-producto").innerHTML = `
+    <div class="product-container">
+      <div class="product-image">
+        <img id="mainImage" src="${producto["img-1"]}" alt="Imagen principal" />
+        <div class="additional-images">
+          <img id="imagen1" src="${producto["img-1"]}" alt="Imagen adicional 1" />
+          <img id="imagen2" src="${producto["img-2"] || ""}" alt="Imagen adicional 2" />
+          <img id="imagen3" src="${producto["img-3"] || ""}" alt="Imagen adicional 3" />
+        </div>
+      </div>
+      <div class="product-details">
+        <h1 id="titulo-producto">${producto.marca} ${producto.modelo}</h1>
+        <p id="ref" class="ref">Ref: ${producto.ref}</p>
+        <p id="precio" class="precio">${producto.precio}$</p>
+        <p>Cantidad:</p>
+        <div id="contador-cantidad">
+          <button class="boton" id="disminuir">-</button>
+          <div id="cantidad">1</div>
+          <button class="boton" id="aumentar">+</button>
+        </div>
+        <br />
+        <button class="add-to-cart">Añadir a la cesta</button>
+        <h2>Descripción</h2>
+        <p id="descripcion-producto" class="descripcion-producto">${producto.descripcion}</p>
+      </div>
+    </div>`;
 
-        // *** Funcionalidad para cambiar imágenes ***
-        const mainImage = document.getElementById('mainImage'); // Imagen principal
-        const imagen1 = document.getElementById('imagen1');
-        const imagen2 = document.getElementById('imagen2');
-        const imagen3 = document.getElementById('imagen3');
+  // Inicializar funcionalidades después de cargar el producto
+  funcionesDePagina(producto.ref);
+}
 
-        // Cambiar la imagen principal al hacer clic en las adicionales
-        imagen1.addEventListener('click', () => {
-          mainImage.src = image1Load;
-        });
+// Función para inicializar las funcionalidades de cantidad y carrito
+function funcionesDePagina(productRef) {
+  let cantidad = 1;
 
-        imagen2.addEventListener('click', () => {
-          mainImage.src = image2Load;
-        });
+  // Incrementar cantidad
+  document.getElementById("aumentar").addEventListener("click", () => {
+    cantidad++;
+    document.getElementById("cantidad").textContent = cantidad;
+  });
 
-        imagen3.addEventListener('click', () => {
-          mainImage.src = image3Load;
-        });
-      } else {
-        console.error('El elemento productoCargado no existe en el DOM.');
-      }
+  // Decrementar cantidad
+  document.getElementById("disminuir").addEventListener("click", () => {
+    if (cantidad > 1) {
+      cantidad--;
+      document.getElementById("cantidad").textContent = cantidad;
     }
+  });
+
+  // Definición de la clase ProductoCarrito
+  class ProductoCarrito {
+    constructor(ref, cantidad) {
+      this.ref = ref;
+      this.cantidad = cantidad;
+    }
+  }
+
+
+// Añadir al carrito con modal
+document.querySelector(".add-to-cart").addEventListener("click", () => {
+  // Crear un objeto con el producto y la cantidad
+  const cantidadActual = parseInt(document.getElementById("cantidad").textContent, 10);
+  const productoNuevo = new ProductoCarrito(productRef, cantidadActual);
+
+  // Obtener los productos existentes en el carrito desde localStorage
+  let productosEnCesta = JSON.parse(localStorage.getItem("producto")) || [];
+
+  // Verificar si el producto ya existe en el carrito
+  const productoExistente = productosEnCesta.find((p) => p.ref === productoNuevo.ref);
+
+  if (productoExistente) {
+    productoExistente.cantidad += productoNuevo.cantidad;
+  } else {
+    productosEnCesta.push(productoNuevo);
+  }
+
+  // Guardar el carrito actualizado en localStorage
+  localStorage.setItem("producto", JSON.stringify(productosEnCesta));
+
+  // Mostrar el modal
+  mostrarModal();
+});
+
+// Función para mostrar el modal
+function mostrarModal() {
+  const modal = document.getElementById("modal-carrito");
+  modal.style.display = "flex";
+
+  // Botón "Seguir comprando"
+  document.getElementById("seguir-comprando").addEventListener("click", () => {
+    window.location.href = "catalogo.html"; // Redirige a catalogo.html
+  });
+
+  // Botón "Ir a la cesta"
+  document.getElementById("ir-cesta").addEventListener("click", () => {
+    window.location.href = "carrito.html"; // Redirige a carrito.html
   });
 }
 
 
 
-let cesta = [];
+  // Funcionalidad para cambiar imágenes principales al hacer clic en miniaturas
+  const mainImage = document.getElementById("mainImage");
+  const additionalImages = document.querySelectorAll(".additional-images img");
 
-// selecciono el contenedor del producto
-const contenedorProducto = document.querySelector(".product-container");
-
-const anadirCarrito = contenedorProducto.querySelector(".add-to-cart");
-const refProducto = document.getElementById("ref").innerHTML;
-
-// console.log(refProducto)
-
-// console.log(refProducto.lastIndexOf('R'))
-
-anadirCarrito.addEventListener("click", () => {
-  // corto desde la ultima R hasta el final de la cadena
-  const ref = refProducto.slice(
-    refProducto.lastIndexOf("R"),
-    refProducto.length
-  );
-  const cantidadAnadida = parseInt(
-    document.getElementById("cantidad").innerText
-  );
-
-  anadido(ref, cantidadAnadida);
-});
-
-// crea y guarda el producto seleccionado y su cantidad a localStorage
-const anadido = (ref, cantidadAnadida) => {
-  let item = {
-    ref: ref,
-    cantidad: cantidadAnadida,
-  };
-
-  // Obtener el array de productos desde localStorage o inicializarlo como un array vacío
-  let productoSeleccionado = JSON.parse(localStorage.getItem("producto")) || [];
-
-  // Verifico si ya existe un producto con la misma ref
-  let productoExistente = productoSeleccionado.find(
-    (producto) => producto.ref === ref
-  );
-
-  if (productoExistente) {
-    productoExistente.cantidad += cantidadAnadida;
-  } else {
-    productoSeleccionado.push(item);
-  }
-
-  // Guardar el array actualizado en localStorage
-  localStorage.setItem("producto", JSON.stringify(productoSeleccionado));
-};
+  additionalImages.forEach((image) => {
+    image.addEventListener("click", () => {
+      mainImage.src = image.src;
+    });
+  });
+}

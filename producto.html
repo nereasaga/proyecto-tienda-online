@@ -52,60 +52,13 @@
       </div>
     </nav>
     <!-- ******************************************************************************* -->
+    
     <main id="main-producto">
-      <div class="product-container">
-
-        <div class="product-image">
-          <img
-            id="mainImage"
-            src="img/catalogo/R0001/R0001-1.png"
-            alt="tudor image"
-          />
-
-          <div class="additional-images">
-            <img
-              id="imagen1"
-              src="img/catalogo/R0001/R0001-1.png"
-              alt="main image"
-            />
-            <img
-              id="imagen2"
-              src="img/catalogo/R0001/R0001-2.png"
-              alt="image1"
-            />
-            <img
-              id="imagen3"
-              src="img/catalogo/R0001/R0001-3.png"
-              alt="image2"
-            />
-          </div>
-        </div>
-
-        <div class="product-details">
-          <h1 id="titulo-producto">TUDOR GMT</h1>
-          <p id="ref" class="ref">Ref: R0001</p>
-          <p id="precio" class="precio">4550$</p>
-
-          <p>Cantidad:</p>
-          <div id="contador-cantidad">
-            <button class="boton" id="disminuir">-</button>
-            <div id="cantidad">1</div>
-            <button class="boton" id="aumentar">+</button>
-          </div>
-
-          <br />
-
-          <button class="add-to-cart">Añadir a la cesta</button>
-          <h2>Descripción</h2>
-
-          <p id="descripcion-producto" class="descripcion-producto">
-            El Tudor Black Bay GMT 41 mm es un reloj de lujo que combina el estilo clásico de Tudor con la funcionalidad moderna de un reloj GMT. Su caja de acero5f5c5c inoxidable  de 41 mm alberga un bisel rotatorio de 24 horas bicolor, ideal para viajeros que  necesitan leer dos zonas horarias simultáneamente. Equipado con el movimiento automático  MT5652, este reloj cuenta con una reserva de marcha de 70 horas y una precisión destacable. Su diseño robusto es resistente al agua hasta 200 metros, y presenta una esfera negra con  índices luminosos y la emblemática aguja roja en forma de "snowflake".
-          </p>
-        </div>
-      </div>
-
+      
+    <!-- Aquí se carga el producto dinamicamente -->
   
     </main>
+   
     <!-- ************************************************************************************** -->
     <footer class="footer">
       <!---  LOGO FOOTER   --->
@@ -149,6 +102,17 @@
         <p>Copyright GHARI RELOJES. Todos los derechos reservados.</p>
       </div>
     </footer>
+    
+    <!-- Modal -->
+    <div id="modal-carrito" class="modal">
+      <div class="modal-content">
+        <h2>Producto añadido a la cesta</h2>
+        <div class="modal-buttons">
+          <button id="seguir-comprando" class="add-to-cart">Seguir comprando</button>
+          <button id="ir-cesta" class="add-to-cart">Ir a la cesta</button>
+        </div>
+      </div>
+    </div>
 
     <script src="producto.js"></script>
   </body>
