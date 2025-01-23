@@ -33,6 +33,13 @@
 h1 {
     color: var(--principal);
 }
+#titulo-producto {
+    color: var(--principal);
+}
+#precio {
+    color: var(--oscuro);
+    font-size: 1.5rem;
+}
 
 .errorCargaProducto {
     text-align:center;
@@ -138,6 +145,13 @@ h1 {
     box-sizing: border-box;
 
 }
+#titulo-descripcion {
+    color: var(--oscuro);
+}
+.descripcion-producto {
+    color: var(--oscuro);
+    font-size: 1.2rem;
+}
 .modal {
     display: none; 
     position: fixed;
@@ -159,7 +173,6 @@ h1 {
     text-align: center;
     width: 40rem;
     height: 10rem;
-    border: red solid 2px;
     position: relative;
   }
   

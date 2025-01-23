@@ -2,7 +2,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   let idiomaActual = localStorage.getItem('idiomaSeleccionado') || 'es';
   
-  console.log(idiomaActual);
+  // console.log(idiomaActual);
+
+  
  
   // Obtener el 'ref' del producto seleccionado desde localStorage
   const productRef = localStorage.getItem("selectedWatchref");
@@ -13,9 +15,28 @@ document.addEventListener("DOMContentLoaded", () => {
       '<h2 class="errorCargaProducto">Error al cargar el producto</h2>';
     return;
   }
+  
+  cargaProducto(idiomaActual);
+  
+});
 
-  // Fetch del catálogo JSON
-  fetch("json/catalogo-"+idiomaActual+".json")
+
+// Carga de catalogo según idioma
+function cargaProducto(idiomaActual) {
+     // Obtener el 'ref' del producto seleccionado desde localStorage
+    const productRef = localStorage.getItem("selectedWatchref");
+
+    // Mostrar error si no se encuentra el ref
+    if (!productRef) {
+    document.getElementById("main-producto").innerHTML =
+      '<h2 class="errorCargaProducto">Error al cargar el producto</h2>';
+    return;
+    }
+
+    let catalogoIdioma = 'json/catalogo-' + idiomaActual + '.json';
+    // console.log(catalogoIdioma);
+    // Fetch del catálogo JSON
+    fetch(catalogoIdioma)
     .then((response) => response.json())
     .then((data) => {
       cargarProducto(data, productRef); // Cargar el producto con el ref
@@ -25,9 +46,22 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("main-producto").innerHTML =
         '<h2 class="errorCargaProducto">Error al cargar el producto</h2>';
     });
- 
-  
-});
+}
+
+// cambiar idioma al seleccionar en el nav
+const seleccionarIdioma = document.getElementById("idiomanav");
+seleccionarIdioma.addEventListener('click', (evento) => {
+  if(evento.target.textContent === 'ES') {
+    // console.log('Seleccionado español');
+    cargaProducto('es');
+  } else if (evento.target.textContent === 'EN') {
+    // console.log('Seleccionado ingles');
+    cargaProducto('en');
+  } else {
+    // console.log('Selecci onado euskera');
+    cargaProducto('eus');
+  }
+})
 
 // Cargar el producto en la página
 function cargarProducto(relojes, productRef) {
@@ -51,7 +85,7 @@ function cargarProducto(relojes, productRef) {
         </div>
       </div>
       <div class="product-details">
-        <h1 id="titulo-producto">${producto.marca} ${producto.modelo}</h1>
+        <h1 id="titulo-producto" class="titulo-producto">${producto.marca} ${producto.modelo}</h1>
         <p id="ref" class="ref">Ref: ${producto.ref}</p>
         <p id="precio" class="precio">${producto.precio} €</p>
         <p>Cantidad:</p>
@@ -62,7 +96,7 @@ function cargarProducto(relojes, productRef) {
         </div>
         <br />
         <button class="add-to-cart">Añadir a la cesta</button>
-        <h2>Descripción</h2>
+        <h2 id="titulo-descripcion">Descripción</h2>
         <p id="descripcion-producto" class="descripcion-producto">${producto.descripcion}</p>
       </div>
     </div>`;
@@ -156,44 +190,46 @@ function mostrarModal() {
   });
 }
 
+
+
 // CAMBIAR A INGLÉS
 const btnEn = document.getElementById('english');
 btnEn.addEventListener("click", function() {
-    cambiarIdioma("en");
+    // cambiarIdioma("en");
     localStorage.setItem('idiomaSeleccionado', 'en');
     localStorage.setItem('idiomaSeleccionado2', 'en-GB');
-    idiomaActual = "en-GB";
-    let intervaloHora = setInterval(function() {
-        F5time("en-GB");
-    }, 1000);
-    clearInterval(intervaloHora);
-    intervaloHora();
+    // idiomaActual = "en";
+    // let intervaloHora = setInterval(function() {
+    //     F5time("en-GB");
+    // }, 1000);
+    // clearInterval(intervaloHora);
+    // intervaloHora();
 });
 
 // CAMBIAR A ESPAÑOL
 const btnEs = document.getElementById('espanol');
 btnEs.addEventListener("click", function() {
-    cambiarIdioma("es");
+    // cambiarIdioma("es");
     localStorage.setItem('idiomaSeleccionado', 'es');
     localStorage.setItem('idiomaSeleccionado2', 'es-ES');
-    idiomaActual = "es-ES";  
-    let intervaloHora = setInterval(function() {
-        F5time("es-ES");
-    }, 1000);
-    clearInterval(intervaloHora);
-    intervaloHora();
+    // idiomaActual = "es";  
+    // let intervaloHora = setInterval(function() {
+    //     F5time("es-ES");
+    // }, 1000);
+    // clearInterval(intervaloHora);
+    // intervaloHora();
 });
 
 // CAMBIAR A EUSKERA
 const btnEus = document.getElementById('euskara');
 btnEus.addEventListener("click", function() {
-    cambiarIdioma("eus");
+    // cambiarIdioma("eus");
     localStorage.setItem('idiomaSeleccionado', 'eus');
     localStorage.setItem('idiomaSeleccionado2', 'eus');
-    idiomaActual = "EUS";  
-    let intervaloHora = setInterval(function() {
-        F5time("eus");
-    }, 1000);
-    clearInterval(intervaloHora);
-    intervaloHora();
+    // idiomaActual = "eus";  
+    // let intervaloHora = setInterval(function() {
+    //     F5time("eus");
+    // }, 1000);
+    // clearInterval(intervaloHora);
+    // intervaloHora();
 });
