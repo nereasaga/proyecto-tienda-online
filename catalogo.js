@@ -22,13 +22,13 @@ let seleccionGenero = [];
 // Función para cargar los relojes en la página
 function loadWatches() {
     const watchList = document.getElementById('watchList');
-    watchList.innerHTML = '';
+    watchList.innerHTML = '';   
 
     watches.forEach(watch => {
         const watchItem = document.createElement('div');
         watchItem.classList.add('watch-item');
         watchItem.innerHTML = `
-             <a href="Producto.html" onclick="saveProductRef('${watch.ref}')" class="watch-link">
+             <a href="producto.html" onclick="saveProductRef('${watch.ref}')" class="watch-link">
             <div class="watch-item-header">
                 <p class="marca">${watch.marca}</p>
             </div>
@@ -84,7 +84,7 @@ function filterWatches() {
         const watchItem = document.createElement('div');
         watchItem.classList.add('watch-item');
         watchItem.innerHTML = `
-               <a href="Producto.html" onclick="saveProductRef('${watch.ref}')" class="watch-link">
+               <a href="producto.html" onclick="saveProductRef('${watch.ref}')" class="watch-link">
             <div class="watch-item-header">
                 <p class="marca">${watch.marca}</p>
             </div>

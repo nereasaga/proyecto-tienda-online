@@ -78,3 +78,5 @@ const selectedWatch = data.find(watch =>watch.ref ===buscaref);
 function volverAlCatalogo (){
     window.Location.href = 'catalogo.html?id=${productId}`';
 }
+
+

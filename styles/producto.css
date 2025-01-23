@@ -192,37 +192,30 @@ button{
 /*Media quiery for tablet*/
 @media screen and (max-width:1280px){
    
-  .product-details,
-    .product-image{ align-items: center;
-        
-        
-    }
-    
-    .product-image img{
-        width:80%;
-        
+.product-image img{
+        width:90%;
         height: 80%;
     }
-   
-    
 
-    button{
 
-    font-size: 18px;
-    padding: 8px 16px;
-    }
-
-    .additional-images{
+.additional-images{
         flex-direction: row;
         align-items: center;
     }
-    .additional-images img{
-        width: 50%;
-        height:50%;
-
-        margin-bottom: 10px;
-    } 
-
-   
-
+.additional-images img{
+        width: 40%;
+        height:40%;
+ }
 }
+
+
+
+
+
+
+
+
+
+
+
+    
