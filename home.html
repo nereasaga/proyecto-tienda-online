@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GHARI Relojes</title>
     <link rel="stylesheet" href="/styles/mainstyle.css" />
-    <link rel="stylesheet" href="./styles/mainstyle.css" />
+    <link rel="stylesheet" href="/styles/home.css" />
   </head>
   <body>
     <nav id="navbar">
@@ -51,7 +51,33 @@
         </div>
       </div>
     </nav>
-    <main></main>
+    <main>
+      <div class="slider">
+        <img src="" alt="">
+      </div>
+      <h2>Nuevos relojes</h2>
+      <section class="nuevos-relojes">
+        <div class="div-item">
+          <h3>MARCA</h3>
+          <img src="./img/ejemplo.avif" alt="">
+          <p>MODELO</p>
+          <span>TAMAÑO</span>
+          <span>MATERIAL</span>
+          <p>PRECIO</p>
+        </div>
+        <div class="div-item">
+        </div>
+        <div class="div-item">
+        </div>
+        <div class="div-item">
+        </div>
+      </section>
+      <div class="banners">
+        <img src="./img/banner-1.jpg" alt="">
+        <img src="./img/banner-2.jpg" alt="">
+      </div>
+
+    </main>
     <footer class="footer">
         <!---  LOGO FOOTER   --->
         <div id="div-footer-logo">
@@ -99,88 +125,143 @@
         </div>
         </footer>
     <script>
-      // Actualizar la fecha y la hora
-      function F5time() {
-        const fechaElemento = document.getElementById("fecha");
-        const horaElemento = document.getElementById("hora");
+      document.addEventListener('DOMContentLoaded', function() {
+    let idiomaActual = 'es-ES'; 
+    let producto = localStorage.getItem("producto");
+    let productoJSON = JSON.parse(producto);
 
-        // Fecha y la hora actuales en variable
-        const ahora = new Date();
+    // CARGAR RELOJES
+    function cargarCatalogo(idioma) {
+    let archivoCatalogo = "json/catalogo-" + idioma + ".json";
+    let divNuevosRelojes = document.querySelector('.nuevos-relojes');
+    divNuevosRelojes.innerHTML = '';  
 
-        // Formatear la fecha dia, fecha, mes, año
-        const opcionesFecha = {
-          weekday: "long",
-          day: "2-digit",
-          month: "long",
-          year: "numeric",
-        };
-        const fechaFormateada = ahora.toLocaleDateString(
-          "es-ES",
-          opcionesFecha
-        );
+    // CARGAR CATALOGO DE IDIOMA SELECCIONADO
+    fetch(archivoCatalogo)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            let productosMuestra = data.slice(0, 4);  
 
-        // Formatear la hora con segundos (Ej: 12:00:45)
-        const horaFormateada = ahora.toLocaleTimeString("es-ES", {
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
+            productosMuestra.forEach(function(producto) {
+                anadirNuevos(producto);
+            });
         });
+}
+    //CAMBIAR IDIOMA Y DATOS RELOJES
 
-        // Actualizar el contenido de los elementos
-        fechaElemento.textContent =
-          fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
-        horaElemento.textContent = horaFormateada;
-      }
+   function cambiarIdioma(idioma) {
+    let archivoIdioma = "json/" + idioma + ".json";
+    let archivoCatalogo = "json/catalogo-" + idioma + ".json"; 
 
-      // Llamar a la función al cargar la página
-      F5time();
-
-      // Actualizar la hora cada segundo
-      setInterval(F5time, 1000);
-
-
-      // CAMBIAR IDIOMA
-
-      // FETCH ARCHIVO JSON DE IDIOMA
-     function cambiarIdioma(idioma) {
-     let archivo = "json/" + idioma + ".json";
-
-      fetch(archivo)
+    // CAMBIAR IDIOMA DE TEXTOS
+    fetch(archivoIdioma)
         .then(function (respuesta) {
             return respuesta.json();
         })
+
         .then(function (data) {
-            for (let key in data) {
-                let elemento = document.getElementById(key);
-                if (elemento) {
-                    elemento.textContent = data[key];
-                }
+    for (let key in data) {
+        let elemento = document.getElementById(key);
+        if (elemento) {
+                elemento.textContent = data[key];
             }
-        })
-        
+        }
+    });
+};
+
+    // INYECTAR DIV PRODUCTO A HTML
+    function anadirNuevos(producto) {
+    let divNuevosRelojes = document.querySelector('.nuevos-relojes');
+
+    // CREAR DIV
+    let divItem = document.createElement('div');
+    divItem.classList.add('div-item');
+    divItem.setAttribute('data-ref', producto.ref);
+
+    divItem.innerHTML = `
+        <h3 class="marca">${producto.marca}</h3>
+        <img src="${producto['img-1']}" alt="${producto.modelo}">
+        <p class="modelo">${producto.modelo}</p>
+        <span>${producto.tamano} mm</span>
+        <span>${producto.material}</span>
+        <p id="precio">${producto.precio} €</p>
+    `;
+
+    // GUARDAR REF DE RELOJ SELECCIONADO EN LS
+    divItem.addEventListener("click", function() {
+        localStorage.setItem("selectedWatchref", producto.ref);
+        window.location.href = "producto.html";
+    });
+
+    divNuevosRelojes.appendChild(divItem);
 }
 
-
-  // CAMBIAR A INGLÉS
-  const btnEn = document.getElementById('english');
-
-  btnEn.addEventListener("click", function() {
-    cambiarIdioma("en");
-  })
-
-  // CAMBIAR A EUSKERA
-  const btnEus = document.getElementById('euskara');
-
-  btnEus.addEventListener("click", function() {
-    cambiarIdioma("eus");
-  })
   
-  // CAMBIAR A CASTELLANO
-  const btnEs = document.getElementById('espanol');
 
-  btnEs.addEventListener("click", function() {
-    cambiarIdioma("es");
-  })
+    // CAMBIAR A INGLÉS
+    const btnEn = document.getElementById('english');
+    btnEn.addEventListener("click", function() {
+        cambiarIdioma("en");
+        localStorage.setItem('idiomaSeleccionado', 'en');
+        localStorage.setItem('idiomaSeleccionado2', 'en-GB');
+        idiomaActual = "en-GB";
+        cargarCatalogo("en");
+        setInterval(function() {
+            F5time("en-GB");
+        }, 1000);
+    });
+
+    // CAMBIAR A ESPAÑOL
+    const btnEs = document.getElementById('espanol');
+    btnEs.addEventListener("click", function() {
+        cambiarIdioma("es");
+        localStorage.setItem('idiomaSeleccionado', 'es');
+        localStorage.setItem('idiomaSeleccionado2', 'es-ES');
+        idiomaActual = "es-ES";  
+        cargarCatalogo("es");
+        setInterval(function() {
+            F5time("es-ES");
+        }, 1000);
+    });
+
+    // CAMBIAR A EUSKERA
+    const btnEus = document.getElementById('euskara');
+    btnEus.addEventListener("click", function() {
+        cambiarIdioma("eus");
+        localStorage.setItem('idiomaSeleccionado', 'eus');
+        localStorage.setItem('idiomaSeleccionado2', 'eus');
+        idiomaActual = "EUS";  
+        cargarCatalogo("eus");
+        setInterval(function() {
+            F5time("EUS");
+        }, 1000);
+    });
+
+    // CARGAR CATÁLOGOS EN INICIO Y ACTUALIZAR HORA Y FECHA
+    cargarCatalogo("es"); 
+    F5time(idiomaActual); 
+    setInterval(function() {
+            F5time(idiomaActual);
+        }, 1000);
+
+    // FUNCIÍN PARA HORA Y FECHA
+    function F5time(idioma = 'es-ES') {
+        const fechaElemento = document.getElementById("fecha");
+        const horaElemento = document.getElementById("hora");
+        const ahora = new Date();
+        const opcionesFecha = { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' };
+        const fechaFormateada = ahora.toLocaleDateString(idioma, opcionesFecha);
+        const horaFormateada = ahora.toLocaleTimeString(idioma, { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+        fechaElemento.textContent = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
+        horaElemento.textContent = horaFormateada;
+    }
+
+  
+});
+
 
 
     </script>
