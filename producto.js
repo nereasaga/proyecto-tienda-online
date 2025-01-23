@@ -156,3 +156,44 @@ function mostrarModal() {
   });
 }
 
+// CAMBIAR A INGLÉS
+const btnEn = document.getElementById('english');
+btnEn.addEventListener("click", function() {
+    cambiarIdioma("en");
+    localStorage.setItem('idiomaSeleccionado', 'en');
+    localStorage.setItem('idiomaSeleccionado2', 'en-GB');
+    idiomaActual = "en-GB";
+    let intervaloHora = setInterval(function() {
+        F5time("en-GB");
+    }, 1000);
+    clearInterval(intervaloHora);
+    intervaloHora();
+});
+
+// CAMBIAR A ESPAÑOL
+const btnEs = document.getElementById('espanol');
+btnEs.addEventListener("click", function() {
+    cambiarIdioma("es");
+    localStorage.setItem('idiomaSeleccionado', 'es');
+    localStorage.setItem('idiomaSeleccionado2', 'es-ES');
+    idiomaActual = "es-ES";  
+    let intervaloHora = setInterval(function() {
+        F5time("es-ES");
+    }, 1000);
+    clearInterval(intervaloHora);
+    intervaloHora();
+});
+
+// CAMBIAR A EUSKERA
+const btnEus = document.getElementById('euskara');
+btnEus.addEventListener("click", function() {
+    cambiarIdioma("eus");
+    localStorage.setItem('idiomaSeleccionado', 'eus');
+    localStorage.setItem('idiomaSeleccionado2', 'eus');
+    idiomaActual = "EUS";  
+    let intervaloHora = setInterval(function() {
+        F5time("eus");
+    }, 1000);
+    clearInterval(intervaloHora);
+    intervaloHora();
+});
