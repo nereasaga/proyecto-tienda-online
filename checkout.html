@@ -164,12 +164,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let idiomaSeleccionado = localStorage.getItem('idiomaSeleccionado') || 'es'; 
     let idiomaSeleccionado2 = localStorage.getItem('idiomaSeleccionado2') || 'es-ES';
-    let idiomaActual = idiomaSeleccionado2;
 
-    cambiarIdioma(idiomaSeleccionado);
-    cargarCatalogo(idiomaSeleccionado);
-    F5time(idiomaActual);
+ // CARGAR CATÁLOGOS EN INICIO Y ACTUALIZAR HORA Y FECHA
+    cargarCatalogo(idiomaSeleccionado); 
+    setInterval(function() {
+            F5time(idiomaSeleccionado2);
+        }, 1000);
     divItems.innerHTML = '';
+    actualizarResumen();
 
 
     // CARGAR RELOJES
@@ -240,46 +242,58 @@ document.addEventListener('DOMContentLoaded', function() {
         actualizarResumen();
     }
 
-    // CARGAR CATÁLOGOS EN INICIO Y ACTUALIZAR HORA Y FECHA
-    cargarCatalogo("es"); 
-    F5time(idiomaActual); 
-    setInterval(function() {
-            F5time(idiomaActual);
-        }, 1000);
+
 
     // CAMBIAR A INGLÉS
     const btnEn = document.getElementById('english');
     btnEn.addEventListener("click", function() {
         cambiarIdioma("en");
-        idiomaActual = "en-GB";
+        localStorage.setItem('idiomaSeleccionado', 'en');
+        localStorage.setItem('idiomaSeleccionado2', 'en-GB');
         cargarCatalogo("en");
-        setInterval(function() {
+        let intervaloHora = setInterval(function() {
             F5time("en-GB");
         }, 1000);
+        clearInterval(intervaloHora);
+        intervaloHora();
     });
 
     // CAMBIAR A ESPAÑOL
     const btnEs = document.getElementById('espanol');
     btnEs.addEventListener("click", function() {
         cambiarIdioma("es");
+        localStorage.setItem('idiomaSeleccionado', 'es');
+        localStorage.setItem('idiomaSeleccionado2', 'es-ES');
         idiomaActual = "es-ES";  
         cargarCatalogo("es");
-        setInterval(function() {
+        let intervaloHora = setInterval(function() {
             F5time("es-ES");
         }, 1000);
+        clearInterval(intervaloHora);
+        intervaloHora();
     });
 
     // CAMBIAR A EUSKERA
     const btnEus = document.getElementById('euskara');
     btnEus.addEventListener("click", function() {
         cambiarIdioma("eus");
+        localStorage.setItem('idiomaSeleccionado', 'eus');
+        localStorage.setItem('idiomaSeleccionado2', 'eus');
         idiomaActual = "EUS";  
         cargarCatalogo("eus");
-        setInterval(function() {
-            F5time("EUS");
+        let intervaloHora = setInterval(function() {
+            F5time("eus");
         }, 1000);
+        clearInterval(intervaloHora);
+        intervaloHora();
     });
 
+    // // CARGAR CATÁLOGOS EN INICIO Y ACTUALIZAR HORA Y FECHA
+    // cargarCatalogo("es"); 
+    // F5time(idiomaActual); 
+    // setInterval(function() {
+    //         F5time(idiomaActual);
+    //     }, 1000);
 
     // FUNCIÍN PARA HORA Y FECHA
     function F5time(idioma = 'es-ES') {
@@ -319,10 +333,6 @@ function actualizarResumen() {
     filas[0].querySelector('.td-monto span').textContent = `${gastosEnvio.toFixed(2)} €`; 
     filas[1].querySelector('.td-monto span').textContent = `${totalGastos.toFixed(2)} €`; 
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    actualizarResumen(); 
-});
 
 
 

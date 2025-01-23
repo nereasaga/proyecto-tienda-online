@@ -23,9 +23,13 @@ h2 {
     align-items: center;
 }
 
+.banner-1 img {
+    width: 100%;
+}
+
 .nuevos-relojes {
     width: 85%;
-    border: solid pink 2px;
+    /* border: solid pink 2px; */
     min-height: 35rem;
     display: flex;
     flex-direction: row;
@@ -44,7 +48,7 @@ h2 {
 }
 
 .div-item {
-    border: solid red 2px;
+    /* border: solid red 2px; */
 
     width: 22%;
     min-height: 25rem;
@@ -74,8 +78,11 @@ h2 {
 }
 
 .div-item img {
-    width: 70%;
+    width: 80%;
     padding-bottom: 0.5rem;
+    border: var(--lila-claro) solid 2px;
+    padding: 1rem;
+    margin: 1rem;;
 }
 /* 
 .link {
@@ -91,3 +98,7 @@ h2 {
     cursor: pointer;
     transform: scale(1.01);
 } */
+
+.div-item:hover {
+    cursor: pointer;
+}

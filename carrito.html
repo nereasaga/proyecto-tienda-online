@@ -64,7 +64,7 @@
                 </tr>
                 <tr>
                     <th id="th-iva" class="th-mark"><span>IVA 21%</span></th>
-                    <td class="td-monto"><span>0 €<</span></td>
+                    <td class="td-monto"><span>0 €</span></td>
                 </tr>
                 <tr>
                     <th id="th-envio" class="th-mark"><span>Gastos de envío</span></th>
@@ -279,9 +279,11 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('idiomaSeleccionado2', 'en-GB');
         idiomaActual = "en-GB";
         cargarCatalogo("en");
-        setInterval(function() {
+        let intervaloHora = setInterval(function() {
             F5time("en-GB");
         }, 1000);
+        clearInterval(intervaloHora);
+        intervaloHora();
     });
 
     // CAMBIAR A ESPAÑOL
@@ -292,9 +294,11 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('idiomaSeleccionado2', 'es-ES');
         idiomaActual = "es-ES";  
         cargarCatalogo("es");
-        setInterval(function() {
+        let intervaloHora = setInterval(function() {
             F5time("es-ES");
         }, 1000);
+        clearInterval(intervaloHora);
+        intervaloHora();
     });
 
     // CAMBIAR A EUSKERA
@@ -305,9 +309,11 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('idiomaSeleccionado2', 'eus');
         idiomaActual = "EUS";  
         cargarCatalogo("eus");
-        setInterval(function() {
-            F5time("EUS");
+        let intervaloHora = setInterval(function() {
+            F5time("eus");
         }, 1000);
+        clearInterval(intervaloHora);
+        intervaloHora();
     });
 
     // CARGAR CATÁLOGOS EN INICIO Y ACTUALIZAR HORA Y FECHA
