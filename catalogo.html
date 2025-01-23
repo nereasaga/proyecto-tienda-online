@@ -58,9 +58,11 @@
             <details>
                 <summary>Precio</summary>
                 <div class="desplegable">
-                    <div class="range-container">
+                    <div class="rango-precio">
                         <label for="precioRange">50,00€ - <span id="precioValue">1.750,00 €</span></label>
-                        <input type="range" id="precioRange" name="rango" min="50" max="1750" value="0" list="lista-precio" oninput="updatePrecioValue(this)">
+                        <input type="range" id="precioRange" name="precio" min="50" max="1750" value="1750" 
+                        list="lista-precio" oninput="actualizarValorPrecio(this); actualizarFiltros();">
+                 
                     </div>
                 </div>
             </details>

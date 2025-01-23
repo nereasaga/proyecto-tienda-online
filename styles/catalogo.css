@@ -6,7 +6,6 @@ body {
 .catalogo-main {
     background-color: var(blanco);
 }
-
 .titulo { font-family: Ghari;
     src: url(../fonts/TwCenMTStdSemiMedium.otf);
     font-weight: normal;
@@ -18,59 +17,48 @@ body {
      justify-content: center;
      align-items: center;
 }
-
 /* Estilo para listas desplegables */
 details {
     margin-bottom: 0.9rem;
 }
-
-summary {
-   
+summary {   
     cursor: pointer;
     font-size: 25px;
     padding: 10px;
     position: relative;
     cursor: pointer;
 }
-
 /* icono de desplazamiento */
-
 summary::marker {
-    display: none; /* Oculta el marcador por defecto */
+    display: none;
   }
-
   summary::after {
-    content: "▼"; /* Flecha hacia abajo */
+    content: "▼"; 
     margin-left: 4px;
     font-size: 10px;
     color: var(--principal);
   }
-
   details[open] summary::after {
-    content: "▲"; /* Cambia a flecha hacia arriba */
+    content: "▲"; 
     color: var(--principal);
   }
-
   /* Línea que aparece al hacer hover */
   summary:hover::before {
     content: "";
     display: block;
-    width: 38%; /* Ajusta el ancho de la línea */
-    height: 1px; /* Grosor de la línea */
+    width: 38%; 
+    height: 1px; 
     background-color: var(--principal);
     position: absolute;
-    bottom: -2px; /* Ajusta la posición de la línea */
-   
+    bottom: -2px; 
   }
 /* Contenedor principal */
 .catalogo {
     display: flex;
     justify-content: flex-start;
     padding: 1.5rem;
-    margin: 3.5rem;
- 
+    margin: 3.5rem; 
 }
-
 /* Estilos para filtros */
 .filtro {
     position: sticky;
@@ -83,14 +71,34 @@ summary::marker {
     display: block;
     font-size: 23px;
 }
-
 .filtro label {
     font-family: var(Ghari);
     display: block;
     margin-bottom: 0.5rem;
 }
-
-
+/*Estilo del rango de precios */
+.rango-precio label {
+    font-family: var(Ghari);
+    display: block;
+    margin-bottom: 0.5rem;    
+}
+/* Estilo del input range */
+.rango-precio input[type="range"] {
+    width: 85%; 
+    height: 6px; 
+    background: var(--oscuro); 
+    border-radius: 5px; 
+}
+/* Estilo del thumb (deslizador)*/
+.rango-precio input[type="range"]::-webkit-slider-thumb,
+.rango-precio input[type="range"]::-moz-range-thumb {
+    width: 15px; 
+    height: 15px;
+    background: var(--lila-claro); 
+    border: 2px solid var(--principal); 
+    border-radius: 50%; 
+    cursor: pointer; 
+}
 /* Lista de relojes */
 .lista-R {
     display: grid;
@@ -98,7 +106,6 @@ summary::marker {
     gap: 3.5rem;
     width: 70%;
 }
-
 .watch-item {    
     padding: 0.2rem;
     text-align: center;
@@ -108,28 +115,22 @@ summary::marker {
     justify-content: space-between;
     overflow: hidden;
 }
-
 .reloj-titulo{
     font-weight: bold;
     text-align: justify;
     margin-bottom: 0.5rem;
     margin-bottom: 0.5rem;
 }
-
-.imagen-R    {
+.imagen-R {
     border: var(--lila-claro) solid 2px;
-    width: 100%;
-    height: auto;
-    margin-bottom: 0.8rem;
-    height: auto;
-    margin-bottom: 0.8rem;
+    width: 22rem; 
+    height: 22rem; 
+    object-fit: cover;    
 }
-
 .marca {
     font-size: 1rem;
     color: var(oscuro);
 }
-
 .nombre {
     color: var(--principal);
     font-size: 1rem;
@@ -137,7 +138,6 @@ summary::marker {
     text-align: justify;
     margin: 0.5px 0;
 }
-
 .tamano,
 .material {
     color: var(oscuro);
@@ -146,7 +146,6 @@ summary::marker {
     text-align: justify;
     margin: 0.5rem 0;
 }
-
 .precio {
     font-size: 0.8rem;
     font-weight: bold;
@@ -155,7 +154,6 @@ summary::marker {
     text-align: justify;
     margin-top: 0.5rem;
 }
-
 .link {
     display: block;
     text-decoration: none;
@@ -163,16 +161,12 @@ summary::marker {
     width: 100%;
     height: 100%;
 }
-
 .link:hover {
     background-color: var(casi-blanco);
     cursor: pointer ;
     transform: scale(1.01);
 }
-
 .reloj-pie {
     text-align: center;
     padding-top: 0.1rem;
 }
-
-
