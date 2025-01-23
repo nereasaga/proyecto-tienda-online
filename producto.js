@@ -1,7 +1,9 @@
 // Evento principal cuando el DOM se carga
 document.addEventListener("DOMContentLoaded", () => {
-  let idiomaActual = 'es-ES' || localStorage.getItem('idiomaSeleccionado2');
-  console.log(idiomaActual[0]+idiomaActual[1]);
+  let idiomaActual = localStorage.getItem('idiomaSeleccionado') || 'es';
+  
+  console.log(idiomaActual);
+ 
   // Obtener el 'ref' del producto seleccionado desde localStorage
   const productRef = localStorage.getItem("selectedWatchref");
 
@@ -13,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Fetch del catálogo JSON
-  fetch("json/catalogo-es.json")
+  fetch("json/catalogo-"+idiomaActual+".json")
     .then((response) => response.json())
     .then((data) => {
       cargarProducto(data, productRef); // Cargar el producto con el ref
@@ -153,4 +155,4 @@ function mostrarModal() {
     });
   });
 }
-  
+
