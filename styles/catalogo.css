@@ -21,8 +21,7 @@ body {
 details {
     margin-bottom: 0.9rem;
 }
-summary {
-   
+summary {   
     cursor: pointer;
     font-size: 25px;
     padding: 10px;
@@ -76,6 +75,29 @@ summary::marker {
     font-family: var(Ghari);
     display: block;
     margin-bottom: 0.5rem;
+}
+/*Estilo del rango de precios */
+.rango-precio label {
+    font-family: var(Ghari);
+    display: block;
+    margin-bottom: 0.5rem;    
+}
+/* Estilo del input range */
+.rango-precio input[type="range"] {
+    width: 85%; 
+    height: 6px; 
+    background: var(--oscuro); 
+    border-radius: 5px; 
+}
+/* Estilo del thumb (deslizador)*/
+.rango-precio input[type="range"]::-webkit-slider-thumb,
+.rango-precio input[type="range"]::-moz-range-thumb {
+    width: 15px; 
+    height: 15px;
+    background: var(--lila-claro); 
+    border: 2px solid var(--principal); 
+    border-radius: 50%; 
+    cursor: pointer; 
 }
 /* Lista de relojes */
 .lista-R {
