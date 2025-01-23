@@ -1,66 +1,111 @@
 body {
     padding: 0;
     margin: 0;
+    background-color: var(blanco);
 }
-
-h2 {
-    height: 5rem;
-    background-color: rgb(248, 33, 33);
-    text-align: center;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.catalogo-main {
+    background-color: var(blanco);
 }
-
+.titulo { font-family: Ghari;
+    src: url(../fonts/TwCenMTStdSemiMedium.otf);
+    font-weight: normal;
+     height: 5rem;
+     background-color: var(--principal);
+     text-align: center;
+     color: white;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
 /* Estilo para listas desplegables */
 details {
     margin-bottom: 0.9rem;
 }
-
-summary {
+summary {   
     cursor: pointer;
-    font-size: 16px;
+    font-size: 25px;
     padding: 10px;
+    position: relative;
+    cursor: pointer;
 }
-
+/* icono de desplazamiento */
+summary::marker {
+    display: none;
+  }
+  summary::after {
+    content: "▼"; 
+    margin-left: 4px;
+    font-size: 10px;
+    color: var(--principal);
+  }
+  details[open] summary::after {
+    content: "▲"; 
+    color: var(--principal);
+  }
+  /* Línea que aparece al hacer hover */
+  summary:hover::before {
+    content: "";
+    display: block;
+    width: 38%; 
+    height: 1px; 
+    background-color: var(--principal);
+    position: absolute;
+    bottom: -2px; 
+  }
 /* Contenedor principal */
 .catalogo {
     display: flex;
     justify-content: flex-start;
     padding: 1.5rem;
-    margin: 3.5rem;
-    background-color: #f0e7e7;
+    margin: 3.5rem; 
 }
-
 /* Estilos para filtros */
 .filtro {
     position: sticky;
     top: 1.2rem;
     width: 15%;
+    height: 100%;
     padding: 0.8rem;
-    box-shadow: 0 0 10px rgba(196, 181, 181, 0.1);
     margin-right: 1rem;
+    border: var(--lila-claro) solid 2px;
     display: block;
-    display: block;
+    font-size: 23px;
 }
-
 .filtro label {
+    font-family: var(Ghari);
     display: block;
     margin-bottom: 0.5rem;
 }
-
-
+/*Estilo del rango de precios */
+.rango-precio label {
+    font-family: var(Ghari);
+    display: block;
+    margin-bottom: 0.5rem;    
+}
+/* Estilo del input range */
+.rango-precio input[type="range"] {
+    width: 85%; 
+    height: 6px; 
+    background: var(--oscuro); 
+    border-radius: 5px; 
+}
+/* Estilo del thumb (deslizador)*/
+.rango-precio input[type="range"]::-webkit-slider-thumb,
+.rango-precio input[type="range"]::-moz-range-thumb {
+    width: 15px; 
+    height: 15px;
+    background: var(--lila-claro); 
+    border: 2px solid var(--principal); 
+    border-radius: 50%; 
+    cursor: pointer; 
+}
 /* Lista de relojes */
 .lista-R {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 3.5rem;
     width: 70%;
 }
-
 .watch-item {    
     padding: 0.2rem;
     text-align: center;
@@ -68,60 +113,47 @@ summary {
     flex-direction: column;
     flex-direction: column;
     justify-content: space-between;
-    position: relative;
-    overflow: hidden;
-    position: relative;
     overflow: hidden;
 }
-
 .reloj-titulo{
     font-weight: bold;
     text-align: justify;
     margin-bottom: 0.5rem;
     margin-bottom: 0.5rem;
 }
-
-.imagen-R    {
-    border: 1px solid #080707;
-    width: 100%;
-    height: auto;
-    margin-bottom: 0.8rem;
-    height: auto;
-    margin-bottom: 0.8rem;
+.imagen-R {
+    border: var(--lila-claro) solid 2px;
+    width: 22rem; 
+    height: 22rem; 
+    object-fit: cover;    
 }
-
 .marca {
-    font-size: 0.8rem;
-    color: #555;
+    font-size: 1rem;
+    color: var(oscuro);
 }
-
 .nombre {
-    font-size: 0.8rem;
+    color: var(--principal);
+    font-size: 1rem;
     font-weight: bold;
     text-align: justify;
     margin: 0.5px 0;
 }
-
 .tamano,
 .material {
-.tamano,
-.material {
-    font-size: 0.6rem;
-    color: #777;
+    color: var(oscuro);
+    font-size: 0.9rem;
+    color: var(oscuro);
     text-align: justify;
     margin: 0.5rem 0;
 }
-
 .precio {
     font-size: 0.8rem;
     font-weight: bold;
-    font-weight: bold;
-    color: #333;
+    color: var(oscuro);
     text-align: justify;
     text-align: justify;
     margin-top: 0.5rem;
 }
-
 .link {
     display: block;
     text-decoration: none;
@@ -129,23 +161,12 @@ summary {
     width: 100%;
     height: 100%;
 }
-
 .link:hover {
-    background-color: #dfd2d2;
-    cursor: pointer;
+    background-color: var(casi-blanco);
+    cursor: pointer ;
     transform: scale(1.01);
 }
-
 .reloj-pie {
     text-align: center;
     padding-top: 0.1rem;
-}
-
-/* Footer */
-/* Footer */
-footer {
-    background-color: #333;
-    color: white;
-    padding: 2rem;
-    text-align: center;
 }
