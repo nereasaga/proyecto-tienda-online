@@ -179,12 +179,14 @@
     divItem.setAttribute('data-ref', producto.ref);
 
     divItem.innerHTML = `
-        <h3 class="marca">${producto.marca}</h3>
-        <img src="${producto['img-1']}" alt="${producto.modelo}">
-        <p class="modelo">${producto.modelo}</p>
-        <span>${producto.tamano} mm</span>
-        <span>${producto.material}</span>
-        <p id="precio">${producto.precio} €</p>
+        <div class="reloj-titulo">
+                <p class="marca">${reloj.marca}</p>
+            </div>
+        <img src="${producto['img-1']}" alt="${producto.modelo}" class="imagen-R">
+        <p class="nombre">${producto.modelo}</p>
+        <span class="tamano">${producto.tamano} mm</span>
+        <span class="material">${producto.material}</span>
+        <p id="precio" class="precio">${producto.precio} €</p>
     `;
 
     // GUARDAR REF DE RELOJ SELECCIONADO EN LS
