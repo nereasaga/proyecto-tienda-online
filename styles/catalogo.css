@@ -104,6 +104,7 @@ summary::marker {
     text-align: center;
     display: flex;
     flex-direction: column;
+    flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
 }
@@ -112,11 +113,14 @@ summary::marker {
     font-weight: bold;
     text-align: justify;
     margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .imagen-R    {
     border: var(--lila-claro) solid 2px;
     width: 100%;
+    height: auto;
+    margin-bottom: 0.8rem;
     height: auto;
     margin-bottom: 0.8rem;
 }
@@ -147,6 +151,7 @@ summary::marker {
     font-size: 0.8rem;
     font-weight: bold;
     color: var(oscuro);
+    text-align: justify;
     text-align: justify;
     margin-top: 0.5rem;
 }
