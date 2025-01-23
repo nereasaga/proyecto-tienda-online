@@ -77,11 +77,11 @@ function cargarProducto(relojes, productRef) {
   document.getElementById("main-producto").innerHTML = `
     <div class="product-container">
       <div class="product-image">
-        <img id="mainImage" src="${producto["img-1"]}" alt="Imagen principal" />
+        <img id="mainImage" src="${producto["img-1"]}" alt="${producto.marca} ${producto.modelo}" />
         <div class="additional-images">
-          <img id="imagen1" src="${producto["img-1"]}" alt="Imagen adicional 1" />
-          <img id="imagen2" src="${producto["img-2"] || ""}" alt="Imagen adicional 2" />
-          <img id="imagen3" src="${producto["img-3"] || ""}" alt="Imagen adicional 3" />
+          <img id="imagen1" src="${producto["img-1"]}" alt="${producto.marca} ${producto.modelo}" />
+          <img id="imagen2" src="${producto["img-2"] || ""}" alt="${producto.marca} ${producto.modelo}" />
+          <img id="imagen3" src="${producto["img-3"] || ""}" alt="${producto.marca} ${producto.modelo}" />
         </div>
       </div>
       <div class="product-details">
