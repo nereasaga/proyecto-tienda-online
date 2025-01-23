@@ -1,0 +1,80 @@
+/* Estilo general */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+  }
+  
+  h1{
+    text-align: center;
+    color: rgb(218, 34, 34);
+    text-align: left;
+    padding: 1rem;
+    padding-left: 4rem;
+    }
+
+   p{
+    font-size: 14px;
+    color: #555;
+    }
+
+  /* Contenedor principal */
+  .container {
+    margin: auto 0;
+    display: flex;
+    justify-content: space-between;
+    transition-timing-function: linear;
+    color: #3d3b3b;
+  }
+
+  /* Estilo de cada sección */
+  .form-section {
+    width:50%;
+    padding: 30px;
+    border-radius: 5px;
+  }
+
+  h2 {
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .btn{
+  background-color: rgb(218, 34, 34);
+  color: white;
+  padding: 5px;
+  
+  }
+
+  
+  /* Botones */
+  .btn2{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: rgb(218, 34, 34);
+    text-align: center;
+    border: none;
+    border-radius: 3px;
+    text-decoration: none;
+  }
+  
+  .btn:hover {
+    background-color: #d83b3b;
+  }
+  .btn2.btn2:hover{
+    background-color: #d83b3b;
+  }
+  
+    /* Inputs del formulario */
+    input {
+      width: 90%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-size: 14px;
+    }
+  
