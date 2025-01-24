@@ -6,7 +6,11 @@
     background-color: var(--blanco);
     /* padding: 2rem; */
 }
-
+#mainImage {
+    display: flex;
+    align-self: center;
+    /* border: solid palevioletred 2px; */
+}
 .product-container {
     display: flex;
     flex-wrap: wrap;
@@ -15,7 +19,7 @@
     max-width: 90rem;
     padding: 2rem;
     background: var(--blanco);
-    border: blue solid 4px;
+    /* border: blue solid 4px; */
     height: 40rem;
 }
 
@@ -34,7 +38,7 @@
     height: 30rem;
     object-fit: cover;
     position: relative;
-    border: solid 2px green;
+    /* border: solid 2px green; */
 }
 
 #clientesnav ul {
@@ -106,7 +110,7 @@ h1 {
     gap: 0.5rem;
     margin-top: 1rem;
     top: 30rem;
-    border: solid orange 4px;
+    /* border: solid orange 4px; */
 }
 
 .additional-images img {
@@ -130,7 +134,7 @@ h1 {
     gap: 1rem;
     width: 45%;
     padding: 1rem;
-    border: purple 4px solid;
+    /* border: purple 4px solid; */
 }
 
 .product-details h1 {
@@ -181,6 +185,7 @@ h1 {
     box-sizing: border-box;
     min-width: 12rem;
     margin: 0.5rem;
+    margin-left: 0;
 
 }
 
@@ -199,6 +204,7 @@ h1 {
 .descripcion-producto {
     color: var(--oscuro);
     font-size: 1.2rem;
+    text-align: start;
 }
 
 .modal {
@@ -249,7 +255,9 @@ h1 {
         gap: 2rem;
         width: 100%;
         background: var(--blanco);
-        border: blue solid 4px;
+        justify-content: center;
+        /* border: blue solid 4px; */
+        
     }
     .product-details {
         margin-bottom: 2rem;
@@ -262,29 +270,46 @@ h1 {
         gap: 1rem;
         width: 45%;
         padding: 1rem;
-        border: purple 4px solid;
+        /* border: purple 4px solid; */
     }
 }
 
 
 @media screen and (max-width: 768px) {
     .product-container {
-        display: grid;
-        grid-template-rows: 2fr;
-        justify-content: start;
-        align-items: center;
+        display: flex;
+        justify-content: center;
+        align-items: top;
         text-align: center;
         margin-bottom: 2rem;
-        height: 80rem;
+        height: 76rem;
+        width: 100%;
     }
+    
 
     .product-image,
     .product-details {
         width: 100%;
+        /* border: green solid 2px; */
     }
-
+    
     .additional-images img {
-        width: 60px;
-        height: 60px;
-    }
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+    cursor: pointer;
+    border: 0.2rem solid var(--lila-claro);
+    transition: transform 0.2s;
+}
+.product-details {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+    padding: 1rem;
+    /* border: pink 4px solid; */
+}
+
+    
 }
