@@ -140,6 +140,23 @@ document.addEventListener('DOMContentLoaded', function() {
     let producto = localStorage.getItem("producto");
     let productoJSON = JSON.parse(producto);
 
+    let idiomaSeleccionado = localStorage.getItem('idiomaSeleccionado') || 'es'; 
+    let idiomaSeleccionado2 = localStorage.getItem('idiomaSeleccionado2') || 'es-ES';
+
+ // CARGAR CATÁLOGOS EN INICIO Y ACTUALIZAR HORA Y FECHA
+window.onload = function() {
+    iniciarIH();
+    cargarCatalogo(idiomaSeleccionado); 
+    cambiarIdioma(idiomaSeleccionado);
+    let divItems = document.querySelector('.div-items');
+    divItems.innerHTML = '<p></p>';
+    actualizarResumen();
+    console.log(idiomaSeleccionado);
+    console.log(idiomaSeleccionado2);
+
+};
+
+
     // CARGAR RELOJES
     function cargarCatalogo(idioma) {
         let archivoCatalogo = "json/catalogo-" + idioma + ".json";
@@ -271,19 +288,16 @@ document.addEventListener('DOMContentLoaded', function() {
         filas[3].querySelector('.td-monto span').textContent = `${totalGastos.toFixed(2)} €`;
     }
 
-    // CAMBIAR A INGLÉS
-    const btnEn = document.getElementById('english');
+     // CAMBIAR A INGLÉS
+     const btnEn = document.getElementById('english');
     btnEn.addEventListener("click", function() {
         cambiarIdioma("en");
         localStorage.setItem('idiomaSeleccionado', 'en');
         localStorage.setItem('idiomaSeleccionado2', 'en-GB');
-        idiomaActual = "en-GB";
         cargarCatalogo("en");
-        let intervaloHora = setInterval(function() {
-            F5time("en-GB");
-        }, 1000);
-        clearInterval(intervaloHora);
-        intervaloHora();
+        idiomaSeleccionado = "en",
+        idiomaSeleccionado2 = "en-GB";  
+        iniciarIH();
     });
 
     // CAMBIAR A ESPAÑOL
@@ -292,13 +306,10 @@ document.addEventListener('DOMContentLoaded', function() {
         cambiarIdioma("es");
         localStorage.setItem('idiomaSeleccionado', 'es');
         localStorage.setItem('idiomaSeleccionado2', 'es-ES');
-        idiomaActual = "es-ES";  
+        idiomaSeleccionado = "es",
+        idiomaSeleccionado2 = "es-ES";   
         cargarCatalogo("es");
-        let intervaloHora = setInterval(function() {
-            F5time("es-ES");
-        }, 1000);
-        clearInterval(intervaloHora);
-        intervaloHora();
+        iniciarIH();
     });
 
     // CAMBIAR A EUSKERA
@@ -307,21 +318,21 @@ document.addEventListener('DOMContentLoaded', function() {
         cambiarIdioma("eus");
         localStorage.setItem('idiomaSeleccionado', 'eus');
         localStorage.setItem('idiomaSeleccionado2', 'eus');
-        idiomaActual = "EUS";  
+        idiomaSeleccionado = "eus",
+        idiomaSeleccionado2 = "eus";  
         cargarCatalogo("eus");
-        let intervaloHora = setInterval(function() {
-            F5time("eus");
-        }, 1000);
-        clearInterval(intervaloHora);
-        intervaloHora();
+        iniciarIH();
     });
 
-    // CARGAR CATÁLOGOS EN INICIO Y ACTUALIZAR HORA Y FECHA
-    cargarCatalogo("es"); 
-    F5time(idiomaActual); 
-    setInterval(function() {
-            F5time(idiomaActual);
-        }, 1000);
+ // CARGAR HORA Y FECHA 
+ function iniciarIH() {let intervaloHora;
+ if (intervaloHora) {
+   clearInterval(intervaloHora);
+ }
+ intervaloHora = setInterval(function() {
+   F5time(idiomaSeleccionado2);
+ }, 1000);
+}
 
     // FUNCIÍN PARA HORA Y FECHA
     function F5time(idioma = 'es-ES') {

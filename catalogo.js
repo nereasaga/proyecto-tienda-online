@@ -1,11 +1,9 @@
-//Coger idiomas de LS
-let idiomaSeleccionado = localStorage.getItem('idiomaSeleccionado') || 'es'; 
-let idiomaSeleccionado2 = localStorage.getItem('idiomaSeleccionado2') || 'es-ES';
-
- // CARGAR HORA Y FECHA 
- setInterval(function() {
-         F5time(idiomaSeleccionado2);
-     }, 1000);
+// Cargar los relojes y la fecha al inicio
+window.onload = function() {
+    cargarRelojesDesdeJSON(idiomaSeleccionado);
+    iniciarIH();
+    cambiarIdioma(idiomaSeleccionado);
+};
 
 function cambiarIdioma(idioma) {
     let archivoIdioma = "json/" + idioma + ".json";
@@ -31,30 +29,22 @@ function cambiarIdioma(idioma) {
      const btnEn = document.getElementById('english');
      btnEn.addEventListener("click", function() {
          cambiarIdioma("en");
-         let idiomaSeleccionado2 = "en-GB";
+         idiomaSeleccionado2 = "en-GB";
          localStorage.setItem('idiomaSeleccionado', 'en');
          localStorage.setItem('idiomaSeleccionado2', 'en-GB');
          cargarRelojesDesdeJSON("en");
-         let intervaloHora = setInterval(function() {
-             F5time("en-GB");
-         }, 1000);
-         clearInterval(intervaloHora)
-
+         iniciarIH();
      });
  
      // CAMBIAR A ESPAÑOL
      const btnEs = document.getElementById('espanol');
      btnEs.addEventListener("click", function() {
          cambiarIdioma("es");
-         let idiomaSeleccionado2 = "es-ES";
+         idiomaSeleccionado2 = "es-ES";
          localStorage.setItem('idiomaSeleccionado', 'es');
          localStorage.setItem('idiomaSeleccionado2', 'es-ES');
-         idiomaActual = "es-ES";  
          cargarRelojesDesdeJSON("es");
-         let intervaloHora = setInterval(function() {
-             F5time("es-ES");
-         }, 1000);
-         clearInterval(intervaloHora);
+         iniciarIH();
      });
  
      // CAMBIAR A EUSKERA
@@ -62,17 +52,26 @@ function cambiarIdioma(idioma) {
      btnEus.addEventListener("click", function() {
         cambiarIdioma("eus");
          cargarRelojesDesdeJSON("eus");
-         let idiomaSeleccionado2 = "eus";
+         idiomaSeleccionado2 = "eus";
          localStorage.setItem('idiomaSeleccionado', 'eus');
          localStorage.setItem('idiomaSeleccionado2', 'eus');
-         idiomaActual = "EUS";  
          cargarRelojesDesdeJSON("eus");
-         let intervaloHora = setInterval(function() {
-             F5time("eus");
-         }, 1000);
-         clearInterval(intervaloHora);
-
+         iniciarIH();
      });
+
+     //Coger idiomas de LS
+let idiomaSeleccionado = localStorage.getItem('idiomaSeleccionado') || 'es'; 
+let idiomaSeleccionado2 = localStorage.getItem('idiomaSeleccionado2') || 'es-ES';
+
+ // CARGAR HORA Y FECHA 
+ function iniciarIH() {let intervaloHora;
+ if (intervaloHora) {
+   clearInterval(intervaloHora);
+ }
+ intervaloHora = setInterval(function() {
+   F5time(idiomaSeleccionado2);
+ }, 1000);
+}
 
      // FUNCIÓN PARA HORA Y FECHA
      function F5time(idioma = 'es-ES') {
@@ -99,8 +98,10 @@ function cargarRelojesDesdeJSON(idioma) {
         })
         .catch(error => console.error('Error al cargar los relojes:', error));
 }
-// Cargar los relojes al inicio
-window.onload = cargarRelojesDesdeJSON(idiomaSeleccionado);
+
+
+
+
 // Función para guardar la referencia del producto seleccionado
 function guardarReferenciaProducto(ref) {
     localStorage.setItem('selectedWatchref', ref);
