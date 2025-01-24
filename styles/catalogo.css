@@ -176,6 +176,16 @@ summary::marker {
     height: 20rem;   
     position: relative;
   }
+
+  .modal-content-2 {
+    align-items: center;    
+    background-color: var(--blanco);
+    padding: 20px;
+    text-align: center;
+    width: 25rem;
+    height: 7rem;   
+    position: relative;
+  }
 .modal-button {
     margin-top: 40px;
   }

@@ -126,7 +126,7 @@ function mostrarModal() {
     const modalVerificado = document.getElementById("verificado");
     modalVerificado.style.display = "flex";
 
-    //setTimeout(cerrarModal, 3000); // Cierra el modal después de 3 segundos
+    setTimeout(cerrarModal, 3000); // Cierra el modal después de 3 segundos
   }
   
   // Evento para cerrar el modal de la oferta (cuando el usuario hace clic en "x" o "No, gracias")
