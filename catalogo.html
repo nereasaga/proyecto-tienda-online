@@ -38,12 +38,12 @@
           <div id="clientesnav">
             <ul>
               <li id="icono-cesta">
-                <a href="#"
+                <a href="carrito.html"
                   ><img src="./img/bolsa-de-la-compra.png" alt="Cesta"
                 /></a>
               </li>
               <li id="icono-clientes">
-                <a href="#"
+                <a href="cliente.html"
                   ><img src="./img/usuario.png" alt="Área clientes"
                 /></a>
               </li>
@@ -52,11 +52,11 @@
         </div>
       </nav>
 <section>
-    <h1 class="titulo">Todos los Relojes</h1>
+    <h1 id="h1-catalogo" class="titulo">Todos los Relojes</h1>
     <div class="catalogo">
         <div id="filters" class="filtro">
             <details>
-                <summary>Precio</summary>
+                <summary id="sum-precio">Precio</summary>
                 <div class="desplegable">
                     <div class="rango-precio">
                         <label for="precioRange">50,00€ - <span id="precioValue">1.750,00 €</span></label>
@@ -67,15 +67,15 @@
                 </div>
             </details>
             <details>
-                <summary>Género</summary>
+                <summary id="sum-genero">Género</summary>
                 <div class="desplegable">
-                    <label><input type="checkbox" name="genero" value="Hombre"> Hombre</label>
-                    <label><input type="checkbox" name="genero" value="Mujer"> Mujer</label>
-                    <label><input type="checkbox" name="genero" value="Unisex"> Unisex</label>
+                    <label><input id="inp-hombre" type="checkbox" name="genero" value="Hombre"> Hombre</label>
+                    <label><input id="inp-mujer" type="checkbox" name="genero" value="Mujer"> Mujer</label>
+                    <label><input id="inp-unisex" type="checkbox" name="genero" value="Unisex"> Unisex</label>
                 </div>
             </details>
             <details>
-                <summary>Tamaño</summary>
+                <summary id="sum-tamano">Tamaño</summary>
                 <div class="desplegable">
                     <label><input type="checkbox" name="tamano" value="25"> 25mm</label>
                     <label><input type="checkbox" name="tamano" value="36"> 36mm</label>
@@ -86,7 +86,7 @@
                 </div>
             </details>
             <details>
-                <summary>Marca</summary>
+                <summary id="sum-marca">Marca</summary>
                 <div class="desplegable">
                     <label><input type="checkbox" name="marca" value="Boss"> Boss</label>
                     <label><input type="checkbox" name="marca" value="Brietling"> Brietling</label>
@@ -99,7 +99,7 @@
                     <label><input type="checkbox" name="marca" value="Lotus"> Lotus</label>
                     <label><input type="checkbox" name="marca" value="MarkMaddox"> Mark Maddox</label>
              <details>
-                <summary>Ver Mas</summary>                        
+                <summary id="sum-mas">Ver Mas</summary>                        
                     <label><input type="checkbox" name="marca" value="Montblanc"> MontBlanc</label>
                     <label><input type="checkbox" name="marca" value="MichaelKors"> Michael Kors</label>
                     <label><input type="checkbox" name="marca" value="Omega"> Omega</label>
@@ -116,20 +116,20 @@
             </details>
             
             <details>
-                <summary>Material</summary>
+                <summary id="sum-material">Material</summary>
                 <div class="desplegable">
-                    <label><input type="checkbox" name="material" value="Acero inoxidable"> Acero Inoxidable</label>
-                    <label><input type="checkbox" name="material" value="Cuero"> Cuero</label>
-                    <label><input type="checkbox" name="material" value="Sintetico"> Sintético</label>
-                    <label><input type="checkbox" name="material" value="Titanio"> Titanio</label>
+                    <label><input id="inp-material-1" type="checkbox" name="material" value="Acero inoxidable"> Acero Inoxidable</label>
+                    <label><input id="inp-material-2" type="checkbox" name="material" value="Cuero"> Cuero</label>
+                    <label><input id="inp-material-3" type="checkbox" name="material" value="Sintetico"> Sintético</label>
+                    <label><input id="inp-material-4" type="checkbox" name="material" value="Titanio"> Titanio</label>
                 </div>
             </details>
             <details>
-                <summary>Tipo</summary>
+                <summary id="sum-tipo">Tipo</summary>
                 <div class="desplegable">
-                    <label><input type="checkbox" name="tipo" value="Analógico"> Analógico</label>
-                    <label><input type="checkbox" name="tipo" value="Digital"> Digital</label>
-                    <label><input type="checkbox" name="tipo" value="Smartwatch"> SmartWatch</label>
+                    <label><input id="inp-tipo-1" type="checkbox" name="tipo" value="Analógico"> Analógico</label>
+                    <label><input id="inp-tipo-2" type="checkbox" name="tipo" value="Digital"> Digital</label>
+                    <label><input id="inp-tipo-3" type="checkbox" name="tipo" value="Smartwatch"> SmartWatch</label>
                 </div>
             </details>
         </div>
@@ -187,88 +187,88 @@
         </div>
         </footer>
     <script>
-        // Actualizar la fecha y la hora
-      function F5time() {
-        const fechaElemento = document.getElementById("fecha");
-        const horaElemento = document.getElementById("hora");
+//         // Actualizar la fecha y la hora
+//       function F5time() {
+//         const fechaElemento = document.getElementById("fecha");
+//         const horaElemento = document.getElementById("hora");
 
-        // Fecha y la hora actuales en variable
-        const ahora = new Date();
+//         // Fecha y la hora actuales en variable
+//         const ahora = new Date();
 
-        // Formatear la fecha dia, fecha, mes, año
-        const opcionesFecha = {
-          weekday: "long",
-          day: "2-digit",
-          month: "long",
-          year: "numeric",
-        };
-        const fechaFormateada = ahora.toLocaleDateString(
-          "es-ES",
-          opcionesFecha
-        );
+//         // Formatear la fecha dia, fecha, mes, año
+//         const opcionesFecha = {
+//           weekday: "long",
+//           day: "2-digit",
+//           month: "long",
+//           year: "numeric",
+//         };
+//         const fechaFormateada = ahora.toLocaleDateString(
+//           "es-ES",
+//           opcionesFecha
+//         );
 
-        // Formatear la hora con segundos (Ej: 12:00:45)
-        const horaFormateada = ahora.toLocaleTimeString("es-ES", {
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-        });
+//         // Formatear la hora con segundos (Ej: 12:00:45)
+//         const horaFormateada = ahora.toLocaleTimeString("es-ES", {
+//           hour: "2-digit",
+//           minute: "2-digit",
+//           second: "2-digit",
+//         });
 
-        // Actualizar el contenido de los elementos
-        fechaElemento.textContent =
-          fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
-        horaElemento.textContent = horaFormateada;
-      }
+//         // Actualizar el contenido de los elementos
+//         fechaElemento.textContent =
+//           fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
+//         horaElemento.textContent = horaFormateada;
+//       }
 
-      // Llamar a la función al cargar la página
-      F5time();
+//       // Llamar a la función al cargar la página
+//       F5time();
 
-      // Actualizar la hora cada segundo
-      setInterval(F5time, 1000);
+//       // Actualizar la hora cada segundo
+//       setInterval(F5time, 1000);
 
 
-      // CAMBIAR IDIOMA
+//       // CAMBIAR IDIOMA
 
-      // FETCH ARCHIVO JSON DE IDIOMA
-     function cambiarIdioma(idioma) {
-     let archivo = "json/" + idioma + ".json";
+//       // FETCH ARCHIVO JSON DE IDIOMA
+//      function cambiarIdioma(idioma) {
+//      let archivo = "json/" + idioma + ".json";
 
-      fetch(archivo)
-        .then(function (respuesta) {
-            return respuesta.json();
-        })
-        .then(function (data) {
-            for (let key in data) {
-                let elemento = document.getElementById(key);
-                if (elemento) {
-                    elemento.textContent = data[key];
-                }
-            }
-        })
+//       fetch(archivo)
+//         .then(function (respuesta) {
+//             return respuesta.json();
+//         })
+//         .then(function (data) {
+//             for (let key in data) {
+//                 let elemento = document.getElementById(key);
+//                 if (elemento) {
+//                     elemento.textContent = data[key];
+//                 }
+//             }
+//         })
         
-}
+// }
 
 
-  // CAMBIAR A INGLÉS
-  const btnEn = document.getElementById('english');
+//   // CAMBIAR A INGLÉS
+//   const btnEn = document.getElementById('english');
 
-  btnEn.addEventListener("click", function() {
-    cambiarIdioma("en");
-  })
+//   btnEn.addEventListener("click", function() {
+//     cambiarIdioma("en");
+//   })
 
-  // CAMBIAR A EUSKERA
-  const btnEus = document.getElementById('euskara');
+//   // CAMBIAR A EUSKERA
+//   const btnEus = document.getElementById('euskara');
 
-  btnEus.addEventListener("click", function() {
-    cambiarIdioma("eus");
-  })
+//   btnEus.addEventListener("click", function() {
+//     cambiarIdioma("eus");
+//   })
   
-  // CAMBIAR A CASTELLANO
-  const btnEs = document.getElementById('espanol');
+//   // CAMBIAR A CASTELLANO
+//   const btnEs = document.getElementById('espanol');
 
-  btnEs.addEventListener("click", function() {
-    cambiarIdioma("es");
-  })
+//   btnEs.addEventListener("click", function() {
+//     cambiarIdioma("es");
+//   })
 
     </script>
 <!--Funcionalidad de Catalogo -->

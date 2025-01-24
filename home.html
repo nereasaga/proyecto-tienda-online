@@ -10,17 +10,17 @@
   <body>
     <nav id="navbar">
       <div id="logonav">
-        <a href="./index.html"
+        <a href="./home.html"
           ><img src="./img/ghari-logo-h-1.svg" alt="Logo Ghari Relojes"
         /></a>
       </div>
       <div id="menunav">
         <ul>
-          <li id="menu-mujer"><a href="#">Mujer</a></li>
-          <li id="menu-hombre"><a href="#">Hombre</a></li>
-          <li id="menu-unisex"><a href="#">Unisex</a></li>
-          <li id="menu-marcas"><a href="#">Marcas</a></li>
-          <li id="menu-catalogo"><a href="catalogo.html">Catálogo</a></li>
+          <li><a id="menu-mujer" href="#">Mujer</a></li>
+          <li><a id="menu-hombre" href="#">Hombre</a></li>
+          <li ><a id="menu-unisex" href="#">Unisex</a></li>
+          <li><a id="menu-marcas" href="#">Marcas</a></li>
+          <li><a id="menu-catalogo" href="catalogo.html">Catálogo</a></li>
         </ul>
       </div>
       <div id="timenav">
@@ -53,7 +53,7 @@
       <div class="banner-1">
         <img src="img/banner-4.jpg" alt="">
       </div>
-      <h2>Nuevos relojes</h2>
+      <h2 id="h2-nuevos" >Nuevos relojes</h2>
       <section class="nuevos-relojes">
         <div class="div-item">
           <h3>MARCA</h3>
@@ -179,12 +179,14 @@
     divItem.setAttribute('data-ref', producto.ref);
 
     divItem.innerHTML = `
-        <h3 class="marca">${producto.marca}</h3>
-        <img src="${producto['img-1']}" alt="${producto.modelo}">
-        <p class="modelo">${producto.modelo}</p>
-        <span>${producto.tamano} mm</span>
-        <span>${producto.material}</span>
-        <p id="precio">${producto.precio} €</p>
+        <div class="reloj-titulo">
+                <p class="marca">${producto.marca}</p>
+            </div>
+        <img src="${producto['img-1']}" alt="${producto.modelo}" class="imagen-R">
+        <p class="nombre">${producto.modelo}</p>
+        <span class="tamano">${producto.tamano} mm</span>
+        <span class="material">${producto.material}</span>
+        <p id="precio" class="precio">${producto.precio} €</p>
     `;
 
     // GUARDAR REF DE RELOJ SELECCIONADO EN LS
@@ -206,9 +208,11 @@
         localStorage.setItem('idiomaSeleccionado2', 'en-GB');
         idiomaActual = "en-GB";
         cargarCatalogo("en");
-        setInterval(function() {
+        let intervaloHora = setInterval(function() {
             F5time("en-GB");
         }, 1000);
+        clearInterval(intervaloHora);
+        intervaloHora();
     });
 
     // CAMBIAR A ESPAÑOL
@@ -219,9 +223,11 @@
         localStorage.setItem('idiomaSeleccionado2', 'es-ES');
         idiomaActual = "es-ES";  
         cargarCatalogo("es");
-        setInterval(function() {
+        let intervaloHora = setInterval(function() {
             F5time("es-ES");
         }, 1000);
+        clearInterval(intervaloHora);
+        intervaloHora();
     });
 
     // CAMBIAR A EUSKERA
@@ -232,9 +238,11 @@
         localStorage.setItem('idiomaSeleccionado2', 'eus');
         idiomaActual = "EUS";  
         cargarCatalogo("eus");
-        setInterval(function() {
-            F5time("EUS");
+        let intervaloHora = setInterval(function() {
+            F5time("eus");
         }, 1000);
+        clearInterval(intervaloHora);
+        intervaloHora();
     });
 
     // CARGAR CATÁLOGOS EN INICIO Y ACTUALIZAR HORA Y FECHA

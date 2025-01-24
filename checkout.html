@@ -12,19 +12,21 @@
         <div id="logonav">
             <a href="./index.html"><img src="./img/ghari-logo-h-1.svg" alt="Logo Ghari Relojes"></a>
         </div>
-        <div id="menunav">
+        
+         <div id="menunav"> 
             <ul>
-                <li id="menu-mujer"><a href="#">Mujer</a></li>
-                <li id="menu-hombre"><a href="#">Hombre</a></li>
-                <li id="menu-unisex"><a href="#">Unisex</a></li>
-                <li id="menu-marcas"><a href="#">Marcas</a></li>
-                <li id="menu-catalogo"><a href="catalogo.html">Catálogo</a></li>
+                <li><a id="menu-mujer" href="#">Mujer</a></li>
+                <li><a id="menu-hombre" href="#">Hombre</a></li>
+                <li><a id="menu-unisex" href="#">Unisex</a></li>
+                <li><a id="menu-catalogo" href="catalogo.html">Catálogo</a></li>
+                <li><a id="menu-contacto" href="#">Contacto</a></li> 
             </ul>
+    
         </div>
         <div id="timenav">
-            <p id="fecha">Jueves, 09 de enero de 2025</p>
-            <p id="hora">12:00</p>
-
+            <p id="fecha"></p>
+            <p id="hora"></p>
+    
         </div>
         <div id="funcionesnav">
             <div id="idiomanav">
@@ -33,17 +35,60 @@
                     <li id="english"><a href="#">EN</a></li>
                     <li id="euskara"><a href="#">EUS</a></li>
                 </ul>
-
+    
             </div>
             <div id="clientesnav">
                 <ul>
-                    <li id="icono-cesta"><a href="#"><img src="./img/bolsa-de-la-compra.png" alt="Cesta"></a></li>
-                    <li id="icono-clientes"><a href="#"><img src="./img/usuario.png" alt="Área clientes"></a></li>
+                    <li id="icono-cesta"><a href="carrito.html"><img src="./img/bolsa-de-la-compra.png" alt="Cesta"></a></li>
+                    <li id="icono-clientes"><a href="cliente.html"><img src="./img/usuario.png" alt="Área clientes"></a></li>
                 </ul>
-            </div>
-        </div>
-
-    </nav>
+            </div> 
+        
+          
+    <!--nav for tablet version-->
+    
+       <!-- Hamburger Menu (Checkbox) -->
+       <input type="checkbox" id="hamburger-toggle">
+       <label for="hamburger-toggle" class="hamburger">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="20" viewBox="0 0 40 20">
+          <rect x="0" y="0" width="40" height="4" fill="black" rx="2" />
+          <rect x="0" y="12" width="40" height="4" fill="black" rx="2" />
+        </svg>
+        
+       </label>
+       
+      
+    
+       <!-- Hamburger Menu Content -->
+       <div id="menu-container">
+    
+       
+        
+            <div id="menuContent"> 
+               <ul>
+                   <li><a id="menu-mujer-2" href="#">Mujer</a></li><hr>
+                   
+                   <li><a id="menu-hombre-2" href="#">Hombre</a></li>
+                   <hr>
+                   <li><a id="menu-unisex-2" href="#">Unisex</a></li>
+                   <hr>
+                   <li><a id="menu-catalogo-2" href="catalogo.html">Catálogo</a></li>
+                   <hr>
+                   <li><a id="menu-contacto-2" href="#">Contacto</a></li> 
+                   <hr>
+               </ul>
+           </div>
+    
+           <div id="idiomaContent">
+               <ul>
+                   <li><a id="espanol-2" href="#">ES</a></li>
+                   <li><a id="english-2" href="#">EN</a></li>
+                   <li><a id="euskara-2" href="#">EUS</a></li>
+                   
+               </ul>
+           </div>
+          </div>
+        </nav>
 <main>
     <div class="div-title">
         <h1>Checkout </h1>
@@ -166,12 +211,18 @@ document.addEventListener('DOMContentLoaded', function() {
     let idiomaSeleccionado2 = localStorage.getItem('idiomaSeleccionado2') || 'es-ES';
 
  // CARGAR CATÁLOGOS EN INICIO Y ACTUALIZAR HORA Y FECHA
+window.onload = function() {
+    iniciarIH();
     cargarCatalogo(idiomaSeleccionado); 
-    setInterval(function() {
-            F5time(idiomaSeleccionado2);
-        }, 1000);
-    divItems.innerHTML = '';
+    cambiarIdioma(idiomaSeleccionado);
+    let divItems = document.querySelector('.div-items');
+    divItems.innerHTML = '<p></p>';
     actualizarResumen();
+    console.log(idiomaSeleccionado);
+    console.log(idiomaSeleccionado2);
+
+};
+
 
 
     // CARGAR RELOJES
@@ -251,11 +302,9 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('idiomaSeleccionado', 'en');
         localStorage.setItem('idiomaSeleccionado2', 'en-GB');
         cargarCatalogo("en");
-        let intervaloHora = setInterval(function() {
-            F5time("en-GB");
-        }, 1000);
-        clearInterval(intervaloHora);
-        intervaloHora();
+        idiomaSeleccionado = "en",
+        idiomaSeleccionado2 = "en-GB";  
+        iniciarIH();
     });
 
     // CAMBIAR A ESPAÑOL
@@ -264,13 +313,10 @@ document.addEventListener('DOMContentLoaded', function() {
         cambiarIdioma("es");
         localStorage.setItem('idiomaSeleccionado', 'es');
         localStorage.setItem('idiomaSeleccionado2', 'es-ES');
-        idiomaActual = "es-ES";  
+        idiomaSeleccionado = "es",
+        idiomaSeleccionado2 = "es-ES";   
         cargarCatalogo("es");
-        let intervaloHora = setInterval(function() {
-            F5time("es-ES");
-        }, 1000);
-        clearInterval(intervaloHora);
-        intervaloHora();
+        iniciarIH();
     });
 
     // CAMBIAR A EUSKERA
@@ -279,21 +325,21 @@ document.addEventListener('DOMContentLoaded', function() {
         cambiarIdioma("eus");
         localStorage.setItem('idiomaSeleccionado', 'eus');
         localStorage.setItem('idiomaSeleccionado2', 'eus');
-        idiomaActual = "EUS";  
+        idiomaSeleccionado = "eus",
+        idiomaSeleccionado2 = "eus";  
         cargarCatalogo("eus");
-        let intervaloHora = setInterval(function() {
-            F5time("eus");
-        }, 1000);
-        clearInterval(intervaloHora);
-        intervaloHora();
+        iniciarIH();
     });
 
-    // // CARGAR CATÁLOGOS EN INICIO Y ACTUALIZAR HORA Y FECHA
-    // cargarCatalogo("es"); 
-    // F5time(idiomaActual); 
-    // setInterval(function() {
-    //         F5time(idiomaActual);
-    //     }, 1000);
+ // CARGAR HORA Y FECHA 
+ function iniciarIH() {let intervaloHora;
+ if (intervaloHora) {
+   clearInterval(intervaloHora);
+ }
+ intervaloHora = setInterval(function() {
+   F5time(idiomaSeleccionado2);
+ }, 1000);
+}
 
     // FUNCIÍN PARA HORA Y FECHA
     function F5time(idioma = 'es-ES') {

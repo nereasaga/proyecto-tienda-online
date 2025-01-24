@@ -1,7 +1,7 @@
 .slider {
     width: 100%;
-    min-height: 40rem;
-    border: solid green 2px;
+    /* min-height: 40rem; */
+    /* border: solid green 2px; */
 }
 
 main {
@@ -47,8 +47,8 @@ h2 {
     width: 49.89%;
 }
 
-.div-item {
-    /* border: solid red 2px; */
+/* .div-item {
+    border: solid red 2px;
 
     width: 22%;
     min-height: 25rem;
@@ -83,7 +83,7 @@ h2 {
     border: var(--lila-claro) solid 2px;
     padding: 1rem;
     margin: 1rem;;
-}
+} */
 /* 
 .link {
     display: block;
@@ -101,4 +101,63 @@ h2 {
 
 .div-item:hover {
     cursor: pointer;
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* Relojes */
+.div-item {    
+    padding: 0.2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-direction: column;
+    justify-content: space-between;
+    /* width: 20%; */
+    overflow: hidden;
+    
+}
+
+.reloj-titulo{
+    font-weight: bold;
+    text-align: justify;
+    margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.imagen-R {
+    border: var(--lila-claro) solid 2px;
+    width: 22rem; 
+    height: 22rem; 
+    object-fit:cover;    
+    object-position: center center;
+    margin: 0.5rem;
+}
+.marca {
+    font-size: 1rem;
+    color: var(oscuro);
+    text-align: left;
+}
+.nombre {
+    color: var(--principal);
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: justify;
+    margin: 0.5px 0;
+}
+.tamano,
+.material {
+    color: var(oscuro);
+    font-size: 0.9rem;
+    color: var(oscuro);
+    text-align: justify;
+    margin: 0.5rem 0;
+}
+.precio {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(oscuro);
+    text-align: justify;
+    text-align: justify;
+    margin-top: 0.5rem;
 }
