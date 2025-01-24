@@ -1,5 +1,9 @@
 // Evento principal cuando el DOM se carga
 document.addEventListener("DOMContentLoaded", () => {
+  let idiomaActual = localStorage.getItem('idiomaSeleccionado') || 'es';
+  
+  console.log(idiomaActual);
+ 
   // Obtener el 'ref' del producto seleccionado desde localStorage
   const productRef = localStorage.getItem("selectedWatchref");
 
@@ -11,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Fetch del catálogo JSON
-  fetch("json/catalogo-es.json")
+  fetch("json/catalogo-"+idiomaActual+".json")
     .then((response) => response.json())
     .then((data) => {
       cargarProducto(data, productRef); // Cargar el producto con el ref
@@ -21,6 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("main-producto").innerHTML =
         '<h2 class="errorCargaProducto">Error al cargar el producto</h2>';
     });
+ 
+  
 });
 
 // Cargar el producto en la página
@@ -47,7 +53,7 @@ function cargarProducto(relojes, productRef) {
       <div class="product-details">
         <h1 id="titulo-producto">${producto.marca} ${producto.modelo}</h1>
         <p id="ref" class="ref">Ref: ${producto.ref}</p>
-        <p id="precio" class="precio">${producto.precio}$</p>
+        <p id="precio" class="precio">${producto.precio} €</p>
         <p>Cantidad:</p>
         <div id="contador-cantidad">
           <button class="boton" id="disminuir">-</button>
@@ -117,17 +123,21 @@ document.querySelector(".add-to-cart").addEventListener("click", () => {
   mostrarModal();
 });
 
-// Función para mostrar el modal
+// Mostrar el modal
 function mostrarModal() {
   const modal = document.getElementById("modal-carrito");
   modal.style.display = "flex";
+  // cerrar modal
+  document.getElementById("btn-cierre").addEventListener('click', () => {
+    window.location.href = "producto.html"; // Redirige a catalogo.html
+  });
 
-  // Botón "Seguir comprando"
+  // Seguir comprando
   document.getElementById("seguir-comprando").addEventListener("click", () => {
     window.location.href = "catalogo.html"; // Redirige a catalogo.html
   });
 
-  // Botón "Ir a la cesta"
+  // r a la cesta
   document.getElementById("ir-cesta").addEventListener("click", () => {
     window.location.href = "carrito.html"; // Redirige a carrito.html
   });
@@ -135,7 +145,7 @@ function mostrarModal() {
 
 
 
-  // Funcionalidad para cambiar imágenes principales al hacer clic en miniaturas
+  // Cambiar imagen principal al hacer clic en miniaturas
   const mainImage = document.getElementById("mainImage");
   const additionalImages = document.querySelectorAll(".additional-images img");
 
@@ -145,3 +155,45 @@ function mostrarModal() {
     });
   });
 }
+
+// CAMBIAR A INGLÉS
+const btnEn = document.getElementById('english');
+btnEn.addEventListener("click", function() {
+    cambiarIdioma("en");
+    localStorage.setItem('idiomaSeleccionado', 'en');
+    localStorage.setItem('idiomaSeleccionado2', 'en-GB');
+    idiomaActual = "en-GB";
+    let intervaloHora = setInterval(function() {
+        F5time("en-GB");
+    }, 1000);
+    clearInterval(intervaloHora);
+    intervaloHora();
+});
+
+// CAMBIAR A ESPAÑOL
+const btnEs = document.getElementById('espanol');
+btnEs.addEventListener("click", function() {
+    cambiarIdioma("es");
+    localStorage.setItem('idiomaSeleccionado', 'es');
+    localStorage.setItem('idiomaSeleccionado2', 'es-ES');
+    idiomaActual = "es-ES";  
+    let intervaloHora = setInterval(function() {
+        F5time("es-ES");
+    }, 1000);
+    clearInterval(intervaloHora);
+    intervaloHora();
+});
+
+// CAMBIAR A EUSKERA
+const btnEus = document.getElementById('euskara');
+btnEus.addEventListener("click", function() {
+    cambiarIdioma("eus");
+    localStorage.setItem('idiomaSeleccionado', 'eus');
+    localStorage.setItem('idiomaSeleccionado2', 'eus');
+    idiomaActual = "EUS";  
+    let intervaloHora = setInterval(function() {
+        F5time("eus");
+    }, 1000);
+    clearInterval(intervaloHora);
+    intervaloHora();
+});
