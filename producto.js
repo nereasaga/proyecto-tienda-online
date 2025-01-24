@@ -162,9 +162,9 @@ function funcionesDePagina(productRef) {
       cantRelojes += cantidades.cantidad;
     });
     // console.log(cantRelojes);
-    localStorage.setItem('cantidadEnCesta', cantRelojes);
-    const numeroCesta = document.getElementById('numero-cesta');
-    numeroCesta.innerText = localStorage.getItem("cantidadEnCesta");
+    // localStorage.setItem('cantidadEnCesta', cantRelojes);
+    // const numeroCesta = document.getElementById('numero-cesta');
+    // numeroCesta.innerText = localStorage.getItem("cantidadEnCesta");
 
 
     // Mostrar el modal
