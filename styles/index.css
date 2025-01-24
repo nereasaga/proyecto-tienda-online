@@ -101,6 +101,8 @@ h2 {
 
 .div-item:hover {
     cursor: pointer;
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
 }
 
 /* Relojes */
@@ -111,7 +113,9 @@ h2 {
     flex-direction: column;
     flex-direction: column;
     justify-content: space-between;
+    /* width: 20%; */
     overflow: hidden;
+    
 }
 
 .reloj-titulo{
@@ -125,7 +129,8 @@ h2 {
     border: var(--lila-claro) solid 2px;
     width: 22rem; 
     height: 22rem; 
-    object-fit: cover;    
+    object-fit:cover;    
+    object-position: center center;
     margin: 0.5rem;
 }
 .marca {
