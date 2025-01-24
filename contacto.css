@@ -11,6 +11,9 @@ body {
 /* Encabezado principal */
 h1 {
   text-align: left;
+  position: relative;
+  left: 20%;
+  top: 200px;
   color: #E53935; /* Color rojo del título */
   margin-left: 30px;
   margin-top: 20px;
@@ -18,10 +21,19 @@ h1 {
 
 /* Sección de descripción */
 p {
+  display: flex;
+  position: relative;
+  right: 5%;
   text-align: left;
   margin: 10px 20px;
   font-size: 16px;
   line-height: 1;
+}
+.text-left{
+  text-align: left;
+  position: relative;
+  left: 20%;
+  top: 190px;
 }
 
 /* Contenedor principal */
@@ -30,13 +42,25 @@ p {
   justify-content: space-around;
   margin: 20px auto;
   max-width: 1200px;
+  
 }
 
 /* Sección del formulario e información */
-.form-section {
+.contacto {
+  width: 45%;
+  padding: 160px;
+  border-radius: 8px;
+  position: relative;
+  
+}
+
+
+.form-section{
   width: 45%;
   padding: 20px;
   border-radius: 8px;
+  position: relative;
+  top:30%;
 }
 
 /* Subtítulos */
@@ -99,6 +123,12 @@ p {
   font-size: 0.9rem;
   background-color: #f9f9f9;
   color: #777;
+}
+
+.last-line{
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 
 /* Responsivo */
