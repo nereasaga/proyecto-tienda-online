@@ -1,0 +1,43 @@
+/* Estilo de la barra */
+.barra input[type="range"] {
+    -webkit-appearance: none; 
+    -moz-appearance: none;     
+    appearance: none;         
+    width: 85%; 
+    height: 9px; 
+    background: var(--oscuro); 
+    border-radius: 5px; 
+    outline: none; 
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilo del thumb (deslizador) */
+.barra input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px; 
+    height: 15px;
+    background: var(--lila-claro); 
+    border: 2px solid var(--principal); 
+    border-radius: 50%; 
+    cursor: pointer; 
+}
+
+.barra input[type="range"]::-moz-range-thumb {
+    width: 15px; 
+    height: 15px;
+    background: var(--lila-claro); 
+    border: 2px solid var(--principal); 
+    border-radius: 50%; 
+    cursor: pointer; 
+}
+
+/* Opcional: ajustar la apariencia del rango en Edge */
+.barra input[type="range"]::-ms-thumb {
+    width: 15px; 
+    height: 15px;
+    background: var(--lila-claro); 
+    border: 2px solid var(--principal); 
+    border-radius: 50%; 
+    cursor: pointer; 
+}

@@ -147,7 +147,7 @@ document.querySelectorAll('input[type="checkbox"]').forEach(input => {
 function actualizarFiltros() { 
     seleccionTamano = obtenerValoresSeleccionados('tamano');
     seleccionMarca = obtenerValoresSeleccionados('marca');
-    seleccionPrecio = document.getElementById('precioRange').value; // Captura el valor del rango
+    seleccionPrecio = document.getElementById('precioRange').value; 
     seleccionMaterial = obtenerValoresSeleccionados('material');
     seleccionGenero = obtenerValoresSeleccionados('genero');
     seleccionTipo = obtenerValoresSeleccionados('tipo');    
@@ -200,3 +200,57 @@ function actualizarValorPrecio(rangeInput) {
 document.querySelectorAll('input[type="checkbox"]').forEach(input => {
     input.addEventListener('change', actualizarFiltros);
 });
+//******************************************************************************************************** */
+// Función para mostrar el primer modal
+function mostrarModal() {
+    const modal = document.getElementById("modal-oferta");
+    modal.style.display = "flex";
+  }
+  
+  // Función para cerrar cualquier modal
+  function cerrarModal() {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => modal.style.display = "none");
+  }
+  
+  // Función para mostrar el modal de verificación
+  function mostrarModalVerificado() {
+    const modalVerificado = document.getElementById("verificado");
+    modalVerificado.style.display = "flex";
+
+    setTimeout(cerrarModal, 3000); // Cierra el modal después de 3 segundos
+  }
+  
+  // Evento para cerrar el modal de la oferta (cuando el usuario hace clic en "x" o "No, gracias")
+  document.getElementById("btn-cierre").addEventListener('click', cerrarModal);
+  document.getElementById("no-gracias").addEventListener('click', cerrarModal);
+
+  // Evento para cerrar el modal de verificación (cuando el usuario hace clic en "x")
+document.getElementById("btn-cierre-verificado").addEventListener('click', cerrarModal);
+  
+  // Evento para cerrar el modal de verificación (cuando el usuario hace clic en "x")
+  document.getElementById("btn-cierre").addEventListener('click', cerrarModal);
+  
+  // Mostrar el modal después de 7 segundos
+  setTimeout(mostrarModal, 7000);
+  
+  // Detectar intento de abandonar la página
+  document.addEventListener("mouseleave", function(event) {
+    if (event.clientY <= 0 || event.clientY >= window.innerHeight) {
+      mostrarModal();
+    }
+  });
+  
+  // Evento para suscribirse (cuando el usuario hace clic en "Suscribirse")
+  document.getElementById("suscribirse").addEventListener('click', function() {
+    const email = document.getElementById("email-input").value;
+    
+    if (email) {
+    
+      cerrarModal();  // Cierra el modal de la oferta
+      mostrarModalVerificado();  // Muestra el modal de verificación
+      
+    } else {
+      alert("Por favor, ingresa un correo electrónico válido.");
+    }
+  });
