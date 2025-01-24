@@ -8,107 +8,122 @@
     <link rel="stylesheet" href="/styles/carrito.css">
 </head>
 <body>
-    <div id="prenav" class="prenav">
-        <div id="date" class="div-date">
-            <p>Viernes, 10 de enero de 2025</p>
-        </div>
-        <div id="time" class="div-time">
-          <p>12:00</p>
-        </div>
-        <div id="idiomas" class="div-idiomas">
-            <ul>
-                <li>ES</li>
-                <li>EN</li>
-            </ul>
-        </div>
-    </div>
     <nav id="navbar">
         <div id="logonav">
-            <img src="img/ghari_t.png" alt="Logo Ghari">
+            <a href="./index.html"><img src="./img/ghari-logo-h-1.svg" alt="Logo Ghari Relojes"></a>
         </div>
-        <div id="menunav">
+        
+         <div id="menunav"> 
             <ul>
-                <li id="menu-mujer"><a href="catalogo.html">MUJER</a></li>
-                <li id="menu-hombre"><a href="catalogo.html">HOMBRE</a></li>
-                <li id="menu-unisex"><a href="catalogo.html">UNISEX</a></li>
-                <li id="menu-marcas"><a href="catalogo.html">MARCAS</a></li>
-                <li id="menu-catalogo"><a href="catalogo.html">CATÁLOGO</a></li>
+                <li><a id="menu-mujer" href="#">Mujer</a></li>
+                <li><a id="menu-hombre" href="#">Hombre</a></li>
+                <li><a id="menu-unisex" href="#">Unisex</a></li>
+                <li><a id="menu-catalogo" href="catalogo.html">Catálogo</a></li>
+                <li><a id="menu-contacto" href="#">Contacto</a></li> 
             </ul>
+    
         </div>
-        <div id="clientes">
-            <ul>
-                <button id="usuario"><a href="cliente.html"><img src="img/usuario.png" alt="icono clientes"></a></button>
-                <button id="carrito"><a href="carrito.html"><img src="img/bolsa-de-la-compra.png" alt="icono carrito"></a></button>
-            </ul>
+        <div id="timenav">
+            <p id="fecha"></p>
+            <p id="hora"></p>
+    
         </div>
-
-    </nav>
+        <div id="funcionesnav">
+            <div id="idiomanav">
+                <ul>
+                    <li id="espanol"><a href="#">ES</a></li>
+                    <li id="english"><a href="#">EN</a></li>
+                    <li id="euskara"><a href="#">EUS</a></li>
+                </ul>
+    
+            </div>
+            <div id="clientesnav">
+                <ul>
+                    <li id="icono-cesta"><a href="carrito.html"><img src="./img/bolsa-de-la-compra.png" alt="Cesta"></a></li>
+                    <li id="icono-clientes"><a href="cliente.html"><img src="./img/usuario.png" alt="Área clientes"></a></li>
+                </ul>
+            </div> 
+        
+          
+    <!--nav for tablet version-->
+    
+       <!-- Hamburger Menu (Checkbox) -->
+       <input type="checkbox" id="hamburger-toggle">
+       <label for="hamburger-toggle" class="hamburger">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="20" viewBox="0 0 40 20">
+          <rect x="0" y="0" width="40" height="4" fill="black" rx="2" />
+          <rect x="0" y="12" width="40" height="4" fill="black" rx="2" />
+        </svg>
+        
+       </label>
+       
+      
+    
+       <!-- Hamburger Menu Content -->
+       <div id="menu-container">
+    
+       
+        
+            <div id="menuContent"> 
+               <ul>
+                   <li><a id="menu-mujer-2" href="#">Mujer</a></li><hr>
+                   
+                   <li><a id="menu-hombre-2" href="#">Hombre</a></li>
+                   <hr>
+                   <li><a id="menu-unisex-2" href="#">Unisex</a></li>
+                   <hr>
+                   <li><a id="menu-catalogo-2" href="catalogo.html">Catálogo</a></li>
+                   <hr>
+                   <li><a id="menu-contacto-2" href="#">Contacto</a></li> 
+                   <hr>
+               </ul>
+           </div>
+    
+           <div id="idiomaContent">
+               <ul>
+                   <li><a id="espanol-2" href="#">ES</a></li>
+                   <li><a id="english-2" href="#">EN</a></li>
+                   <li><a id="euskara-2" href="#">EUS</a></li>
+                   
+               </ul>
+           </div>
+          </div>
+        </nav>
 <main>
     <div class="div-title">
-        <p id="p-guia"><a href="index.html">Inicio </a>/ Mi cesta</p>
-        <h1>Mi cesta </h1>
+        <h1 id="h1-cesta">Mi cesta </h1>
     </div>
     <div class="div-columns">
         <div class="div-items">
-            <div class="div-item">
-                <img class="btn-cierre" src="img/equis.png" alt="Botón cierre">
-                <div class="div-image">
-                    <img src="img/ejemplo.avif" alt="">
-                </div>
-                <div class="div-details">
-                    <p class="marcaModelo">MARCA Y MODELO</p>
-                    <p>MATERIAL</p>
-                    <p>TAMAÑO</p>
-                    <p>DESCRIPCION</p>
-                    <p>PRECIO</p>
-                    <span>Cantidad</span> <input type="number" min="1">
-                </div>
-
-            </div>
-            <div class="div-item">
-                <img class="btn-cierre" src="img/equis.png" alt="Botón cierre">
-                <div class="div-image">
-                    <img src="img/ejemplo.avif" alt="">
-                </div>
-                <div class="div-details">
-                    <p class="marcaModelo">MARCA Y MODELO</p>
-                    <p>MATERIAL</p>
-                    <p>TAMAÑO</p>
-                    <p>DESCRIPCION</p>
-                    <p>PRECIO</p>
-                    <span>Cantidad</span> <input type="number" min="1">
-                </div>
-
-            </div>
 
         </div>
         <div class="div-cart">
             <div class="div-cart-title">
-                <p>RESUMEN DEL PEDIDO</p>
+                <p id="p-resumen">RESUMEN DEL PEDIDO</p>
             </div>
             <div class="div-cart-price">
                 <table>
                 <tr>
-                    <th class="th-mark"><span>Total</span><span>(sin impuestos)</span></th>
-                    <td class="td-monto"><span>$$$</span></td>
+                    <th id="th-total" class="th-mark"><span>Total</span></th>
+                    <td class="td-monto"><span>0 €</span></td>
                 </tr>
                 <tr>
-                    <th class="th-mark"><span>IVA 21%</span></th>
-                    <td class="td-monto"><span>$$$</span></td>
+                    <th id="th-iva" class="th-mark"><span>IVA 21%</span></th>
+                    <td class="td-monto"><span>0 €</span></td>
                 </tr>
                 <tr>
-                    <th class="th-mark"><span>Gastos de envío</span></th>
-                    <td class="td-monto"><span>$$$</span></td>
+                    <th id="th-envio" class="th-mark"><span>Gastos de envío</span></th>
+                    <td class="td-monto"><span>0 €</span></td>
                 </tr>
                 <tr>
-                    <th class="th-mark"><span>Total</span></th>
-                    <td class="td-monto"><span>$$$</span></td>
+                    <th id="th-total-2" class="th-mark"><span>Total</span></th>
+                    <td class="td-monto"><span>0 €</span></td>
                 </tr>
             </table>
 
             </div>
             <div class="div-cart-btn">
-                <button type="submit"><span id="span-btn">COMPRAR</span></button>
+                <button id="btn-comprar" type="submit"><span id="span-btn">COMPRAR</span></button>
             </div>
 
         </div>
@@ -116,94 +131,279 @@
     </div>
 </main>
     <!---  FOOTER   --->
-<footer class="footer">
-    <!---  LOGO FOOTER   --->
-    <div id="div-footer-logo">
-        <img src="img/ghari_t.png" alt="Logo Ghari">
-    </div>
-    <!---  COLUMNAS FOOTER   --->
-    <div id="div-footer-columnas">
-      <div id="div-footer-columna-1" class="div-footer-columna">
-        <h3 id="footer-h3-1">Atención al cliente</h3>
-        <ul>
-          <li id="footer-columna-1-li-1">Lunes a Viernes de 9 a 18h</li>
-          <li id="footer-columna-1-li-2"><a href="#">Whatsapp</a></li>
-          <li id="footer-columna-1-li-3"><a href="#">Envíanos un e-mail</a></li>
-          <li id="footer-columna-1-li-4"><a href="#">¿Necesitas ayuda?</a></li>
-        </ul>
-  
-      </div>
-      <div id="div-footer-columna-2" class="div-footer-columna">
-        <h3 id="footer-h3-2">Sobre nosotros</h3>
-        <ul>
-          <li id="footer-columna-2-li-1"><a href="#">Conoce Ghari</a></li>
-          <li id="footer-columna-2-li-2"><a href="#">Relojes de alta calidad</a></li>
-          <li id="footer-columna-2-li-3"><a href="#">Regalos de empresa</a></li>
-        </ul>
-  
-      </div>
-      <div id="div-footer-columna-3" class="div-footer-columna">
-        <h3 id="footer-h3-3">Información</h3>
-        <ul>
-          <li id="footer-columna-3-li-1"><a href="#">Condiciones de uso</a></li>
-          <li id="footer-columna-3-li-2"><a href="#">Cambios y devoluciones</a></li>
-          <li id="footer-columna-3-li-3"><a href="#">Cuida tu reloj</a></li>
-          <li id="footer-columna-3-li-4"><a href="#">Pago seguro</a></li>
-          <li id="footer-columna-3-li-5"><a href="#">Guía de tallas</a></li>
-        </ul>
-  
-      </div>
-    </div>
-          <!-- <p id="pCopy">Copyright (c) 2025. Todos los derechos reservados.</p> -->
-      </footer>
+    <footer class="footer">
+        <!---  LOGO FOOTER   --->
+        <div id="div-footer-logo">
+          <img src="./img/ghari-logo-v-2.svg" alt="Logo Ghari">
+        </div>
+        <!---  COLUMNAS FOOTER   --->
+        <div id="div-footer-columnas">
+          <!--   COLUMNA 1   -->
+          <div id="div-footer-columna-1" class="div-footer-columna">
+            <h3 id="footer-h3-1" class="titulo-footer">Atención al cliente</h3>
+            <ul>
+              <li id="footer-ul-1-li-1">Lunes a Viernes de 9 a 18h</li>
+              <li id="footer-ul-1-li-2"><a href="#">Whatsapp</a></li>
+              <li id="footer-ul-1-li-3"><a href="#">Envíanos un e-mail</a></li>
+              <li id="footer-ul-1-li-4"><a href="#">¿Necesitas ayuda?</a></li>
+            </ul>
+      
+          </div>
+          <!--   COLUMNA 2   -->
+          <div id="div-footer-columna-2" class="div-footer-columna">
+            <h3 id="footer-h3-2" class="titulo-footer">Sobre nosotros</h3>
+            <ul>
+              <li id="footer-ul-2-li-1"><a href="#">Conoce Ghari</a></li>
+              <li id="footer-ul-2-li-2"><a href="#">Relojes de alta calidad</a></li>
+              <li id="footer-ul-2-li-3"><a href="#">Regalos de empresa</a></li>
+            </ul>
+      
+          </div>
+          <!--   COLUMNA 3   -->
+          <div id="div-footer-columna-3" class="div-footer-columna">
+            <h3 id="footer-h3-3" class="titulo-footer">Información</h3>
+            <ul>
+              <li id="footer-ul-3-li-1"><a href="#">Condiciones de uso</a></li>
+              <li id="footer-ul-3-li-2"><a href="#">Cambios y devoluciones</a></li>
+              <li id="footer-ul-3-li-3"><a href="#">Cuida tu reloj</a></li>
+              <li id="footer-ul-3-li-4"><a href="#">Pago seguro</a></li>
+              <li id="footer-ul-3-li-5"><a href="#">Guía de tallas</a></li>
+            </ul>
+      
+          </div>
+        </div>
+        <div class="copyright">
+            <p id="p-copy">Copyright GHARI RELOJES. Todos los derechos reservados.</p>
+
+        </div>
+        </footer>
 
    <script>
-    // BORRADO DE DIV-ITEM
-    document.querySelector(".div-items").addEventListener("click", function() {
-            if (event.target.closest(".btn-cierre")) {
-                const divItem = event.target.closest(".div-item");
-                divItem.remove();
+
+document.addEventListener('DOMContentLoaded', function() {
+    let idiomaActual = 'es-ES'; 
+    let producto = localStorage.getItem("producto");
+    let productoJSON = JSON.parse(producto);
+
+    let idiomaSeleccionado = localStorage.getItem('idiomaSeleccionado') || 'es'; 
+    let idiomaSeleccionado2 = localStorage.getItem('idiomaSeleccionado2') || 'es-ES';
+
+ // CARGAR CATÁLOGOS EN INICIO Y ACTUALIZAR HORA Y FECHA
+window.onload = function() {
+    iniciarIH();
+    cargarCatalogo(idiomaSeleccionado); 
+    cambiarIdioma(idiomaSeleccionado);
+    let divItems = document.querySelector('.div-items');
+    divItems.innerHTML = '<p></p>';
+    actualizarResumen();
+    console.log(idiomaSeleccionado);
+    console.log(idiomaSeleccionado2);
+
+};
+
+
+    // CARGAR RELOJES
+    function cargarCatalogo(idioma) {
+        let archivoCatalogo = "json/catalogo-" + idioma + ".json";
+        let divItems = document.querySelector('.div-items');
+        divItems.innerHTML = '';
+
+        // CARGAR CATALOGO DE IDIOMA SELECCIONADO
+        fetch(archivoCatalogo)
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                if (productoJSON) {
+                    productoJSON.forEach(function(product) {
+                        let productoEncontrado = data.find(function(p) {
+                            return p.ref === product.ref;
+                        });
+                        if (productoEncontrado) {
+                            anadirCarrito(productoEncontrado, product.cantidad);
+                        }
+                    });
+                }
+            });
+    }
+
+    //CAMBIAR IDIOMA Y DATOS RELOJES
+
+   function cambiarIdioma(idioma) {
+    let archivoIdioma = "json/" + idioma + ".json";
+    let archivoCatalogo = "json/catalogo-" + idioma + ".json"; 
+
+    // CAMBIAR IDIOMA DE TEXTOS
+    fetch(archivoIdioma)
+        .then(function (respuesta) {
+            return respuesta.json();
+        })
+
+        .then(function (data) {
+    for (let key in data) {
+        let elemento = document.getElementById(key);
+        if (elemento) {
+                elemento.textContent = data[key];
+            }
+        }
+    });
+};
+
+    // INYECTAR DIV PRODUCTO A HTML
+    function anadirCarrito(producto, cantidad) {
+        let divItems = document.querySelector('.div-items');
+        let productoHTML = `
+            <div class="div-item" data-ref="${producto.ref}">
+                <p class="btn-cierre">x</p>
+                <div class="div-image">
+                    <img src="${producto['img-1']}" alt="${producto.modelo}">
+                </div>
+                <div class="div-details">
+                    <p class="marcaModelo">${producto.marca} - ${producto.modelo}</p>
+                    <p>${producto.tamano} mm, ${producto.material}</p>
+                    <p id="precio">${producto.precio} €</p>
+                    <span>Cantidad</span>
+                    <input type="number" min="1" value="${cantidad}" max="${producto.stock}">
+                </div>
+            </div>
+        `;
+        divItems.innerHTML += productoHTML;
+        actualizarResumen();
+    }
+         // BORRADO DE PRODUCTO EN LOCALSTORAGE Y DOM
+         document.querySelector(".div-items").addEventListener("click", function(event) {
+        if (event.target.classList.contains("btn-cierre")) {
+            let divItem = event.target.closest(".div-item");
+            let ref = divItem.getAttribute("data-ref");
+
+            let productoJSON = JSON.parse(localStorage.getItem("producto")) || [];
+            productoJSON = productoJSON.filter(function(producto) {
+                return producto.ref !== ref;
+            });
+
+            localStorage.setItem("producto", JSON.stringify(productoJSON));
+
+            divItem.remove();
+            actualizarResumen();
+        }
+    });
+
+    // ACTUALIZAR CANTIDAD EN LOCALSTORAGE AL CAMBIAR INPUT
+    document.querySelector('.div-items').addEventListener('input', function(event) {
+        if (event.target.type === 'number') {
+            let divItem = event.target.closest(".div-item");
+            let ref = divItem.getAttribute("data-ref");
+            let nuevaCantidad = parseInt(event.target.value);
+
+            let productoJSON = JSON.parse(localStorage.getItem("producto")) || [];
+            productoJSON = productoJSON.map(function(producto) {
+                if (producto.ref === ref) {
+                    producto.cantidad = nuevaCantidad;
+                }
+                return producto;
+            });
+
+            localStorage.setItem("producto", JSON.stringify(productoJSON));
+            actualizarResumen();
+        }
+    });
+
+
+    // FUNCIÓN PARA ACTUALIZAR RESUMEN DE TABLA
+    function actualizarResumen() {
+        let items = document.querySelectorAll('.div-item');
+        let total = 0;
+        items.forEach(function(item) {
+            let precio = parseFloat(item.querySelector('#precio').textContent.replace('€', '').trim());
+            let cantidadInput = item.querySelector('.div-details input[type="number"]');
+            let cantidad = parseInt(cantidadInput.value);
+            if (cantidad > 0) {
+                total += precio * cantidad;
             }
         });
 
-    //CARGAR DATOS DE RELOJES
+        let iva = total * 0.21;
+        let gastosEnvio = 5.70;
+        let totalGastos = total + gastosEnvio;
 
-        fetch('json/catalogo-es.json')
-            .then(function(response) {
-                return response.json(); 
-            })
-            .then(function(data) {
-                var productoEncontrado = data.find(function(producto) {
-                    return producto.ref === "R0001";  
-                });
+        let filas = document.querySelectorAll('.div-cart-price tr');
+        filas[0].querySelector('.td-monto span').textContent = `${total.toFixed(2)} €`;
+        filas[1].querySelector('.td-monto span').textContent = `${iva.toFixed(2)} €`;
+        filas[2].querySelector('.td-monto span').textContent = `${gastosEnvio.toFixed(2)} €`;
+        filas[3].querySelector('.td-monto span').textContent = `${totalGastos.toFixed(2)} €`;
+    }
 
-                if (productoEncontrado) {
-                    var divItems = document.querySelector('.div-items');
+     // CAMBIAR A INGLÉS
+     const btnEn = document.getElementById('english');
+    btnEn.addEventListener("click", function() {
+        cambiarIdioma("en");
+        localStorage.setItem('idiomaSeleccionado', 'en');
+        localStorage.setItem('idiomaSeleccionado2', 'en-GB');
+        cargarCatalogo("en");
+        idiomaSeleccionado = "en",
+        idiomaSeleccionado2 = "en-GB";  
+        iniciarIH();
+    });
 
-                    var productoHTML = `
-                        <div class="div-item">
-                            <img class="btn-cierre" src="img/equis.png" alt="Botón cierre">
-                            <div class="div-image">
-                                <img src="${productoEncontrado['img-1']}" alt="${productoEncontrado.modelo}">
-                            </div>
-                            <div class="div-details">
-                                <p class="marcaModelo">${productoEncontrado.marca} - ${productoEncontrado.modelo}</p>
-                                <p>MATERIAL: ${productoEncontrado.material}</p>
-                                <p>${productoEncontrado.tamano} mm</p>
-                                <p>DESCRIPCION: ${productoEncontrado.descripcion}</p>
-                                <p>${productoEncontrado.precio} €</p>
-                                <span>Cantidad</span> <input type="number" min="1" max="${product.stock}">
-                            </div>
-                        </div>
-                    `;
+    // CAMBIAR A ESPAÑOL
+    const btnEs = document.getElementById('espanol');
+    btnEs.addEventListener("click", function() {
+        cambiarIdioma("es");
+        localStorage.setItem('idiomaSeleccionado', 'es');
+        localStorage.setItem('idiomaSeleccionado2', 'es-ES');
+        idiomaSeleccionado = "es",
+        idiomaSeleccionado2 = "es-ES";   
+        cargarCatalogo("es");
+        iniciarIH();
+    });
 
-                    divItems.innerHTML = productoHTML;
+    // CAMBIAR A EUSKERA
+    const btnEus = document.getElementById('euskara');
+    btnEus.addEventListener("click", function() {
+        cambiarIdioma("eus");
+        localStorage.setItem('idiomaSeleccionado', 'eus');
+        localStorage.setItem('idiomaSeleccionado2', 'eus');
+        idiomaSeleccionado = "eus",
+        idiomaSeleccionado2 = "eus";  
+        cargarCatalogo("eus");
+        iniciarIH();
+    });
 
-                } else {
-                    var divItems = document.querySelector('.div-items');
-                    divItems.innerHTML = '<p>Producto no encontrado.</p>';
-                }
-            });
+ // CARGAR HORA Y FECHA 
+ function iniciarIH() {let intervaloHora;
+ if (intervaloHora) {
+   clearInterval(intervaloHora);
+ }
+ intervaloHora = setInterval(function() {
+   F5time(idiomaSeleccionado2);
+ }, 1000);
+}
+
+    // FUNCIÍN PARA HORA Y FECHA
+    function F5time(idioma = 'es-ES') {
+        const fechaElemento = document.getElementById("fecha");
+        const horaElemento = document.getElementById("hora");
+        const ahora = new Date();
+        const opcionesFecha = { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' };
+        const fechaFormateada = ahora.toLocaleDateString(idioma, opcionesFecha);
+        const horaFormateada = ahora.toLocaleTimeString(idioma, { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+        fechaElemento.textContent = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
+        horaElemento.textContent = horaFormateada;
+    }
+
+    // ACTUALIZAR RESUMEN TABLA AL CAMBIAR INPUT
+    document.querySelector('.div-items').addEventListener('input', function(event) {
+        if (event.target.type === 'number') {
+            actualizarResumen();
+        }
+    });
+});
+
+// REDIRIGIR A CHECKOUT
+document.getElementById('btn-comprar').addEventListener('click', function() {
+    window.location.href = 'checkout.html';
+});
    </script>
 </body>
 </html>

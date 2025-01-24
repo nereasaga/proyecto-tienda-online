@@ -1,91 +1,202 @@
-// Datos de los relojes
-const watches = [
-    { id: 1, name: 'Modelo 1', image: 'nuestra_liga.jpg', material: 'Acero', price: 119.00, categoria: 'mujer', marca: 'Rolex', descripcion: 'Reloj de acero inoxidable con correa de cuero' },
-    { id: 2, name: 'Modelo 2', image: 'nuestra_liga.jpg', material: 'Cuero', price: 500.00, categoria: 'hombre', marca: 'Casio', descripcion: 'Reloj de cuero con diseño elegante' },
-    { id: 3, name: 'Modelo 3', image: 'nuestra_liga.jpg', material: 'Sintético', price: 89.00, categoria: 'mujer', marca: 'Seiko', descripcion: 'Reloj sintético con estilo moderno' },
-    { id: 4, name: 'Modelo 4', image: 'nuestra_liga.jpg', material: 'Acero', price: 119.00, categoria: 'hombre', marca: 'Rolex', descripcion: 'Reloj de acero inoxidable con diseño clásico' },
-    { id: 5, name: 'Modelo 5', image: 'nuestra_liga.jpg', material: 'Oro', price: 1500.00, categoria: 'mujer', marca: 'Omega', descripcion: 'Reloj de oro con diseño lujoso' },
-    { id: 6, name: 'Modelo 6', image: 'nuestra_liga.jpg', material: 'Titanio', price: 2000.00, categoria: 'hombre', marca: 'Tag Heuer', descripcion: 'Reloj de titanio con diseño deportivo' }
-    
-];
-// Estado de los filtros
-let seleccionCategoria = [];
-let selectedPriceRanges = [];
-let selectedMaterials = [];
-// Función para cargar los relojes inicialmente
-function loadWatches() {
-    const watchList = document.getElementById('watchList');
-    watchList.innerHTML = '';
+// Cargar los relojes y la fecha al inicio
+window.onload = function() {
+    cargarRelojesDesdeJSON(idiomaSeleccionado);
+    iniciarIH();
+    cambiarIdioma(idiomaSeleccionado);
+};
 
-    watches.forEach(watch => {
-        const watchItem = document.createElement('div');
-        watchItem.classList.add('watch-item');
-        watchItem.innerHTML = `
-            <div class="watch-item-header">
-             <p class="marca">${watch.marca}</p>
+function cambiarIdioma(idioma) {
+    let archivoIdioma = "json/" + idioma + ".json";
+    let archivoCatalogo = "json/catalogo-" + idioma + ".json"; 
+
+    // CAMBIAR IDIOMA DE TEXTOS
+    fetch(archivoIdioma)
+        .then(function (respuesta) {
+            return respuesta.json();
+        })
+
+        .then(function (data) {
+    for (let key in data) {
+        let elemento = document.getElementById(key);
+        if (elemento) {
+                elemento.textContent = data[key];
+            }
+        }
+    });
+};
+
+     // CAMBIAR A INGLÉS
+     const btnEn = document.getElementById('english');
+     btnEn.addEventListener("click", function() {
+         cambiarIdioma("en");
+         idiomaSeleccionado2 = "en-GB";
+         localStorage.setItem('idiomaSeleccionado', 'en');
+         localStorage.setItem('idiomaSeleccionado2', 'en-GB');
+         cargarRelojesDesdeJSON("en");
+         iniciarIH();
+     });
+ 
+     // CAMBIAR A ESPAÑOL
+     const btnEs = document.getElementById('espanol');
+     btnEs.addEventListener("click", function() {
+         cambiarIdioma("es");
+         idiomaSeleccionado2 = "es-ES";
+         localStorage.setItem('idiomaSeleccionado', 'es');
+         localStorage.setItem('idiomaSeleccionado2', 'es-ES');
+         cargarRelojesDesdeJSON("es");
+         iniciarIH();
+     });
+ 
+     // CAMBIAR A EUSKERA
+     const btnEus = document.getElementById('euskara');
+     btnEus.addEventListener("click", function() {
+        cambiarIdioma("eus");
+         cargarRelojesDesdeJSON("eus");
+         idiomaSeleccionado2 = "eus";
+         localStorage.setItem('idiomaSeleccionado', 'eus');
+         localStorage.setItem('idiomaSeleccionado2', 'eus');
+         cargarRelojesDesdeJSON("eus");
+         iniciarIH();
+     });
+
+     //Coger idiomas de LS
+let idiomaSeleccionado = localStorage.getItem('idiomaSeleccionado') || 'es'; 
+let idiomaSeleccionado2 = localStorage.getItem('idiomaSeleccionado2') || 'es-ES';
+
+ // CARGAR HORA Y FECHA 
+ function iniciarIH() {let intervaloHora;
+ if (intervaloHora) {
+   clearInterval(intervaloHora);
+ }
+ intervaloHora = setInterval(function() {
+   F5time(idiomaSeleccionado2);
+ }, 1000);
+}
+
+     // FUNCIÓN PARA HORA Y FECHA
+     function F5time(idioma = 'es-ES') {
+        const fechaElemento = document.getElementById("fecha");
+        const horaElemento = document.getElementById("hora");
+        const ahora = new Date();
+        const opcionesFecha = { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' };
+        const fechaFormateada = ahora.toLocaleDateString(idioma, opcionesFecha);
+        const horaFormateada = ahora.toLocaleTimeString(idioma, { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+        fechaElemento.textContent = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
+        horaElemento.textContent = horaFormateada;
+    }
+
+
+// Función para cargar los datos desde un archivo JSON
+function cargarRelojesDesdeJSON(idioma) {
+    let archivoCatalogo = "json/catalogo-" + idioma + ".json";
+    fetch(archivoCatalogo) // Asegúrate de que el archivo JSON esté en la misma carpeta
+        .then(response => response.json())
+        .then(data => {
+            relojes = data; // Asignar los datos cargados a la variable relojes
+            cargarRelojes(); // Cargar los relojes al iniciar
+        })
+        .catch(error => console.error('Error al cargar los relojes:', error));
+}
+
+
+
+
+// Función para guardar la referencia del producto seleccionado
+function guardarReferenciaProducto(ref) {
+    localStorage.setItem('selectedWatchref', ref);
+}
+// Datos de los relojes (inicialmente vacío, se llenará desde JSON)
+let relojes = [];
+// Estado de los filtros
+let seleccionTamano = [];
+let seleccionMarca = [];
+let seleccionPrecio = [];
+let seleccionMaterial = [];
+let seleccionGenero = [];
+// Función para cargar los relojes en la página
+function cargarRelojes() {
+    const listareloj = document.getElementById('reloj-l');
+    listareloj.innerHTML = '';
+
+    relojes.forEach(reloj => {
+        const elementosR = document.createElement('div');
+        elementosR.classList.add('watch-item');
+        elementosR.innerHTML = `
+             <a href="producto.html" onclick="guardarReferenciaProducto('${reloj.ref}')" class="link">
+            <div class="reloj-titulo">
+                <p class="marca">${reloj.marca}</p>
             </div>
-             <img src="${watch.image}" alt="${watch.name}" class="watch-image">
-            <div class="watch-item-footer">
-             <h3 class="name">${watch.name}</h3>
-             <p class="description"> ${watch.descripcion}</p>
-             <p class="price">${watch.price} €</p>
+            <img src="${reloj['img-1']}" alt="${reloj.modelo}" class="imagen-R">
+            <div class="reloj-pie">
+                <h3 class="nombre">${reloj.modelo}</h3>
+                <p class="tamano">${reloj.tamano} mm</p>
+                <p class="material">${reloj.material}</p>
+                <p class="precio">${reloj.precio} €</p>
             </div>
-        `;
-        watchList.appendChild(watchItem);
+        </a>
+    `;
+        listareloj.appendChild(elementosR);
     });
 }
+// Evento de actualización de filtros
+document.querySelectorAll('input[type="checkbox"]').forEach(input => {
+    input.addEventListener('change', actualizarFiltros);
+});
 // Función para manejar los cambios en los filtros
-function updateFilters() {
-    seleccionCategoria = getSelectedValues('categoria');
-    seleccionMarca = getSelectedValues('marca');
-    seleccionPrecio= getSelectedValues('precio');
-    seleccionMaterial = getSelectedValues('material');    
-    filterWatches();
+function actualizarFiltros() { 
+    seleccionTamano = obtenerValoresSeleccionados('tamano');
+    seleccionMarca = obtenerValoresSeleccionados('marca');
+    seleccionPrecio = document.getElementById('precioRange').value; // Captura el valor del rango
+    seleccionMaterial = obtenerValoresSeleccionados('material');
+    seleccionGenero = obtenerValoresSeleccionados('genero');
+    seleccionTipo = obtenerValoresSeleccionados('tipo');    
+    filtrarRelojes();
 }
 // Función para obtener los valores seleccionados
-function getSelectedValues(filterType) {
+function obtenerValoresSeleccionados(filterType) {
     return Array.from(document.querySelectorAll(`input[name="${filterType}"]:checked`))
                 .map(input => input.value.toLowerCase());
 }
 // Función para filtrar los relojes según los filtros seleccionados
-function filterWatches() {
-    const filteredWatches = watches.filter(watch => {
-        // Filtrar por categoría
-        const categoryMatch = seleccionCategoria.length === 0 || seleccionCategoria.includes(watch.categoria.toLowerCase());
-        // Filtrar por marca
-        const brandMatch = seleccionMarca.length === 0 || seleccionMarca.includes(watch.marca.toLowerCase());
-        // Filtrar por precio
-        const priceMatch = seleccionPrecio.length === 0 || seleccionPrecio.some(range => {
-            const [min, max] = range.split('-').map(Number);
-            return watch.price >= min && watch.price <= max;
-        });
-        // Filtrar por material
-        const materialMatch = seleccionMaterial.length === 0 || seleccionMaterial.includes(watch.material.toLowerCase());
-        return categoryMatch && brandMatch && priceMatch && materialMatch;
-    });
-    // Mostrar los relojes filtrados
-    const watchList = document.getElementById('watchList');
+function filtrarRelojes() {
+    const filtroRelojes = relojes.filter(reloj => {
+        const tamanoMatch = seleccionTamano.length === 0 || seleccionTamano.includes(String(reloj.tamano).toLowerCase());
+        const brandMatch = seleccionMarca.length === 0 || seleccionMarca.includes(reloj.marca.toLowerCase());
+        const priceMatch = !seleccionPrecio || reloj.precio <= parseFloat(seleccionPrecio);
+        const materialMatch = seleccionMaterial.length === 0 || seleccionMaterial.includes(reloj.material.toLowerCase());
+        const genderMatch = seleccionGenero.length === 0 || seleccionGenero.includes(reloj.genero.toLowerCase());
+        const tipoMatch = seleccionTipo.length === 0 || seleccionTipo.includes(reloj.tipo.toLowerCase());
+        return tamanoMatch && brandMatch && priceMatch && materialMatch && genderMatch && tipoMatch;
+    });    
+    const watchList = document.getElementById('reloj-l');
     watchList.innerHTML = '';
-    filteredWatches.forEach(watch => {
+    filtroRelojes.forEach(reloj => {
         const watchItem = document.createElement('div');
         watchItem.classList.add('watch-item');
         watchItem.innerHTML = `
-             <div class="watch-item-header">
-                <p class="marca">${watch.marca}</p>
+               <a href="producto.html" onclick="guardarReferenciaProducto('${reloj.ref}')" class="link">
+            <div class="reloj-titulo">
+                <p class="marca">${reloj.marca}</p>
             </div>
-             <img src="${watch.image}" alt="${watch.name}" class="watch-image">
-            <div class="watch-item-footer">
-             <h3 class="name">${watch.name}</h3>
-             <p class="description">Material: ${watch.material}</p>
-             <p class="price">${watch.price} €</p>
+            <img src="${reloj['img-1']}" alt="${reloj.modelo}" class="imagen-R">
+            <div class="reloj-pie">
+                <h3 class="nombre">${reloj.modelo}</h3>
+                <p class="tamano">${reloj.tamano} mm</p>
+                <p class="material">${reloj.material}</p>
+                <p class="precio">${reloj.precio} €</p>
             </div>
-        `;
+        </a>
+    `;
         watchList.appendChild(watchItem);
     });
 }
-// Evento de actualización de filtros (lo llamamos cada vez que un checkbox cambie)
+// Función para lista desplegable
+function actualizarValorPrecio(rangeInput) {
+    const precioValue = document.getElementById("precioValue");
+    precioValue.textContent = ` ${rangeInput.value},00 €`;
+}
+// Evento de actualización de filtros
 document.querySelectorAll('input[type="checkbox"]').forEach(input => {
-    input.addEventListener('change', updateFilters);
+    input.addEventListener('change', actualizarFiltros);
 });
-// Cargar los relojes al inicio
-window.onload = loadWatches;

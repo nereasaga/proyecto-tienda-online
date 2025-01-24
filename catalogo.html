@@ -3,53 +3,275 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda de Relojes</title>
+    <title>Catalogo</title>
     <link rel="stylesheet" href="./styles/catalogo.css">
+    <link rel="stylesheet" href="./styles/mainstyle.css">
 </head>
 <body>
-
-    <h2>Todos los Relojes</h2>
-    <div class="contenedor">
-        <div id="filters" class="filters">
+    <nav id="navbar">
+        <div id="logonav">
+          <a href="./index.html"
+            ><img src="./img/ghari-logo-h-1.svg" alt="Logo Ghari Relojes"
+          /></a>
+        </div>
+        <div id="menunav">
+          <ul>
+            <li id="menu-mujer"><a href="#">Mujer</a></li>
+            <li id="menu-hombre"><a href="#">Hombre</a></li>
+            <li id="menu-unisex"><a href="#">Unisex</a></li>
+            <li id="menu-marcas"><a href="#">Marcas</a></li>
+            <li id="menu-catalogo"><a href="catalogo.html">Catálogo</a></li>
+          </ul>
+        </div>
+        <div id="timenav">
+          <p id="fecha">Jueves, 09 de enero de 2025</p>
+          <p id="hora">12:00</p>
+        </div>
+        <div id="funcionesnav">
+          <div id="idiomanav">
+            <ul>
+              <li id="espanol"><a href="#">ES</a></li>
+              <li id="english"><a href="#">EN</a></li>
+              <li id="euskara"><a href="#">EUS</a></li>
+            </ul>
+          </div>
+          <div id="clientesnav">
+            <ul>
+              <li id="icono-cesta">
+                <a href="carrito.html"
+                  ><img src="./img/bolsa-de-la-compra.png" alt="Cesta"
+                /></a>
+              </li>
+              <li id="icono-clientes">
+                <a href="cliente.html"
+                  ><img src="./img/usuario.png" alt="Área clientes"
+                /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+<section>
+    <h1 id="h1-catalogo" class="titulo">Todos los Relojes</h1>
+    <div class="catalogo">
+        <div id="filters" class="filtro">
+            <details>
+                <summary id="sum-precio">Precio</summary>
+                <div class="desplegable">
+                    <div class="rango-precio">
+                        <label for="precioRange">50,00€ - <span id="precioValue">1.750,00 €</span></label>
+                        <input type="range" id="precioRange" name="precio" min="50" max="1750" value="1750" 
+                        list="lista-precio" oninput="actualizarValorPrecio(this); actualizarFiltros();">
+                 
+                    </div>
+                </div>
+            </details>
+            <details>
+                <summary id="sum-genero">Género</summary>
+                <div class="desplegable">
+                    <label><input id="inp-hombre" type="checkbox" name="genero" value="Hombre"> Hombre</label>
+                    <label><input id="inp-mujer" type="checkbox" name="genero" value="Mujer"> Mujer</label>
+                    <label><input id="inp-unisex" type="checkbox" name="genero" value="Unisex"> Unisex</label>
+                </div>
+            </details>
+            <details>
+                <summary id="sum-tamano">Tamaño</summary>
+                <div class="desplegable">
+                    <label><input type="checkbox" name="tamano" value="25"> 25mm</label>
+                    <label><input type="checkbox" name="tamano" value="36"> 36mm</label>
+                    <label><input type="checkbox" name="tamano" value="38"> 38mm</label>
+                    <label><input type="checkbox" name="tamano" value="40"> 40mm</label>
+                    <label><input type="checkbox" name="tamano" value="41"> 41mm</label>
+                    <label><input type="checkbox" name="tamano" value="43"> 43mm</label>
+                </div>
+            </details>
+            <details>
+                <summary id="sum-marca">Marca</summary>
+                <div class="desplegable">
+                    <label><input type="checkbox" name="marca" value="Boss"> Boss</label>
+                    <label><input type="checkbox" name="marca" value="Brietling"> Brietling</label>
+                    <label><input type="checkbox" name="marca" value="Cartier"> Cartier</label>
+                    <label><input type="checkbox" name="marca" value="CalvinKlein"> Calvin Klein</label>
+                    <label><input type="checkbox" name="marca" value="Casio"> Casio</label>
+                    <label><input type="checkbox" name="marca" value="Guess"> Guess</label>
+                    <label><input type="checkbox" name="marca" value="Hamilton"> Hamilton</label>
+                    <label><input type="checkbox" name="marca" value="Lacoste"> Lacoste</label>
+                    <label><input type="checkbox" name="marca" value="Lotus"> Lotus</label>
+                    <label><input type="checkbox" name="marca" value="MarkMaddox"> Mark Maddox</label>
+             <details>
+                <summary id="sum-mas">Ver Mas</summary>                        
+                    <label><input type="checkbox" name="marca" value="Montblanc"> MontBlanc</label>
+                    <label><input type="checkbox" name="marca" value="MichaelKors"> Michael Kors</label>
+                    <label><input type="checkbox" name="marca" value="Omega"> Omega</label>
+                    <label><input type="checkbox" name="marca" value="Oris"> Oris</label>
+                    <label><input type="checkbox" name="marca" value="Rolex"> Rolex</label>
+                    <label><input type="checkbox" name="marca" value="Seiko"> Seiko</label>
+                    <label><input type="checkbox" name="marca" value="Tissot"> Tissot</label>
+                    <label><input type="checkbox" name="marca" value="Tous"> Tous</label>
+                    <label><input type="checkbox" name="marca" value="TommyHilfiguer"> Tommy Hilfiguer</label>
+                    <label><input type="checkbox" name="marca" value="Tudor"> Tudor</label>
+                    <label><input type="checkbox" name="marca" value="Fossil"> Fossil</label> 
+              </details>
+                </div>
+            </details>
             
-            <p><strong>Categoría:</strong></p>
-            <div>
-              <label><input type="checkbox" name="categoria" value="Hombre"> Hombre</label><br>
-              <label><input type="checkbox" name="categoria" value="Mujer"> Mujer</label><br>
-              <label><input type="checkbox" name="categoria" value="Unisex"> Unisex</label>
-            </div>
-
-            <p><strong>Marca:</strong></p>
-            <div>
-                <label><input type="checkbox" name="marca" value="Rolex"> Rolex</label><br>
-                <label><input type="checkbox" name="marca" value="Casio"> Casio</label><br>
-                <label><input type="checkbox" name="marca" value="Seiko"> Seiko</label>
-            </div>
-
-            <p><strong>Precio:</strong></p>
-            <div>
-                <label><input type="checkbox" name="precio" value="0-100"> $0 - $100</label><br>
-                <label><input type="checkbox" name="precio" value="100-500"> $100 - $500</label><br>
-                <label><input type="checkbox" name="precio" value="500-1000"> $500 - $1000</label>
-            </div>
-
-            <p><strong>Material:</strong></p>
-            <div>
-                <label><input type="checkbox" name="material" value="Acero"> Acero</label><br>
-                <label><input type="checkbox" name="material" value="Cuero"> Cuero</label><br>
-                <label><input type="checkbox" name="material" value="Sintético"> Sintético</label>
-            </div>
+            <details>
+                <summary id="sum-material">Material</summary>
+                <div class="desplegable">
+                    <label><input id="inp-material-1" type="checkbox" name="material" value="Acero inoxidable"> Acero Inoxidable</label>
+                    <label><input id="inp-material-2" type="checkbox" name="material" value="Cuero"> Cuero</label>
+                    <label><input id="inp-material-3" type="checkbox" name="material" value="Sintetico"> Sintético</label>
+                    <label><input id="inp-material-4" type="checkbox" name="material" value="Titanio"> Titanio</label>
+                </div>
+            </details>
+            <details>
+                <summary id="sum-tipo">Tipo</summary>
+                <div class="desplegable">
+                    <label><input id="inp-tipo-1" type="checkbox" name="tipo" value="Analógico"> Analógico</label>
+                    <label><input id="inp-tipo-2" type="checkbox" name="tipo" value="Digital"> Digital</label>
+                    <label><input id="inp-tipo-3" type="checkbox" name="tipo" value="Smartwatch"> SmartWatch</label>
+                </div>
+            </details>
         </div>
 
-        <div class="watch-list" id="watchList">
+        <div class="lista-R" id="reloj-l">
             <!-- Aquí se cargarán los relojes -->
         </div>
     </div>
+</section>
 
-    <footer>
-        <p>footer</p>
-    </footer>
+    <footer class="footer">
+        <!---  LOGO FOOTER   --->
+        <div id="div-footer-logo">
+          <img src="./img/ghari-logo-v-2.svg" alt="Logo Ghari">
+        </div>
+        <!---  COLUMNAS FOOTER   --->
+        <div id="div-footer-columnas">
+          <!--   COLUMNA 1   -->
+          <div id="div-footer-columna-1" class="div-footer-columna">
+            <h3 id="footer-h3-1" class="titulo-footer">Atención al cliente</h3>
+            <ul>
+              <li id="footer-ul-1-li-1">Lunes a Viernes de 9 a 18h</li>
+              <li id="footer-ul-1-li-2"><a href="#">Whatsapp</a></li>
+              <li id="footer-ul-1-li-3"><a href="#">Envíanos un e-mail</a></li>
+              <li id="footer-ul-1-li-4"><a href="#">¿Necesitas ayuda?</a></li>
+            </ul>
+      
+          </div>
+          <!--   COLUMNA 2   -->
+          <div id="div-footer-columna-2" class="div-footer-columna">
+            <h3 id="footer-h3-2" class="titulo-footer">Sobre nosotros</h3>
+            <ul>
+              <li id="footer-ul-2-li-1"><a href="#">Conoce Ghari</a></li>
+              <li id="footer-ul-2-li-2"><a href="#">Relojes de alta calidad</a></li>
+              <li id="footer-ul-2-li-3"><a href="#">Regalos de empresa</a></li>
+            </ul>
+      
+          </div>
+          <!--   COLUMNA 3   -->
+          <div id="div-footer-columna-3" class="div-footer-columna">
+            <h3 id="footer-h3-3" class="titulo-footer">Información</h3>
+            <ul>
+              <li id="footer-ul-3-li-1"><a href="#">Condiciones de uso</a></li>
+              <li id="footer-ul-3-li-2"><a href="#">Cambios y devoluciones</a></li>
+              <li id="footer-ul-3-li-3"><a href="#">Cuida tu reloj</a></li>
+              <li id="footer-ul-3-li-4"><a href="#">Pago seguro</a></li>
+              <li id="footer-ul-3-li-5"><a href="#">Guía de tallas</a></li>
+            </ul>
+      
+          </div>
+        </div>
+        <div class="copyright">
+            <p id="p-copy">Copyright GHARI RELOJES. Todos los derechos reservados.</p>
+  
+        </div>
+        </footer>
+    <script>
+//         // Actualizar la fecha y la hora
+//       function F5time() {
+//         const fechaElemento = document.getElementById("fecha");
+//         const horaElemento = document.getElementById("hora");
 
-    <script src="./catalogo.js"></script>
+//         // Fecha y la hora actuales en variable
+//         const ahora = new Date();
+
+//         // Formatear la fecha dia, fecha, mes, año
+//         const opcionesFecha = {
+//           weekday: "long",
+//           day: "2-digit",
+//           month: "long",
+//           year: "numeric",
+//         };
+//         const fechaFormateada = ahora.toLocaleDateString(
+//           "es-ES",
+//           opcionesFecha
+//         );
+
+//         // Formatear la hora con segundos (Ej: 12:00:45)
+//         const horaFormateada = ahora.toLocaleTimeString("es-ES", {
+//           hour: "2-digit",
+//           minute: "2-digit",
+//           second: "2-digit",
+//         });
+
+//         // Actualizar el contenido de los elementos
+//         fechaElemento.textContent =
+//           fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
+//         horaElemento.textContent = horaFormateada;
+//       }
+
+//       // Llamar a la función al cargar la página
+//       F5time();
+
+//       // Actualizar la hora cada segundo
+//       setInterval(F5time, 1000);
+
+
+//       // CAMBIAR IDIOMA
+
+//       // FETCH ARCHIVO JSON DE IDIOMA
+//      function cambiarIdioma(idioma) {
+//      let archivo = "json/" + idioma + ".json";
+
+//       fetch(archivo)
+//         .then(function (respuesta) {
+//             return respuesta.json();
+//         })
+//         .then(function (data) {
+//             for (let key in data) {
+//                 let elemento = document.getElementById(key);
+//                 if (elemento) {
+//                     elemento.textContent = data[key];
+//                 }
+//             }
+//         })
+        
+// }
+
+
+//   // CAMBIAR A INGLÉS
+//   const btnEn = document.getElementById('english');
+
+//   btnEn.addEventListener("click", function() {
+//     cambiarIdioma("en");
+//   })
+
+//   // CAMBIAR A EUSKERA
+//   const btnEus = document.getElementById('euskara');
+
+//   btnEus.addEventListener("click", function() {
+//     cambiarIdioma("eus");
+//   })
+  
+//   // CAMBIAR A CASTELLANO
+//   const btnEs = document.getElementById('espanol');
+
+//   btnEs.addEventListener("click", function() {
+//     cambiarIdioma("es");
+//   })
+
+    </script>
+<!--Funcionalidad de Catalogo -->
+    <script src="/catalogo.js"></script>
 </body>
-</html>
+</html> 

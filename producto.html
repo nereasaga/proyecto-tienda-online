@@ -1,98 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/producto.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/producto.css" />
+    <link rel="stylesheet" href="./styles/mainstyle.css" />
     <title>Document</title>
-</head>
-<body>
-   <main>
-    <div class="product-container">
-        <div class="product-image">
-            <img src="images/TISSOT HOMBRE/TISSOT-29mm(a)mujer .png" alt="tissot image">
+  </head>
+  <body>
+    <nav id="navbar">
+      <div id="logonav">
+        <a href="./index.html"
+          ><img src="./img/ghari-logo-h-1.svg" alt="Logo Ghari Relojes"
+        /></a>
+      </div>
+      <div id="menunav">
+        <ul>
+          <li id="menu-mujer"><a href="#">Mujer</a></li>
+          <li id="menu-hombre"><a href="#">Hombre</a></li>
+          <li id="menu-unisex"><a href="#">Unisex</a></li>
+          <li id="menu-marcas"><a href="#">Marcas</a></li>
+          <li id="menu-catalogo"><a href="catalogo.html">Catálogo</a></li>
+        </ul>
+      </div>
+      <div id="timenav">
+        <p id="fecha">Jueves, 09 de enero de 2025</p>
+        <p id="hora">12:00</p>
+      </div>
+      <div id="funcionesnav">
+        <div id="idiomanav">
+          <ul>
+            <li id="espanol"><a href="#">ES</a></li>
+            <li id="english"><a href="#">EN</a></li>
+            <li id="euskara"><a href="#">EUS</a></li>
+          </ul>
         </div>
-       
-
-
-        <div class="product-details">
-            <h1>Tissot PRX Powermatic 80</h1>
-            <h2 class="price">850€</h2>
-           
-
-            <button class="add-to-cart">añadir al carrito</button>
-            <h2>Descripcion</h2>
-
-            <p>El Tissot PRX Powermatic 80 es una reinterpretación moderna de un clásico <br>
-               de los años 70, con una caja de acero inoxidable de 40 mm y una elegante<br>
-               pulsera integrada. Su vibrante esfera verde, adornada con marcadores tipo<br>
-               barra y una ventana de fecha, combina estilo vintage con un toque contemporáneo.<br>
-               Impulsado por el movimiento automático suizo Powermatic 80, ofrece una impresionante <br>
-               reserva de marcha de 80 horas y mayor resistencia magnética gracias a su muelle espiral <br>
-               de Nivachron™. Con cristal de zafiro resistente a los arañazos, resistencia al agua de<br>
-               hasta 100 metros y un diseño versátil, este reloj es perfecto tanto para ocasiones casuales<br>
-               como formales.
-             </p>
-             
-            
-             
+        <div id="clientesnav">
+          <ul>
+            <li id="icono-cesta">
+              <a href="carrito.html"
+                ><img src="./img/bolsa-de-la-compra.png" alt="Cesta"
+              /></a>
+            </li>
+            <li id="icono-clientes">
+              <a href="#"
+                ><img src="./img/usuario.png" alt="Área clientes"
+              /></a>
+            </li>
+          </ul>
         </div>
-        </div>
-        
-        <div class="additional-images">
-            <img id="mainImage" src="images/TISSOT HOMBRE/TISSOT-29mm(a)mujer .png" alt="main image" >
-             <img id="image1" src="images/TISSOT HOMBRE/TISSOT-29mm(b) mujer.png" alt="image1" >
-            <img id="image2" src="images/TISSOT HOMBRE/TISSOT-29mm(c) mujer.png" alt="image2" >
-            <img  id="image3" src="images/TISSOT HOMBRE/TISSOT-29mm(d) mujer.png" alt="image3" >
-            <img  id="image4" src="images/TISSOT HOMBRE/TISSOT-29mm(e) mujer.png" alt="image4" >
-            </div>
-
-
-
+      </div>
+    </nav>
+    <!-- ******************************************************************************* -->
     
-
-
-
-
-
+    <main id="main-producto">
+      
+    <!-- Aquí se carga el producto dinamicamente -->
+  
+    </main>
+   
+    <!-- ************************************************************************************** -->
+    <footer class="footer">
+      <!---  LOGO FOOTER   --->
+      <div id="div-footer-logo">
+        <img src="./img/ghari-logo-v-2.svg" alt="Logo Ghari" />
+      </div>
+      <!---  COLUMNAS FOOTER   --->
+      <div id="div-footer-columnas">
+        <!--   COLUMNA 1   -->
+        <div id="div-footer-columna-1" class="div-footer-columna">
+          <h3 id="footer-h3-1" class="titulo-footer">Atención al cliente</h3>
+          <ul>
+            <li>Lunes a Viernes de 9 a 18h</li>
+            <li><a href="#">Whatsapp</a></li>
+            <li><a href="#">Envíanos un e-mail</a></li>
+            <li><a href="#">¿Necesitas ayuda?</a></li>
+          </ul>
+        </div>
+        <!--   COLUMNA 2   -->
+        <div id="div-footer-columna-2" class="div-footer-columna">
+          <h3 id="footer-h3-2" class="titulo-footer">Sobre nosotros</h3>
+          <ul>
+            <li><a href="#">Conoce Ghari</a></li>
+            <li><a href="#">Relojes de alta calidad</a></li>
+            <li><a href="#">Regalos de empresa</a></li>
+          </ul>
+        </div>
+        <!--   COLUMNA 3   -->
+        <div id="div-footer-columna-3" class="div-footer-columna">
+          <h3 id="footer-h3-3" class="titulo-footer">Información</h3>
+          <ul>
+            <li><a href="#">Condiciones de uso</a></li>
+            <li><a href="#">Cambios y devoluciones</a></li>
+            <li><a href="#">Cuida tu reloj</a></li>
+            <li><a href="#">Pago seguro</a></li>
+            <li><a href="#">Guía de tallas</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>Copyright GHARI RELOJES. Todos los derechos reservados.</p>
+      </div>
+    </footer>
     
+    <!-- Modal -->
+    <div id="modal-carrito" class="modal">
+      <div class="modal-content">
+        <h2>Producto añadido a la cesta</h2>
+        <div class="modal-buttons">
+          <button id="seguir-comprando" class="add-to-cart">Seguir comprando</button>
+          <button id="ir-cesta" class="add-to-cart">Ir a la cesta</button>
+        </div>
+      </div>
+    </div>
 
-
-
-
-
-
-
-
-
-
-   </main> 
-
-   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-    const addToCartButton = document.querySelector('.add-to-cart');
-    addToCartButton.addEventListener('click', () => {
-        alert('Lo sentimos, este producto está fuera de stock.');
-    });
-});
-
-
-
-//for change the images
-
-let mainImage= document.getElementById("mainImage");
-
-    mainImage.addEventListener( 'mouseover' , function(){
-         
-        mainImage.src="images/TISSOT HOMBRE/TISSOT-29mm(a)mujer .png";
-    })
-
-
-
-
-
-
-   </script>
-
-</body>
+    <script src="producto.js"></script>
+  </body>
 </html>

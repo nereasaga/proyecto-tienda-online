@@ -1,93 +1,172 @@
 body {
-    font-family: Arial, sans-serif;
     padding: 0;
     margin: 0;
+    background-color: var(blanco);
 }
-
-h2{text-align: center;}
-
-.contenedor {
+.catalogo-main {
+    background-color: var(blanco);
+}
+.titulo { font-family: Ghari;
+    src: url(../fonts/TwCenMTStdSemiMedium.otf);
+    font-weight: normal;
+     height: 5rem;
+     background-color: var(--principal);
+     text-align: center;
+     color: white;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+/* Estilo para listas desplegables */
+details {
+    margin-bottom: 0.9rem;
+}
+summary {   
+    cursor: pointer;
+    font-size: 25px;
+    padding: 10px;
+    position: relative;
+    cursor: pointer;
+}
+/* icono de desplazamiento */
+summary::marker {
+    display: none;
+  }
+  summary::after {
+    content: "▼"; 
+    margin-left: 4px;
+    font-size: 10px;
+    color: var(--principal);
+  }
+  details[open] summary::after {
+    content: "▲"; 
+    color: var(--principal);
+  }
+  /* Línea que aparece al hacer hover */
+  summary:hover::before {
+    content: "";
+    display: block;
+    width: 38%; 
+    height: 1px; 
+    background-color: var(--principal);
+    position: absolute;
+    bottom: -2px; 
+  }
+/* Contenedor principal */
+.catalogo {
     display: flex;
-    justify-content: flex-start; /* Alinea los elementos hijos de izquierda a derecha */
-    padding: 3rem;
-    margin-left: 3.5rem;
-    background-color: #fff;
+    justify-content: flex-start;
+    padding: 1.5rem;
+    margin: 3.5rem; 
 }
-
-.filters {
-    height: 15%;
-    width: 15%; 
+/* Estilos para filtros */
+.filtro {
+    position: sticky;
+    top: 1.2rem;
+    width: 15%;
+    height: 100%;
     padding: 0.8rem;
-    background-color: #d6d3d3;
-    box-shadow: 0 0 10px rgba(196, 181, 181, 0.1);
-    margin-right: 2rem; /* Separación entre filtros y la lista de relojes */
+    margin-right: 1rem;
+    border: var(--lila-claro) solid 2px;
+    display: block;
+    font-size: 23px;
 }
-
-.watch-list {
+.filtro label {
+    font-family: var(Ghari);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+/*Estilo del rango de precios */
+.rango-precio label {
+    font-family: var(Ghari);
+    display: block;
+    margin-bottom: 0.5rem;    
+}
+/* Estilo del input range */
+.rango-precio input[type="range"] {
+    width: 85%; 
+    height: 6px; 
+    background: var(--oscuro); 
+    border-radius: 5px; 
+}
+/* Estilo del thumb (deslizador)*/
+.rango-precio input[type="range"]::-webkit-slider-thumb,
+.rango-precio input[type="range"]::-moz-range-thumb {
+    width: 15px; 
+    height: 15px;
+    background: var(--lila-claro); 
+    border: 2px solid var(--principal); 
+    border-radius: 50%; 
+    cursor: pointer; 
+}
+/* Lista de relojes */
+.lista-R {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
-    gap: 2rem; /* Espacio entre las tarjetas de los relojes */
-    width: 70%; /* Ajusta el tamaño del contenedor de los relojes */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3.5rem;
+    width: 70%;
 }
-
-.watch-item {
-    background-color: #fff;
-    padding: 0.8rem;
+.watch-item {    
+    padding: 0.2rem;
     text-align: center;
     display: flex;
-    flex-direction: column; /* Asegura que los elementos se alineen de arriba hacia abajo */
+    flex-direction: column;
+    flex-direction: column;
     justify-content: space-between;
-   
+    overflow: hidden;
 }
-
-.watch-item-header {
-    text-align: justify;
+.reloj-titulo{
     font-weight: bold;
-    margin-bottom: -0.5rem;
-
+    text-align: justify;
+    margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
 }
-
+.imagen-R {
+    border: var(--lila-claro) solid 2px;
+    width: 22rem; 
+    height: 22rem; 
+    object-fit: cover;    
+}
 .marca {
-    font-size: 0.6rem;
-    color: #555;
+    font-size: 1rem;
+    color: var(oscuro);
 }
-
-.watch-image { border: 1px solid #080707; /* Agrega un borde */
-    width: 100%;
-    height: auto;
-    margin-bottom: 0.8rem;
-}
-
-.watch-item-footer {
-    text-align: center;
-    padding-top: 0.1rem;
-}
-
-.name {
-    font-size: 0.8rem;
+.nombre {
+    color: var(--principal);
+    font-size: 1rem;
     font-weight: bold;
     text-align: justify;
     margin: 0.5px 0;
 }
-
-.description {
+.tamano,
+.material {
+    color: var(oscuro);
+    font-size: 0.9rem;
+    color: var(oscuro);
     text-align: justify;
-    font-size: 0.6rem;
-    color: #777;
     margin: 0.5rem 0;
 }
-
-.price {
-    text-align: justify;
+.precio {
     font-size: 0.8rem;
-    color: #333;
-    margin-top: 0.5rem;
     font-weight: bold;
+    color: var(oscuro);
+    text-align: justify;
+    text-align: justify;
+    margin-top: 0.5rem;
 }
-
-footer {
-    background-color: #333;
-    color: white;
-    padding: 2rem;
+.link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    height: 100%;
+}
+.link:hover {
+    background-color: var(casi-blanco);
+    cursor: pointer ;
+    transform: scale(1.01);
+}
+.reloj-pie {
     text-align: center;
+    padding-top: 0.1rem;
 }
