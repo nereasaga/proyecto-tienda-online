@@ -1,6 +1,96 @@
+// Cargar los relojes y la fecha al inicio
+window.onload = function() {
+    cargarRelojesDesdeJSON(idiomaSeleccionado);
+    iniciarIH();
+    cambiarIdioma(idiomaSeleccionado);
+};
+
+function cambiarIdioma(idioma) {
+    let archivoIdioma = "json/" + idioma + ".json";
+    let archivoCatalogo = "json/catalogo-" + idioma + ".json"; 
+
+    // CAMBIAR IDIOMA DE TEXTOS
+    fetch(archivoIdioma)
+        .then(function (respuesta) {
+            return respuesta.json();
+        })
+
+        .then(function (data) {
+    for (let key in data) {
+        let elemento = document.getElementById(key);
+        if (elemento) {
+                elemento.textContent = data[key];
+            }
+        }
+    });
+};
+
+     // CAMBIAR A INGLÉS
+     const btnEn = document.getElementById('english');
+     btnEn.addEventListener("click", function() {
+         cambiarIdioma("en");
+         idiomaSeleccionado2 = "en-GB";
+         localStorage.setItem('idiomaSeleccionado', 'en');
+         localStorage.setItem('idiomaSeleccionado2', 'en-GB');
+         cargarRelojesDesdeJSON("en");
+         iniciarIH();
+     });
+ 
+     // CAMBIAR A ESPAÑOL
+     const btnEs = document.getElementById('espanol');
+     btnEs.addEventListener("click", function() {
+         cambiarIdioma("es");
+         idiomaSeleccionado2 = "es-ES";
+         localStorage.setItem('idiomaSeleccionado', 'es');
+         localStorage.setItem('idiomaSeleccionado2', 'es-ES');
+         cargarRelojesDesdeJSON("es");
+         iniciarIH();
+     });
+ 
+     // CAMBIAR A EUSKERA
+     const btnEus = document.getElementById('euskara');
+     btnEus.addEventListener("click", function() {
+        cambiarIdioma("eus");
+         cargarRelojesDesdeJSON("eus");
+         idiomaSeleccionado2 = "eus";
+         localStorage.setItem('idiomaSeleccionado', 'eus');
+         localStorage.setItem('idiomaSeleccionado2', 'eus');
+         cargarRelojesDesdeJSON("eus");
+         iniciarIH();
+     });
+
+     //Coger idiomas de LS
+let idiomaSeleccionado = localStorage.getItem('idiomaSeleccionado') || 'es'; 
+let idiomaSeleccionado2 = localStorage.getItem('idiomaSeleccionado2') || 'es-ES';
+
+ // CARGAR HORA Y FECHA 
+ function iniciarIH() {let intervaloHora;
+ if (intervaloHora) {
+   clearInterval(intervaloHora);
+ }
+ intervaloHora = setInterval(function() {
+   F5time(idiomaSeleccionado2);
+ }, 1000);
+}
+
+     // FUNCIÓN PARA HORA Y FECHA
+     function F5time(idioma = 'es-ES') {
+        const fechaElemento = document.getElementById("fecha");
+        const horaElemento = document.getElementById("hora");
+        const ahora = new Date();
+        const opcionesFecha = { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' };
+        const fechaFormateada = ahora.toLocaleDateString(idioma, opcionesFecha);
+        const horaFormateada = ahora.toLocaleTimeString(idioma, { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+        fechaElemento.textContent = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
+        horaElemento.textContent = horaFormateada;
+    }
+
+
 // Función para cargar los datos desde un archivo JSON
-function cargarRelojesDesdeJSON() {
-    fetch('json/catalogo-es.json') // Asegúrate de que el archivo JSON esté en la misma carpeta
+function cargarRelojesDesdeJSON(idioma) {
+    let archivoCatalogo = "json/catalogo-" + idioma + ".json";
+    fetch(archivoCatalogo) // Asegúrate de que el archivo JSON esté en la misma carpeta
         .then(response => response.json())
         .then(data => {
             relojes = data; // Asignar los datos cargados a la variable relojes
@@ -8,8 +98,10 @@ function cargarRelojesDesdeJSON() {
         })
         .catch(error => console.error('Error al cargar los relojes:', error));
 }
-// Cargar los relojes al inicio
-window.onload = cargarRelojesDesdeJSON;
+
+
+
+
 // Función para guardar la referencia del producto seleccionado
 function guardarReferenciaProducto(ref) {
     localStorage.setItem('selectedWatchref', ref);
