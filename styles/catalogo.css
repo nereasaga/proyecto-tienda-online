@@ -1,93 +1,258 @@
 body {
-    font-family: Arial, sans-serif;
     padding: 0;
     margin: 0;
+    background-color: var(blanco);
 }
-
-h2{text-align: center;}
-
-.contenedor {
-    display: flex;
-    justify-content: flex-start; /* Alinea los elementos hijos de izquierda a derecha */
-    padding: 3rem;
-    margin-left: 3.5rem;
-    background-color: #fff;
+.catalogo-main {
+    background-color: var(blanco);
 }
-
-.filters {
-    height: 15%;
-    width: 15%; 
-    padding: 0.8rem;
-    background-color: #d6d3d3;
-    box-shadow: 0 0 10px rgba(196, 181, 181, 0.1);
-    margin-right: 2rem; /* Separación entre filtros y la lista de relojes */
+.titulo { font-family: Ghari;
+    src: url(../fonts/TwCenMTStdSemiMedium.otf);
+    font-weight: normal;
+     height: 5rem;
+     background-color: var(--principal);
+     text-align: center;
+     color: white;
+     display: flex;
+     justify-content: center;
+     align-items: center;
 }
-
-.watch-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
-    gap: 2rem; /* Espacio entre las tarjetas de los relojes */
-    width: 70%; /* Ajusta el tamaño del contenedor de los relojes */
-}
-
-.watch-item {
-    background-color: #fff;
-    padding: 0.8rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column; /* Asegura que los elementos se alineen de arriba hacia abajo */
-    justify-content: space-between;
-   
-}
-
-.watch-item-header {
-    text-align: justify;
-    font-weight: bold;
-    margin-bottom: -0.5rem;
-
-}
-
-.marca {
-    font-size: 0.6rem;
-    color: #555;
-}
-
-.watch-image { border: 1px solid #080707; /* Agrega un borde */
-    width: 100%;
-    height: auto;
+/* Estilo para listas desplegables */
+details {
     margin-bottom: 0.8rem;
 }
-
-.watch-item-footer {
-    text-align: center;
-    padding-top: 0.1rem;
+summary {   
+    cursor: pointer;
+    font-size: 25px;
+    padding: 10px;
+    position: relative;
+    cursor: pointer;
+}
+/* icono de desplazamiento */
+summary::marker {
+    display: none;
+  }
+  summary::after {
+    content: "▼"; 
+    margin-left: 4px;
+    font-size: 10px;
+    color: var(--principal);
+  }
+  details[open] summary::after {
+    content: "▲"; 
+    color: var(--principal);
+  }
+  /* Línea que aparece al hacer hover */
+  summary:hover::before {
+    content: "";
+    display: block;
+    width: 38%; 
+    height: 1px; 
+    background-color: var(--principal);
+    position: absolute;
+    bottom: -2px; 
+  }
+/* Contenedor principal */
+.catalogo {
+    display: flex;
+    justify-content: flex-start;
+    padding: 1.5rem;
+    margin: 3.5rem; 
+}
+/* Estilos para filtros */
+.filtro {
+    position: sticky;
+    top: 1.2rem;
+    width: 15%;
+    height: 100%;
+    padding: 0.8rem;
+    margin-right: 1rem;
+    border: var(--lila-claro) solid 2px;
+    display: block;
+    font-size: 23px;
+}
+.filtro label {    
+    font-family: var(Ghari);
+    display: block;
+    margin-bottom: 1px;
 }
 
-.name {
-    font-size: 0.8rem;
+
+/*Estilo del rango de precios */
+.rango-precio label {
+    font-family: var(Ghari);
+    display: block;
+    margin-bottom: 0.5rem;    
+}
+/* Lista de relojes */
+.lista-R {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3.5rem;
+    width: 70%;
+}
+.watch-item {    
+    padding: 0.2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.reloj-titulo{
+    font-weight: bold;
+    text-align: justify;
+    margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.imagen-R {
+    border: var(--lila-claro) solid 2px;
+    width: 22rem; 
+    height: 22rem; 
+    object-fit: cover;    
+}
+.marca {
+    font-size: 1rem;
+    color: var(oscuro);
+}
+.nombre {
+    color: var(--principal);
+    font-size: 1rem;
     font-weight: bold;
     text-align: justify;
     margin: 0.5px 0;
 }
-
-.description {
+.tamano,
+.material {
+    color: var(oscuro);
+    font-size: 0.9rem;
+    color: var(oscuro);
     text-align: justify;
-    font-size: 0.6rem;
-    color: #777;
     margin: 0.5rem 0;
 }
-
-.price {
-    text-align: justify;
+.precio {
     font-size: 0.8rem;
-    color: #333;
-    margin-top: 0.5rem;
     font-weight: bold;
+    color: var(oscuro);
+    text-align: justify;
+    text-align: justify;
+    margin-top: 0.5rem;
+}
+.link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    height: 100%;
+}
+.link:hover {
+    background-color: var(casi-blanco);
+    cursor: pointer ;
+    transform: scale(1.01);
+}
+.reloj-pie {
+    text-align: center;
+    padding-top: 0.1rem;
+}
+.modal {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2d3e40b6; 
+    z-index: 1000; 
+    justify-content: center;
+    align-items: center;
+  }  
+.modal-content {
+    align-items: center;    
+    background-color: var(--blanco);
+    padding: 20px;
+    text-align: center;
+    width: 25rem;
+    height: 20rem;   
+    position: relative;
+  }
+
+  .modal-content-2 {
+    align-items: center;    
+    background-color: var(--blanco);
+    padding: 20px;
+    text-align: center;
+    width: 25rem;
+    height: 7rem;   
+    position: relative;
+  }
+.modal-button {
+    margin-top: 40px;
+  }
+ button {
+    background-color: var(--principal);
+    color: #fff;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    max-width: 10rem;
+    border: var(--principal) solid 0.2rem;
+    box-sizing: border-box;
+    min-width: 8rem;
+    margin: 0.5rem;
+}
+button:hover {
+    border: var(--principal) solid 0.2rem;
+    background-color:var(--blanco);
+    color: var(--principal);
+    box-sizing: border-box;
+}
+/* Estilo para los párrafos */
+p {
+    font-family: var(Ghari);
+    font-size: 1.4rem;
+    line-height: 2;
+    color: var(--oscuro);
+    margin-bottom: 0.7rem;
+}
+.aviso {
+    font-size: 2.1rem;   
+    color: var(--principal);
+    text-align: center;
+    margin-top: rem;
+}
+input {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    box-sizing: border-box;
+    border: 2px solid var(--lila-claro);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: var(Ghari);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+input:focus {
+    border-color: var(--principal);
+    box-shadow: 0 0 5px var(--principal);
+    outline: none;
+}
+.btn-cierre {
+    position: absolute; 
+    top: -10px; 
+    right: 7px; 
+    font-size: xx-large;
+    cursor: pointer;
+    background: none; 
+    color: var(--oscuro); 
 }
 
-footer {
-    background-color: #333;
-    color: white;
-    padding: 2rem;
+.modal-conten-2 {
+    align-items: center;    
+    background-color: var(--blanco);
+    padding: 20px;
     text-align: center;
-}
+    width: 25rem;
+    height: 10rem;   
+    position: relative;
+  }

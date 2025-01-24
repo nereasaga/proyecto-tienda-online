@@ -261,6 +261,11 @@ table {
         width: 100%;
     }
 
+    .div-details {
+        padding: 0px;
+    }
+
+
     .div-cart {
         width: 40%;
         padding-right: 2rem;
@@ -297,6 +302,7 @@ table {
         width: 90%;
     }
 
+   
     .div-cart {
         width: 100%;
         padding-right: 0px;

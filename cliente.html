@@ -8,34 +8,83 @@
    
 </head>
 <body>
-
   
-  <h1>GHARI</h1>
+  <p>inicio / cuenta </p>
+  <h1>Mi Cuenta</h1>
+
      
   <div class="container">
     <div class="form-section">
 
-    <p>inicio .... Iniciar sesión con su cuenta</p>
-    <h2>Nuevos clientes</h2>
-    <p>Al craer una cuenta an nuestra tienda, podrá desplazarse más rápidamente por el proceso de pago, almacenar múltiples direcciones de envio, ver y realizar un seguimiento de sus pedidos en su cuenta y mucho más.</p>
+    <h2>No tengo una cuenta</h2>
+    <p>Crea una cuenta en GHARI RELOJES para beneficiarte de nuestros servicios exclusivos y mantenerte al día con nuestras publicaciones más recientes..</p>
     <a class="btn">Crear una Cuenta</a>
 </div>
 
 
 
-<!-- Sección de iniciar sesión -->
-<div class="form-section">
-    <h2>Iniciar Sesión con su Cuenta</h2>
-    <form>
-      <input type="email" placeholder="Dirección de correo electrónico" required>
-      <input type="password" placeholder="Contraseña" required>
+  <!-- Sección de iniciar sesión -->
+  <div class="form-section">
+    <h2>Tengo una cuenta</h2>
+    <form id="login-form">
+      <input id="correoRecogido" type="email" placeholder="Dirección de correo electrónico" required>
+      <input id="claveRecogida" type="password" placeholder="Contraseña" required>
+      <p><a href="#" class="forgot-password">¿Olvidó su contraseña?</a></p>
       <button type="submit" class="btn2">Iniciar Sesión</button>
     </form>
-    <p><a href="#" class="forgot-password">¿Olvidó su contraseña?</a></p>
+     <!--mensaje error-->
+       <p id="error-message" class="hidden error">Correo o contraseña incorrecta</p>
   </div>
-
+  </div>
 </div>
 
+<div id="welcome-section" class="hidden">
+  <h2>¡Bienvenido/a a GHARI RELOJES!</h2>
+  <p>Gracias por iniciar sesión. Ahora puedes explorar nuestros servicios.</p>
+</div>
+
+<div id="incorrect-section" class="hidden">
+  <h2>¡Incorrect password!</h2>
+  <p>Try Again</p>
+</div>
+
+
+<script>
+  function mostrarBienvenida(event) {
+      event.preventDefault(); // Previene envío del formulario
+      document.querySelector(".container").classList.add("hidden"); // Oculta formulario
+      document.getElementById("welcome-section").classList.remove("hidden"); // Muestra bienvenida
+  }
+
+  let correoRegistrado = "aleezas947@gmail.com";
+  let claveRegistrada = "123456";
+
+
+
+  // Asocia el evento al formulario
+  document.getElementById("login-form").addEventListener("submit", function(event){
+    event.preventDefault();
+    let correoRecogido = document.getElementById("correoRecogido").value;
+    let claveRecogida = document.getElementById("claveRecogida").value;
+
+    correoRecogido=correoRecogido.toLowerCase();
+    // claveRecogida=parseInt(claveRecogida);
+     
+ if(correoRecogido===correoRegistrado && claveRecogida===claveRegistrada){
+  document.querySelector(".container").classList.add("hidden");
+  document.getElementById("welcome-section").classList.remove("hidden");
+
+                 
+} else {
+  document.getElementById("error-message").classList.remove("hidden");
+document.getElementById("incorrect-section").classList.remove("hidden");
+ }
+  });
+
+ 
+
+
+</script>
 
 </body>
 </html>
