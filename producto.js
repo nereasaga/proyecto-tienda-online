@@ -1,11 +1,8 @@
 // Evento principal cuando el DOM se carga
 document.addEventListener("DOMContentLoaded", () => {
   let idiomaActual = localStorage.getItem('idiomaSeleccionado') || 'es';
-  
-  // console.log(idiomaActual);
 
-  
- 
+
   // Obtener el 'ref' del producto seleccionado desde localStorage
   const productRef = localStorage.getItem("selectedWatchref");
 
@@ -15,28 +12,28 @@ document.addEventListener("DOMContentLoaded", () => {
       '<h2 class="errorCargaProducto">Error al cargar el producto</h2>';
     return;
   }
-  
+
   cargaProducto(idiomaActual);
-  
+
 });
 
 
 // Carga de catalogo según idioma
 function cargaProducto(idiomaActual) {
-     // Obtener el 'ref' del producto seleccionado desde localStorage
-    const productRef = localStorage.getItem("selectedWatchref");
+  // Obtener el 'ref' del producto seleccionado desde localStorage
+  const productRef = localStorage.getItem("selectedWatchref");
 
-    // Mostrar error si no se encuentra el ref
-    if (!productRef) {
+  // Mostrar error si no se encuentra el ref
+  if (!productRef) {
     document.getElementById("main-producto").innerHTML =
       '<h2 class="errorCargaProducto">Error al cargar el producto</h2>';
     return;
-    }
+  }
 
-    let catalogoIdioma = 'json/catalogo-' + idiomaActual + '.json';
-    // console.log(catalogoIdioma);
-    // Fetch del catálogo JSON
-    fetch(catalogoIdioma)
+  let catalogoIdioma = 'json/catalogo-' + idiomaActual + '.json';
+  // console.log(catalogoIdioma);
+  // Fetch del catálogo JSON
+  fetch(catalogoIdioma)
     .then((response) => response.json())
     .then((data) => {
       cargarProducto(data, productRef); // Cargar el producto con el ref
@@ -51,7 +48,7 @@ function cargaProducto(idiomaActual) {
 // cambiar idioma al seleccionar en el nav
 const seleccionarIdioma = document.getElementById("idiomanav");
 seleccionarIdioma.addEventListener('click', (evento) => {
-  if(evento.target.textContent === 'ES') {
+  if (evento.target.textContent === 'ES') {
     // console.log('Seleccionado español');
     cargaProducto('es');
   } else if (evento.target.textContent === 'EN') {
@@ -74,6 +71,10 @@ function cargarProducto(relojes, productRef) {
   }
 
   // Construir el HTML dinámicamente
+  document.title = `${producto.marca} ${producto.modelo}`;
+
+
+
   document.getElementById("main-producto").innerHTML = `
     <div class="product-container">
       <div class="product-image">
@@ -132,50 +133,64 @@ function funcionesDePagina(productRef) {
   }
 
 
-// Añadir al carrito con modal
-document.querySelector(".add-to-cart").addEventListener("click", () => {
-  // Crear un objeto con el producto y la cantidad
-  const cantidadActual = parseInt(document.getElementById("cantidad").textContent, 10);
-  const productoNuevo = new ProductoCarrito(productRef, cantidadActual);
+  // Añadir al carrito con modal
+  document.querySelector(".add-to-cart").addEventListener("click", () => {
+    // Crear un objeto con el producto y la cantidad
+    const cantidadActual = parseInt(document.getElementById("cantidad").textContent, 10);
+    const productoNuevo = new ProductoCarrito(productRef, cantidadActual);
 
-  // Obtener los productos existentes en el carrito desde localStorage
-  let productosEnCesta = JSON.parse(localStorage.getItem("producto")) || [];
+    // Obtener los productos existentes en el carrito desde localStorage
+    let productosEnCesta = JSON.parse(localStorage.getItem("producto")) || [];
 
-  // Verificar si el producto ya existe en el carrito
-  const productoExistente = productosEnCesta.find((p) => p.ref === productoNuevo.ref);
 
-  if (productoExistente) {
-    productoExistente.cantidad += productoNuevo.cantidad;
-  } else {
-    productosEnCesta.push(productoNuevo);
-  }
+    // Verificar si el producto ya existe en el carrito
+    const productoExistente = productosEnCesta.find((p) => p.ref === productoNuevo.ref);
 
-  // Guardar el carrito actualizado en localStorage
-  localStorage.setItem("producto", JSON.stringify(productosEnCesta));
+    if (productoExistente) {
+      productoExistente.cantidad += productoNuevo.cantidad;
+    } else {
+      productosEnCesta.push(productoNuevo);
+    }
+
+    // Guardar el carrito actualizado en localStorage
+    localStorage.setItem("producto", JSON.stringify(productosEnCesta));
+
+    let cantRelojes = 0;
+    // console.log(productosEnCesta);
+    productosEnCesta.forEach((cantidades) => {
+      // console.log(cantidades.cantidad);
+      cantRelojes += cantidades.cantidad;
+    });
+    // console.log(cantRelojes);
+    localStorage.setItem('cantidadEnCesta', cantRelojes);
+    const numeroCesta = document.getElementById('numero-cesta');
+    numeroCesta.innerText = localStorage.getItem("cantidadEnCesta");
+
+
+    // Mostrar el modal
+    mostrarModal();
+  });
 
   // Mostrar el modal
-  mostrarModal();
-});
+  function mostrarModal() {
+    const modal = document.getElementById("modal-carrito");
+    modal.style.display = "flex";
+    // cerrar modal
 
-// Mostrar el modal
-function mostrarModal() {
-  const modal = document.getElementById("modal-carrito");
-  modal.style.display = "flex";
-  // cerrar modal
-  document.getElementById("btn-cierre").addEventListener('click', () => {
-    window.location.href = "producto.html"; // Redirige a catalogo.html
-  });
+    document.getElementById("btn-cierre").addEventListener('click', () => {
+      modal.style.display = "none";; // Redirige a catalogo.html
+    });
 
-  // Seguir comprando
-  document.getElementById("seguir-comprando").addEventListener("click", () => {
-    window.location.href = "catalogo.html"; // Redirige a catalogo.html
-  });
+    // Seguir comprando
+    document.getElementById("seguir-comprando").addEventListener("click", () => {
+      window.location.href = "catalogo.html"; // Redirige a catalogo.html
+    });
 
-  // r a la cesta
-  document.getElementById("ir-cesta").addEventListener("click", () => {
-    window.location.href = "carrito.html"; // Redirige a carrito.html
-  });
-}
+    // Ir a la cesta
+    document.getElementById("ir-cesta").addEventListener("click", () => {
+      window.location.href = "carrito.html"; // Redirige a carrito.html
+    });
+  }
 
 
 
@@ -194,42 +209,43 @@ function mostrarModal() {
 
 // CAMBIAR A INGLÉS
 const btnEn = document.getElementById('english');
-btnEn.addEventListener("click", function() {
-    // cambiarIdioma("en");
-    localStorage.setItem('idiomaSeleccionado', 'en');
-    localStorage.setItem('idiomaSeleccionado2', 'en-GB');
-    // idiomaActual = "en";
-    // let intervaloHora = setInterval(function() {
-    //     F5time("en-GB");
-    // }, 1000);
-    // clearInterval(intervaloHora);
-    // intervaloHora();
+btnEn.addEventListener("click", function () {
+  // cambiarIdioma("en");
+  localStorage.setItem('idiomaSeleccionado', 'en');
+  localStorage.setItem('idiomaSeleccionado2', 'en-GB');
+  // idiomaActual = "en";
+  // let intervaloHora = setInterval(function() {
+  //     F5time("en-GB");
+  // }, 1000);
+  // clearInterval(intervaloHora);
+  // intervaloHora();
 });
 
 // CAMBIAR A ESPAÑOL
 const btnEs = document.getElementById('espanol');
-btnEs.addEventListener("click", function() {
-    // cambiarIdioma("es");
-    localStorage.setItem('idiomaSeleccionado', 'es');
-    localStorage.setItem('idiomaSeleccionado2', 'es-ES');
-    // idiomaActual = "es";  
-    // let intervaloHora = setInterval(function() {
-    //     F5time("es-ES");
-    // }, 1000);
-    // clearInterval(intervaloHora);
-    // intervaloHora();
+btnEs.addEventListener("click", function () {
+  // cambiarIdioma("es");
+  localStorage.setItem('idiomaSeleccionado', 'es');
+  localStorage.setItem('idiomaSeleccionado2', 'es-ES');
+  // idiomaActual = "es";  
+  // let intervaloHora = setInterval(function() {
+  //     F5time("es-ES");
+  // }, 1000);
+  // clearInterval(intervaloHora);
+  // intervaloHora();
 });
 
 // CAMBIAR A EUSKERA
 const btnEus = document.getElementById('euskara');
-btnEus.addEventListener("click", function() {
-    // cambiarIdioma("eus");
-    localStorage.setItem('idiomaSeleccionado', 'eus');
-    localStorage.setItem('idiomaSeleccionado2', 'eus');
-    // idiomaActual = "eus";  
-    // let intervaloHora = setInterval(function() {
-    //     F5time("eus");
-    // }, 1000);
-    // clearInterval(intervaloHora);
-    // intervaloHora();
+btnEus.addEventListener("click", function () {
+  // cambiarIdioma("eus");
+  localStorage.setItem('idiomaSeleccionado', 'eus');
+  localStorage.setItem('idiomaSeleccionado2', 'eus');
+  // idiomaActual = "eus";  
+  // let intervaloHora = setInterval(function() {
+  //     F5time("eus");
+  // }, 1000);
+  // clearInterval(intervaloHora);
+  // intervaloHora();
 });
+
