@@ -72,7 +72,6 @@ let idiomaSeleccionado2 = localStorage.getItem('idiomaSeleccionado2') || 'es-ES'
    F5time(idiomaSeleccionado2);
  }, 1000);
 }
-
      // FUNCIÓN PARA HORA Y FECHA
      function F5time(idioma = 'es-ES') {
         const fechaElemento = document.getElementById("fecha");
@@ -85,8 +84,8 @@ let idiomaSeleccionado2 = localStorage.getItem('idiomaSeleccionado2') || 'es-ES'
         fechaElemento.textContent = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
         horaElemento.textContent = horaFormateada;
     }
-
-
+//********************************************************************************************************************************************************************* 
+//********************************************************************************************************************************************************************* */
 // Función para cargar los datos desde un archivo JSON
 function cargarRelojesDesdeJSON(idioma) {
     let archivoCatalogo = "json/catalogo-" + idioma + ".json";
@@ -98,10 +97,39 @@ function cargarRelojesDesdeJSON(idioma) {
         })
         .catch(error => console.error('Error al cargar los relojes:', error));
 }
-
-
-
-
+//*****************************************************************************************************************************************************************************/
+//FUNCION DEL NAV
+function filtrar_genero(genero) {
+    const filtroRelojes = relojes.filter(reloj => {
+        const filtroGenero = genero === 'todos' || genero === reloj.genero.toLowerCase();
+        return filtroGenero;
+    });
+    mostrarRelojes(filtroRelojes);
+  }
+  // Función para mostrar relojes en la página
+  function mostrarRelojes(listaRelojes) {
+    const listareloj = document.getElementById("reloj-l");
+    listareloj.innerHTML = ""; // Limpiar contenido previo
+    listaRelojes.forEach(reloj => {
+      const relojItem = document.createElement("div");
+      relojItem.classList.add("watch-item");
+      relojItem.innerHTML = `
+        <a href="producto.html" onclick="guardarReferenciaProducto('${reloj.ref}')" class="link">
+            <div class="reloj-titulo">
+                <p class="marca">${reloj.marca}</p>
+            </div>
+            <img src="${reloj['img-1']}" alt="${reloj.modelo}" class="imagen-R">
+            <div class="reloj-pie">
+                <h3 class="nombre">${reloj.modelo}</h3>
+                <p class="tamano">${reloj.tamano} mm</p>
+                <p class="material">${reloj.material}</p>
+                <p class="precio">${reloj.precio} €</p>
+            </div>
+        </a>
+      `;
+      listareloj.appendChild(relojItem);
+    });
+  }
 // Función para guardar la referencia del producto seleccionado
 function guardarReferenciaProducto(ref) {
     localStorage.setItem('selectedWatchref', ref);
@@ -118,7 +146,6 @@ let seleccionGenero = [];
 function cargarRelojes() {
     const listareloj = document.getElementById('reloj-l');
     listareloj.innerHTML = '';
-
     relojes.forEach(reloj => {
         const elementosR = document.createElement('div');
         elementosR.classList.add('watch-item');
@@ -139,7 +166,7 @@ function cargarRelojes() {
         listareloj.appendChild(elementosR);
     });
 }
-// Evento de actualización de filtros
+//***********************************************************************************************************************************************************************************
 document.querySelectorAll('input[type="checkbox"]').forEach(input => {
     input.addEventListener('change', actualizarFiltros);
 });
@@ -147,7 +174,7 @@ document.querySelectorAll('input[type="checkbox"]').forEach(input => {
 function actualizarFiltros() { 
     seleccionTamano = obtenerValoresSeleccionados('tamano');
     seleccionMarca = obtenerValoresSeleccionados('marca');
-    seleccionPrecio = document.getElementById('precioRange').value; // Captura el valor del rango
+    seleccionPrecio = document.getElementById('precioRange').value; 
     seleccionMaterial = obtenerValoresSeleccionados('material');
     seleccionGenero = obtenerValoresSeleccionados('genero');
     seleccionTipo = obtenerValoresSeleccionados('tipo');    
@@ -200,3 +227,45 @@ function actualizarValorPrecio(rangeInput) {
 document.querySelectorAll('input[type="checkbox"]').forEach(input => {
     input.addEventListener('change', actualizarFiltros);
 });
+//********************************************************************************************************************************************************************************* */
+// Función para mostrar el primer modal
+function mostrarModal() {
+    const modal = document.getElementById("modal-oferta");
+    modal.style.display = "flex";
+  }  
+  // Función para cerrar cualquier modal
+  function cerrarModal() {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => modal.style.display = "none");
+  }  
+  // Función para mostrar el modal de verificación
+  function mostrarModalVerificado() {
+    const modalVerificado = document.getElementById("verificado");
+    modalVerificado.style.display = "flex";
+    setTimeout(cerrarModal, 3000); // Cierra el modal después de 3 segundos
+  }  
+  // Evento para cerrar el modal de la oferta (cuando el usuario hace clic en "x" o "No, gracias")
+  document.getElementById("btn-cierre").addEventListener('click', cerrarModal);
+  document.getElementById("no-gracias").addEventListener('click', cerrarModal);
+  // Evento para cerrar el modal de verificación (cuando el usuario hace clic en "x")
+document.getElementById("btn-cierre-verificado").addEventListener('click', cerrarModal);  
+  // Evento para cerrar el modal de verificación (cuando el usuario hace clic en "x")
+  document.getElementById("btn-cierre").addEventListener('click', cerrarModal);  
+  // Mostrar el modal después de 7 segundos
+  setTimeout(mostrarModal, 7000);  
+  // Detectar intento de abandonar la página
+//   document.addEventListener("mouseleave", function(event) {
+//     if (event.clientY <= 0 || event.clientY >= window.innerHeight) {
+//       mostrarModal();
+//     }
+//   });  
+  // Evento para suscribirse (cuando el usuario hace clic en "Suscribirse")
+  document.getElementById("suscribirse").addEventListener('click', function() {
+    const email = document.getElementById("email-input").value;    
+    if (email) {    
+      cerrarModal();  // Cierra el modal de la oferta
+      mostrarModalVerificado();  // Muestra el modal de verificación      
+    } else {
+      alert("Por favor, ingresa un correo electrónico válido.");
+    }
+  }); 

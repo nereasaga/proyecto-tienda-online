@@ -8,6 +8,7 @@ body {
 }
 .titulo { font-family: Ghari;
     src: url(../fonts/TwCenMTStdSemiMedium.otf);
+    font-size: 3rem;
     font-weight: normal;
      height: 5rem;
      background-color: var(--principal);
@@ -17,9 +18,9 @@ body {
      justify-content: center;
      align-items: center;
 }
-/* Estilo para listas desplegables */
+
 details {
-    margin-bottom: 0.9rem;
+    margin-bottom: 0.8rem;
 }
 summary {   
     cursor: pointer;
@@ -28,7 +29,7 @@ summary {
     position: relative;
     cursor: pointer;
 }
-/* icono de desplazamiento */
+
 summary::marker {
     display: none;
   }
@@ -42,7 +43,7 @@ summary::marker {
     content: "▲"; 
     color: var(--principal);
   }
-  /* Línea que aparece al hacer hover */
+  
   summary:hover::before {
     content: "";
     display: block;
@@ -52,14 +53,14 @@ summary::marker {
     position: absolute;
     bottom: -2px; 
   }
-/* Contenedor principal */
+
 .catalogo {
     display: flex;
     justify-content: flex-start;
     padding: 1.5rem;
     margin: 3.5rem; 
 }
-/* Estilos para filtros */
+
 .filtro {
     position: sticky;
     top: 1.2rem;
@@ -71,35 +72,31 @@ summary::marker {
     display: block;
     font-size: 23px;
 }
-.filtro label {
+.filtro label {    
     font-family: var(Ghari);
-    display: block;
-    margin-bottom: 0.5rem;
+    
+    margin-bottom: 1px;
+    
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
 }
-/*Estilo del rango de precios */
+
+
+.filtro label input[type="checkbox"] {
+    
+    width: 10%;
+    display: inline;
+}
+
+
 .rango-precio label {
     font-family: var(Ghari);
     display: block;
     margin-bottom: 0.5rem;    
 }
-/* Estilo del input range */
-.rango-precio input[type="range"] {
-    width: 85%; 
-    height: 6px; 
-    background: var(--oscuro); 
-    border-radius: 5px; 
-}
-/* Estilo del thumb (deslizador)*/
-.rango-precio input[type="range"]::-webkit-slider-thumb,
-.rango-precio input[type="range"]::-moz-range-thumb {
-    width: 15px; 
-    height: 15px;
-    background: var(--lila-claro); 
-    border: 2px solid var(--principal); 
-    border-radius: 50%; 
-    cursor: pointer; 
-}
-/* Lista de relojes */
+
 .lista-R {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -133,7 +130,7 @@ summary::marker {
 }
 .nombre {
     color: var(--principal);
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: bold;
     text-align: justify;
     margin: 0.5px 0;
@@ -141,18 +138,17 @@ summary::marker {
 .tamano,
 .material {
     color: var(oscuro);
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     color: var(oscuro);
     text-align: justify;
-    margin: 0.5rem 0;
+    margin: 0.5px 0;   
 }
 .precio {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: bold;
     color: var(oscuro);
     text-align: justify;
-    text-align: justify;
-    margin-top: 0.5rem;
+    margin-top: 0.1rem;
 }
 .link {
     display: block;
@@ -170,3 +166,135 @@ summary::marker {
     text-align: center;
     padding-top: 0.1rem;
 }
+.modal {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2d3e40b6; 
+    z-index: 1000; 
+    justify-content: center;
+    align-items: center;
+  }  
+.modal-content {
+    align-items: center;    
+    background-color: var(--blanco);
+    padding: 20px;
+    text-align: center;
+    width: 25rem;
+    height: 20rem;   
+    position: relative;
+  }
+  .modal-content-2 {
+    align-items: center;    
+    background-color: var(--blanco);
+    padding: 20px;
+    text-align: center;
+    width: 25rem;
+    height: 7rem;   
+    position: relative;
+  }
+.modal-button {
+    margin-top: 40px;
+  }
+ button {
+    background-color: var(--principal);
+    color: #fff;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    max-width: 10rem;
+    border: var(--principal) solid 0.2rem;
+    box-sizing: border-box;
+    min-width: 8rem;
+    margin: 0.5rem;
+}
+button:hover {
+    border: var(--principal) solid 0.2rem;
+    background-color:var(--blanco);
+    color: var(--principal);
+    box-sizing: border-box;
+}
+
+p {
+    font-family: var(Ghari);
+    font-size: 1.4rem;
+    line-height: 2;
+    color: var(--oscuro);
+    margin-bottom: 0.7rem;
+}
+.aviso {
+    font-size: 2.1rem;   
+    color: var(--principal);
+    text-align: center;
+    margin-top: rem;
+}
+input {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    box-sizing: border-box;
+    border: 2px solid var(--lila-claro);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: var(Ghari);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+input:focus {
+    border-color: var(--principal);
+    box-shadow: 0 0 5px var(--principal);
+    outline: none;
+}
+.btn-cierre {
+    position: absolute; 
+    top: -10px; 
+    right: 7px; 
+    font-size: xx-large;
+    cursor: pointer;
+    background: none; 
+    color: var(--oscuro); 
+}
+.modal-conten-2 {
+    align-items: center;    
+    background-color: var(--blanco);
+    padding: 20px;
+    text-align: center;
+    width: 25rem;
+    height: 10rem;   
+    position: relative;
+  }
+  
+
+  @media   (max-width: 1280px){
+    
+    .filtro {
+          width: 20%;  
+    } 
+
+    .lista-R {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem; 
+          width: 100%;  
+    } 
+
+    .watch-item { 
+         padding: rem; 
+     }  
+
+    .imagen-R {
+        width: 18rem; 
+         height: 18rem; 
+     } 
+
+     .reloj-titulo {
+        font-size: 1rem; 
+    } 
+} 
+
+
+
+
+
+  

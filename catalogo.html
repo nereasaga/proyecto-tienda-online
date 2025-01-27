@@ -6,51 +6,80 @@
     <title>Catalogo</title>
     <link rel="stylesheet" href="./styles/catalogo.css">
     <link rel="stylesheet" href="./styles/mainstyle.css">
+    <link rel="stylesheet" href="/styles/slider.css">
 </head>
 <body>
-    <nav id="navbar">
-        <div id="logonav">
-          <a href="./index.html"
-            ><img src="./img/ghari-logo-h-1.svg" alt="Logo Ghari Relojes"
-          /></a>
-        </div>
-        <div id="menunav">
-          <ul>
-            <li id="menu-mujer"><a href="#">Mujer</a></li>
-            <li id="menu-hombre"><a href="#">Hombre</a></li>
-            <li id="menu-unisex"><a href="#">Unisex</a></li>
-            <li id="menu-marcas"><a href="#">Marcas</a></li>
-            <li id="menu-catalogo"><a href="catalogo.html">Catálogo</a></li>
-          </ul>
-        </div>
-        <div id="timenav">
-          <p id="fecha">Jueves, 09 de enero de 2025</p>
-          <p id="hora">12:00</p>
-        </div>
-        <div id="funcionesnav">
-          <div id="idiomanav">
+  <nav id="navbar">
+    <div id="logonav">
+        <a href="./index.html"><img src="./img/ghari-logo-h-1.svg" alt="Logo Ghari Relojes"></a>
+    </div>    
+     <div id="menunav"> 
+        <ul>
+            <li><a id="menu-mujer" href="#"  onclick="filtrar_genero('mujer')" >Mujer</a></li>
+            <li><a id="menu-hombre" href="#" onclick="filtrar_genero('hombre')" >Hombre</a></li>
+            <li><a id="menu-unisex" href="#" onclick="filtrar_genero('unisex')" >Unisex</a></li>
+            <li><a id="menu-catalogo" href="catalogo.html">Catálogo</a></li>
+            <li><a id="menu-contacto" href="#">Contacto</a></li> 
+        </ul>
+    </div>
+    <div id="timenav">  
+        <p id="fecha"></p>
+        <p id="hora"></p>
+    </div>
+    <div id="funcionesnav">
+        <div id="idiomanav">
             <ul>
-              <li id="espanol"><a href="#">ES</a></li>
-              <li id="english"><a href="#">EN</a></li>
-              <li id="euskara"><a href="#">EUS</a></li>
+                <li id="espanol"><a href="#">ES</a></li>
+                <li id="english"><a href="#">EN</a></li>
+                <li id="euskara"><a href="#">EUS</a></li>
             </ul>
-          </div>
-          <div id="clientesnav">
-            <ul>
-              <li id="icono-cesta">
-                <a href="carrito.html"
-                  ><img src="./img/bolsa-de-la-compra.png" alt="Cesta"
-                /></a>
-              </li>
-              <li id="icono-clientes">
-                <a href="cliente.html"
-                  ><img src="./img/usuario.png" alt="Área clientes"
-                /></a>
-              </li>
-            </ul>
-          </div>
         </div>
-      </nav>
+        <div id="clientesnav">
+            <ul>
+                <li id="icono-cesta"><a href="carrito.html"><img src="./img/bolsa-de-la-compra.png" alt="Cesta"></a></li>
+                <li id="icono-clientes"><a href="cliente.html"><img src="./img/usuario.png" alt="Área clientes"></a></li>
+            </ul>
+        </div>    
+      
+<!--nav for tablet version-->
+
+   <!-- Hamburger Menu (Checkbox) -->
+   <input type="checkbox" id="hamburger-toggle">
+   <label for="hamburger-toggle" class="hamburger">
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="20" viewBox="0 0 40 20">
+      <rect x="0" y="0" width="40" height="4" fill="black" rx="2" />
+      <rect x="0" y="12" width="40" height="4" fill="black" rx="2" />
+    </svg>    
+   </label>
+
+   <!-- Hamburger Menu Content -->
+   <div id="menu-container">  
+    
+        <div id="menuContent"> 
+           <ul>
+               <li><a id="menu-mujer-2" onclick="filtrar_genero('mujer')" href="#">Mujer</a></li><hr>
+               
+               <li><a id="menu-hombre-2" onclick="filtrar_genero('hombre')" href="#">Hombre</a></li>
+               <hr>
+               <li><a id="menu-unisex-2" onclick="filtrar_genero('unisex')" href="#">Unisex</a></li>
+               <hr>
+               <li><a id="menu-catalogo-2" href="catalogo.html">Catálogo</a></li>
+               <hr>
+               <li><a id="menu-contacto-2" href="#">Contacto</a></li> 
+               <hr>
+           </ul>
+       </div>
+
+       <div id="idiomaContent">
+           <ul>
+               <li><a id="espanol-2" href="#">ES</a></li>
+               <li><a id="english-2" href="#">EN</a></li>
+               <li><a id="euskara-2" href="#">EUS</a></li>
+               
+           </ul>
+       </div>
+      </div>
+    </nav>
 <section>
     <h1 id="h1-catalogo" class="titulo">Todos los Relojes</h1>
     <div class="catalogo">
@@ -58,7 +87,7 @@
             <details>
                 <summary id="sum-precio">Precio</summary>
                 <div class="desplegable">
-                    <div class="rango-precio">
+                    <div class="barra">
                         <label for="precioRange">50,00€ - <span id="precioValue">1.750,00 €</span></label>
                         <input type="range" id="precioRange" name="precio" min="50" max="1750" value="1750" 
                         list="lista-precio" oninput="actualizarValorPrecio(this); actualizarFiltros();">
@@ -77,27 +106,27 @@
             <details>
                 <summary id="sum-tamano">Tamaño</summary>
                 <div class="desplegable">
-                    <label><input type="checkbox" name="tamano" value="25"> 25mm</label>
-                    <label><input type="checkbox" name="tamano" value="36"> 36mm</label>
-                    <label><input type="checkbox" name="tamano" value="38"> 38mm</label>
-                    <label><input type="checkbox" name="tamano" value="40"> 40mm</label>
-                    <label><input type="checkbox" name="tamano" value="41"> 41mm</label>
-                    <label><input type="checkbox" name="tamano" value="43"> 43mm</label>
+                    <label><input class="opcion-checkbox" type="checkbox" name="tamano" value="25"> 25mm</label>
+                    <label><input class="opcion-checkbox" type="checkbox" name="tamano" value="36"> 36mm</label>
+                    <label><input class="opcion-checkbox" type="checkbox" name="tamano" value="38"> 38mm</label>
+                    <label><input class="opcion-checkbox" type="checkbox" name="tamano" value="40"> 40mm</label>
+                    <label><input class="opcion-checkbox" type="checkbox" name="tamano" value="41"> 41mm</label>
+                    <label><input class="opcion-checkbox" type="checkbox" name="tamano" value="43"> 43mm</label>
                 </div>
             </details>
             <details>
                 <summary id="sum-marca">Marca</summary>
                 <div class="desplegable">
-                    <label><input type="checkbox" name="marca" value="Boss"> Boss</label>
-                    <label><input type="checkbox" name="marca" value="Brietling"> Brietling</label>
-                    <label><input type="checkbox" name="marca" value="Cartier"> Cartier</label>
-                    <label><input type="checkbox" name="marca" value="CalvinKlein"> Calvin Klein</label>
-                    <label><input type="checkbox" name="marca" value="Casio"> Casio</label>
-                    <label><input type="checkbox" name="marca" value="Guess"> Guess</label>
-                    <label><input type="checkbox" name="marca" value="Hamilton"> Hamilton</label>
-                    <label><input type="checkbox" name="marca" value="Lacoste"> Lacoste</label>
-                    <label><input type="checkbox" name="marca" value="Lotus"> Lotus</label>
-                    <label><input type="checkbox" name="marca" value="MarkMaddox"> Mark Maddox</label>
+                    <label><input class="opcion-checkbox" type="checkbox" name="marca" value="Boss"> Boss</label>
+                    <label><input class="opcion-checkbox" type="checkbox" name="marca" value="Brietling"> Brietling</label>
+                    <label><input class="opcion-checkbox" type="checkbox" name="marca" value="Cartier"> Cartier</label>
+                    <label><input class="opcion-checkbox" type="checkbox" name="marca" value="CalvinKlein"> Calvin Klein</label>
+                    <label><input class="opcion-checkbox" type="checkbox" name="marca" value="Casio"> Casio</label>
+                    <label><input class="opcion-checkbox" type="checkbox" name="marca" value="Guess"> Guess</label>
+                    <label><input class="opcion-checkbox" type="checkbox" name="marca" value="Hamilton"> Hamilton</label>
+                    <label><input class="opcion-checkbox" type="checkbox" name="marca" value="Lacoste"> Lacoste</label>
+                    <label><input class="opcion-checkbox" type="checkbox" name="marca" value="Lotus"> Lotus</label>
+                    <label><input class="opcion-checkbox" type="checkbox" name="marca" value="MarkMaddox"> Mark Maddox</label>
              <details>
                 <summary id="sum-mas">Ver Mas</summary>                        
                     <label><input type="checkbox" name="marca" value="Montblanc"> MontBlanc</label>
@@ -186,6 +215,28 @@
   
         </div>
         </footer>
+        <!-- Modal -->
+        <div id="modal-oferta" class="modal">
+          <div class="cierre-modal"></div>
+          <div class="modal-content">
+            <p class="aviso">¡No te vayas sin suscribirte!</p>
+            <p id="btn-cierre" class="btn-cierre">x</p>
+            <p>Suscríbete para recibir ofertas exclusivas.</p>
+            <input type="email" id="email-input" placeholder="Ingresa tu email">
+            <div class="modal-button">
+              <button id="suscribirse" class="add-to-cart">Suscribirse</button>
+              <button id="no-gracias" class="add-to-cart">No, gracias</button>
+            </div>
+          </div>
+        </div>
+        <div id="verificado" class="modal">
+          <div class="cierre-modal"></div>
+          <div class="modal-content-2">
+            <p class="aviso">¡Gracias por Suscribirte!</p>
+            <p id="btn-cierre-verificado" class="btn-cierre">x</p>           
+        </div>
+          </div>
+        </div>
     <script>
 //         // Actualizar la fecha y la hora
 //       function F5time() {
