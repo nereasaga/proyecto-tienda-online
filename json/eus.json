@@ -79,5 +79,11 @@
     "h2-bienvenido": "Ongi etorri GHARI RELOJES-era!",
     "p-bienvenido": "Eskerrik asko saioa hasteagatik. Orain gure zerbitzuak esploratu ditzakezu.",
     "h2-wrong-pass": "Pasahitza okerra!",
-    "p-wrong-pass": "Saiatu berriro."
+    "p-wrong-pass": "Saiatu berriro.",
+  "texto-cantidad": "Kopurua:",
+  "anadircesta": "Gehitu saskira",
+  "titulo-descripcion": "Deskribapena",
+  "texto-productoanadido": "Produktua saskira gehitu da",
+  "seguir-comprando": "Erosketarekin jarraitu",
+  "ir-cesta": "Joan saskira"
 }

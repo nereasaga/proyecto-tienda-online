@@ -85,8 +85,8 @@ let idiomaSeleccionado2 = localStorage.getItem('idiomaSeleccionado2') || 'es-ES'
         fechaElemento.textContent = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
         horaElemento.textContent = horaFormateada;
     }
-
-
+//********************************************************************************************************************************************************************* 
+//********************************************************************************************************************************************************************* */
 // Función para cargar los datos desde un archivo JSON
 function cargarRelojesDesdeJSON(idioma) {
     let archivoCatalogo = "json/catalogo-" + idioma + ".json";
@@ -98,10 +98,6 @@ function cargarRelojesDesdeJSON(idioma) {
         })
         .catch(error => console.error('Error al cargar los relojes:', error));
 }
-
-
-
-
 // Función para guardar la referencia del producto seleccionado
 function guardarReferenciaProducto(ref) {
     localStorage.setItem('selectedWatchref', ref);
@@ -139,7 +135,7 @@ function cargarRelojes() {
         listareloj.appendChild(elementosR);
     });
 }
-// Evento de actualización de filtros
+//***********************************************************************************************************************************************************************************
 document.querySelectorAll('input[type="checkbox"]').forEach(input => {
     input.addEventListener('change', actualizarFiltros);
 });
@@ -200,7 +196,7 @@ function actualizarValorPrecio(rangeInput) {
 document.querySelectorAll('input[type="checkbox"]').forEach(input => {
     input.addEventListener('change', actualizarFiltros);
 });
-//******************************************************************************************************** */
+//********************************************************************************************************************************************************************************* */
 // Función para mostrar el primer modal
 function mostrarModal() {
     const modal = document.getElementById("modal-oferta");

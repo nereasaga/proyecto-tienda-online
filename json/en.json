@@ -83,5 +83,11 @@
   "h2-bienvenido": "Welcome to GHARI RELOJES!",
   "p-bienvenido": "Thank you for logging in. You can now explore our services.",
   "h2-wrong-pass": "Incorrect Password!",
-  "p-wrong-pass": "Please try again."
+  "p-wrong-pass": "Please try again.",
+  "texto-cantidad": "Quantity:",
+  "anadircesta": "Add to cart",
+  "titulo-descripcion": "Description",
+  "texto-productoanadido": "Product added to cart",
+  "seguir-comprando": "Continue shopping",
+  "ir-cesta": "Go to cart"
 }

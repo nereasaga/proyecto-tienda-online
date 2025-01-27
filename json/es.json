@@ -70,6 +70,7 @@
     "p-resumen-2": "RESUMEN DEL PEDIDO",
     "th-gastos": "Gastos de envío",
     "sp-total": "Total",
+<<<<<<< HEAD
     "h1-cuenta": "Mi cuenta",
     "h2-cuenta": "No tengo una cuenta",
     "p-cuenta": "Crea una cuenta en GHARI RELOJES para beneficiarte de nuestros servicios exclusivos y mantenerte al día con nuestras publicaciones más recientes.",
@@ -83,5 +84,12 @@
     "h2-bienvenido": "¡Bienvenido/a a GHARI RELOJES!",
     "p-bienvenido": "Gracias por iniciar sesión. Ahora puedes explorar nuestros servicios.",
     "h2-wrong-pass": "¡Contraseña incorrecta!",
-    "p-wrong-pass": "Inténtalo de nuevo."
-    }
+    "p-wrong-pass": "Inténtalo de nuevo.",
+    "texto-cantidad":"Cantidad:",
+    "anadircesta":"Añadir a la cesta",
+    "titulo-descripcion":"Descripción",
+    "texto-productoanadido":"Producto añadido a la cesta",
+    "seguir-comprando":"Seguir comprando",
+    "ir-cesta": "Ir a la cesta"
+  }
+
