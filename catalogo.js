@@ -254,11 +254,11 @@ document.getElementById("btn-cierre-verificado").addEventListener('click', cerra
   // Mostrar el modal después de 7 segundos
   setTimeout(mostrarModal, 7000);  
   // Detectar intento de abandonar la página
-  document.addEventListener("mouseleave", function(event) {
-    if (event.clientY <= 0 || event.clientY >= window.innerHeight) {
-      mostrarModal();
-    }
-  });  
+//   document.addEventListener("mouseleave", function(event) {
+//     if (event.clientY <= 0 || event.clientY >= window.innerHeight) {
+//       mostrarModal();
+//     }
+//   });  
   // Evento para suscribirse (cuando el usuario hace clic en "Suscribirse")
   document.getElementById("suscribirse").addEventListener('click', function() {
     const email = document.getElementById("email-input").value;    
