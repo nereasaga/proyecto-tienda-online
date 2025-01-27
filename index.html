@@ -96,29 +96,7 @@
       </div>
     </header>
 
-    <main>
-      
-      <h2 id="h2-nuevos" >Nuevos relojes</h2>
-      <section class="nuevos-relojes">
-        <div class="div-item">
-          <h3>MARCA</h3>
-          <img src="./img/ejemplo.avif" alt="">
-          <p>MODELO</p>
-          <span>TAMAÑO</span>
-          <span>MATERIAL</span>
-          <p>PRECIO</p>
-        </div>
-        <div class="div-item">
-        </div>
-        <div class="div-item">
-        </div>
-        <div class="div-item">
-        </div>
-      </section>
-      <div class="banners">
-        <img src="./img/banner-1.jpg" alt="">
-        <img src="./img/banner-2.jpg" alt="">
-      </div>
+    <main class="main-content">
 
     </main>
 <footer class="footer">
@@ -132,10 +110,10 @@
     <div id="div-footer-columna-1" class="div-footer-columna">
       <h3 id="footer-h3-1" class="titulo-footer">Atención al cliente</h3>
       <ul>
-        <li>Lunes a Viernes de 9 a 18h</li>
-        <li><a href="#">Whatsapp</a></li>
-        <li><a href="#">Envíanos un e-mail</a></li>
-        <li><a href="#">¿Necesitas ayuda?</a></li>
+        <li id="footer-ul-1-li-1">Lunes a Viernes de 9 a 18h</li>
+              <li id="footer-ul-1-li-2"><a href="#">Whatsapp</a></li>
+              <li id="footer-ul-1-li-3"><a href="#">Envíanos un e-mail</a></li>
+              <li id="footer-ul-1-li-4"><a href="#">¿Necesitas ayuda?</a></li>
       </ul>
 
     </div>
@@ -143,9 +121,12 @@
     <div id="div-footer-columna-2" class="div-footer-columna">
       <h3 id="footer-h3-2" class="titulo-footer">Sobre nosotros</h3>
       <ul>
-        <li><a href="#">Conoce Ghari</a></li>
-        <li><a href="#">Relojes de alta calidad</a></li>
-        <li><a href="#">Regalos de empresa</a></li>
+        <li id="footer-ul-2-li-1"><a href="#">Conoce Ghari</a></li>
+        <li id="footer-ul-3-li-1"><a href="#">Condiciones de uso</a></li>
+        <li id="footer-ul-3-li-2"><a href="#">Cambios y devoluciones</a></li>
+        <li id="footer-ul-3-li-3"><a href="#">Cuida tu reloj</a></li>
+        <li id="footer-ul-3-li-4"><a href="#">Pago seguro</a></li>
+        <li id="footer-ul-3-li-5"><a href="#">Guía de tallas</a></li>
       </ul>
 
     </div>
@@ -163,7 +144,7 @@
     </div>
   </div>
   <div class="copyright">
-      <p>Copyright GHARI RELOJES. Todos los derechos reservados.</p>
+    <p id="p-copy">Copyright GHARI RELOJES. Todos los derechos reservados.</p>
 
   </div>
   </footer>
@@ -386,36 +367,13 @@ window.onload = function() {
     // }
 
 
-    // // Función para cambiar el idioma
-    // function cambiarIdioma(idioma) {
-    //   cargarTraducciones(idioma);
-    // }
+    // Función para cambiar el idioma
+    function cambiarIdioma(idioma) {
+      cargarTraducciones(idioma);
+    }
 
-    // // Actualizar la fecha y la hora
-    // function F5time() {
-    //   const fechaElemento = document.getElementById("fecha");
-    //   const horaElemento = document.getElementById("hora");
 
-    //   // Fecha y la hora actuales en variable
-    //   const ahora = new Date();
-
-    //   // Formatear la fecha dia, fecha, mes, año
-    //   const opcionesFecha = { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' };
-    //   const fechaFormateada = ahora.toLocaleDateString('es-ES', opcionesFecha);
-
-    //   // Formatear la hora con segundos (Ej: 12:00:45)
-    //   const horaFormateada = ahora.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-
-    //   // Actualizar el contenido de los elementos
-    //   fechaElemento.textContent = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
-    //   horaElemento.textContent = horaFormateada;
-    //   }
-
-    //   // Llamar a la función al cargar la página
-    //   F5time();
-
-    //   // Actualizar la hora cada segundo
-    //   setInterval(F5time, 1000);
+    
 
    </script>
 </body>
