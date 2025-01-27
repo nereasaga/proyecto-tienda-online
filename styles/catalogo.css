@@ -318,7 +318,7 @@ input:focus {
 
     .imagen-R {
         width: 18rem; 
-         height: 18rem; 
+         height: auto; 
      } 
 
      .reloj-titulo {
