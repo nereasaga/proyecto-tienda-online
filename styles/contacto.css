@@ -172,15 +172,32 @@ main p {
   padding-top: 3rem;
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
-  .container {
-      flex-direction: column;
-      align-items: center;
+/******************* MEDIA QUERIES ******************/
+
+/*    Codigo pag en tablet       */
+
+@media (max-width:1280px) {
+  main {
+      width: 100%;
   }
 
-  .form-section {
-      width: 90%;
-      margin-bottom: 20px;
-  }
+ 
+}
+
+/*  Codigo pagina en smartphone   */    
+
+@media (max-width:575px) {
+.columnas {
+  flex-direction: column;
+}
+
+.contacto {
+  width: 100%;
+  padding: 2rem;
+}
+
+.form-section {
+  width: 100%;
+  padding: 2rem;
+}
 }
