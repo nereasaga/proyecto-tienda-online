@@ -69,5 +69,11 @@
     "span-btn-2": "PROCEDER AL PAGO",
     "p-resumen-2": "RESUMEN DEL PEDIDO",
     "th-gastos": "Gastos de envío",
-    "sp-total": "Total"
+    "sp-total": "Total",
+    "texto-cantidad":"Cantidad:",
+    "anadircesta":"Añadir a la cesta",
+    "titulo-descripcion":"Descripción",
+    "texto-productoanadido":"Producto añadido a la cesta",
+    "seguir-comprando":"Seguir comprando",
+    "ir-cesta": "Ir a la cesta"
   }

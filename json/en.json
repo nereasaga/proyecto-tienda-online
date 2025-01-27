@@ -26,7 +26,6 @@
   "footer-ul-3-li-5": "Size guide",
   "p-copy": "Copyright GHARI WATCHES. All rights reserved.",
   "h2-nuevos": "New Watches",
-  "h2-nuevos": "New Watches",
    "h1-catalogo": "All Watches",
    "sum-precio": "Price",
    "sum-genero": "Gender",
@@ -70,5 +69,11 @@
   "span-btn-2": "PROCEED TO PAYMENT",
   "p-resumen-2": "ORDER SUMMARY",
   "th-gastos": "Shipping Costs",
-  "sp-total": "Total"
+  "sp-total": "Total",
+  "texto-cantidad": "Quantity:",
+  "anadircesta": "Add to cart",
+  "titulo-descripcion": "Description",
+  "texto-productoanadido": "Product added to cart",
+  "seguir-comprando": "Continue shopping",
+  "ir-cesta": "Go to cart"
 }

@@ -65,5 +65,11 @@
   "ph-numTarj": "Txartelaren zenbakia",
   "ph-cad": "Baliozkotasun data",
   "ph-cvc": "CVC",
-  "span-btn-2": "ORDAINKETARA JOAN"
+  "span-btn-2": "ORDAINKETARA JOAN",
+  "texto-cantidad": "Kopurua:",
+  "anadircesta": "Gehitu saskira",
+  "titulo-descripcion": "Deskribapena",
+  "texto-productoanadido": "Produktua saskira gehitu da",
+  "seguir-comprando": "Erosketarekin jarraitu",
+  "ir-cesta": "Joan saskira"
 }
