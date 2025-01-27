@@ -51,14 +51,38 @@ seleccionarIdioma.addEventListener('click', (evento) => {
   if (evento.target.textContent === 'ES') {
     // console.log('Seleccionado español');
     cargaProducto('es');
+    cambiarIdioma('es');
   } else if (evento.target.textContent === 'EN') {
     // console.log('Seleccionado ingles');
     cargaProducto('en');
+    cambiarIdioma('en');
   } else {
     // console.log('Selecci onado euskera');
     cargaProducto('eus');
+    cambiarIdioma('eus');
   }
 })
+
+
+function cambiarIdioma(idioma) {
+  let archivoIdioma = "json/" + idioma + ".json";
+  
+
+  // CAMBIAR IDIOMA DE TEXTOS
+  fetch(archivoIdioma)
+      .then(function (respuesta) {
+          return respuesta.json();
+      })
+
+      .then(function (data) {
+  for (let key in data) {
+      let elemento = document.getElementById(key);
+      if (elemento) {
+              elemento.textContent = data[key];
+          }
+      }
+  });
+};
 
 // Cargar el producto en la página
 function cargarProducto(relojes, productRef) {
@@ -89,14 +113,14 @@ function cargarProducto(relojes, productRef) {
         <h1 id="titulo-producto" class="titulo-producto">${producto.marca} ${producto.modelo}</h1>
         <p id="ref" class="ref">Ref: ${producto.ref}</p>
         <p id="precio" class="precio">${producto.precio} €</p>
-        <p>Cantidad:</p>
+        <p id="texto-cantidad">Cantidad:</p>
         <div id="contador-cantidad">
           <button class="boton" id="disminuir">-</button>
           <div id="cantidad">1</div>
           <button class="boton" id="aumentar">+</button>
         </div>
         <br />
-        <button class="add-to-cart">Añadir a la cesta</button>
+        <button id="anadircesta" class="add-to-cart">Añadir a la cesta</button>
         <h2 id="titulo-descripcion">Descripción</h2>
         <p id="descripcion-producto" class="descripcion-producto">${producto.descripcion}</p>
       </div>
