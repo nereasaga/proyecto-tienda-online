@@ -162,3 +162,48 @@ h2 {
     text-align: justify;
     margin-top: 0.5rem;
 }
+
+@media screen and (max-width:1280px){
+
+    .nuevos-relojes {
+    min-height: auto; 
+    width: 90%; 
+    flex-wrap: wrap; 
+    flex-direction: row; 
+    justify-content: space-evenly;
+    gap: 5rem;
+    
+    }
+
+    .banners {
+        display: flex;
+        flex-direction: row; /* Cambiar a disposición en columna */
+        margin-top: 2rem;
+    }
+
+    .reloj-titulo{
+        font-weight: bold;
+        text-align: justify;
+        margin-top: 3rem;
+        /* margin-bottom: 0.5rem; */
+        
+    }
+
+    
+}
+@media (max-width:575){
+
+    .banners {
+        display: flex;
+        flex-direction: column; 
+         margin-top: 2rem;
+    }
+
+}
+
+
+
+
+
+
+
