@@ -130,10 +130,6 @@ function filtrar_genero(genero) {
       listareloj.appendChild(relojItem);
     });
   }
-// Función para guardar la referencia del producto seleccionado
-function guardarReferenciaProducto(ref) {
-    localStorage.setItem('selectedWatchref', ref);
-}
 // Datos de los relojes (inicialmente vacío, se llenará desde JSON)
 let relojes = [];
 // Estado de los filtros
@@ -227,6 +223,10 @@ function actualizarValorPrecio(rangeInput) {
 document.querySelectorAll('input[type="checkbox"]').forEach(input => {
     input.addEventListener('change', actualizarFiltros);
 });
+// Función para guardar la referencia del producto seleccionado
+function guardarReferenciaProducto(ref) {
+    localStorage.setItem('selectedWatchref', ref);
+}
 //********************************************************************************************************************************************************************************* */
 // Función para mostrar el primer modal
 function mostrarModal() {
