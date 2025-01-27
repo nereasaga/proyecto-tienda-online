@@ -89,5 +89,16 @@
   "titulo-descripcion": "Description",
   "texto-productoanadido": "Product added to cart",
   "seguir-comprando": "Continue shopping",
-  "ir-cesta": "Go to cart"
+  "ir-cesta": "Go to cart",
+  "h1-contacto": "Contact",
+    "p-contacto-1": "Thank you for visiting our store. If you have any questions, comments, or need assistance with your purchase, our team is here to provide you with the best experience.",
+    "h2-info-contacto": "Contact Information:",
+    "p-tfno": "Phone: (+34)123 456 789",
+    "p-mail": "Email: support@gharirelojes.com",
+    "h3-horario": "Business Hours:",
+    "p-horario": "Monday to Friday: 9:00 AM-7:00 PM",
+    "p-horario-2": "Saturday: 10:00 AM-2:00 PM",
+    "p-form": "Fill out the following form, and we will contact you as soon as possible:",
+    "btn-enviar": "Send",
+    "p-final": "Your satisfaction is our priority. Every watch tells a story, and we want yours to be unforgettable. Thank you for trusting us to accompany you in every moment."
 }
