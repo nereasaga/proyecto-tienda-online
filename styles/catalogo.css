@@ -17,7 +17,7 @@ body {
      justify-content: center;
      align-items: center;
 }
-/* Estilo para listas desplegables */
+
 details {
     margin-bottom: 0.8rem;
 }
@@ -28,7 +28,7 @@ summary {
     position: relative;
     cursor: pointer;
 }
-/* icono de desplazamiento */
+
 summary::marker {
     display: none;
   }
@@ -42,7 +42,7 @@ summary::marker {
     content: "▲"; 
     color: var(--principal);
   }
-  /* Línea que aparece al hacer hover */
+  
   summary:hover::before {
     content: "";
     display: block;
@@ -52,14 +52,14 @@ summary::marker {
     position: absolute;
     bottom: -2px; 
   }
-/* Contenedor principal */
+
 .catalogo {
     display: flex;
     justify-content: flex-start;
     padding: 1.5rem;
     margin: 3.5rem; 
 }
-/* Estilos para filtros */
+
 .filtro {
     position: sticky;
     top: 1.2rem;
@@ -73,18 +73,29 @@ summary::marker {
 }
 .filtro label {    
     font-family: var(Ghari);
-    display: block;
+    
     margin-bottom: 1px;
+    
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
 }
 
 
-/*Estilo del rango de precios */
+.filtro label input[type="checkbox"] {
+    
+    width: 10%;
+    display: inline;
+}
+
+
 .rango-precio label {
     font-family: var(Ghari);
     display: block;
     margin-bottom: 0.5rem;    
 }
-/* Lista de relojes */
+
 .lista-R {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -207,7 +218,7 @@ button:hover {
     color: var(--principal);
     box-sizing: border-box;
 }
-/* Estilo para los párrafos */
+
 p {
     font-family: var(Ghari);
     font-size: 1.4rem;
@@ -256,7 +267,7 @@ input:focus {
     height: 10rem;   
     position: relative;
   }
-  /* FOR TABLET VERSION */
+  
 
   @media   (max-width: 1280px){
     
@@ -271,16 +282,16 @@ input:focus {
     } 
 
     .watch-item { 
-         padding: rem; /*Add more padding for better spacing */
+         padding: rem; 
      }  
 
     .imagen-R {
-        width: 18rem; /* Reduce image size */
+        width: 18rem; 
          height: 18rem; 
      } 
 
      .reloj-titulo {
-        font-size: 1rem; /* Adjust font size */
+        font-size: 1rem; 
     } 
 } 
 
