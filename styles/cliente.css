@@ -46,6 +46,7 @@ h1 {
   margin: 20px auto;
   padding: 20px;
   flex-direction: row-reverse;
+  border: red solid 2px;
 }
 
 /* Estilo de las secciones */
