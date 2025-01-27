@@ -1,0 +1,145 @@
+
+  /* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #5e5b5b;
+}
+
+/* Encabezado principal */
+h1 {
+  text-align: left;
+  position: relative;
+  left: 20%;
+  top: 200px;
+  color: #E53935; /* Color rojo del título */
+  margin-left: 30px;
+  margin-top: 20px;
+}
+
+/* Sección de descripción */
+p {
+  display: flex;
+  position: relative;
+  right: 5%;
+  text-align: left;
+  margin: 10px 20px;
+  font-size: 16px;
+  line-height: 1;
+}
+.text-left{
+  text-align: left;
+  position: relative;
+  left: 20%;
+  top: 190px;
+}
+
+/* Contenedor principal */
+.container {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px auto;
+  max-width: 1200px;
+  
+}
+
+/* Sección del formulario e información */
+.contacto {
+  width: 45%;
+  padding: 160px;
+  border-radius: 8px;
+  position: relative;
+  
+}
+
+
+.form-section{
+  width: 45%;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  top:30%;
+}
+
+/* Subtítulos */
+h2, h3 {
+  color: #3f3d3d;
+  text-align: left;
+}
+
+/* Formulario */
+form {
+  display: flex;
+  flex-direction: column;
+}
+/* Contenedor para Información de Contacto */
+.form-section h2 + p, .form-section h2 + p + p {
+  display: inline-block;
+  margin-right: 10px; /* Espacio entre teléfono y correo */
+}
+
+.form-section h3 + p, .form-section h3 + p + p{
+  display: inline-block;
+  margin-right: 10px; 
+  margin-left: 1rem;
+}
+
+form input {
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+form input[type="massage"] {
+  height: 80px;
+  resize: none;
+}
+
+form button {
+  background-color: #e60000;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+form button:hover {
+  background-color: #cc0000;
+}
+
+p {
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9rem;
+  background-color: #f9f9f9;
+  color: #777;
+}
+
+.last-line{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .form-section {
+      width: 90%;
+      margin-bottom: 20px;
+  }
+}
