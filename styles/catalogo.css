@@ -256,3 +256,36 @@ input:focus {
     height: 10rem;   
     position: relative;
   }
+  /* FOR TABLET VERSION */
+
+  @media   (max-width: 1280px){
+    
+    .filtro {
+          width: 20%;  
+    } 
+
+    .lista-R {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem; 
+          width: 100%;  
+    } 
+
+    .watch-item { 
+         padding: rem; /*Add more padding for better spacing */
+     }  
+
+    .imagen-R {
+        width: 18rem; /* Reduce image size */
+         height: 18rem; 
+     } 
+
+     .reloj-titulo {
+        font-size: 1rem; /* Adjust font size */
+    } 
+} 
+
+
+
+
+
+  
