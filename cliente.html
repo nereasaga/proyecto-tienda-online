@@ -321,13 +321,14 @@
       event.preventDefault();
       let correoRecogido = document.getElementById("correoRecogido").value.toLowerCase();
       let claveRecogida = document.getElementById("claveRecogida").value;
+      let idiomaSeleccionado = localStorage.getItem('idiomaSeleccionado') || 'es';
 
       if (correoRecogido === correoRegistrado && claveRecogida === claveRegistrada) {
         document.querySelector(".container").classList.add("hidden");
         // document.getElementById("welcome-section").classList.remove("hidden");
         console.log('Login correcto');
           if(idiomaSeleccionado === "es") {
-            document.querySelector('MAIN').innerHTML = ` <div id="welcome-section" class="hidden">
+            document.querySelector('MAIN').innerHTML = ` <div id="welcome-section"  class="hidden">
         <h2 id="h2-bienvenido">¡Hola ${correoRegistrado}!</h2>
         <p id="p-bienvenido">Gracias por iniciar sesión. Ahora puedes explorar nuestros servicios.</p>
       </div>`
