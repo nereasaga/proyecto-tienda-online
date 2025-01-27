@@ -208,10 +208,17 @@ nav {
     font-family: Ghari;
 }
 
-#menunav ul li {
-    display: inline; 
-    padding-right: 3rem;
+#menunav ul {
+    display: flex;
+    justify-content: space-around;
     padding-left: 3rem;
+    padding-right: 5rem;
+}
+
+#menunav ul li {
+    width: 20%;
+    /* padding-right: 3rem;
+    padding-left: 3rem; */
     /* font-weight: bold; */
     color: var(--azul-oscuro);
     transition: 0.3s;

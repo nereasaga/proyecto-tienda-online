@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GHARI - Checkout</title>
-    <link rel="stylesheet" href="/styles/mainstyle.css">
-    <link rel="stylesheet" href="/styles/checkout.css">
+    <link rel="stylesheet" href="./styles/mainstyle.css">
+    <link rel="stylesheet" href="./styles/checkout.css">
 </head>
 <body>
     <nav id="navbar">
@@ -262,13 +262,17 @@ window.onload = function() {
             return respuesta.json();
         })
 
-        .then(function (data) {
-    for (let key in data) {
-        let elemento = document.getElementById(key);
-        if (elemento) {
-                elemento.textContent = data[key];
+        .then(function(data) {
+            for (let key in data) {
+                let elemento = document.getElementById(key);
+                if (elemento) {
+                    if (key.startsWith('ph-')) {
+                        elemento.setAttribute('placeholder', data[key]);
+                    } else {
+                        elemento.textContent = data[key];
+                    }
+                }
             }
-        }
     });
 };
 
