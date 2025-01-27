@@ -193,7 +193,7 @@ summary::marker {
     padding: 20px;
     text-align: center;
     width: 25rem;
-    height: 7rem;   
+    height: 8rem;   
     position: relative;
   }
 .modal-button {
@@ -224,12 +224,13 @@ button:hover {
     line-height: 2;
     color: var(--oscuro);
     margin-bottom: 0.7rem;
-}
+} */
 .aviso {
+    font-family: var(Ghari);
     font-size: 2.1rem;   
     color: var(--principal);
     text-align: center;
-    margin-top: rem;
+    margin-top: 1rem;
 }
 input {
     width: 100%;
@@ -249,7 +250,7 @@ input:focus {
 }
 .btn-cierre {
     position: absolute; 
-    top: -10px; 
+    top: -5px; 
     right: 7px; 
     font-size: xx-large;
     cursor: pointer;
@@ -257,15 +258,13 @@ input:focus {
     color: var(--oscuro); 
 }
 .modal-conten-2 {
-    align-items: center;    
-    background-color: var(--blanco);
+    align-items: center;      
     padding: 20px;
     text-align: center;
     width: 25rem;
     height: 10rem;   
     position: relative;
   }
-  
 
   @media   (max-width: 1280px){
     
