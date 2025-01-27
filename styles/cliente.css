@@ -5,10 +5,36 @@ body {
   background-color: #f9f9f9;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--blanco);
+}
+
+main {
+  background-color: var(--blanco);
+  width: 90%;
+
+}
+
+.div-title {
+  width: 100%;
+  height: 6rem;
+  /* border: solid red 2px; */
+  padding-left: 6rem;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+}
+
 h1 {
+  width: 100%;
   text-align: left;
-  color: rgb(218, 34, 34);
-  padding: 1rem 4rem;
+  color: vas(--oscuro);
+  /* padding: 1rem 4rem; */
 }
 
 /* Contenedor principal */
@@ -71,6 +97,21 @@ input {
 
 .forgot-password:hover {
   text-decoration: underline;
+}
+
+#welcome-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 30rem;
+  padding-bottom: 3rem;
+}
+
+#h2-bienvenido {
+  font-size: 3rem;
+  height: 5rem;
+  color: var(--principal);
 }
 
 /* Ocultar elementos */
