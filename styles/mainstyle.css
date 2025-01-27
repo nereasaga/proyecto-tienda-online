@@ -263,7 +263,7 @@ nav {
 
 .footer {
     background-color: var(--oscuro); 
-    height: 40rem;
+    height: 33rem;
     width: 100%;
     color: var(--lila-claro);
     justify-content: center;
@@ -563,7 +563,7 @@ nav {
 
 /*FOOTER*/
     .footer {
-            height: 60rem;
+            height: 56rem;
             padding: 2rem 1rem;
         }
         
