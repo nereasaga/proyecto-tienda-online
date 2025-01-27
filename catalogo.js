@@ -100,11 +100,8 @@ function cargarRelojesDesdeJSON(idioma) {
 
 // FUNCION DEL NAV
 function filtrar_genero(genero) {
-    const filtroRelojes = relojes.filter(reloj => {
-        const filtroGenero = genero === 'todos' || genero === reloj.genero.toLowerCase();
-        return filtroGenero;
-    });
-    mostrarRelojes(filtroRelojes);
+    const relojesFiltrados = relojes.filter(reloj => genero === "todos" || reloj.genero === genero);
+    mostrarRelojes(relojesFiltrados);
 }
 
 // Función para mostrar relojes en la página
@@ -131,6 +128,34 @@ function mostrarRelojes(listaRelojes) {
         listareloj.appendChild(relojItem);
     });
 }
+
+/// Asignar eventos de click a los elementos del menú desktop
+document.getElementById("menu-mujer").addEventListener("click", function(event) {
+    event.preventDefault(); // Evita la recarga de la página
+    filtrar_genero("Mujer");
+});
+document.getElementById("menu-hombre").addEventListener("click", function(event) {
+    event.preventDefault();
+    filtrar_genero("Hombre");
+});
+document.getElementById("menu-unisex").addEventListener("click", function(event) {
+    event.preventDefault();
+    filtrar_genero("unisex");
+});
+
+//asignar eventos de click a los elementos del menú mobile
+document.getElementById("menu-mujer-2").addEventListener("click", function(event) {
+    event.preventDefault();
+    filtrar_genero("Mujer");
+});
+document.getElementById("menu-hombre-2").addEventListener("click", function(event) {
+    event.preventDefault();
+    filtrar_genero("Hombre");
+});
+document.getElementById("menu-unisex-2").addEventListener("click", function(event) {
+    event.preventDefault();
+    filtrar_genero("unisex");
+});
 
 // Datos de los relojes (inicialmente vacío, se llenará desde JSON)
 let relojes = [];

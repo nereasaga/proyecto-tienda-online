@@ -218,13 +218,13 @@ button:hover {
     box-sizing: border-box;
 }
 
-p {
+/* p {
     font-family: var(Ghari);
     font-size: 1.4rem;
     line-height: 2;
     color: var(--oscuro);
     margin-bottom: 0.7rem;
-}
+} */
 .aviso {
     font-size: 2.1rem;   
     color: var(--principal);
