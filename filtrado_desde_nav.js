@@ -3,7 +3,6 @@ function filtrar_genero(genero) {
     const relojesFiltrados = relojes.filter(reloj => genero === "todos" || reloj.genero === genero);
     mostrarRelojes(relojesFiltrados);
 }
-
 // Función para mostrar relojes en la página
 function mostrarRelojes(listaRelojes) {
     const listareloj = document.getElementById("reloj-l");
@@ -28,7 +27,6 @@ function mostrarRelojes(listaRelojes) {
         listareloj.appendChild(relojItem);
     });
 }
-
 /// Asignar eventos de click a los elementos del menú desktop
 document.getElementById("menu-mujer").addEventListener("click", function(event) {
     event.preventDefault(); // Evita la recarga de la página
