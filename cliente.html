@@ -326,10 +326,23 @@
         document.querySelector(".container").classList.add("hidden");
         // document.getElementById("welcome-section").classList.remove("hidden");
         console.log('Login correcto');
-        document.querySelector('MAIN').innerHTML = ` <div id="welcome-section" class="hidden">
-      <h2 id="h2-bienvenido">¡Hola ${correoRegistrado}!</h2>
-      <p id="p-bienvenido">Gracias por iniciar sesión. Ahora puedes explorar nuestros servicios.</p>
+          if(idiomaSeleccionado === "es") {
+            document.querySelector('MAIN').innerHTML = ` <div id="welcome-section" class="hidden">
+        <h2 id="h2-bienvenido">¡Hola ${correoRegistrado}!</h2>
+        <p id="p-bienvenido">Gracias por iniciar sesión. Ahora puedes explorar nuestros servicios.</p>
+      </div>`
+          } else if (idiomaSeleccionado === 'en') {
+            document.querySelector('MAIN').innerHTML = ` <div id="welcome-section" class="hidden">
+      <h2 id="h2-bienvenido">Hi ${correoRegistrado}!</h2>
+      <p id="p-bienvenido">Thank you for logging in. You can now explore our services.</p>
     </div>`
+          } else {
+            document.querySelector('MAIN').innerHTML = ` <div id="welcome-section" class="hidden">
+      <h2 id="h2-bienvenido">Kaixo ${correoRegistrado}!</h2>
+      <p id="p-bienvenido">Eskerrik asko saioa hasteagatik. Orain gure zerbitzuak esploratu ditzakezu.</p>
+    </div>`
+          }
+        
       } else {
         document.getElementById("error-message").classList.remove("hidden");
         document.getElementById("incorrect-section").classList.remove("hidden");
