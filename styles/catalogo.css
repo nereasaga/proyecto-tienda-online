@@ -8,6 +8,7 @@ body {
 }
 .titulo { font-family: Ghari;
     src: url(../fonts/TwCenMTStdSemiMedium.otf);
+    font-size: 3rem;
     font-weight: normal;
      height: 5rem;
      background-color: var(--principal);
@@ -76,8 +77,6 @@ summary::marker {
     display: block;
     margin-bottom: 1px;
 }
-
-
 /*Estilo del rango de precios */
 .rango-precio label {
     font-family: var(Ghari);
@@ -118,7 +117,7 @@ summary::marker {
 }
 .nombre {
     color: var(--principal);
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: bold;
     text-align: justify;
     margin: 0.5px 0;
@@ -126,18 +125,17 @@ summary::marker {
 .tamano,
 .material {
     color: var(oscuro);
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     color: var(oscuro);
     text-align: justify;
-    margin: 0.5rem 0;
+    margin: 0.5px 0;   
 }
 .precio {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: bold;
     color: var(oscuro);
     text-align: justify;
-    text-align: justify;
-    margin-top: 0.5rem;
+    margin-top: 0.1rem;
 }
 .link {
     display: block;
@@ -176,7 +174,6 @@ summary::marker {
     height: 20rem;   
     position: relative;
   }
-
   .modal-content-2 {
     align-items: center;    
     background-color: var(--blanco);
@@ -246,7 +243,6 @@ input:focus {
     background: none; 
     color: var(--oscuro); 
 }
-
 .modal-conten-2 {
     align-items: center;    
     background-color: var(--blanco);
