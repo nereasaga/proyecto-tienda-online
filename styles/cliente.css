@@ -1,4 +1,3 @@
-/* Estilo general */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -6,49 +5,88 @@ body {
   background-color: #f9f9f9;
 }
 
-h1{
-  text-align: center;
-  color: rgb(218, 34, 34);
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--blanco);
+}
+
+main {
+  background-color: var(--blanco);
+  width: 90%;
+
+}
+
+.div-title {
+  width: 100%;
+  height: 6rem;
+  /* border: solid red 2px; */
+  padding-left: 6rem;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+}
+
+h1 {
+  width: 100%;
   text-align: left;
-  padding: 1rem;
-  padding-left: 4rem;
-  }
+  color: vas(--oscuro);
+  /* padding: 1rem 4rem; */
+}
 
 /* Contenedor principal */
 .container {
-  max-width: 1200px;
-  margin: auto 0;
-  padding: 20px;
   display: flex;
   justify-content: space-between;
-  transition-timing-function: linear;
+  gap: 20px; /* Espacio entre secciones */
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
   flex-direction: row-reverse;
-  color: #3d3b3b;
 }
-p div{
-  font-size: 14px;
-  color: #555;
-  padding: 1rem;
-}
-/* Estilo de cada sección */
+
+/* Estilo de las secciones */
 .form-section {
-  width: 48%;
-  /*background-color: #fff;*/
-  padding: 40px;
- /* box-shadow: 0px 0px 10px rgba(163, 156, 156, 0.1);*/
+  flex: 1;
+  padding: 30px;
   border-radius: 5px;
 }
 
-h2 {
+.form-section h2 {
   font-size: 24px;
   margin-bottom: 20px;
 }
 
-.btn{
-background-color: rgb(218, 34, 34);
-color: white;
-padding: 5px;
+.form-section p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
 
+.btn {
+  display: inline-block;
+  background-color: rgb(218, 34, 34);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #d83b3b;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .forgot-password {
@@ -59,6 +97,31 @@ padding: 5px;
 
 .forgot-password:hover {
   text-decoration: underline;
+}
+
+#welcome-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 30rem;
+  padding-bottom: 3rem;
+}
+
+#h2-bienvenido {
+  font-size: 3rem;
+  height: 5rem;
+  color: var(--principal);
+}
+
+/* Ocultar elementos */
+.hidden {
+  display: none;
+}
+
+.register-form {
+  flex: 1;
+  margin-top: 20px;
 }
 
 /* Botones */
@@ -81,37 +144,28 @@ padding: 5px;
 .btn2.btn2:hover{
   background-color: #d83b3b;
 }
-
-  /* Inputs del formulario */
-  input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 14px;
-  }
+.hidden {
+  display: none; /* Elementos ocultos */
+}
+.form-section, .register-form {
+  margin: 20px auto;
+  text-align: center;
+  max-width: 400px;
+}
+input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 
 .hidden {
   display: none;
 }
-
 #incorrect-password {
   color: red;
   font-size: 14px;
   margin-top: 10px;
   font-weight: bold;
 }
-
-#welcome-section {
-  text-align: center;
-  margin-top: 20px;
-  padding: 20px;
-}
-
-#welcome-section h2 {
-  color: #28a745;
-}
-
-
-
