@@ -1,160 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/producto.css" />
-    <link rel="stylesheet" href="./styles/mainstyle.css" />
-    <title>Document</title>
-  </head>
-  <body>
-    <nav id="navbar">
-      <div id="logonav">
-          <a href="./index.html"><img src="./img/ghari-logo-h-1.svg" alt="Logo Ghari Relojes"></a>
-      </div>
-      
-       <div id="menunav"> 
-          <ul>
-              <li><a id="menu-mujer" href="#">Mujer</a></li>
-              <li><a id="menu-hombre" href="#">Hombre</a></li>
-              <li><a id="menu-unisex" href="#">Unisex</a></li>
-              <li><a id="menu-catalogo" href="catalogo.html">Catálogo</a></li>
-              <li><a id="menu-contacto" href="#">Contacto</a></li> 
-          </ul>
-  
-      </div>
-      <div id="timenav">
-          <p id="fecha"></p>
-          <p id="hora"></p>
-  
-      </div>
-      <div id="funcionesnav">
-          <div id="idiomanav">
-              <ul>
-                  <li id="espanol"><a href="#">ES</a></li>
-                  <li id="english"><a href="#">EN</a></li>
-                  <li id="euskara"><a href="#">EUS</a></li>
-              </ul>
-  
-          </div>
-          <div id="clientesnav">
-              <ul>
-                  <li id="icono-cesta"><a href="carrito.html"><img src="./img/bolsa-de-la-compra.png" alt="Cesta"></a></li>
-                  <li id="icono-clientes"><a href="cliente.html"><img src="./img/usuario.png" alt="Área clientes"></a></li>
-              </ul>
-          </div> 
-      
-        
-  <!--nav for tablet version-->
-  
-     <!-- Hamburger Menu (Checkbox) -->
-     <input type="checkbox" id="hamburger-toggle">
-     <label for="hamburger-toggle" class="hamburger">
-      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="20" viewBox="0 0 40 20">
-        <rect x="0" y="0" width="40" height="4" fill="black" rx="2" />
-        <rect x="0" y="12" width="40" height="4" fill="black" rx="2" />
-      </svg>
-      
-     </label>
-     
-    
-  
-     <!-- Hamburger Menu Content -->
-     <div id="menu-container">
-  
-     
-      
-          <div id="menuContent"> 
-             <ul>
-                 <li><a id="menu-mujer-2" href="#">Mujer</a></li><hr>
-                 
-                 <li><a id="menu-hombre-2" href="#">Hombre</a></li>
-                 <hr>
-                 <li><a id="menu-unisex-2" href="#">Unisex</a></li>
-                 <hr>
-                 <li><a id="menu-catalogo-2" href="catalogo.html">Catálogo</a></li>
-                 <hr>
-                 <li><a id="menu-contacto-2" href="#">Contacto</a></li> 
-                 <hr>
-             </ul>
-         </div>
-  
-         <div id="idiomaContent">
-             <ul>
-                 <li><a id="espanol-2" href="#">ES</a></li>
-                 <li><a id="english-2" href="#">EN</a></li>
-                 <li><a id="euskara-2" href="#">EUS</a></li>
-                 
-             </ul>
-         </div>
-        </div>
-      </nav>
-    <!-- ******************************************************************************* -->
-    
-    <main id="main-producto">
-      
-    <!-- Aquí se carga el producto dinamicamente -->
-  
-    </main>
-   
-    <!-- ************************************************************************************** -->
-    <footer class="footer">
-      <!---  LOGO FOOTER   --->
-      <div id="div-footer-logo">
-        <img src="./img/ghari-logo-v-2.svg" alt="Logo Ghari" />
-      </div>
-      <!---  COLUMNAS FOOTER   --->
-      <div id="div-footer-columnas">
-        <!--   COLUMNA 1   -->
-        <div id="div-footer-columna-1" class="div-footer-columna">
-          <h3 id="footer-h3-1" class="titulo-footer">Atención al cliente</h3>
-          <ul>
-            <li>Lunes a Viernes de 9 a 18h</li>
-            <li><a href="#">Whatsapp</a></li>
-            <li><a href="#">Envíanos un e-mail</a></li>
-            <li><a href="#">¿Necesitas ayuda?</a></li>
-          </ul>
-        </div>
-        <!--   COLUMNA 2   -->
-        <div id="div-footer-columna-2" class="div-footer-columna">
-          <h3 id="footer-h3-2" class="titulo-footer">Sobre nosotros</h3>
-          <ul>
-            <li><a href="#">Conoce Ghari</a></li>
-            <li><a href="#">Relojes de alta calidad</a></li>
-            <li><a href="#">Regalos de empresa</a></li>
-          </ul>
-        </div>
-        <!--   COLUMNA 3   -->
-        <div id="div-footer-columna-3" class="div-footer-columna">
-          <h3 id="footer-h3-3" class="titulo-footer">Información</h3>
-          <ul>
-            <li><a href="#">Condiciones de uso</a></li>
-            <li><a href="#">Cambios y devoluciones</a></li>
-            <li><a href="#">Cuida tu reloj</a></li>
-            <li><a href="#">Pago seguro</a></li>
-            <li><a href="#">Guía de tallas</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="copyright">
-        <p>Copyright GHARI RELOJES. Todos los derechos reservados.</p>
-      </div>
-    </footer>
-    
-    <!-- Modal -->
-    <div id="modal-carrito" class="modal">
-      <div class="cierre-modal">
-      </div>
-      <div class="modal-content">
-        <h2>Producto añadido a la cesta</h2>
-        <p id="btn-cierre" class="btn-cierre">x</p>
-        <div class="modal-buttons">
-          <button id="seguir-comprando" class="add-to-cart">Seguir comprando</button>
-          <button id="ir-cesta" class="add-to-cart">Ir a la cesta</button>
-        </div>
-      </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./styles/producto.css" />
+  <link rel="stylesheet" href="./styles/mainstyle.css" />
+  <title>Document</title>
+</head>
+
+<body>
+  <nav id="navbar">
+    <div id="logonav">
+      <a href="./index.html"><img src="./img/ghari-logo-h-1.svg" alt="Logo Ghari Relojes"></a>
     </div>
 
-    <script src="producto.js"></script>
-  </body>
+    <div id="menunav">
+      <ul>
+        <li><a id="menu-mujer" href="#">Mujer</a></li>
+        <li><a id="menu-hombre" href="#">Hombre</a></li>
+        <li><a id="menu-unisex" href="#">Unisex</a></li>
+        <li><a id="menu-catalogo" href="catalogo.html">Catálogo</a></li>
+        <li><a id="menu-contacto" href="#">Contacto</a></li>
+      </ul>
+
+    </div>
+    <div id="timenav">
+      <p id="fecha"></p>
+      <p id="hora"></p>
+
+    </div>
+    <div id="funcionesnav">
+      <div id="idiomanav">
+        <ul>
+          <li id="espanol"><a href="#">ES</a></li>
+          <li id="english"><a href="#">EN</a></li>
+          <li id="euskara"><a href="#">EUS</a></li>
+        </ul>
+
+      </div>
+      <div id="clientesnav">
+        <ul>
+          <li id="icono-cesta"><a href="carrito.html"><img src="./img/bolsa-de-la-compra.png" alt="Cesta"></a></li>
+          <li id="icono-clientes"><a href="cliente.html"><img src="./img/usuario.png" alt="Área clientes"></a></li>
+        </ul>
+      </div>
+
+
+      <!--nav for tablet version-->
+
+      <!-- Hamburger Menu (Checkbox) -->
+      <input type="checkbox" id="hamburger-toggle">
+      <label for="hamburger-toggle" class="hamburger">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="20" viewBox="0 0 40 20">
+          <rect x="0" y="0" width="40" height="4" fill="black" rx="2" />
+          <rect x="0" y="12" width="40" height="4" fill="black" rx="2" />
+        </svg>
+
+      </label>
+
+
+
+      <!-- Hamburger Menu Content -->
+      <div id="menu-container">
+
+
+
+        <div id="menuContent">
+          <ul>
+            <li><a id="menu-mujer-2" href="#">Mujer</a></li>
+            <hr>
+
+            <li><a id="menu-hombre-2" href="#">Hombre</a></li>
+            <hr>
+            <li><a id="menu-unisex-2" href="#">Unisex</a></li>
+            <hr>
+            <li><a id="menu-catalogo-2" href="catalogo.html">Catálogo</a></li>
+            <hr>
+            <li><a id="menu-contacto-2" href="#">Contacto</a></li>
+            <hr>
+          </ul>
+        </div>
+
+        <div id="idiomaContent">
+          <ul>
+            <li><a id="espanol-2" href="#">ES</a></li>
+            <li><a id="english-2" href="#">EN</a></li>
+            <li><a id="euskara-2" href="#">EUS</a></li>
+
+          </ul>
+        </div>
+      </div>
+  </nav>
+  <!-- ******************************************************************************* -->
+
+  <main id="main-producto">
+
+    <!-- Aquí se carga el producto dinamicamente -->
+
+  </main>
+
+  <!-- ************************************************************************************** -->
+  <!---  FOOTER   --->
+  <footer class="footer">
+    <!---  LOGO FOOTER   --->
+    <div id="div-footer-logo">
+      <img src="./img/ghari-logo-v-2.svg" alt="Logo Ghari">
+    </div>
+    <!---  COLUMNAS FOOTER   --->
+    <div id="div-footer-columnas">
+      <!--   COLUMNA 1   -->
+      <div id="div-footer-columna-1" class="div-footer-columna">
+        <h3 id="footer-h3-1" class="titulo-footer">Atención al cliente</h3>
+        <ul>
+          <li id="footer-ul-1-li-1">Lunes a Viernes de 9 a 18h</li>
+          <li id="footer-ul-1-li-2"><a href="#">Whatsapp</a></li>
+          <li id="footer-ul-1-li-3"><a href="#">Envíanos un e-mail</a></li>
+          <li id="footer-ul-1-li-4"><a href="#">¿Necesitas ayuda?</a></li>
+        </ul>
+
+      </div>
+      <!--   COLUMNA 2   -->
+      <div id="div-footer-columna-2" class="div-footer-columna">
+        <h3 id="footer-h3-2" class="titulo-footer">Sobre nosotros</h3>
+        <ul>
+          <li id="footer-ul-2-li-1"><a href="#">Conoce Ghari</a></li>
+          <li id="footer-ul-2-li-2"><a href="#">Relojes de alta calidad</a></li>
+          <li id="footer-ul-2-li-3"><a href="#">Regalos de empresa</a></li>
+        </ul>
+
+      </div>
+      <!--   COLUMNA 3   -->
+      <div id="div-footer-columna-3" class="div-footer-columna">
+        <h3 id="footer-h3-3" class="titulo-footer">Información</h3>
+        <ul>
+          <li id="footer-ul-3-li-1"><a href="#">Condiciones de uso</a></li>
+          <li id="footer-ul-3-li-2"><a href="#">Cambios y devoluciones</a></li>
+          <li id="footer-ul-3-li-3"><a href="#">Cuida tu reloj</a></li>
+          <li id="footer-ul-3-li-4"><a href="#">Pago seguro</a></li>
+          <li id="footer-ul-3-li-5"><a href="#">Guía de tallas</a></li>
+        </ul>
+
+      </div>
+    </div>
+    <div class="copyright">
+      <p id="p-copy">Copyright GHARI RELOJES. Todos los derechos reservados.</p>
+
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div id="modal-carrito" class="modal">
+    <div class="cierre-modal">
+    </div>
+    <div class="modal-content">
+      <h2 id="texto-productoanadido">Producto añadido a la cesta</h2>
+      <p id="btn-cierre" class="btn-cierre">x</p>
+      <div class="modal-buttons">
+        <button id="seguir-comprando" class="add-to-cart">Seguir comprando</button>
+        <button id="ir-cesta" class="add-to-cart">Ir a la cesta</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="producto.js"></script>
+</body>
+
 </html>
