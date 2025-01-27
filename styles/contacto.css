@@ -75,6 +75,8 @@ p {
   display: flex;
   flex-direction: column;
   text-align: left;
+  padding: 3rem;
+  padding-left: 6rem;
 }
 
 .contacto p {
@@ -97,6 +99,8 @@ p {
   border-radius: 8px;
   /* position: relative;
   top:30%; */
+  padding: 3rem;
+  padding-right: 6rem;
 }
 
 /* Subtítulos */
@@ -153,7 +157,7 @@ form button:hover {
   background-color: #cc0000;
 }
 
-p {
+main p {
   text-align: left;
   padding-bottom: 15px;
   font-size: 0.9rem;
