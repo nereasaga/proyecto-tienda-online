@@ -12,11 +12,30 @@ body {
 h1 {
   text-align: left;
   position: relative;
-  left: 20%;
-  top: 200px;
+  left: 10%;
+  
   color: #E53935; /* Color rojo del título */
   margin-left: 30px;
   margin-top: 20px;
+}
+/* Estilos para la sección de contacto */
+.contacto p {
+  margin: 0; /* Elimina espacios extra */
+  font-size: 16px;
+  line-height: 1.6;
+  color: #5e5b5b;
+}
+
+.contacto h2,
+.contacto h3 {
+  margin: 10px 0 5px; /* Reduce espacio superior e inferior */
+  font-size: 18px;
+  color: #3f3d3d;
+}
+
+.contacto p + h2,
+.contacto p + h3 {
+  margin-top: 15px; /* Espacio adicional después del párrafo */
 }
 
 /* Sección de descripción */
@@ -32,15 +51,15 @@ p {
 .text-left{
   text-align: left;
   position: relative;
-  left: 20%;
-  top: 190px;
+  left: 10%;
+  
 }
 
 /* Contenedor principal */
 .container {
   display: flex;
   justify-content: space-around;
-  margin: 20px auto;
+  margin: 30px ;
   max-width: 1200px;
   
 }
@@ -48,9 +67,9 @@ p {
 /* Sección del formulario e información */
 .contacto {
   width: 45%;
-  padding: 160px;
-  border-radius: 8px;
+  padding: 170px;
   position: relative;
+  bottom: 140px;
   
 }
 
@@ -60,14 +79,9 @@ p {
   padding: 20px;
   border-radius: 8px;
   position: relative;
-  top:30%;
+  bottom: 190px;
 }
 
-/* Subtítulos */
-h2, h3 {
-  color: #3f3d3d;
-  text-align: left;
-}
 
 /* Formulario */
 form {
@@ -129,6 +143,7 @@ p {
   display: flex;
   justify-content: center;
   text-align: center;
+  bottom: 20rem;
 }
 
 /* Responsivo */

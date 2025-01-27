@@ -6,40 +6,64 @@ body {
 }
 
 h1 {
-  text-align: left;
-  color: rgb(218, 34, 34);
-  padding: 1rem 4rem;
+  color: #d83b3b;
+  padding-left: 24rem;
+  position: relative;
+  top: 40px;
+  }
+h2{
+padding-right: 10rem;
+}
+
+h3{
+  padding-right: 12rem;
+}
+.inicio{
+  padding-left: 24rem;
 }
 
 /* Contenedor principal */
 .container {
   display: flex;
-  justify-content: space-between;
-  gap: 20px; /* Espacio entre secciones */
   max-width: 1200px;
   margin: 20px auto;
-  padding: 20px;
+  padding: 10px;
   flex-direction: row-reverse;
 }
-
-/* Estilo de las secciones */
-.form-section {
+/* Estilo de login seccione*/
+.login-section {
   flex: 1;
   padding: 30px;
-  border-radius: 5px;
+  position: relative;
+  left: 10rem;
 }
 
-.form-section h2 {
+#login-form{
+  width:80%;
+}
+
+.login-section h2 {
   font-size: 24px;
+  margin-top: 0;  /* Aligns h2 to the top */
   margin-bottom: 20px;
 }
 
-.form-section p {
+.login-section p {
   font-size: 14px;
   color: #555;
   margin-bottom: 20px;
 }
+/* registrar cuenta*/
+.form-section {
+  flex: 1;
+  padding: 30px;
+  position: relative;
+  left: 2rem;
+  padding-right: 10rem;
+  bottom: 2rem;
+}
 
+/*botton registrate*/
 .btn {
   display: inline-block;
   background-color: rgb(218, 34, 34);
@@ -47,14 +71,13 @@ h1 {
   padding: 10px 20px;
   border: none;
   border-radius: 3px;
-  cursor: pointer;
   text-decoration: none;
 }
 
 .btn:hover {
   background-color: #d83b3b;
 }
-
+/* login input*/
 input {
   width: 100%;
   padding: 10px;
@@ -64,7 +87,7 @@ input {
 }
 
 .forgot-password {
-  color: #888;
+  color: #8a8484;
   text-decoration: none;
   font-size: 14px;
 }
@@ -83,7 +106,7 @@ input {
   margin-top: 20px;
 }
 
-/* Botones */
+/* Boton de iniciar */
 .btn2{
   display: inline-block;
   padding: 10px 20px;
@@ -103,28 +126,48 @@ input {
 .btn2.btn2:hover{
   background-color: #d83b3b;
 }
-.hidden {
-  display: none; /* Elementos ocultos */
-}
+
+/*registrar formulario*/
 .form-section, .register-form {
   margin: 20px auto;
   text-align: center;
   max-width: 400px;
 }
-input {
-  width: 100%;
-  margin: 10px 0;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
 
 .hidden {
   display: none;
 }
-#incorrect-password {
-  color: red;
-  font-size: 14px;
-  margin-top: 10px;
-  font-weight: bold;
+/*tablet*/
+@media screen and (max-width: 1280px){
+
+h1 {
+  color: #d83b3b;
+  padding-left:8rem;
+  position: relative;
+  top: 40px;
+  }
+  h2{
+    padding-right: 1rem;
+    }
+  h3{
+      padding-right: 3rem;
+    }
+  .inicio{
+      padding-left: 8rem;
+    }
+  .login-section {
+      flex: 1;
+      padding: 30px;
+      position: relative;
+      left: 5rem;
+    }
+    
+  .form-section {
+      flex: 1;
+      padding: 30px;
+      position: relative;
+      left:2rem;
+      padding-right: 5rem;
+      bottom: 2rem;
+    }
 }
