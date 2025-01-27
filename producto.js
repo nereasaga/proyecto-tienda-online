@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   cargaProducto(idiomaActual);
+  cambiarIdioma(idiomaActual);
 
 });
 
