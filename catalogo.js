@@ -124,6 +124,7 @@ function cargarRelojes() {
         elementosR.classList.add('watch-item');
         elementosR.innerHTML = `
              <a href="producto.html" onclick="guardarReferenciaProducto('${reloj.ref}')" class="link">
+             <div id="card" class="card">
             <div class="reloj-titulo">
                 <p class="marca">${reloj.marca}</p>
             </div>
@@ -133,6 +134,7 @@ function cargarRelojes() {
                 <p class="tamano">${reloj.tamano} mm</p>
                 <p class="material">${reloj.material}</p>
                 <p class="precio">${reloj.precio} €</p>
+            </div>
             </div>
         </a>
     `;
@@ -186,6 +188,7 @@ function filtrarRelojes() {
                 <p class="material">${reloj.material}</p>
                 <p class="precio">${reloj.precio} €</p>
             </div>
+            
         </a>
     `;
         watchList.appendChild(watchItem);
