@@ -62,27 +62,23 @@ El proyecto se creó utilizando **HTML**, **CSS** y **JavaScript**, con caracter
 ## Capturas de Pantalla  
 
 ### Index 
-<div style="display: flex; align-items: flex-start; gap: 10px;">
-  <img src="img/index.png" width="500" style="vertical-align: top;">
-   <img src="img/mobile-index.png" width="500" style="vertical-align: top;">
-</div>
+<p align="left">
+  <img src="img/index.png" width="500">
+</p>
 
 ### Catálogo 
 <p align="left">
   <img src="img/catalogo.png" width="500">
-
 </p>
 
 ### Página de producto 
 <p align="left">
   <img src="img/producto.png" width="500">
-
 </p>
 
 ### Página del Carrito  
 <p align="left">
   <img src="img/carrito.png" width="500">
-
 </p> 
 
 ### Página de usuario
