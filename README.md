@@ -64,7 +64,7 @@ El proyecto se creó utilizando **HTML**, **CSS** y **JavaScript**, con caracter
 ### Index 
 <p align="left">
   <img src="img/index.png" width="500">
-
+  <img src="img/mobile-index.png" width="200">
 </p>
 
 ### Catálogo 
