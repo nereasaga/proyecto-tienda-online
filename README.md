@@ -62,9 +62,10 @@ El proyecto se creó utilizando **HTML**, **CSS** y **JavaScript**, con caracter
 ## Capturas de Pantalla  
 
 ### Index 
-<p align="left">
+<div style="display: flex; align-items: flex-start; gap: 10px;">
   <img src="img/index.png" width="500" style="vertical-align: top;">
-</p>
+   <img src="img/mobile-index.png" width="500" style="vertical-align: top;">
+</div>
 
 ### Catálogo 
 <p align="left">
