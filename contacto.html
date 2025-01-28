@@ -4,11 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto</title>
-    <link rel="stylesheet" href="styles/contacto.css">
+    <link rel="stylesheet" href="./styles/mainstyle.css">
+    <link rel="stylesheet" href="./styles/contacto.css">
 </head>
 <body>
+  <nav id="navbar">
+    <div id="logonav">
+        <a href="./index.html"><img src="./img/ghari-logo-h-1.svg" alt="Logo Ghari Relojes"></a>
+    </div>
+    
+     <div id="menunav"> 
+        <ul>
+            <li><a id="menu-mujer" href="#">Mujer</a></li>
+            <li><a id="menu-hombre" href="#">Hombre</a></li>
+            <li><a id="menu-unisex" href="#">Unisex</a></li>
+            <li><a id="menu-catalogo" href="catalogo.html">Catálogo</a></li>
+            <li><a id="menu-contacto" href="contacto.html">Contacto</a></li> 
+        </ul>
+
+    </div>
+    <div id="timenav">
+        <p id="fecha"></p>
+        <p id="hora"></p>
+
+    </div>
+    <div id="funcionesnav">
+        <div id="idiomanav">
+            <ul>
+                <li id="espanol"><a href="#">ES</a></li>
+                <li id="english"><a href="#">EN</a></li>
+                <li id="euskara"><a href="#">EUS</a></li>
+            </ul>
+
+        </div>
+        <div id="clientesnav">
+            <ul>
+                <li id="icono-cesta"><a href="carrito.html"><img src="./img/bolsa-de-la-compra.png" alt="Cesta"></a></li>
+                <li id="icono-clientes"><a href="cliente.html"><img src="./img/usuario.png" alt="Área clientes"></a></li>
+            </ul>
+        </div> 
+    
+      
+<!--nav for tablet version-->
+
+   <!-- Hamburger Menu (Checkbox) -->
+   <input type="checkbox" id="hamburger-toggle">
+   <label for="hamburger-toggle" class="hamburger">
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="20" viewBox="0 0 40 20">
+      <rect x="0" y="0" width="40" height="4" fill="black" rx="2" />
+      <rect x="0" y="12" width="40" height="4" fill="black" rx="2" />
+    </svg>
+    
+   </label>
    
-  <h1>Contacto</h1>
+  
+
+   <!-- Hamburger Menu Content -->
+   <div id="menu-container">
+
+   
+    
+        <div id="menuContent"> 
+           <ul>
+               <li><a id="menu-mujer-2" href="#">Mujer</a></li><hr>
+               
+               <li><a id="menu-hombre-2" href="#">Hombre</a></li>
+               <hr>
+               <li><a id="menu-unisex-2" href="#">Unisex</a></li>
+               <hr>
+               <li><a id="menu-catalogo-2" href="catalogo.html">Catálogo</a></li>
+               <hr>
+               <li><a id="menu-contacto-2" href="#">Contacto</a></li> 
+               <hr>
+           </ul>
+       </div>
+
+       <div id="idiomaContent">
+           <ul>
+               <li><a id="espanol-2" href="#">ES</a></li>
+               <li><a id="english-2" href="#">EN</a></li>
+               <li><a id="euskara-2" href="#">EUS</a></li>
+               
+           </ul>
+       </div>
+      </div>
+    </nav>
+   <main>
+    <div class="columnas">
+    <div class="contacto">
+      <h1 id="h1-contacto">Contacto</h1>
+
+     <p id="p-contacto-1" class="text-left">
+      Gracias por tu visitar nuestra tienda.Si tienes algun consulta<br>
+                         comentario o necesitas asistancia con tu compra, nuestro <br>
+                         equipo está a tu desposicion para brindarte la mejor experiencia.
+                        </p>
+
+
+    <h2 id="h2-info-contacto" >Información de Contacto:</h2>
+        
+   <p id="p-tfno">Teléfono: (+34)123 456 789</p>
+   <p id="p-mail">Correo Electronico: soporte@gharirelojes.com</p>
+
+    <h3 id="h3-horario">Horario de Atención:</h3>
+
+    <p id="p-horario">Lunes a Viernes: 9:00 AM-7:00 PM</p>
+    <p id="p-horario-2">Sábado: 10:00 AM-2:00 PM</p>
+    </div>
+  <!-- <h1>Contacto</h1>
 
      <p class="text-left">Gracias por tu visitar nuestra tienda.Si tienes algun consulta<br>
                          comentario o necesitas asistancia con tu compra, nuestro <br>
@@ -27,27 +130,186 @@
     <p>Lunes a Viernes: 9:00 AM-7:00 PM</p>
     <p>Sábado: 10:00 AM-2:00 PM</p>
     
-</div>
+</div> -->
+
 
 
 <!--Formulario-->
   <div class="form-section">
-     <p>Rellena el siguiente formulario y nos pondreamos en contacto contigo a la mayor brevedad possible:</p>
+     <p id="p-form">Rellena el siguiente formulario y nos pondreamos en contacto contigo a la mayor brevedad possible:</p>
     <form id="login-form">
         <input id="nombreRecogido" type="username" placeholder="Nombre*" required>
       <input id="correoRecogido" type="email" placeholder="Correo Electrónico*" required>
-      <input id="teléfonoRecogido" type="number" placeholder="Teléfono*" required>
-      <input id="asuntoRecogida" type="subject" placeholder="Asunto*" required>
-      <input id="mensajecontainer" type="massage" placeholder="Mensaje" required>
+      <input id="teléfonoRecogido" type="text" placeholder="Teléfono*" required>
+      <input id="asuntoRecogida" type="text" placeholder="Asunto*" required>
+      <input id="mensajecontainer" type="text" placeholder="Mensaje" required>
    
-      <button type="submit" class="btn2">Enviar</button>
+      <button id="btn-enviar" type="submit" class="btn2">Enviar</button>
         
     </form> 
   </div>
   </div>
+</div>
 
-   <p class="last-line">Tu satisfacción es nuestra prioridad. Cada reloj cuenta una historia, y queremos que la tuya sea <br>
+   <p id="p-final" class="last-line">Tu satisfacción es nuestra prioridad. Cada reloj cuenta una historia, y queremos que la tuya sea <br>
      inolvidable. Gracias por confiar en nosotros para acompañarte en cada momento.</p>
+    </main>
+     <!---  FOOTER   --->
+ <footer class="footer">
+  <!---  LOGO FOOTER   --->
+  <div id="div-footer-logo">
+    <img src="./img/ghari-logo-v-2.svg" alt="Logo Ghari">
+  </div>
+  <!---  COLUMNAS FOOTER   --->
+  <div id="div-footer-columnas">
+    <!--   COLUMNA 1   -->
+    <div id="div-footer-columna-1" class="div-footer-columna">
+      <h3 id="footer-h3-1" class="titulo-footer">Atención al cliente</h3>
+      <ul>
+        <li id="footer-ul-1-li-1">Lunes a Viernes de 9 a 18h</li>
+        <li id="footer-ul-1-li-2"><a href="#">Whatsapp</a></li>
+        <li id="footer-ul-1-li-3"><a href="#">Envíanos un e-mail</a></li>
+        <li id="footer-ul-1-li-4"><a href="#">¿Necesitas ayuda?</a></li>
+      </ul>
 
+    </div>
+    <!--   COLUMNA 2   -->
+    <div id="div-footer-columna-2" class="div-footer-columna">
+      <h3 id="footer-h3-2" class="titulo-footer">Sobre nosotros</h3>
+      <ul>
+        <li id="footer-ul-2-li-1"><a href="#">Conoce Ghari</a></li>
+        <li id="footer-ul-2-li-2"><a href="#">Relojes de alta calidad</a></li>
+        <li id="footer-ul-2-li-3"><a href="#">Regalos de empresa</a></li>
+      </ul>
+
+    </div>
+    <!--   COLUMNA 3   -->
+    <div id="div-footer-columna-3" class="div-footer-columna">
+      <h3 id="footer-h3-3" class="titulo-footer">Información</h3>
+      <ul>
+        <li id="footer-ul-3-li-1"><a href="#">Condiciones de uso</a></li>
+        <li id="footer-ul-3-li-2"><a href="#">Cambios y devoluciones</a></li>
+        <li id="footer-ul-3-li-3"><a href="#">Cuida tu reloj</a></li>
+        <li id="footer-ul-3-li-4"><a href="#">Pago seguro</a></li>
+        <li id="footer-ul-3-li-5"><a href="#">Guía de tallas</a></li>
+      </ul>
+
+    </div>
+  </div>
+  <div class="copyright">
+      <p id="p-copy">Copyright GHARI RELOJES. Todos los derechos reservados.</p>
+
+  </div>
+  </footer>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // let idiomaActual = 'es-ES'; 
+    let producto = localStorage.getItem("producto");
+    let productoJSON = JSON.parse(producto);
+
+    let idiomaSeleccionado = localStorage.getItem('idiomaSeleccionado') || 'es'; 
+    let idiomaSeleccionado2 = localStorage.getItem('idiomaSeleccionado2') || 'es-ES';
+
+ // CARGAR CATÁLOGOS EN INICIO Y ACTUALIZAR HORA Y FECHA
+window.onload = function() {
+    iniciarIH();
+    cambiarIdioma(idiomaSeleccionado);
+    console.log(idiomaSeleccionado);
+    console.log(idiomaSeleccionado2);
+
+};
+
+
+    //CAMBIAR IDIOMA Y DATOS RELOJES
+
+   function cambiarIdioma(idioma) {
+    let archivoIdioma = "json/" + idioma + ".json";
+    let archivoCatalogo = "json/catalogo-" + idioma + ".json"; 
+
+    // CAMBIAR IDIOMA DE TEXTOS
+    fetch(archivoIdioma)
+        .then(function (respuesta) {
+            return respuesta.json();
+        })
+
+        .then(function(data) {
+            for (let key in data) {
+                let elemento = document.getElementById(key);
+                if (elemento) {
+                    if (key.startsWith('ph-')) {
+                        elemento.setAttribute('placeholder', data[key]);
+                    } else {
+                        elemento.textContent = data[key];
+                    }
+                }
+            }
+    });
+};
+
+
+
+
+    // CAMBIAR A INGLÉS
+    const btnEn = document.getElementById('english');
+    btnEn.addEventListener("click", function() {
+        cambiarIdioma("en");
+        localStorage.setItem('idiomaSeleccionado', 'en');
+        localStorage.setItem('idiomaSeleccionado2', 'en-GB');
+        idiomaSeleccionado = "en",
+        idiomaSeleccionado2 = "en-GB";  
+        iniciarIH();
+    });
+
+    // CAMBIAR A ESPAÑOL
+    const btnEs = document.getElementById('espanol');
+    btnEs.addEventListener("click", function() {
+        cambiarIdioma("es");
+        localStorage.setItem('idiomaSeleccionado', 'es');
+        localStorage.setItem('idiomaSeleccionado2', 'es-ES');
+        idiomaSeleccionado = "es",
+        idiomaSeleccionado2 = "es-ES";   
+        iniciarIH();
+    });
+
+    // CAMBIAR A EUSKERA
+    const btnEus = document.getElementById('euskara');
+    btnEus.addEventListener("click", function() {
+        cambiarIdioma("eus");
+        localStorage.setItem('idiomaSeleccionado', 'eus');
+        localStorage.setItem('idiomaSeleccionado2', 'eus');
+        idiomaSeleccionado = "eus",
+        idiomaSeleccionado2 = "eus";  
+        iniciarIH();
+    });
+
+ // CARGAR HORA Y FECHA 
+ function iniciarIH() {let intervaloHora;
+ if (intervaloHora) {
+   clearInterval(intervaloHora);
+ }
+ intervaloHora = setInterval(function() {
+   F5time(idiomaSeleccionado2);
+ }, 1000);
+}
+
+    // FUNCIÍN PARA HORA Y FECHA
+    function F5time(idioma = 'es-ES') {
+        const fechaElemento = document.getElementById("fecha");
+        const horaElemento = document.getElementById("hora");
+        const ahora = new Date();
+        const opcionesFecha = { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' };
+        const fechaFormateada = ahora.toLocaleDateString(idioma, opcionesFecha);
+        const horaFormateada = ahora.toLocaleTimeString(idioma, { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+        fechaElemento.textContent = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
+        horaElemento.textContent = horaFormateada;
+    }
+
+});
+
+
+
+
+</script>
 </body>
 </html>

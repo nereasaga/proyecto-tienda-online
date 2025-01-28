@@ -4,62 +4,103 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f9f9f9;
+  background-color: var(--blanco);
   color: #5e5b5b;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  width: 90%;
+  background-color: var(--blanco);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 40rem;
+
+}
+
+.columnas {
+  display: flex;
+  flex-direction: row;
 }
 
 /* Encabezado principal */
 h1 {
   text-align: left;
-  position: relative;
-  left: 10%;
+  /* position: relative; */
+  /* left: 20%; */
+  top: 200px;
   color: #E53935; /* Color rojo del título */
-  margin-left: 30px;
-  margin-top: 20px;
+  /* margin-left: 30px;
+  margin-top: 20px; */
+  padding-bottom: 1rem;
 }
 
 /* Sección de descripción */
 p {
   display: flex;
-  position: relative;
-  right: 5%;
+  /* position: relative; */
+  /* right: 5%; */
   text-align: left;
-  margin: 10px 20px;
+  /* margin: 10px 20px; */
   font-size: 16px;
   line-height: 1;
 }
 .text-left{
   text-align: left;
-  position: relative;
-  left: 10%;
-  
+  /* position: relative; */
+  /* left: 20%;
+  top: 190px; */
 }
 
 /* Contenedor principal */
-.container {
+/* .container {
   display: flex;
   justify-content: space-around;
   margin: 30px ;
   max-width: 1200px;
   
-}
+} */
 
 /* Sección del formulario e información */
 .contacto {
-  width: 45%;
-  padding: 170px;
+  width: 49%;
+  /* padding: 160px; */
+  border-radius: 8px;
   position: relative;
-  bottom: 140px;
-  
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 3rem;
+  padding-left: 6rem;
+}
+
+.contacto p {
+  width: 100%;
+  text-align: left;
+}
+
+.contacto h2 {
+  padding-bottom: 1rem;
+}
+
+.contacto h3 {
+  padding-bottom: 1rem;
 }
 
 
 .form-section{
-  width: 45%;
-  padding: 20px;
+  width: 49%;
+  /* padding: 20px; */
   border-radius: 8px;
-  position: relative;
-  bottom: 190px;
+  /* position: relative;
+  top:30%; */
+  padding: 3rem;
+  padding-right: 6rem;
 }
 
 
@@ -100,11 +141,10 @@ form button:hover {
   background-color: #cc0000;
 }
 
-p {
-  text-align: center;
-  padding: 15px;
+main p {
+  text-align: left;
+  padding-bottom: 15px;
   font-size: 0.9rem;
-  background-color: #f9f9f9;
   color: #777;
 }
 
@@ -112,50 +152,36 @@ p {
   display: flex;
   justify-content: center;
   text-align: center;
-  bottom: 20rem;
+  width: 100%;
+  padding-top: 3rem;
 }
 
-/* Responsivo */
-@media (max-width: 1280px) {
-  p {
-    display: flex;
-    position: relative;
-    right: 5%;
-    text-align: left;
-    margin: 10px 20px;
-    font-size: 16px;
-    line-height: 1;
-    position: relative;
+/******************* MEDIA QUERIES ******************/
+
+/*    Codigo pag en tablet       */
+
+@media (max-width:1280px) {
+  main {
+      width: 100%;
   }
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  form input {
-    margin: 10px 0;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  form input[type="massage"] {
-    height: 80px;
-    resize: none;
-  }
-  form button {
-    background-color: #e60000;
-    color: white;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
-  }
-  
+
+ 
+}
+
+/*  Codigo pagina en smartphone   */    
+
+@media (max-width:575px) {
+.columnas {
+  flex-direction: column;
+}
+
+.contacto {
+  width: 100%;
+  padding: 2rem;
+}
+
+.form-section {
+  width: 100%;
+  padding: 2rem;
+}
 }
