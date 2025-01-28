@@ -15,13 +15,17 @@ function cambiarIdioma(idioma) {
             return respuesta.json();
         })
 
-        .then(function (data) {
-    for (let key in data) {
-        let elemento = document.getElementById(key);
-        if (elemento) {
-                elemento.textContent = data[key];
+        .then(function(data) {
+            for (let key in data) {
+                let elemento = document.getElementById(key);
+                if (elemento) {
+                    if (key.startsWith('ph-')) {
+                        elemento.setAttribute('placeholder', data[key]);
+                    } else {
+                        elemento.textContent = data[key];
+                    }
+                }
             }
-        }
     });
 };
 
@@ -237,7 +241,7 @@ document.getElementById("btn-cierre-verificado").addEventListener('click', cerra
 setTimeout(mostrarModal, 7000);
 // Evento para suscribirse
 document.getElementById("suscribirse").addEventListener('click', function() {
-    const email = document.getElementById("email-input").value;    
+    const email = document.getElementById("ph-email-input").value;    
     if (email) {    
         cerrarModal();  // Cierra el modal de la oferta
         mostrarModalVerificado();  // Muestra el modal de verificación      
