@@ -83,14 +83,14 @@ El proyecto se creó utilizando **HTML**, **CSS** y **JavaScript**, con caracter
   - Implementación de pop-ups y elementos interactivos.  
 
 ## :sparkles:Equipo:
-Nerea: https://github.com/nereasaga ---> Scrum Master
-<br/>
-Moisés: https://github.com/moisescolman ---> Product Owner
-<br/>
 Azalfa: https://github.com/zille5
 <br/>
 Allan: https://github.com/Allan941709
 <br/>
 Aleeza: https://github.com/Aleeza951
+<br/>
+Nerea: https://github.com/nereasaga ---> Scrum Master
+<br/>
+Moisés: https://github.com/moisescolman ---> Product Owner
 
 
