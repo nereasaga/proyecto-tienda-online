@@ -39,6 +39,16 @@ function cambiarIdioma(idioma) {
          cargarRelojesDesdeJSON("en");
          iniciarIH();
      });
+
+     const btnEn2 = document.getElementById('english-2');
+     btnEn2.addEventListener("click", function() {
+         cambiarIdioma("en");
+         idiomaSeleccionado2 = "en-GB";
+         localStorage.setItem('idiomaSeleccionado', 'en');
+         localStorage.setItem('idiomaSeleccionado2', 'en-GB');
+         cargarRelojesDesdeJSON("en");
+         iniciarIH();
+     });
  
      // CAMBIAR A ESPAÑOL
      const btnEs = document.getElementById('espanol');
@@ -50,10 +60,31 @@ function cambiarIdioma(idioma) {
          cargarRelojesDesdeJSON("es");
          iniciarIH();
      });
+
+     const btnEs2 = document.getElementById('espanol-2');
+     btnEs2.addEventListener("click", function() {
+         cambiarIdioma("es");
+         idiomaSeleccionado2 = "es-ES";
+         localStorage.setItem('idiomaSeleccionado', 'es');
+         localStorage.setItem('idiomaSeleccionado2', 'es-ES');
+         cargarRelojesDesdeJSON("es");
+         iniciarIH();
+     });
  
      // CAMBIAR A EUSKERA
      const btnEus = document.getElementById('euskara');
      btnEus.addEventListener("click", function() {
+        cambiarIdioma("eus");
+         cargarRelojesDesdeJSON("eus");
+         idiomaSeleccionado2 = "eus";
+         localStorage.setItem('idiomaSeleccionado', 'eus');
+         localStorage.setItem('idiomaSeleccionado2', 'eus');
+         cargarRelojesDesdeJSON("eus");
+         iniciarIH();
+     });
+
+     const btnEus2 = document.getElementById('euskara-2');
+     btnEus2.addEventListener("click", function() {
         cambiarIdioma("eus");
          cargarRelojesDesdeJSON("eus");
          idiomaSeleccionado2 = "eus";

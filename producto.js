@@ -276,6 +276,15 @@ btnEn.addEventListener("click", function () {
   // intervaloHora();
 });
 
+const btnEn2 = document.getElementById('english-2');
+btnEn2.addEventListener("click", function () {
+  cambiarIdioma("en");
+  localStorage.setItem('idiomaSeleccionado', 'en');
+  localStorage.setItem('idiomaSeleccionado2', 'en-GB');
+  idiomaSeleccionado2 = "en-GB";
+  iniciarIH();
+});
+
 // CAMBIAR A ESPAÑOL
 const btnEs = document.getElementById('espanol');
 btnEs.addEventListener("click", function () {
@@ -291,6 +300,16 @@ btnEs.addEventListener("click", function () {
   // clearInterval(intervaloHora);
   // intervaloHora();
 });
+
+const btnEs2 = document.getElementById('espanol-2');
+btnEs2.addEventListener("click", function () {
+  cambiarIdioma("es");
+  localStorage.setItem('idiomaSeleccionado', 'es');
+  localStorage.setItem('idiomaSeleccionado2', 'es-ES');
+  idiomaSeleccionado2 = "es-ES";
+  iniciarIH();
+});
+
 
 // CAMBIAR A EUSKERA
 const btnEus = document.getElementById('euskara');
@@ -308,3 +327,11 @@ btnEus.addEventListener("click", function () {
   // intervaloHora();
 });
 
+const btnEus2 = document.getElementById('euskara-2');
+btnEus2.addEventListener("click", function () {
+  cambiarIdioma("eus");
+  localStorage.setItem('idiomaSeleccionado', 'eus');
+  localStorage.setItem('idiomaSeleccionado2', 'eus');
+  idiomaSeleccionado2 = "eus";
+  iniciarIH();
+});
