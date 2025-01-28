@@ -62,7 +62,10 @@ El proyecto se creó utilizando **HTML**, **CSS** y **JavaScript**, con caracter
 ## Capturas de Pantalla  
 
 ### Index 
-![Index](img/index.png)  
+![Index](img/index.png)
+<p align="center">
+  <img src="img/index.png" width="500">
+</p>
 
 ### Catálogo 
 ![Catálogo](img/catalogo.png)  
