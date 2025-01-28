@@ -1,12 +1,12 @@
-// Evento principal cuando el DOM se carga
+// carga de página
 document.addEventListener("DOMContentLoaded", () => {
   let idiomaActual = localStorage.getItem('idiomaSeleccionado') || 'es';
 
 
-  // Obtener el 'ref' del producto seleccionado desde localStorage
+  // obener ref del producto seleccionado desde localstorage
   const productRef = localStorage.getItem("selectedWatchref");
 
-  // Mostrar error si no se encuentra el ref
+  // muestra error si no se encuentra el ref
   if (!productRef) {
     document.getElementById("main-producto").innerHTML =
       '<h2 class="errorCargaProducto">Error al cargar el producto</h2>';
@@ -19,12 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// Carga de catalogo según idioma
+// carga de catalogo según idioma
 function cargaProducto(idiomaActual) {
-  // Obtener el 'ref' del producto seleccionado desde localStorage
+  // sacar el ref del producto seleccionado desde localstorage
   const productRef = localStorage.getItem("selectedWatchref");
 
-  // Mostrar error si no se encuentra el ref
+  // muestra error si no se encuentra el ref
   if (!productRef) {
     document.getElementById("main-producto").innerHTML =
       '<h2 class="errorCargaProducto">Error al cargar el producto</h2>';
@@ -85,7 +85,7 @@ function cambiarIdioma(idioma) {
   });
 };
 
-// Cargar el producto en la página
+// Cargar el producto 
 function cargarProducto(relojes, productRef) {
   const producto = relojes.find((item) => item.ref === productRef);
 
@@ -95,7 +95,7 @@ function cargarProducto(relojes, productRef) {
     return;
   }
 
-  // Construir el HTML dinámicamente
+  //rellenar html dinámicamente
   document.title = `${producto.marca} ${producto.modelo}`;
 
 
@@ -127,21 +127,20 @@ function cargarProducto(relojes, productRef) {
       </div>
     </div>`;
 
-  // Inicializar funcionalidades después de cargar el producto
+  // Iniciar funciones luego de cargar 
   funcionesDePagina(producto.ref);
 }
 
-// Función para inicializar las funcionalidades de cantidad y carrito
+//  Funcionalidades de cantidad y carrito
 function funcionesDePagina(productRef) {
   let cantidad = 1;
 
-  // Incrementar cantidad
   document.getElementById("aumentar").addEventListener("click", () => {
     cantidad++;
     document.getElementById("cantidad").textContent = cantidad;
   });
 
-  // Decrementar cantidad
+
   document.getElementById("disminuir").addEventListener("click", () => {
     if (cantidad > 1) {
       cantidad--;
@@ -149,7 +148,7 @@ function funcionesDePagina(productRef) {
     }
   });
 
-  // Definición de la clase ProductoCarrito
+  // clase ProductoCarrito para añadir al pedido
   class ProductoCarrito {
     constructor(ref, cantidad) {
       this.ref = ref;
@@ -160,7 +159,7 @@ function funcionesDePagina(productRef) {
 
   // Añadir al carrito con modal
   document.querySelector(".add-to-cart").addEventListener("click", () => {
-    // Crear un objeto con el producto y la cantidad
+    // Creo objeto   con el producto y la cantidad
     const cantidadActual = parseInt(document.getElementById("cantidad").textContent, 10);
     const productoNuevo = new ProductoCarrito(productRef, cantidadActual);
 
@@ -168,7 +167,7 @@ function funcionesDePagina(productRef) {
     let productosEnCesta = JSON.parse(localStorage.getItem("producto")) || [];
 
 
-    // Verificar si el producto ya existe en el carrito
+    // Verifico si el producto ya existe la csta
     const productoExistente = productosEnCesta.find((p) => p.ref === productoNuevo.ref);
 
     if (productoExistente) {
@@ -177,7 +176,7 @@ function funcionesDePagina(productRef) {
       productosEnCesta.push(productoNuevo);
     }
 
-    // Guardar el carrito actualizado en localStorage
+    //guardar pedido a llocalstorage
     localStorage.setItem("producto", JSON.stringify(productosEnCesta));
 
     let cantRelojes = 0;
@@ -200,18 +199,18 @@ function funcionesDePagina(productRef) {
   function mostrarModal() {
     const modal = document.getElementById("modal-carrito");
     modal.style.display = "flex";
-    // cerrar modal
-
+    
+    // cierra modal
     document.getElementById("btn-cierre").addEventListener('click', () => {
       modal.style.display = "none";; // Redirige a catalogo.html
     });
 
-    // Seguir comprando
+    // seguir
     document.getElementById("seguir-comprando").addEventListener("click", () => {
       window.location.href = "catalogo.html"; // Redirige a catalogo.html
     });
 
-    // Ir a la cesta
+    // ir a a cesta
     document.getElementById("ir-cesta").addEventListener("click", () => {
       window.location.href = "carrito.html"; // Redirige a carrito.html
     });
@@ -219,7 +218,7 @@ function funcionesDePagina(productRef) {
 
 
 
-  // Cambiar imagen principal al hacer clic en miniaturas
+  // Cambiar imagen principal al hacer clic en thumbs
   const mainImage = document.getElementById("mainImage");
   const additionalImages = document.querySelectorAll(".additional-images img");
 
