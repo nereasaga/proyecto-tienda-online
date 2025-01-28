@@ -351,7 +351,7 @@ input:focus {
     }
 
     .lista-R {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
         gap: 2rem;
     }
 
@@ -360,7 +360,18 @@ input:focus {
         height: auto;
     }
 
+main {
+    width:100%;
+}
 
+.catalogo {
+    padding: 0px;
+}
+
+section {
+    width: 100%;
+    padding: 0px;
+}
 
 
 
