@@ -62,19 +62,30 @@ El proyecto se creó utilizando **HTML**, **CSS** y **JavaScript**, con caracter
 ## Capturas de Pantalla  
 
 ### Index 
-![Index](img/index.png)
 <p align="center">
   <img src="img/index.png" width="500">
 </p>
 
 ### Catálogo 
-![Catálogo](img/catalogo.png)  
+<p align="center">
+  <img src="img/catalogo.png" width="500">
+</p>
 
 ### Página de producto 
-![Producto](img/producto.png)  
+<p align="center">
+  <img src="img/producto.png" width="500">
+</p>
 
 ### Página del Carrito  
-![Carrito](img/carrito.png)  
+<p align="center">
+  <img src="img/carrito.png" width="500">
+</p> 
+
+### Página de usuario
+<p align="center">
+  <img src="img/cliente.png" width="500">
+</p> 
+
 
 ---
 
