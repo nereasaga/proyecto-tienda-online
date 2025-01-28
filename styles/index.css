@@ -191,16 +191,8 @@ h2 {
 
     
 }
-@media (max-width:575){
 
-    .banners {
-        display: flex;
-        flex-direction: column; 
-         margin-top: 2rem;
-    }
-
-}
-
+    
 
 
 
