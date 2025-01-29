@@ -5,7 +5,7 @@ window.onload = function() {
     cambiarIdioma(idiomaSeleccionado);
 };
 
-function cambiarIdioma(idioma) {
+function cambiarIdioma(idioma) {'json/catalogo-' + idiomaActual + '.json'
     let archivoIdioma = "json/" + idioma + ".json";
     let archivoCatalogo = "json/catalogo-" + idioma + ".json"; 
 
