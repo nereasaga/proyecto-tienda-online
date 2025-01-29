@@ -66,26 +66,6 @@ El proyecto se creó utilizando **HTML**, **CSS** y **JavaScript**, con caracter
   <img src="img/index.png" width="500">
 </p>
 
-### Catálogo 
-<p align="left">
-  <img src="img/catalogo.png" width="500">
-</p>
-
-### Página de producto 
-<p align="left">
-  <img src="img/producto.png" width="500">
-</p>
-
-### Página del Carrito  
-<p align="left">
-  <img src="img/carrito.png" width="500">
-</p> 
-
-### Página de usuario
-<p align="left">
-  <img src="img/cliente.png" width="500">
-</p> 
-
 
 ---
 
