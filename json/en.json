@@ -120,5 +120,7 @@
   "p-horario-2": "Saturday: 10:00 AM-2:00 PM",
   "p-form": "Fill out the following form, and we will contact you as soon as possible:",
   "btn-enviar": "Send",
-  "p-final": "Your satisfaction is our priority. Every watch tells a story, and we want yours to be unforgettable. Thank you for trusting us to accompany you in every moment."
+  "p-final": "Your satisfaction is our priority. Every watch tells a story, and we want yours to be unforgettable. Thank you for trusting us to accompany you in every moment.",
+  "ph-asunto": "Subject",
+  "ph-mensaje": "Message"
 }
