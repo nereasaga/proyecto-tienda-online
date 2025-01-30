@@ -280,3 +280,5 @@ document.getElementById("suscribirse").addEventListener('click', function() {
         alert("Por favor, ingresa un correo electrónico válido.");
     }
 });
+
+//KÉ PASA
