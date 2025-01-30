@@ -61,14 +61,11 @@ El proyecto se creó utilizando **HTML**, **CSS** y **JavaScript**, con caracter
 
 ## Capturas de Pantalla  
 
-### Catálogo 
-![Catálogo](https://)  
+### Index 
+<p align="left">
+  <img src="img/index.png" width="500">
+</p>
 
-### Pop-Up de Confirmación  
-![Pop-Up](https://)  
-
-### Página del Carrito  
-![Carrito](https://)  
 
 ---
 

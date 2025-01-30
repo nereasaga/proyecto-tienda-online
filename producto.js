@@ -1,6 +1,9 @@
+let idiomaSeleccionado2 = localStorage.getItem('idiomaSeleccionado2') || 'es-ES';
+
 // carga de página
 document.addEventListener("DOMContentLoaded", () => {
   let idiomaActual = localStorage.getItem('idiomaSeleccionado') || 'es';
+  let idiomaSeleccionado2 = localStorage.getItem('idiomaSeleccionado2') || 'es-ES';
 
 
   // obener ref del producto seleccionado desde localstorage
@@ -15,6 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   cargaProducto(idiomaActual);
   cambiarIdioma(idiomaActual);
+  iniciarIH();
+  console.log(idiomaSeleccionado2);
 
 });
 
@@ -229,6 +234,30 @@ function funcionesDePagina(productRef) {
   });
 }
 
+// CARGAR HORA Y FECHA 
+function iniciarIH() {let intervaloHora;
+  if (intervaloHora) {
+    clearInterval(intervaloHora);
+  }
+  intervaloHora = setInterval(function() {
+    F5time(idiomaSeleccionado2);
+  }, 1000);
+ }
+ 
+     // FUNCIÍN PARA HORA Y FECHA
+     function F5time(idioma = 'es-ES') {
+         const fechaElemento = document.getElementById("fecha");
+         const horaElemento = document.getElementById("hora");
+         const ahora = new Date();
+         const opcionesFecha = { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' };
+         const fechaFormateada = ahora.toLocaleDateString(idioma, opcionesFecha);
+         const horaFormateada = ahora.toLocaleTimeString(idioma, { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+ 
+         fechaElemento.textContent = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
+         horaElemento.textContent = horaFormateada;
+     }
+ 
+
 
 
 // CAMBIAR A INGLÉS
@@ -237,6 +266,8 @@ btnEn.addEventListener("click", function () {
   // cambiarIdioma("en");
   localStorage.setItem('idiomaSeleccionado', 'en');
   localStorage.setItem('idiomaSeleccionado2', 'en-GB');
+  idiomaSeleccionado2 = "en-GB";
+  iniciarIH();
   // idiomaActual = "en";
   // let intervaloHora = setInterval(function() {
   //     F5time("en-GB");
@@ -245,12 +276,23 @@ btnEn.addEventListener("click", function () {
   // intervaloHora();
 });
 
+const btnEn2 = document.getElementById('english-2');
+btnEn2.addEventListener("click", function () {
+  cambiarIdioma("en");
+  localStorage.setItem('idiomaSeleccionado', 'en');
+  localStorage.setItem('idiomaSeleccionado2', 'en-GB');
+  idiomaSeleccionado2 = "en-GB";
+  iniciarIH();
+});
+
 // CAMBIAR A ESPAÑOL
 const btnEs = document.getElementById('espanol');
 btnEs.addEventListener("click", function () {
   // cambiarIdioma("es");
   localStorage.setItem('idiomaSeleccionado', 'es');
   localStorage.setItem('idiomaSeleccionado2', 'es-ES');
+  idiomaSeleccionado2 = "es-ES";
+  iniciarIH();
   // idiomaActual = "es";  
   // let intervaloHora = setInterval(function() {
   //     F5time("es-ES");
@@ -259,12 +301,24 @@ btnEs.addEventListener("click", function () {
   // intervaloHora();
 });
 
+const btnEs2 = document.getElementById('espanol-2');
+btnEs2.addEventListener("click", function () {
+  cambiarIdioma("es");
+  localStorage.setItem('idiomaSeleccionado', 'es');
+  localStorage.setItem('idiomaSeleccionado2', 'es-ES');
+  idiomaSeleccionado2 = "es-ES";
+  iniciarIH();
+});
+
+
 // CAMBIAR A EUSKERA
 const btnEus = document.getElementById('euskara');
 btnEus.addEventListener("click", function () {
   // cambiarIdioma("eus");
   localStorage.setItem('idiomaSeleccionado', 'eus');
   localStorage.setItem('idiomaSeleccionado2', 'eus');
+  idiomaSeleccionado2 = "eus";
+  iniciarIH();
   // idiomaActual = "eus";  
   // let intervaloHora = setInterval(function() {
   //     F5time("eus");
@@ -273,3 +327,11 @@ btnEus.addEventListener("click", function () {
   // intervaloHora();
 });
 
+const btnEus2 = document.getElementById('euskara-2');
+btnEus2.addEventListener("click", function () {
+  cambiarIdioma("eus");
+  localStorage.setItem('idiomaSeleccionado', 'eus');
+  localStorage.setItem('idiomaSeleccionado2', 'eus');
+  idiomaSeleccionado2 = "eus";
+  iniciarIH();
+});
