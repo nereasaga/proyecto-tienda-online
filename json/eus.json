@@ -116,6 +116,7 @@
   "p-horario-2": "Larunbata: 10:00 AM-2:00 PM",
   "p-form": "Hurrengo formularioa bete eta ahalik eta lasterren harremanetan jarriko gara zurekin:",
   "btn-enviar": "Bidali",
-  "p-final": "Zure asebetetzea gure lehentasuna da. Erlojari bakoitzak istorio bat kontatzen du, eta nahi dugu zurea ahaztezina izatea. Eskerrik asko gurekin une bakoitzean zurekin egoteko fidatzeagatik."
+  "p-final": "Zure asebetetzea gure lehentasuna da. Erlojari bakoitzak istorio bat kontatzen du, eta nahi dugu zurea ahaztezina izatea. Eskerrik asko gurekin une bakoitzean zurekin egoteko fidatzeagatik.",
+  "ph-asunto": "Gaia",
+  "ph-mensaje": "Mezua"
 }
-
