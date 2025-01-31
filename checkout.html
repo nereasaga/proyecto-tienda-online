@@ -100,24 +100,24 @@
                     <p id="p-envio">DATOS DE ENVÍO</p>
                 </div>
                 <div class="div-form-input">
-                    <input id="ph-nombre" type="text" placeholder="Nombre">
-                    <input id="ph-apellidos" type="text" placeholder="Apellidos">
-                    <input id="ph-direccion" type="text" placeholder="Dirección">
-                    <input id="ph-ciudad" type="text" placeholder="Ciudad">
-                    <input id="ph-CP" type="number" placeholder="Código postal">
-                    <input id="ph-provincia"  type="text" placeholder="Provincia">
-                    <input id="ph-pais"  type="text" placeholder="País">
-                    <input id="ph-tfno"  type="text" placeholder="Teléfono">
-                    <input id="ph-mail"  type="email" placeholder="Correo electrónico">
+                    <input id="ph-nombre" type="text" name="Nombre" placeholder="Nombre" required>
+                    <input id="ph-apellidos" type="text" name="Apellidos" placeholder="Apellidos" required>
+                    <input id="ph-direccion" type="text" name="Direccion" placeholder="Dirección" required>
+                    <input id="ph-ciudad" type="text" name="ciudad" placeholder="Ciudad" required>
+                    <input id="ph-CP" type="number" name="cp" placeholder="Código postal" required>
+                    <input id="ph-provincia"  type="text" name="Provincia" placeholder="Provincia" required>
+                    <input id="ph-pais"  type="text" name="Pais" placeholder="País" required>
+                    <input id="ph-tfno"  type="text" name="Tfno" placeholder="Teléfono" required>
+                    <input id="ph-mail"  type="email" name="Mail" placeholder="Correo electrónico" required>
                 </div>
                 <div class="div-form-title">
                     <p id="p-pago">FORMA DE PAGO</p>
                 </div>
                 <div class="div-form-input">
-                    <input id="ph-titular" type="text" placeholder="Titular de la tarjeta">
-                    <input id="ph-numTarj" type="text" placeholder="Número de tarjeta">
-                    <input id="ph-cad" type="month" placeholder="Fecha de caducidad">
-                    <input id="ph-cvc" type="text" placeholder="CVC" pattern="[0-9]+ ">
+                    <input id="ph-titular" name="Titular" type="text" placeholder="Titular de la tarjeta">
+                    <input id="ph-numTarj" type="text" name="NumTarjeta" placeholder="Número de tarjeta">
+                    <input id="ph-cad" type="month" name="FechaCad" placeholder="Fecha de caducidad">
+                    <input id="ph-cvc" type="text" name="CVC" placeholder="CVC" pattern="[0-9]+ ">
                 </div>
                 <div class="div-cart-btn-2">
                     <button type="submit"><span id="span-btn-2">PROCEDER AL PAGO</span></button>
